@@ -1,0 +1,35 @@
+controls_information:
+  movement_type: VMOTOR
+  vertical_devices: &vertical_devices
+    GRAT: 2
+    RETRACTED: 1
+    RF: 4
+    YAG: 3
+  devices:
+    <<: *vertical_devices
+  pv_record_map:
+    POS:
+      type: state
+      states: *vertical_devices
+      read_only: False
+      description: Vertical Device state
+      pv: CLA-S02-DIA-SCR-03:V:POS
+    MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-S02-DIA-SCR-03:V:MOVING
+    EN:
+      type: binary
+      read_only: False
+      description: Screen enable flag
+      pv: CLA-S02-DIA-SCR-03:V:EN
+properties:
+  camera_name: CLA-S02-DIA-CAM-03
+  hardware_type: Screen
+  has_camera: true
+  machine_area: S02
+  name: CLA-S02-DIA-SCR-03
+  name_alias: S02-SCR-03
+  position: 0.0
+  screen_type: CLARA_V_MOVER
+  set_max_wait_time: 45.0

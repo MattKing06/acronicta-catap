@@ -1,0 +1,41 @@
+# High-Level System for Laser [PILaser]
+components:
+  mirrors: 
+    - CLA-LAS-OPT-PICO-4C-PM-4
+    - EBT-LAS-OPT-PM-11
+  shutters:
+    - EBT-INJ-LSR-SHUT-01
+    - CLA-PI-LSR-SHUT-01
+  energy_meters:
+    - CLA-LAS-LSR-EM-01
+  attenuators:
+    - EBT-LAS-OPT-HWP-2
+  cameras:
+    - CLA-VCA-DIA-CAM-01
+properties:
+  name: PILaser
+  hardware_type: Laser
+  machine_area: INJ
+  aliases:
+    - CLARA_LASER
+    - pi_laser
+    - pilaser
+    - clara_laser
+  lightbox_mirror_name: CLA-LAS-OPT-PICO-4C-PM-4
+  cathode_mirror_name: EBT-LAS-OPT-PM-11
+  virtual_cathode_name: CLA-VCA-DIA-CAM-01
+  half_wave_plate_name: EBT-LAS-OPT-HWP-2
+  default_energy_meter_name: CLA-LAS-LSR-EM-01
+  energy_meter_ranges:
+    nano20:
+      min: -6
+      max: -4
+    nano200:
+      min: -4
+      max: 4
+    micro2:
+      min: 4
+      max: 13
+    micro20:
+      min: 13
+      max: 30

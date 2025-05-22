@@ -1,0 +1,28 @@
+controls_information:
+  pv_record_map:
+    ENABLE:
+      type: binary
+      read_only: False
+      description: Send a move command to the attenuator
+      pv: EBT-LAS-OPT-HWP-2:ROT:ENABLE
+    ROT_MABS:
+      type: scalar
+      read_only: False
+      description: Sets the step-size to move the attenuator
+      pv: EBT-LAS-OPT-HWP-2:ROT:MABS
+    ROT_RPOS:
+      type: scalar
+      description: The readback of the attenuator position
+      pv: EBT-LAS-OPT-HWP-2:ROT:RPOS
+properties:
+  attenuator_set_max_wait_time: 10.0
+  attenuator_type: LaserHWP
+  hardware_type: Attenuator
+  machine_area: INJ
+  maximum: 13
+  minimum: -6
+  name: EBT-LAS-OPT-HWP-2
+  name_alias: HWP-2,LAS-HWP-2,EBT-LAS-HWP-2,PILaser
+  position: 0.0
+  tolerance: 1.0
+  virtual_name: VM-EBT-LAS-OPT-HWP-2

@@ -1,0 +1,154 @@
+controls_information:
+  pv_record_map:
+    SetStartup:
+      type: binary
+      description: Startup RF
+      read_only: False
+      pv: CLA-GUNS-RF-CTRL-01:API:setStartup
+    StartupComplete:
+      type: binary
+      description: Check API setup status
+      pv: CLA-GUNS-RF-CTRL-01:API:getStartupComplete
+    APIEnable:
+      type: binary
+      description: Enable RF API
+      read_only: False
+      pv: CLA-GUNS-RF-CTRL-01:API:setEnable
+    GetAPITrip:
+      type: state
+      description: Get API trip status
+      states:
+        API_OFF: 0
+        API_ON: 1
+        TRIP: 2
+      pv: CLA-GUNS-RF-CTRL-01:API:getTrip
+    SetAPITrip:
+      type: binary
+      read_only: False
+      description: Reset API trips
+      pv: CLA-GUNS-RF-CTRL-01:API:setTrip
+    GetStatus:
+      type: state
+      description: Get API status
+      states:
+        OFF: 0
+        STANDBY: 1
+        HV_ON: 2
+        TRIG: 3
+        API_ON: 4
+      pv: CLA-GUNS-RF-CTRL-01:API:getStatus
+    PowerPIDSet:
+      type: binary
+      read_only: False
+      description: Set power PID on
+      pv: CLA-GUNS-RF-CTRL-01:Power:PID:setOnRequest
+    PowerPIDStatus:
+      type: state
+      states:
+        PID_OFF: 0
+        PID_ON: 1
+        PID_REMOTE: 2
+        TRIP: 3
+        INTERMEDIATE: 4
+      description: Get power PID status
+      pv: CLA-GUNS-RF-CTRL-01:Power:PID:getStatus
+    PowerPIDError:
+      type: binary
+      description: Check if power PID within tolerance
+      pv: CLA-GUNS-RF-CTRL-01:Power:Achieved:getBinary
+    PhasePIDSet:
+      type: binary
+      read_only: False
+      description: Set phase PID on
+      pv: CLA-GUNS-RF-CTRL-01:Phase:PID:setOnRequest
+    PhasePIDStatus:
+      type: state
+      states:
+        PID_OFF: 0
+        PID_ON: 1
+        PID_REMOTE: 2
+        TRIP: 3
+        INTERMEDIATE: 4
+      description: Get phase PID status
+      pv: CLA-GUNS-RF-CTRL-01:Phase:PID:getStatus
+    PhasePIDError:
+      type: binary
+      description: Check if phase PID within tolerance
+      pv: CLA-GUNS-RF-CTRL-01:Phase:Achieved:getBinary
+    TimeRemaining:
+      type: scalar
+      description: Modulator startup wait time
+      pv: CLA-GUNS-HRF-MOD-01:TimeRemaining
+    ModVoltSet:
+      type: scalar
+      description: Modulator voltage set (could be settable but shouldn't be)
+      units: V
+      pv: CLA-GUNS-HRF-MOD-01:VoltSet
+    ModVoltRead:
+      type: statistical
+      auto_buffer: False
+      description: Modulator voltage read
+      units: V
+      pv: CLA-GUNS-HRF-MOD-01:CcPs1VoltRead
+    PowerMWMax:
+      type: scalar
+      description: Maximum set cavity forward power
+      units: MW
+      pv: CLA-GUNS-RF-CTRL-01:setPower.HOPR
+    PowerMWSet:
+      type: scalar
+      read_only: False
+      description: Set cavity forward power
+      units: MW
+      pv: CLA-GUNS-RF-CTRL-01:setPower
+    PhaseSet:
+      type: scalar
+      read_only: False
+      description: Set cavity phase
+      units: deg
+      pv: CLA-GUNS-RF-CTRL-01:setPhase
+    PowerMWRead:
+      type: statistical
+      description: Read cavity forward power
+      units: MW
+      auto_buffer: True
+      pv: CLA-GUNS-RF-CTRL-01:getPower
+    PhaseRead:
+      type: statistical
+      description: Read cavity phase
+      units: deg
+      auto_buffer: True
+      pv: CLA-GUNS-RF-CTRL-01:getPhase
+    CrestPhaseSet:
+      type: scalar
+      description: Set crest phase
+      read_only: False
+      units: deg
+      pv: CLA-GUNS-RF-CTRL-01:PHASE_C
+    OffCrestPhaseSet:
+      type: scalar
+      description: Set cavity off-crest phase
+      read_only: False
+      units: deg
+      pv: CLA-GUNS-RF-CTRL-01:PHASE_OFF
+    OffCrestPhaseRead:
+      type: statistical
+      auto_buffer: True
+      description: Set cavity off-crest phase
+      units: deg
+      pv: CLA-GUNS-RF-CTRL-01:getCrestPhase
+    BeamMomentum:
+      type: scalar
+      read_only: False
+      description: Beam momentum at the exit of the cavity, used in k-value calculations for all magnets in that section.
+      units: MeV/c
+      pv: CLA-S01:SETP
+properties:
+  api_set_max_wait_time: 10.0
+  hardware_type: Cavity
+  machine_area: INJ
+  name: GUN
+  name_alias: CLA-GUNS-RF-CTRL-01,gun,GUN400,HRRG,CLARA_GUN
+  phase_tolerance: 1.0
+  power_tolerance: 0.1
+  position: 0.0

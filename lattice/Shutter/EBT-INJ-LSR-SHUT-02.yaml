@@ -1,0 +1,36 @@
+controls_information:
+  shutter_type: LASER
+  pv_record_map:
+    Close:
+      type: binary
+      read_only: False
+      description: Command to close the shutter
+      pv: EBT-INJ-LSR-SHUT-02:Off
+    Cmi:
+      type: scalar
+      description: >
+        Integer that is converted into bits
+        to represent interlock statuses
+      pv: EBT-INJ-LSR-SHUT-02:Cmi
+    Open:
+      type: binary
+      read_only: False
+      description: Command to open the shutter
+      pv: EBT-INJ-LSR-SHUT-02:On
+    State:
+      type: state
+      states:
+        Open: 0
+        Close: 1
+        Moving: 2
+      description: Current state of the shutter
+      pv: EBT-INJ-LSR-SHUT-02:Sta
+properties:
+  hardware_type: Shutter
+  machine_area: INJ
+  name: EBT-INJ-LSR-SHUT-02
+  name_alias: INJ-SHUT-02,PILaser_2
+  shutter_interlock_names: GLA,GLB,24V_OP_Supply,24V_IP_Supply,Energy_Meter,Charge_Diag
+  shutter_set_max_wait_time: 10.0
+  shutter_type: Laser
+  virtual_name: VM-EBT-INJ-LSR-SHUT-02

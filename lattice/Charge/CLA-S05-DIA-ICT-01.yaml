@@ -1,0 +1,16 @@
+controls_information:
+  pv_record_map:
+    Q:
+      type: statistical
+      auto_buffer: false
+      buffer_size: 10
+      description: Bunch charge
+      pv: CLA-C30-IOC-CS-01:FMC1:CH5:ICT:Q
+properties:
+  charge_type: ICT
+  hardware_type: Charge
+  machine_area: S05
+  name: CLA-S05-DIA-ICT-01
+  name_alias: CLA-S05-ICT, S05-ICT-01, S05-ICT
+  position: 6.6601
+  virtual_name: VM-CLA-S05-DIA-ICT-01

@@ -1,0 +1,265 @@
+{# --- Required imports for generated code --- #}
+from CATAP.common.machine.pv_utils import {{ pvs.values() | unique | join(', ') }}
+from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from CATAP.common.machine.factory import Factory
+from CATAP.common.machine.area import MachineArea
+from typing import Any, Union, List, Dict
+from pydantic import field_validator, SerializeAsAny, ConfigDict
+
+
+{# --- PVMap class --- #}
+class {{ class_name }}PVMap(PVMap):
+    {% for pv_name, pv_type in pvs.items() %}
+    {{ pv_name }}: {{ pv_type }}
+    {% endfor %}
+
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        {{ class_name }}PVMap.is_virtual = is_virtual
+        {{ class_name }}PVMap.connect_on_creation = connect_on_creation
+        super(
+            {{ class_name }}PVMap,
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        return self.{{ pv_name }}.get()
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        self.{{ pv_name }}.put(value)
+    {% endif %}
+    {% endfor %}
+
+
+{# --- ControlsInformation class --- #}
+class {{ class_name }}ControlsInformation(ControlsInformation):
+    """
+    Class for controlling a {{ hardware_type|lower }} via EPICS
+
+    Inherits from:
+        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+    """
+    pv_record_map: SerializeAsAny[{{ class_name }}PVMap]
+    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    model_config = ConfigDict(
+        arbitrary_types_allowed=True,
+        extra="allow",
+    )
+
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        {{ class_name }}ControlsInformation.is_virtual = is_virtual
+        {{ class_name }}ControlsInformation.connect_on_creation = connect_on_creation
+        super(
+            {{ class_name }}ControlsInformation,
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+
+    @field_validator("pv_record_map", mode="before")
+    @classmethod
+    def validate_pv_map(cls, v: Any) -> {{ class_name }}PVMap:
+        return {{ class_name }}PVMap(
+            is_virtual=cls.is_virtual,
+            connect_on_creation=cls.connect_on_creation,
+            **v,
+        )
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        return self.pv_record_map.{{ pv_name.lower()}}
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        self.pv_record_map.{{ pv_name.lower() }} = value
+    {% endif %}
+    {% endfor %}
+
+{# --- Properties class --- #}
+class {{ class_name }}Properties(Properties):
+    """
+    Class for defining {{ hardware_type|lower }}-specific properties.
+
+    Inherits from:
+        :class:`~CATAP.common.machine.hardware.Properties`
+    """
+
+    {% for prop, value in properties.items() %}
+    {{ prop }}: {{ value.__class__.__name__ if value is not none else 'Any' }}
+    """{{ descriptions.get(prop, '') }}"""
+    {% endfor %}
+
+    def __init__(self, *args, **kwargs):
+        super(
+            {{ class_name }}Properties,
+            self,
+        ).__init__(
+            *args,
+            **kwargs,
+        )
+
+    {% for prop, value in properties.items() %}
+    @property
+    def {{ prop }}(self):
+        return self.{{ prop }}
+    {% endfor %}
+
+    {% for prop, value in properties.items() if value is not none and value.__class__.__name__ == 'float' %}
+    @property
+    def {{ prop | replace('set_', '') }}(self) -> float:
+        """
+        {{ descriptions.get(prop, '') }}
+
+        :getter: Gets the value.
+        :setter: Sets the value.
+        :type: float
+        """
+        return self.{{ prop }}
+
+    @{{ prop | replace('set_', '') }}.setter
+    def {{ prop | replace('set_', '') }}(self, value: float) -> None:
+        self.{{ prop }} = value
+    {% endfor %}
+
+class {{ class_name }}(Hardware):
+    """
+    Middle layer class for interacting with a specific {{ hardware_type|lower }} object.
+
+    Inherits from:
+        :class:`~CATAP.common.machine.hardware.Hardware`
+    """
+
+    controls_information: SerializeAsAny[{{ class_name }}ControlsInformation]
+    """Controls information pertaining to this {{ hardware_type|lower }}
+    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    properties: SerializeAsAny[{{ class_name }}Properties]
+    """Properties pertaining to this {{ hardware_type|lower }}
+    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        super(
+            {{ class_name }},
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+        self._snapshot_settables = []
+        self._snapshot_gettables = [
+            {% for pv in snapshot_gettables %}
+            "{{ pv }}",
+            {% endfor %}
+        ]
+
+    @field_validator("controls_information", mode="before")
+    @classmethod
+    def validate_controls_information(cls, v: Any) -> {{ class_name }}ControlsInformation:
+        try:
+            return {{ class_name }}ControlsInformation(
+                is_virtual=cls.is_virtual,
+                connect_on_creation=cls.connect_on_creation,
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate controls_information: {e}")
+
+    @field_validator("properties", mode="before")
+    @classmethod
+    def validate_properties(cls, v: Any) -> {{ class_name }}Properties:
+        try:
+            return {{ class_name }}Properties(
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate properties: {e}")
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        return self.controls_information.{{ pv_name.lower()}}
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        self.controls_information.{{ pv_name.lower() }} = value
+    {% endif %}
+    {% endfor %}
+
+class {{ class_name }}Factory(Factory):
+    """
+    Middle layer class for interacting with multiple
+    :class:`CATAP.laser.components.{{ hardware_type|lower }}.{{ class_name }}` objects.
+
+    Inherits from:
+        :class:`~CATAP.common.machine.factory.Factory`
+    """
+
+    def __init__(
+        self,
+        is_virtual: bool = True,
+        connect_on_creation: bool = False,
+        areas: Union[MachineArea, List[MachineArea]] = None,
+    ):
+        super({{ class_name }}Factory, self).__init__(
+            is_virtual=is_virtual,
+            hardware_type={{ class_name }},
+            connect_on_creation=connect_on_creation,
+            areas=areas,
+        )
+
+    def get_{{ hardware_type|lower }}(self, name: Union[str, List[str]] = None) -> {{ class_name }}:
+        """
+        Returns the {{ hardware_type|lower }} object for the given name(s).
+
+        :param name: Name(s) of the {{ hardware_type|lower }}.
+        :type name: str or list of str
+
+        :return: {{ hardware_type|capitalize }} object(s).
+        :rtype: :class:`~CATAP.laser.components.{{ hardware_type|lower }}.{{ class_name }}`
+        or Dict[str: :class:`~CATAP.laser.components.{{ hardware_type|lower }}.{{ class_name }}`]
+        """
+        return self.get_hardware(name)
+
+    {%  for pv_name, _ in pvs.items()  %}
+    def {{ pv_name.lower() }}(self, name: Union[str, List[str], None] = None):
+        """
+        Returns the '{{ pv_name.lower() }}' property of the {{ hardware_type|lower }}(s).
+
+        :param name: Name(s) of the {{ hardware_type|lower }}.
+        :type name: str or list of str or None
+
+        :return: Value(s) of the '{{ pv_name }}' property.
+        :rtype: property value or Dict[str, property value]
+        """
+        return self._get_property(name, property_=lambda {{ hardware_type|lower }}: {{ hardware_type|lower }}.{{ pv_name.lower() }})
+    {% endfor %}

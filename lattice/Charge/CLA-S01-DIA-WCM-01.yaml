@@ -1,0 +1,22 @@
+controls_information:
+  pv_record_map:
+    Q:
+      type: statistical
+      auto_buffer: false
+      buffer_size: 10
+      description: Bunch charge
+      pv: EBT-B03-IOC-CS-04:FMC1:CH0:WCM:Q
+    DQ:
+      type: statistical
+      auto_buffer: false
+      buffer_size: 10
+      description: Dark current
+      pv: EBT-B03-IOC-CS-04:FMC1:CH0:WCM:DQ
+properties:
+  charge_type: WCM
+  hardware_type: Charge
+  machine_area: S01
+  name: CLA-S01-DIA-WCM-01
+  name_alias: S01-WCM-01, WCM-01, S01-WCM
+  position: 0.6777
+  virtual_name: VM-CLA-S01-DIA-WCM-01

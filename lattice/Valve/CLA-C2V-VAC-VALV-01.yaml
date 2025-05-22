@@ -1,0 +1,28 @@
+controls_information:
+  pv_record_map:
+    Close:
+      type: binary
+      description: Command PV to close the vacuum valve, activate signal must be sent after setting this PV.
+      read_only: False
+      pv: CLA-C2V-VAC-VALV-01:Off
+    Open:
+      type: binary
+      description: Command PV to open the vacuum valve, activate signal must be sent after setting this PV.
+      pv: CLA-C2V-VAC-VALV-01:On
+      read_only: False
+    Sta:
+      type: state
+      description: Reports back the current state of the vacuum valve.
+      states:
+        CLOSED: 0
+        OPEN: 1
+        MOVING: 2
+      pv: CLA-C2V-VAC-VALV-01:Sta
+properties:
+  hardware_type: Valve
+  machine_area: C2V
+  name: CLA-C2V-VAC-VALV-01
+  name_alias: C2V-VALV1
+  valve_set_max_wait_time: 10.0
+  valve_type: Valve
+  virtual_name: VM-CLA-C2V-VAC-VALV-01

@@ -1,0 +1,42 @@
+controls_information:
+  pv_record_map:
+    H_MREL:
+      type: scalar
+      read_only: False
+      description: Step-size for horizontal motor
+      pv: EBT-LAS-OPT-PICO-02:MREL
+    H_MREL_RBV:
+      type: scalar
+      description: Readback for horizontal motor step-size
+      pv: EBT-LAS-OPT-PICO-02:RPOS
+    H_POS:
+      type: scalar
+      description: Position for horizontal motor
+      pv: EBT-LAS-OPT-PICO-02:RCUM1
+    V_MREL:
+      type: scalar
+      read_only: False
+      description: Step-size for vertical motor
+      pv: EBT-LAS-OPT-PICO-01:MREL
+    V_MREL_RBV:
+      type: scalar
+      description: Readback for the vertical motor step-size
+      pv: EBT-LAS-OPT-PICO-01:RPOS
+    V_POS:
+      type: scalar
+      description: Position for vertical motor
+      pv: EBT-LAS-OPT-PICO-01:RCUM3
+  step_max: 100.1
+  default_step: 10.0
+  down_sense: 1
+  left_sense: 1
+  right_sense: -1
+  up_sense: -1
+properties:
+  hardware_type: LaserMirror
+  horizontal_channel: 0
+  machine_area: INJ
+  name: EBT-LAS-OPT-PM-11
+  name_alias: LAS-PM-11, PM-11, LAS-PM11
+  vertical_channel: 2
+  virtual_name: EBT-LAS-OPT-PM-11
