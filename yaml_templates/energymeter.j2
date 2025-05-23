@@ -7,30 +7,30 @@
                 "buffer_size": 10,
                 "units": "uJ",
                 "description": "Readback of the measured laser energy",
-                "pv": "{{ name }}:E_RB"
+                "pv": "{{ energy_readback_pv | default(name ~ ':E_RB') }}"
             },
             "OVERRANGE": {
                 "type": "binary",
                 "description": "State of energy readback being over-range set in RANGESP",
-                "pv": "{{ name }}:OverRange_RB"
+                "pv": "{{ overrange_pv | default(name ~ ':OverRange_RB') }}"
             },
             "RANGESP": {
                 "type": "state",
                 "description": "Set the state range for energy readback",
-                "states": {
+                "states": {{ rangesp_states | default({
                     "micro20": 0,
                     "micro2": 1,
                     "nano200": 2,
                     "nano20": 3
-                },
+                }) | tojson }},
                 "read_only": false,
-                "pv": "{{ name }}:Range_SP"
+                "pv": "{{ rangesp_pv | default(name ~ ':Range_SP') }}"
             },
             "RUNSP": {
                 "type": "binary",
                 "description": "Enable/Disable the energy meter",
                 "read_only": false,
-                "pv": "{{ name }}:Run_SP"
+                "pv": "{{ runsp_pv | default(name ~ ':Run_SP') }}"
             }
         }
     },

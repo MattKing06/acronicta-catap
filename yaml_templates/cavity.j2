@@ -5,147 +5,147 @@
                 "type": "binary",
                 "description": "Startup RF",
                 "read_only": false,
-                "pv": "{{ name }}:API:setStartup"
+                "pv": "{{ set_startup_pv | default(name ~ ':API:setStartup') }}"
             },
             "StartupComplete": {
                 "type": "binary",
                 "description": "Check API setup status",
-                "pv": "{{ name }}:API:getStartupComplete"
+                "pv": "{{ startup_complete_pv | default(name ~ ':API:getStartupComplete') }}"
             },
             "APIEnable": {
                 "type": "binary",
                 "description": "Enable RF API",
                 "read_only": false,
-                "pv": "{{ name }}:API:setEnable"
+                "pv": "{{ api_enable_pv | default(name ~ ':API:setEnable') }}"
             },
             "GetAPITrip": {
                 "type": "state",
                 "description": "Get API trip status",
-                "states": {
+                "states": {{ get_api_trip_states | default({
                     "API_OFF": 0,
                     "API_ON": 1,
                     "TRIP": 2
-                },
-                "pv": "{{ name }}:API:getTrip"
+                }) | tojson }},
+                "pv": "{{ get_api_trip_pv | default(name ~ ':API:getTrip') }}"
             },
             "SetAPITrip": {
                 "type": "binary",
                 "read_only": false,
                 "description": "Reset API trips",
-                "pv": "{{ name }}:API:setTrip"
+                "pv": "{{ set_api_trip_pv | default(name ~ ':API:setTrip') }}"
             },
             "GetStatus": {
                 "type": "state",
                 "description": "Get API status",
-                "states": {
+                "states": {{ get_status_states | default({
                     "OFF": 0,
                     "STANDBY": 1,
                     "HV_ON": 2,
                     "TRIG": 3,
                     "API_ON": 4
-                },
-                "pv": "{{ name }}:API:getStatus"
+                }) | tojson }},
+                "pv": "{{ get_status_pv | default(name ~ ':API:getStatus') }}"
             },
             "PowerPIDSet": {
                 "type": "binary",
                 "read_only": false,
                 "description": "Set power PID on",
-                "pv": "{{ name }}:Power:PID:setOnRequest"
+                "pv": "{{ power_pid_set_pv | default(name ~ ':Power:PID:setOnRequest') }}"
             },
             "PowerPIDStatus": {
                 "type": "state",
-                "states": {
+                "states": {{ power_pid_status_states | default({
                     "PID_OFF": 0,
                     "PID_ON": 1,
                     "PID_REMOTE": 2,
                     "TRIP": 3,
                     "INTERMEDIATE": 4
-                },
+                }) | tojson }},
                 "description": "Get power PID status",
-                "pv": "{{ name }}:Power:PID:getStatus"
+                "pv": "{{ power_pid_status_pv | default(name ~ ':Power:PID:getStatus') }}"
             },
             "PowerPIDError": {
                 "type": "binary",
                 "description": "Check if power PID within tolerance",
-                "pv": "{{ name }}:Power:Achieved:getBinary"
+                "pv": "{{ power_pid_error_pv | default(name ~ ':Power:Achieved:getBinary') }}"
             },
             "PhasePIDSet": {
                 "type": "binary",
                 "read_only": false,
                 "description": "Set phase PID on",
-                "pv": "{{ name }}:Phase:PID:setOnRequest"
+                "pv": "{{ phase_pid_set_pv | default(name ~ ':Phase:PID:setOnRequest') }}"
             },
             "PhasePIDStatus": {
                 "type": "state",
-                "states": {
+                "states": {{ phase_pid_status_states | default({
                     "PID_OFF": 0,
                     "PID_ON": 1,
                     "PID_REMOTE": 2,
                     "TRIP": 3,
                     "INTERMEDIATE": 4
-                },
+                }) | tojson }},
                 "description": "Get phase PID status",
-                "pv": "{{ name }}:Phase:PID:getStatus"
+                "pv": "{{ phase_pid_status_pv | default(name ~ ':Phase:PID:getStatus') }}"
             },
             "PhasePIDError": {
                 "type": "binary",
                 "description": "Check if phase PID within tolerance",
-                "pv": "{{ name }}:Phase:Achieved:getBinary"
+                "pv": "{{ phase_pid_error_pv | default(name ~ ':Phase:Achieved:getBinary') }}"
             },
             "PowerMWMax": {
                 "type": "scalar",
                 "description": "Maximum set cavity forward power",
                 "units": "MW",
-                "pv": "{{ name }}:setPower.HOPR"
+                "pv": "{{ power_mw_max_pv | default(name ~ ':setPower.HOPR') }}"
             },
             "PowerMWSet": {
                 "type": "scalar",
                 "read_only": false,
                 "description": "Set cavity forward power",
                 "units": "MW",
-                "pv": "{{ name }}:setPower"
+                "pv": "{{ power_mw_set_pv | default(name ~ ':setPower') }}"
             },
             "PhaseSet": {
                 "type": "scalar",
                 "read_only": false,
                 "description": "Set cavity phase",
                 "units": "deg",
-                "pv": "{{ name }}:setPhase"
+                "pv": "{{ phase_set_pv | default(name ~ ':setPhase') }}"
             },
             "PowerMWRead": {
                 "type": "statistical",
                 "description": "Read cavity forward power",
                 "units": "MW",
                 "auto_buffer": true,
-                "pv": "{{ name }}:getPower"
+                "pv": "{{ power_mw_read_pv | default(name ~ ':getPower') }}"
             },
             "PhaseRead": {
                 "type": "statistical",
                 "description": "Read cavity phase",
                 "units": "deg",
                 "auto_buffer": true,
-                "pv": "{{ name }}:getPhase"
+                "pv": "{{ phase_read_pv | default(name ~ ':getPhase') }}"
             },
             "CrestPhaseSet": {
                 "type": "scalar",
                 "description": "Set crest phase",
                 "read_only": false,
                 "units": "deg",
-                "pv": "{{ name }}:PHASE_C"
+                "pv": "{{ crest_phase_set_pv | default(name ~ ':PHASE_C') }}"
             },
             "OffCrestPhaseSet": {
                 "type": "scalar",
                 "description": "Set cavity off-crest phase",
                 "read_only": false,
                 "units": "deg",
-                "pv": "{{ name }}:PHASE_OFF"
+                "pv": "{{ off_crest_phase_set_pv | default(name ~ ':PHASE_OFF') }}"
             },
             "OffCrestPhaseRead": {
                 "type": "statistical",
                 "auto_buffer": true,
                 "description": "Set cavity off-crest phase",
                 "units": "deg",
-                "pv": "{{ name }}:getCrestPhase"
+                "pv": "{{ off_crest_phase_read_pv | default(name ~ ':getCrestPhase') }}"
             }
         }
     },

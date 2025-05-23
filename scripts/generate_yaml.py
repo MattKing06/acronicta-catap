@@ -9,6 +9,8 @@ from ruamel.yaml import YAML
 
 hardware_types = ["Magnet", "Charge", "Camera", "BPM", "Cavity", "EnergyMeter"]
 
+missing_pv_default_text = "<ADD_PV_HERE>"
+
 for hardware in hardware_types:
     yaml = YAML(typ="safe")
     hardware_dir = f'../lattice/{hardware}'
@@ -27,6 +29,7 @@ for hardware in hardware_types:
                 info['name_alias'] = properties.get('name_alias')
                 info['position'] = properties.get('position')
                 info['machine_area'] = properties.get('machine_area')
+                info['missing_pv'] = missing_pv_default_text
                 hardware_info_list.append(info)
 
     for item in hardware_info_list:

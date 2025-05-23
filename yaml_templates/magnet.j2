@@ -9,14 +9,14 @@
             "SPOWER": {
                 "type": "state",
                 "description": "Sets the state of a power supply",
-                "states": {"OFF": 0, "ON": 1},
+                "states": {{ spower_states | default({"OFF": 0, "ON": 1}) | tojson }},
                 "read_only": false,
                 "pv": "{{ name }}:SPOWER"
             },
             "RPOWER": {
                 "type": "state",
                 "description": "Gets the state of a power supply",
-                "states": {"OFF": 0, "ON": 1},
+                "states": {{ rpower_states | default({"OFF": 0, "ON": 1}) | tojson }},
                 "read_only": false,
                 "pv": "{{ name }}:RPOWER"
             },

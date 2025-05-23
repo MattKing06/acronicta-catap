@@ -6,14 +6,14 @@
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "description": "Bunch charge",
-                "pv": "{{ q_pv | default("ADD_PV_HERE")}}"
+                "pv": "{{ q_pv | default(name ~ ':Q') }}"
             },
             "DQ": {
                 "type": "statistical",
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "description": "Dark current",
-                "pv": "{{ dq_pv | default("ADD_PV_HERE")}}"
+                "pv": "{{ dq_pv | default(name ~ ':DQ') }}"
             }
         }
     },

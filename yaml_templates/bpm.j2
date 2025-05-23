@@ -4,66 +4,66 @@
             "AWAK": {
                 "type": "binary",
                 "description": "Status of triggering on the BPM",
-                "pv": "{{ name }}:AWAK"
+                "pv": "{{ awak_pv | default(name ~ ':AWAK') }}"
             },
             "RA1": {
                 "type": "scalar",
                 "description": "The readback for the attenuator 1 setting",
-                "pv": "{{ name }}:RA1"
+                "pv": "{{ ra1_pv | default(name ~ ':RA1') }}"
             },
             "RA2": {
                 "type": "scalar",
                 "description": "The readback for the attenuator 2 setting",
-                "pv": "{{ name }}:RA2"
+                "pv": "{{ ra2_pv | default(name ~ ':RA2') }}"
             },
             "RD1": {
                 "type": "scalar",
                 "description": "The readback for the delay 1 setting",
-                "pv": "{{ name }}:RD1"
+                "pv": "{{ rd1_pv | default(name ~ ':RD1') }}"
             },
             "RD2": {
                 "type": "scalar",
                 "description": "The readback for the delay 2 setting",
-                "pv": "{{ name }}:RD2"
+                "pv": "{{ rd2_pv | default(name ~ ':RD2') }}"
             },
             "RDY": {
                 "type": "binary",
                 "description": "Describes whether there is beam or not for the BPM",
-                "pv": "{{ name }}:RDY"
+                "pv": "{{ rdy_pv | default(name ~ ':RDY') }}"
             },
             "SA1": {
                 "type": "scalar",
                 "description": "The setter for attenuator 1",
-                "pv": "{{ name }}:SA1"
+                "pv": "{{ sa1_pv | default(name ~ ':SA1') }}"
             },
             "SA2": {
                 "type": "scalar",
                 "description": "The setter for attenuator 2",
-                "pv": "{{ name }}:SA2"
+                "pv": "{{ sa2_pv | default(name ~ ':SA2') }}"
             },
             "SD1": {
                 "type": "scalar",
                 "description": "The setter for delay 1",
-                "pv": "{{ name }}:SD1"
+                "pv": "{{ sd1_pv | default(name ~ ':SD1') }}"
             },
             "SD2": {
                 "type": "scalar",
                 "description": "The setter for delay 2",
-                "pv": "{{ name }}:SD2"
+                "pv": "{{ sd2_pv | default(name ~ ':SD2') }}"
             },
             "X": {
                 "type": "statistical",
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "description": "readback for the beam x-position",
-                "pv": "{{ name }}:X"
+                "pv": "{{ x_pv | default(name ~ ':X') }}"
             },
             "Y": {
                 "type": "statistical",
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "description": "readback for the beam y-position",
-                "pv": "{{ name }}:Y"
+                "pv": "{{ y_pv | default(name ~ ':Y') }}"
             }
         }
     },
