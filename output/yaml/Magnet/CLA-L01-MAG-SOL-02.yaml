@@ -74,3 +74,4 @@ properties:
   name_alias: L01-SOL02,L01-SOL-02,L01-SOL2
   position: 2.7
   machine_area: L01
+  virtual_name: VM-CLA-L01-MAG-SOL-02

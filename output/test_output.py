@@ -1,18 +1,21 @@
 import CATAP.config as cfg
 cfg.LATTICE_LOCATION = "./yaml"
-from magnet import MagnetFactory
-from bpm import BPMFactory
-from camera import CameraFactory
-from cavity import CavityFactory
-from charge import ChargeFactory
-from energymeter import EnergyMeterFactory
+from models.magnet import MagnetFactoryModel
+from models.bpm import BPMFactoryModel
+from models.camera import CameraFactoryModel
+from models.cavity import CavityFactoryModel
+from models.charge import ChargeFactoryModel
+from models.energymeter import EnergyMeterFactoryModel
+from models.mirror import MirrorFactoryModel
 # Test the generated classes
-mag = MagnetFactory(is_virtual=True)
-bpm = BPMFactory(is_virtual=True)
-cam = CameraFactory(is_virtual=True)
-cav = CavityFactory(is_virtual=True)
-em = EnergyMeterFactory(is_virtual=True)
-qf = ChargeFactory(is_virtual=True)
+mag = MagnetFactoryModel(is_virtual=True)
+bpm = BPMFactoryModel(is_virtual=True)
+cam = CameraFactoryModel(is_virtual=True)
+cav = CavityFactoryModel(is_virtual=True)
+em = EnergyMeterFactoryModel(is_virtual=True)
+qf = ChargeFactoryModel(is_virtual=True)
+mirr = MirrorFactoryModel(is_virtual=True)
+print(mirr.v_pos())
 print(qf.q())
 print(em.energyreadback())
 print(cav.powermwread())

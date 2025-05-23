@@ -31,11 +31,11 @@ controls_information:
       type: state
       description: Get API status
       states:
+        API_ON: 4
+        HV_ON: 2
         OFF: 0
         STANDBY: 1
-        HV_ON: 2
         TRIG: 3
-        API_ON: 4
       pv: CLA-L03-RF-CTRL-01:API:getStatus
     PowerPIDSet:
       type: binary
@@ -46,11 +46,11 @@ controls_information:
       type: state
       description: Get power PID status
       states:
+        INTERMEDIATE: 4
         PID_OFF: 0
         PID_ON: 1
         PID_REMOTE: 2
         TRIP: 3
-        INTERMEDIATE: 4
       pv: CLA-L03-RF-CTRL-01:Power:PID:getStatus
     PowerPIDError:
       type: binary
@@ -65,11 +65,11 @@ controls_information:
       type: state
       description: Get phase PID status
       states:
+        INTERMEDIATE: 4
         PID_OFF: 0
         PID_ON: 1
         PID_REMOTE: 2
         TRIP: 3
-        INTERMEDIATE: 4
       pv: CLA-L03-RF-CTRL-01:Phase:PID:getStatus
     PhasePIDError:
       type: binary
@@ -126,6 +126,7 @@ properties:
   hardware_type: Cavity
   machine_area: L03
   name: CLA-L03-RF-CTRL-01
+  virtual_name: VM-CLA-L03-RF-CTRL-01
   name_alias: CLA-L03-RF-CTRL-01,L03,l03,LINAC3,linac3,L3,l3
   type: None
   position: 14.125235

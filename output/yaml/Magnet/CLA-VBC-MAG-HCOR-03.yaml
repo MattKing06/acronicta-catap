@@ -74,3 +74,4 @@ properties:
   name_alias: VBC-HCOR03,VBC-HCOR-03,VBC-HCOR3
   position: 29.375835
   machine_area: VBC
+  virtual_name: VM-CLA-VBC-MAG-HCOR-03

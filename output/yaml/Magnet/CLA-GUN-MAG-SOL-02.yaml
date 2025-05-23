@@ -74,3 +74,4 @@ properties:
   name_alias: LRG-SOL-02,LRG-SOL02,LRG-SOL
   position: 0.16241
   machine_area: INJ
+  virtual_name: VM-CLA-GUN-MAG-SOL-02

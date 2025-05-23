@@ -74,3 +74,4 @@ properties:
   name_alias: S06-VCOR02,S06-VCOR-02,S06-VCOR2
   position: 33.843
   machine_area: S06
+  virtual_name: VM-CLA-S06-MAG-VCOR-02

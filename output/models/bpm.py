@@ -3,36 +3,49 @@ from CATAP.common.machine.pv_utils import BinaryPV, ScalarPV, StatisticalPV
 from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
 from CATAP.common.machine.factory import Factory
 from CATAP.common.machine.area import MachineArea
+import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
 
 
 
-class BPMPVMap(PVMap):
+class BPMPVMapModel(PVMap):
     
     AWAK: BinaryPV
+    """Status of triggering on the BPM"""
     
     RA1: ScalarPV
+    """The readback for the attenuator 1 setting"""
     
     RA2: ScalarPV
+    """The readback for the attenuator 2 setting"""
     
     RD1: ScalarPV
+    """The readback for the delay 1 setting"""
     
     RD2: ScalarPV
+    """The readback for the delay 2 setting"""
     
     RDY: BinaryPV
+    """Describes whether there is beam or not for the BPM"""
     
     SA1: ScalarPV
+    """The setter for attenuator 1"""
     
     SA2: ScalarPV
+    """The setter for attenuator 2"""
     
     SD1: ScalarPV
+    """The setter for delay 1"""
     
     SD2: ScalarPV
+    """The setter for delay 2"""
     
     X: StatisticalPV
+    """readback for the beam x-position"""
     
     Y: StatisticalPV
+    """readback for the beam y-position"""
     
 
     def __init__(
@@ -42,10 +55,10 @@ class BPMPVMap(PVMap):
         *args,
         **kwargs,
     ):
-        BPMPVMap.is_virtual = is_virtual
-        BPMPVMap.connect_on_creation = connect_on_creation
+        BPMPVMapModel.is_virtual = is_virtual
+        BPMPVMapModel.connect_on_creation = connect_on_creation
         super(
-            BPMPVMap,
+            BPMPVMapModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -57,75 +70,87 @@ class BPMPVMap(PVMap):
     
     @property
     def awak(self):
+        """Default Getter implementation for AWAK"""
         return self.AWAK.get()
     
     
     @property
     def ra1(self):
+        """Default Getter implementation for RA1"""
         return self.RA1.get()
     
     
     @property
     def ra2(self):
+        """Default Getter implementation for RA2"""
         return self.RA2.get()
     
     
     @property
     def rd1(self):
+        """Default Getter implementation for RD1"""
         return self.RD1.get()
     
     
     @property
     def rd2(self):
+        """Default Getter implementation for RD2"""
         return self.RD2.get()
     
     
     @property
     def rdy(self):
+        """Default Getter implementation for RDY"""
         return self.RDY.get()
     
     
     @property
     def sa1(self):
+        """Default Getter implementation for SA1"""
         return self.SA1.get()
     
     
     @property
     def sa2(self):
+        """Default Getter implementation for SA2"""
         return self.SA2.get()
     
     
     @property
     def sd1(self):
+        """Default Getter implementation for SD1"""
         return self.SD1.get()
     
     
     @property
     def sd2(self):
+        """Default Getter implementation for SD2"""
         return self.SD2.get()
     
     
     @property
     def x(self):
+        """Default Getter implementation for X"""
         return self.X.get()
     
     
     @property
     def y(self):
+        """Default Getter implementation for Y"""
         return self.Y.get()
     
     
 
 
 
-class BPMControlsInformation(ControlsInformation):
+class BPMControlsInformationModel(ControlsInformation):
     """
     Class for controlling a bpm via EPICS
 
     Inherits from:
         :class:`~CATAP.common.machine.hardware.ControlsInformation`
     """
-    pv_record_map: SerializeAsAny[BPMPVMap]
+    pv_record_map: SerializeAsAny[BPMPVMapModel]
     """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
@@ -139,10 +164,10 @@ class BPMControlsInformation(ControlsInformation):
         *args,
         **kwargs,
     ):
-        BPMControlsInformation.is_virtual = is_virtual
-        BPMControlsInformation.connect_on_creation = connect_on_creation
+        BPMControlsInformationModel.is_virtual = is_virtual
+        BPMControlsInformationModel.connect_on_creation = connect_on_creation
         super(
-            BPMControlsInformation,
+            BPMControlsInformationModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -153,8 +178,8 @@ class BPMControlsInformation(ControlsInformation):
 
     @field_validator("pv_record_map", mode="before")
     @classmethod
-    def validate_pv_map(cls, v: Any) -> BPMPVMap:
-        return BPMPVMap(
+    def validate_pv_map(cls, v: Any) -> BPMPVMapModel:
+        return BPMPVMapModel(
             is_virtual=cls.is_virtual,
             connect_on_creation=cls.connect_on_creation,
             **v,
@@ -163,67 +188,79 @@ class BPMControlsInformation(ControlsInformation):
     
     @property
     def awak(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.AWAK`."""    
         return self.pv_record_map.awak
     
     
     @property
     def ra1(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.RA1`."""    
         return self.pv_record_map.ra1
     
     
     @property
     def ra2(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.RA2`."""    
         return self.pv_record_map.ra2
     
     
     @property
     def rd1(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.RD1`."""    
         return self.pv_record_map.rd1
     
     
     @property
     def rd2(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.RD2`."""    
         return self.pv_record_map.rd2
     
     
     @property
     def rdy(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.RDY`."""    
         return self.pv_record_map.rdy
     
     
     @property
     def sa1(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.SA1`."""    
         return self.pv_record_map.sa1
     
     
     @property
     def sa2(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.SA2`."""    
         return self.pv_record_map.sa2
     
     
     @property
     def sd1(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.SD1`."""    
         return self.pv_record_map.sd1
     
     
     @property
     def sd2(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.SD2`."""    
         return self.pv_record_map.sd2
     
     
     @property
     def x(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.X`."""    
         return self.pv_record_map.x
     
     
     @property
     def y(self):
+        """Default Getter implementation for :attr:`BPMPVMapModel.Y`."""    
         return self.pv_record_map.y
     
     
 
 
-class BPMProperties(Properties):
+class BPMPropertiesModel(Properties):
     """
     Class for defining bpm-specific properties.
 
@@ -232,13 +269,12 @@ class BPMProperties(Properties):
     """
 
     
-    bpm_type: Any
-    """"""
+    type: str
     
 
     def __init__(self, *args, **kwargs):
         super(
-            BPMProperties,
+            BPMPropertiesModel,
             self,
         ).__init__(
             *args,
@@ -247,13 +283,13 @@ class BPMProperties(Properties):
 
     
     @property
-    def bpm_type(self):
-        return self.bpm_type
+    def type(self):
+        return self.type
     
 
     
 
-class BPM(Hardware):
+class BPMModel(Hardware):
     """
     Middle layer class for interacting with a specific bpm object.
 
@@ -261,10 +297,10 @@ class BPM(Hardware):
         :class:`~CATAP.common.machine.hardware.Hardware`
     """
 
-    controls_information: SerializeAsAny[BPMControlsInformation]
+    controls_information: SerializeAsAny[BPMControlsInformationModel]
     """Controls information pertaining to this bpm
     (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
-    properties: SerializeAsAny[BPMProperties]
+    properties: SerializeAsAny[BPMPropertiesModel]
     """Properties pertaining to this bpm
     (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
 
@@ -276,7 +312,7 @@ class BPM(Hardware):
         **kwargs,
     ):
         super(
-            BPM,
+            BPMModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -291,9 +327,9 @@ class BPM(Hardware):
 
     @field_validator("controls_information", mode="before")
     @classmethod
-    def validate_controls_information(cls, v: Any) -> BPMControlsInformation:
+    def validate_controls_information(cls, v: Any) -> BPMControlsInformationModel:
         try:
-            return BPMControlsInformation(
+            return BPMControlsInformationModel(
                 is_virtual=cls.is_virtual,
                 connect_on_creation=cls.connect_on_creation,
                 **v,
@@ -303,9 +339,9 @@ class BPM(Hardware):
 
     @field_validator("properties", mode="before")
     @classmethod
-    def validate_properties(cls, v: Any) -> BPMProperties:
+    def validate_properties(cls, v: Any) -> BPMPropertiesModel:
         try:
-            return BPMProperties(
+            return BPMPropertiesModel(
                 **v,
             )
         except Exception as e:
@@ -314,66 +350,78 @@ class BPM(Hardware):
     
     @property
     def awak(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.AWAK`."""
         return self.controls_information.awak
     
     
     @property
     def ra1(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.RA1`."""
         return self.controls_information.ra1
     
     
     @property
     def ra2(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.RA2`."""
         return self.controls_information.ra2
     
     
     @property
     def rd1(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.RD1`."""
         return self.controls_information.rd1
     
     
     @property
     def rd2(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.RD2`."""
         return self.controls_information.rd2
     
     
     @property
     def rdy(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.RDY`."""
         return self.controls_information.rdy
     
     
     @property
     def sa1(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.SA1`."""
         return self.controls_information.sa1
     
     
     @property
     def sa2(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.SA2`."""
         return self.controls_information.sa2
     
     
     @property
     def sd1(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.SD1`."""
         return self.controls_information.sd1
     
     
     @property
     def sd2(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.SD2`."""
         return self.controls_information.sd2
     
     
     @property
     def x(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.X`."""
         return self.controls_information.x
     
     
     @property
     def y(self):
+        """Default Getter implementation for :attr:`BPMControlsInformationModel.Y`."""
         return self.controls_information.y
     
     
 
-class BPMFactory(Factory):
+class BPMFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
     :class:`CATAP.laser.components.bpm.BPM` objects.
@@ -388,14 +436,15 @@ class BPMFactory(Factory):
         connect_on_creation: bool = False,
         areas: Union[MachineArea, List[MachineArea]] = None,
     ):
-        super(BPMFactory, self).__init__(
+        super(BPMFactoryModel, self).__init__(
             is_virtual=is_virtual,
-            hardware_type=BPM,
+            hardware_type=BPMModel,
+            lattice_folder="BPM",
             connect_on_creation=connect_on_creation,
             areas=areas,
         )
 
-    def get_bpm(self, name: Union[str, List[str]] = None) -> BPM:
+    def get_bpm(self, name: Union[str, List[str]] = None) -> BPMModel:
         """
         Returns the bpm object for the given name(s).
 
@@ -403,152 +452,152 @@ class BPMFactory(Factory):
         :type name: str or list of str
 
         :return: Bpm object(s).
-        :rtype: :class:`~CATAP.laser.components.bpm.BPM`
-        or Dict[str: :class:`~CATAP.laser.components.bpm.BPM`]
+        :rtype: :class:`bpmModel.BPM`
+        or Dict[str: :class:`bpm.BPM`]
         """
         return self.get_hardware(name)
 
     
     def awak(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'awak' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.AWAK`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'AWAK' property.
+        :return: Value(s) of the :attr:`BPMModel.AWAK` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.awak)
     
     def ra1(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ra1' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.RA1`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RA1' property.
+        :return: Value(s) of the :attr:`BPMModel.RA1` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.ra1)
     
     def ra2(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ra2' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.RA2`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RA2' property.
+        :return: Value(s) of the :attr:`BPMModel.RA2` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.ra2)
     
     def rd1(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rd1' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.RD1`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RD1' property.
+        :return: Value(s) of the :attr:`BPMModel.RD1` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.rd1)
     
     def rd2(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rd2' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.RD2`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RD2' property.
+        :return: Value(s) of the :attr:`BPMModel.RD2` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.rd2)
     
     def rdy(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rdy' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.RDY`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RDY' property.
+        :return: Value(s) of the :attr:`BPMModel.RDY` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.rdy)
     
     def sa1(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'sa1' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.SA1`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SA1' property.
+        :return: Value(s) of the :attr:`BPMModel.SA1` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.sa1)
     
     def sa2(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'sa2' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.SA2`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SA2' property.
+        :return: Value(s) of the :attr:`BPMModel.SA2` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.sa2)
     
     def sd1(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'sd1' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.SD1`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SD1' property.
+        :return: Value(s) of the :attr:`BPMModel.SD1` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.sd1)
     
     def sd2(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'sd2' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.SD2`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SD2' property.
+        :return: Value(s) of the :attr:`BPMModel.SD2` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.sd2)
     
     def x(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'x' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.X`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'X' property.
+        :return: Value(s) of the :attr:`BPMModel.X` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.x)
     
     def y(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'y' property of the bpm(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`BPMModel.Y`.
 
         :param name: Name(s) of the bpm.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'Y' property.
+        :return: Value(s) of the :attr:`BPMModel.Y` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda bpm: bpm.y)

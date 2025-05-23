@@ -29,6 +29,7 @@ for file in example_files:
 
 
         # Exclude specified entries from properties
+        # These are default attributes of CATAP.common.machine.hardware.py and should not be redefined.
         excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position",}
         filtered_properties = {k: v for k, v in properties.items() if k not in excluded_keys}
 
@@ -38,6 +39,7 @@ for file in example_files:
         # Prepare PVs and read_only dicts for template
         pvs = {}
         read_only = {}
+        pv_descriptions = {}
         for pv_name, pv_info in pv_map.items():
             pv_type = pv_info.get('type', '').lower()
             if pv_type == 'binary':
@@ -55,17 +57,13 @@ for file in example_files:
             else:
                 pvs[pv_name] = 'PV'
             read_only[pv_name] = pv_info.get('read_only', True)
+            pv_descriptions[pv_name] = pv_info.get('description', "")
 
-        # Extract property descriptions (optional, can be improved)
-        descriptions = {}
-        for prop in filtered_properties:
-            descriptions[prop] = ""  # Add logic to extract descriptions if available
-
-        env = Environment(loader=FileSystemLoader('../templates'))
-        template = env.get_template('hardware_template.j2')
+        env = Environment(loader=FileSystemLoader('../templates/classes'))
+        template = env.get_template('component_model_template.j2')
 
         # Ensure output directory exists
-        output_dir = '../output'
+        output_dir = '../output/models'
         os.makedirs(output_dir, exist_ok=True)
 
         # Render template with filtered properties
@@ -75,7 +73,7 @@ for file in example_files:
             read_only=read_only,
             hardware_type=hardware_type,
             properties=filtered_properties,
-            descriptions=descriptions,
+            pv_descriptions=pv_descriptions,
         )
 
         with open(os.path.join(output_dir, output_filename), 'w') as f:

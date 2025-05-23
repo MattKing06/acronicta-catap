@@ -37,8 +37,14 @@
     "properties": {
         {%- set props = [] %}
         {%- do props.append('"hardware_type": "EnergyMeter"') %}
+        {%- do props.append('"type": "'~ type ~'"') %}
         {%- do props.append('"machine_area": "' ~ machine_area ~ '"') %}
         {%- do props.append('"name": "' ~ name ~ '"') %}
+        {%- if virtual_name is defined %}
+        {%-   do props.append('"virtual_name": "' ~ virtual_name ~ '"') %}
+        {%- else %}
+        {%-   do props.append('"virtual_name": "VM- ' ~ name ~ '"') %}
+        {%- endif %}
         {%- if name_alias is defined %}{% do props.append('"name_alias": "' ~ name_alias ~ '"') %}{% endif %}
         {%- if position is defined %}{% do props.append('"position": ' ~ position) %}{% endif %}
         {%- if calibration_factor is defined%}{%- do props.append('"calibration_factor": ' ~ calibration_factor) %}{% endif %}

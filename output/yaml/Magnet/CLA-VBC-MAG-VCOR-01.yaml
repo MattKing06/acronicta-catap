@@ -74,3 +74,4 @@ properties:
   name_alias: VBC-VCOR01,VBC-VCOR-01,VBC-VCOR1
   position: 28.2881
   machine_area: VBC
+  virtual_name: VM-CLA-VBC-MAG-VCOR-01

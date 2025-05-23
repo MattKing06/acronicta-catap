@@ -154,6 +154,11 @@
         {% set _ = props.append('"hardware_type": "Cavity"') %}
         {% set _ = props.append('"machine_area": "' ~ machine_area ~ '"') %}
         {% set _ = props.append('"name": "' ~ name ~ '"') %}
+        {% if virtual_name is defined %}
+        {%   set _ = props.append('"virtual_name": "' ~ virtual_name ~ '"') %}
+        {% else %}
+        {%   set _ = props.append('"virtual_name": "VM-' ~ name ~ '"') %}
+        {% endif %}
         {% set _ = props.append('"name_alias": "' ~ name_alias ~ '"') %}
         {% set _ = props.append('"type": "' ~ type ~ '"') %}
         {% set _ = props.append('"position": ' ~ position) %}

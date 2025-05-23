@@ -74,3 +74,4 @@ properties:
   name_alias: S07-MAG-QUAD-05,S07-MAG-QUAD-05
   position: 42.912988
   machine_area: S07
+  virtual_name: VM-CLA-S07-MAG-QUAD-05

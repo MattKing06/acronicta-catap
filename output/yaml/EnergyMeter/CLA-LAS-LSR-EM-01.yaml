@@ -15,10 +15,10 @@ controls_information:
       type: state
       description: Set the state range for energy readback
       states:
-        micro20: 0
         micro2: 1
-        nano200: 2
+        micro20: 0
         nano20: 3
+        nano200: 2
       read_only: false
       pv: CLA-LAS-LSR-EM-01:Range_SP
     RUNSP:
@@ -28,7 +28,9 @@ controls_information:
       pv: CLA-LAS-LSR-EM-01:Run_SP
 properties:
   hardware_type: EnergyMeter
+  type: None
   machine_area: INJ
   name: CLA-LAS-LSR-EM-01
+  virtual_name: VM- CLA-LAS-LSR-EM-01
   name_alias: EM-01,LEM-01,LEM,LAS-EM-01,LAS-LSR-EM-01,EM-1,LEM-1,LAS-EM-1,LAS-DIA-EM-1
   position: 0.0

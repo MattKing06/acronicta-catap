@@ -3,13 +3,13 @@ controls_information:
     Q:
       type: statistical
       description: Bunch charge
-      pv: ADD_PV_HERE
+      pv: CLA-S04-DIA-ICT-01:Q
       auto_buffer: false
       buffer_size: 10
     DQ:
       type: statistical
       description: Dark current
-      pv: ADD_PV_HERE
+      pv: CLA-S04-DIA-ICT-01:DQ
       auto_buffer: false
       buffer_size: 10
 properties:
@@ -17,5 +17,6 @@ properties:
   hardware_type: Charge
   machine_area: S04
   name: CLA-S04-DIA-ICT-01
+  virtual_name: VM-CLA-S04-DIA-ICT-01
   name_alias: CLA-S04-ICT, S04-ICT-01, S04-ICT
   position: 16.655768

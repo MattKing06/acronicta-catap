@@ -3,13 +3,13 @@ controls_information:
     Q:
       type: statistical
       description: Bunch charge
-      pv: ADD_PV_HERE
+      pv: CLA-SP2-DIA-FCUP-01:Q
       auto_buffer: false
       buffer_size: 10
     DQ:
       type: statistical
       description: Dark current
-      pv: ADD_PV_HERE
+      pv: CLA-SP2-DIA-FCUP-01:DQ
       auto_buffer: false
       buffer_size: 10
 properties:
@@ -17,5 +17,6 @@ properties:
   hardware_type: Charge
   machine_area: SP2
   name: CLA-SP2-DIA-FCUP-01
+  virtual_name: VM-CLA-SP2-DIA-FCUP-01
   name_alias: CLA-SP2-FCUP, SP2-FCUP-01, SP2-FCUP
   position: 36.054337

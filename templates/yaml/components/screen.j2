@@ -1,0 +1,74 @@
+{
+  "controls_information": {
+    {% if movement_type is defined %}
+    "movement_type": "{{ movement_type }}",
+    {% endif %}
+    {% if vertical_devices is defined %}
+    "vertical_devices": {{ vertical_devices }},
+    {% endif %}
+    {% if horizontal_devices is defined %}
+    "horizontal_devices": {{ horizontal_devices }},
+    {% endif %}
+    "devices": {% if devices is defined %}{{ devices }}{% else %}{}{% endif %},
+    "pv_record_map": {
+      "V_POS": {
+        "type": "state",
+        "states": {{ vertical_devices if vertical_devices is defined else '{}' }},
+        "read_only": false,
+        "description": "Vertical Device state",
+        "pv": "{{ v_pos_pv if v_pos_pv is defined else name ~ ':V:POS' }}"
+      },
+      "V_ACTPOS": {
+        "type": "scalar",
+        "description": "Screen actuator position",
+        "pv": "{{ v_actpos_pv if v_actpos_pv is defined else name ~ ':V:ACTPOS' }}"
+      },
+      "V_MOVING": {
+        "type": "binary",
+        "description": "Screen moving flag",
+        "pv": "{{ v_moving_pv if v_moving_pv is defined else name ~ ':V:MOVING' }}"
+      },
+      "V_EN": {
+        "type": "binary",
+        "read_only": false,
+        "description": "Screen enable flag",
+        "pv": "{{ v_en_pv if v_en_pv is defined else name ~ ':V:EN' }}"
+      },
+      "H_POS": {
+        "type": "state",
+        "states": {{ horizontal_devices if horizontal_devices is defined else '{}' }},
+        "read_only": false,
+        "description": "Horizontal Device state",
+        "pv": "{{ h_pos_pv if h_pos_pv is defined else name ~ ':H:POS' }}"
+      },
+      "H_ACTPOS": {
+        "type": "scalar",
+        "description": "Screen actuator position",
+        "pv": "{{ h_actpos_pv if h_actpos_pv is defined else name ~ ':H:ACTPOS' }}"
+      },
+      "H_MOVING": {
+        "type": "binary",
+        "description": "Screen moving flag",
+        "pv": "{{ h_moving_pv if h_moving_pv is defined else name ~ ':H:MOVING' }}"
+      },
+      "H_EN": {
+        "type": "binary",
+        "read_only": false,
+        "description": "Screen enable flag",
+        "pv": "{{ h_en_pv if h_en_pv is defined else name ~ ':H:EN' }}"
+      }
+    }
+  },
+  "properties": {
+    "name": "{{ name }}",
+    "hardware_type": "Screen",
+    "name_alias": "{{ name_alias }}",
+    "machine_area": "{{ machine_area }}",
+    "position": {{ position }},
+    "type": "{{ type }}"{% if camera_name is defined %},
+    "camera_name": "{{ camera_name }}"{% endif %}{% if has_camera is defined %},
+    "has_camera": {{ has_camera | lower }}{% endif %}{% if set_max_wait_time is defined %},
+    "set_max_wait_time": {{ set_max_wait_time }}{% endif %}{% if virtual_name is defined %},
+    "virtual_name": "{{ virtual_name }}"{% endif %}
+  }
+}

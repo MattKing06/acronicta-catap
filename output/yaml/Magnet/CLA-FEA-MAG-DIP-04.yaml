@@ -74,3 +74,4 @@ properties:
   name_alias: FEA-MAG-DIP-04,FEA-DIP-04
   position: 59.29997924
   machine_area: FEA
+  virtual_name: VM-CLA-FEA-MAG-DIP-04

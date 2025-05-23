@@ -631,16 +631,16 @@ controls_information:
       type: binary
       description: Switch LEDs on
       read_only: false
-      pv: CLA-LAS-DIA-LED-01:Off
+      pv: <ADD_PV_HERE>
     LED_On:
       type: binary
       description: Switch LEDs off
       read_only: false
-      pv: CLA-LAS-DIA-LED-01:On
+      pv: <ADD_PV_HERE>
     LED_Sta:
       type: binary
       description: Are LEDs on?
-      pv: CLA-LAS-DIA-LED-01:Sta
+      pv: <ADD_PV_HERE>
     MAGICK_AutoSave:
       type: binary
       description: Autosave compressed images.
@@ -825,6 +825,7 @@ properties:
   name: CLA-S07-DIA-CAM-02
   name_alias: S07-CAM-02,S07-CAM2
   position: 42.661277
-  camera_type: None
+  type: None
   hardware_type: Camera
   machine_area: S07
+  virtual_name: VM- CLA-S07-DIA-CAM-02

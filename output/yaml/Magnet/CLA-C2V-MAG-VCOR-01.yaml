@@ -74,3 +74,4 @@ properties:
   name_alias: C2V-VCOR01,C2V-VCOR-01,C2V-VCOR1
   position: 6.33199622
   machine_area: C2V
+  virtual_name: VM-CLA-C2V-MAG-VCOR-01

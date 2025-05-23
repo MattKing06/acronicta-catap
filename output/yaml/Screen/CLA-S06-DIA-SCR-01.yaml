@@ -1,0 +1,47 @@
+controls_information:
+  pv_record_map:
+    V_POS:
+      type: state
+      description: Vertical Device state
+      states:
+      read_only: false
+      pv: CLA-S06-DIA-SCR-01:V:POS
+    V_ACTPOS:
+      type: scalar
+      description: Screen actuator position
+      pv: CLA-S06-DIA-SCR-01:V:ACTPOS
+    V_MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-S06-DIA-SCR-01:V:MOVING
+    V_EN:
+      type: binary
+      description: Screen enable flag
+      read_only: false
+      pv: CLA-S06-DIA-SCR-01:V:EN
+    H_POS:
+      type: state
+      description: Horizontal Device state
+      states:
+      read_only: false
+      pv: CLA-S06-DIA-SCR-01:H:POS
+    H_ACTPOS:
+      type: scalar
+      description: Screen actuator position
+      pv: CLA-S06-DIA-SCR-01:H:ACTPOS
+    H_MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-S06-DIA-SCR-01:H:MOVING
+    H_EN:
+      type: binary
+      description: Screen enable flag
+      read_only: false
+      pv: CLA-S06-DIA-SCR-01:H:EN
+properties:
+  name: CLA-S06-DIA-SCR-01
+  hardware_type: Screen
+  name_alias: S06-SCR-01
+  machine_area: S06
+  position: 32.925234
+  type: CLARA_PHASE_2_MOVER

@@ -94,6 +94,7 @@
         "degauss_values": "{{ degauss_values }}"{% endif %}{% if ri_tolerance is defined %},
         "ri_tolerance": "{{ ri_tolerance }}"{% endif %}{% if field_integral_coefficients is defined %},
         "field_integral_coefficients": "{{ field_integral_coefficients }}"{% endif %}{% if serial_number is defined %},
-        "serial_number": "{{ serial_number }}"{% endif %}
+        "serial_number": "{{ serial_number }}"{% endif %},
+        "virtual_name": "{% if virtual_name is defined %}{{ virtual_name }}{% else %}VM-{{ name }}{% endif %}"
     }
 }

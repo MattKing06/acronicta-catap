@@ -71,7 +71,7 @@
         "name": "{{ name }}",
         "name_alias": "{{ name_alias }}",
         "position": {{ position }},
-        "bpm_type": "{{ bpm_type }}",
+        "type": "{{ type }}",
         "hardware_type": "BPM",
         "machine_area": "{{ machine_area }}"{% if att1cal is defined %},
         "att1cal": {{ att1cal }}{% endif %}{% if att2cal is defined %},
@@ -81,7 +81,7 @@
         "qcal": {{ qcal }}{% endif %}{% if v1cal is defined %},
         "v1cal": {{ v1cal }}{% endif %}{% if v2cal is defined %},
         "v2cal": {{ v2cal }}{% endif %}{% if virtual_name is defined %},
-        "virtual_name": "{{ virtual_name }}"{% endif %}{% if xn is defined %},
+        "virtual_name": "{{ virtual_name | default('VM-' ~ name) }}",
         "xn": {{ xn }}{% endif %}{% if yn is defined %},
         "yn": {{ yn }}{% endif %}
     }

@@ -74,3 +74,4 @@ properties:
   name_alias: SP1-QUAD02,SP1-QUAD-02,SP1-QUAD2
   position: 8.13074534
   machine_area: SP1
+  virtual_name: VM-CLA-SP1-MAG-QUAD-02

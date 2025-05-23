@@ -74,3 +74,4 @@ properties:
   name_alias: SP1-HCOR1,SP1-HCOR-01, SP1-HCOR01
   position: 7.78426767
   machine_area: SP1
+  virtual_name: VM-CLA-SP1-MAG-HCOR-01

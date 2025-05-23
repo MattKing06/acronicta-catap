@@ -56,6 +56,6 @@ properties:
   name: CLA-S04-DIA-BPM-05
   name_alias: S04-BPM-05,S04-BPM-05
   position: 22.300268
-  bpm_type: 
+  type: STRIPLINE
   hardware_type: BPM
   machine_area: S04

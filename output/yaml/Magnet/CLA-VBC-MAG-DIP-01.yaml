@@ -74,3 +74,4 @@ properties:
   name_alias: VBC-MAG-DIP-01,VBC-MAG-DIP-01
   position: 26.165835
   machine_area: VBC
+  virtual_name: VM-CLA-VBC-MAG-DIP-01

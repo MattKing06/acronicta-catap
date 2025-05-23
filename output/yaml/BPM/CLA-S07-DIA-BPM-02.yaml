@@ -56,6 +56,6 @@ properties:
   name: CLA-S07-DIA-BPM-02
   name_alias: S07-BPM-02,S07-BPM-02
   position: 39.582988
-  bpm_type: 
+  type: STRIPLINE
   hardware_type: BPM
   machine_area: S07

@@ -74,3 +74,4 @@ properties:
   name_alias: S02-HCOR04,S02-HCOR-04,S02-HCOR4
   position: 6.683746
   machine_area: S02
+  virtual_name: VM-CLA-S02-MAG-HCOR-04

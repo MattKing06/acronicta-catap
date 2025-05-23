@@ -74,3 +74,4 @@ properties:
   name_alias: S04-MAG-QUAD-04,S04-MAG-QUAD-04
   position: 18.019268
   machine_area: S04
+  virtual_name: VM-CLA-S04-MAG-QUAD-04

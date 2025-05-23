@@ -74,3 +74,4 @@ properties:
   name_alias: S05-VCOR01,S05-VCOR-01,S05-VCOR1
   position: 25.0509
   machine_area: S05
+  virtual_name: VM-CLA-S05-MAG-VCOR-01

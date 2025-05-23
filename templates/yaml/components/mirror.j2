@@ -1,0 +1,55 @@
+{
+    "controls_information": {
+        "pv_record_map": {
+            "H_MREL": {
+                "type": "scalar",
+                "read_only": false,
+                "description": "Step-size for horizontal motor",
+                "pv": "{{ h_mrel_pv | default(name ~ ':MREL') }}"
+            },
+            "H_MREL_RBV": {
+                "type": "scalar",
+                "description": "Readback for horizontal motor step-size",
+                "pv": "{{ h_mrel_rbv_pv | default(name ~ ':RPOS') }}"
+            },
+            "H_POS": {
+                "type": "scalar",
+                "description": "Position for horizontal motor",
+                "pv": "{{ h_pos_pv | default(name ~ ':RCUM1') }}"
+            },
+            "V_MREL": {
+                "type": "scalar",
+                "read_only": false,
+                "description": "Step-size for vertical motor",
+                "pv": "{{ v_mrel_pv | default(name ~ ':MREL') }}"
+            },
+            "V_MREL_RBV": {
+                "type": "scalar",
+                "description": "Readback for the vertical motor step-size",
+                "pv": "{{ v_mrel_rbv_pv | default(name ~ ':RPOS') }}"
+            },
+            "V_POS": {
+                "type": "scalar",
+                "description": "Position for vertical motor",
+                "pv": "{{ v_pos_pv | default(name ~ ':RCUM3') }}"
+            }
+        },
+        "step_max": {{ step_max | default(100.1) }},
+        "default_step": {{ default_step | default(10.0) }},
+        "down_sense": {{ down_sense | default(1) }},
+        "left_sense": {{ left_sense | default(1) }},
+        "right_sense": {{ right_sense | default(-1) }},
+        "up_sense": {{ up_sense | default(-1) }}
+    },
+    "properties": {
+        "hardware_type": "Mirror",
+        "horizontal_channel": {{ horizontal_channel | default(0) }},
+        "machine_area": "{{ machine_area }}",
+        "type": "{{type | default('mirror') }}",
+        "name": "{{ name }}",
+        "name_alias": "{{ name_alias }}",
+        "vertical_channel": {{ vertical_channel | default(2) }},
+        "virtual_name": "{% if virtual_name is defined %}{{ virtual_name }}{% else %}VM-{{ name }}{% endif %}",
+        "position": {{ position | default(-1.0) }}
+    }
+}

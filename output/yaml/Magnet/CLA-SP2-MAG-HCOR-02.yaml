@@ -74,3 +74,4 @@ properties:
   name_alias: SP2-HCOR02,SP2-HCOR-02,SP2-HCOR2
   position: 34.9706672
   machine_area: SP2
+  virtual_name: VM-CLA-SP2-MAG-HCOR-02

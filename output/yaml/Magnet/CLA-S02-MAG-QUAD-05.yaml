@@ -74,3 +74,4 @@ properties:
   name_alias: S02-QUAD05,S02-QUAD-05,S02-QUAD5
   position: 6.4403
   machine_area: S02
+  virtual_name: VM-CLA-S02-MAG-QUAD-05

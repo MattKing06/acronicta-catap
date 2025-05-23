@@ -74,3 +74,4 @@ properties:
   name_alias: C2V-DIP01,C2V-DIP-01,C2V-DIP1,S02-DIP01,S02-DIP-01,S02-DIP1
   position: 6.03782375
   machine_area: C2V
+  virtual_name: VM-CLA-C2V-MAG-DIP-01

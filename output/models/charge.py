@@ -3,16 +3,19 @@ from CATAP.common.machine.pv_utils import StatisticalPV
 from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
 from CATAP.common.machine.factory import Factory
 from CATAP.common.machine.area import MachineArea
+import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
 
 
 
-class ChargePVMap(PVMap):
+class ChargePVMapModel(PVMap):
     
     Q: StatisticalPV
+    """Bunch charge"""
     
     DQ: StatisticalPV
+    """Dark current"""
     
 
     def __init__(
@@ -22,10 +25,10 @@ class ChargePVMap(PVMap):
         *args,
         **kwargs,
     ):
-        ChargePVMap.is_virtual = is_virtual
-        ChargePVMap.connect_on_creation = connect_on_creation
+        ChargePVMapModel.is_virtual = is_virtual
+        ChargePVMapModel.connect_on_creation = connect_on_creation
         super(
-            ChargePVMap,
+            ChargePVMapModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -37,25 +40,27 @@ class ChargePVMap(PVMap):
     
     @property
     def q(self):
+        """Default Getter implementation for Q"""
         return self.Q.get()
     
     
     @property
     def dq(self):
+        """Default Getter implementation for DQ"""
         return self.DQ.get()
     
     
 
 
 
-class ChargeControlsInformation(ControlsInformation):
+class ChargeControlsInformationModel(ControlsInformation):
     """
     Class for controlling a charge via EPICS
 
     Inherits from:
         :class:`~CATAP.common.machine.hardware.ControlsInformation`
     """
-    pv_record_map: SerializeAsAny[ChargePVMap]
+    pv_record_map: SerializeAsAny[ChargePVMapModel]
     """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
@@ -69,10 +74,10 @@ class ChargeControlsInformation(ControlsInformation):
         *args,
         **kwargs,
     ):
-        ChargeControlsInformation.is_virtual = is_virtual
-        ChargeControlsInformation.connect_on_creation = connect_on_creation
+        ChargeControlsInformationModel.is_virtual = is_virtual
+        ChargeControlsInformationModel.connect_on_creation = connect_on_creation
         super(
-            ChargeControlsInformation,
+            ChargeControlsInformationModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -83,8 +88,8 @@ class ChargeControlsInformation(ControlsInformation):
 
     @field_validator("pv_record_map", mode="before")
     @classmethod
-    def validate_pv_map(cls, v: Any) -> ChargePVMap:
-        return ChargePVMap(
+    def validate_pv_map(cls, v: Any) -> ChargePVMapModel:
+        return ChargePVMapModel(
             is_virtual=cls.is_virtual,
             connect_on_creation=cls.connect_on_creation,
             **v,
@@ -93,17 +98,19 @@ class ChargeControlsInformation(ControlsInformation):
     
     @property
     def q(self):
+        """Default Getter implementation for :attr:`ChargePVMapModel.Q`."""    
         return self.pv_record_map.q
     
     
     @property
     def dq(self):
+        """Default Getter implementation for :attr:`ChargePVMapModel.DQ`."""    
         return self.pv_record_map.dq
     
     
 
 
-class ChargeProperties(Properties):
+class ChargePropertiesModel(Properties):
     """
     Class for defining charge-specific properties.
 
@@ -113,12 +120,13 @@ class ChargeProperties(Properties):
 
     
     type: str
-    """"""
+    
+    virtual_name: str
     
 
     def __init__(self, *args, **kwargs):
         super(
-            ChargeProperties,
+            ChargePropertiesModel,
             self,
         ).__init__(
             *args,
@@ -130,10 +138,14 @@ class ChargeProperties(Properties):
     def type(self):
         return self.type
     
+    @property
+    def virtual_name(self):
+        return self.virtual_name
+    
 
     
 
-class Charge(Hardware):
+class ChargeModel(Hardware):
     """
     Middle layer class for interacting with a specific charge object.
 
@@ -141,10 +153,10 @@ class Charge(Hardware):
         :class:`~CATAP.common.machine.hardware.Hardware`
     """
 
-    controls_information: SerializeAsAny[ChargeControlsInformation]
+    controls_information: SerializeAsAny[ChargeControlsInformationModel]
     """Controls information pertaining to this charge
     (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
-    properties: SerializeAsAny[ChargeProperties]
+    properties: SerializeAsAny[ChargePropertiesModel]
     """Properties pertaining to this charge
     (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
 
@@ -156,7 +168,7 @@ class Charge(Hardware):
         **kwargs,
     ):
         super(
-            Charge,
+            ChargeModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -171,9 +183,9 @@ class Charge(Hardware):
 
     @field_validator("controls_information", mode="before")
     @classmethod
-    def validate_controls_information(cls, v: Any) -> ChargeControlsInformation:
+    def validate_controls_information(cls, v: Any) -> ChargeControlsInformationModel:
         try:
-            return ChargeControlsInformation(
+            return ChargeControlsInformationModel(
                 is_virtual=cls.is_virtual,
                 connect_on_creation=cls.connect_on_creation,
                 **v,
@@ -183,9 +195,9 @@ class Charge(Hardware):
 
     @field_validator("properties", mode="before")
     @classmethod
-    def validate_properties(cls, v: Any) -> ChargeProperties:
+    def validate_properties(cls, v: Any) -> ChargePropertiesModel:
         try:
-            return ChargeProperties(
+            return ChargePropertiesModel(
                 **v,
             )
         except Exception as e:
@@ -194,16 +206,18 @@ class Charge(Hardware):
     
     @property
     def q(self):
+        """Default Getter implementation for :attr:`ChargeControlsInformationModel.Q`."""
         return self.controls_information.q
     
     
     @property
     def dq(self):
+        """Default Getter implementation for :attr:`ChargeControlsInformationModel.DQ`."""
         return self.controls_information.dq
     
     
 
-class ChargeFactory(Factory):
+class ChargeFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
     :class:`CATAP.laser.components.charge.Charge` objects.
@@ -218,14 +232,15 @@ class ChargeFactory(Factory):
         connect_on_creation: bool = False,
         areas: Union[MachineArea, List[MachineArea]] = None,
     ):
-        super(ChargeFactory, self).__init__(
+        super(ChargeFactoryModel, self).__init__(
             is_virtual=is_virtual,
-            hardware_type=Charge,
+            hardware_type=ChargeModel,
+            lattice_folder="Charge",
             connect_on_creation=connect_on_creation,
             areas=areas,
         )
 
-    def get_charge(self, name: Union[str, List[str]] = None) -> Charge:
+    def get_charge(self, name: Union[str, List[str]] = None) -> ChargeModel:
         """
         Returns the charge object for the given name(s).
 
@@ -233,32 +248,32 @@ class ChargeFactory(Factory):
         :type name: str or list of str
 
         :return: Charge object(s).
-        :rtype: :class:`~CATAP.laser.components.charge.Charge`
-        or Dict[str: :class:`~CATAP.laser.components.charge.Charge`]
+        :rtype: :class:`chargeModel.Charge`
+        or Dict[str: :class:`charge.Charge`]
         """
         return self.get_hardware(name)
 
     
     def q(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'q' property of the charge(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`ChargeModel.Q`.
 
         :param name: Name(s) of the charge.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'Q' property.
+        :return: Value(s) of the :attr:`ChargeModel.Q` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda charge: charge.q)
     
     def dq(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'dq' property of the charge(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`ChargeModel.DQ`.
 
         :param name: Name(s) of the charge.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'DQ' property.
+        :return: Value(s) of the :attr:`ChargeModel.DQ` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda charge: charge.dq)

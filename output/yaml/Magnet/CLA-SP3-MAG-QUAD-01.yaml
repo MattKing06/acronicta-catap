@@ -74,3 +74,4 @@ properties:
   name_alias: SP3-QUAD01,SP3-QUAD-01,SP3-QUAD1
   position: 46.5401225
   machine_area: SP3
+  virtual_name: VM-CLA-SP3-MAG-QUAD-01

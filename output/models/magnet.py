@@ -3,36 +3,49 @@ from CATAP.common.machine.pv_utils import ScalarPV, StatePV, BinaryPV, Statistic
 from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
 from CATAP.common.machine.factory import Factory
 from CATAP.common.machine.area import MachineArea
+import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
 
 
 
-class MagnetPVMap(PVMap):
+class MagnetPVMapModel(PVMap):
     
     GETSETI: ScalarPV
+    """Gets the value of the target current for a magnet power supply."""
     
     SPOWER: StatePV
+    """Sets the state of a power supply"""
     
     RPOWER: StatePV
+    """Gets the state of a power supply"""
     
     ILK_RESET: BinaryPV
+    """Resets the magnet interlocks"""
     
     RILK: BinaryPV
+    """If the interlocks are clear, this enables them"""
     
     ILK_ON: BinaryPV
+    """If the interlocks are clear, this enables them"""
     
     ILK_OFF: BinaryPV
+    """If the interlocks are clear, this disables them"""
     
     ILK_PSU_RESET: BinaryPV
+    """Reset the magnet power supply interlocks"""
     
     READI: StatisticalPV
+    """Gets the readback current of a magnet power supply."""
     
     SETI: ScalarPV
+    """Sets the target current for a magnet power supply."""
     
     SETK: ScalarPV
+    """Sets the target field strength for a magnet. This ultimately sets a current for the power supply"""
     
     READK: StatisticalPV
+    """Reads the calculated K value for a magnet based on momentum of the section"""
     
 
     def __init__(
@@ -42,10 +55,10 @@ class MagnetPVMap(PVMap):
         *args,
         **kwargs,
     ):
-        MagnetPVMap.is_virtual = is_virtual
-        MagnetPVMap.connect_on_creation = connect_on_creation
+        MagnetPVMapModel.is_virtual = is_virtual
+        MagnetPVMapModel.connect_on_creation = connect_on_creation
         super(
-            MagnetPVMap,
+            MagnetPVMapModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -57,99 +70,117 @@ class MagnetPVMap(PVMap):
     
     @property
     def getseti(self):
+        """Default Getter implementation for GETSETI"""
         return self.GETSETI.get()
     
     
     @property
     def spower(self):
+        """Default Getter implementation for SPOWER"""
         return self.SPOWER.get()
     
     @spower.setter
     def spower(self, value):
+        """Default Setter implementation for SPOWER"""
         self.SPOWER.put(value)
     
     
     @property
     def rpower(self):
+        """Default Getter implementation for RPOWER"""
         return self.RPOWER.get()
     
     @rpower.setter
     def rpower(self, value):
+        """Default Setter implementation for RPOWER"""
         self.RPOWER.put(value)
     
     
     @property
     def ilk_reset(self):
+        """Default Getter implementation for ILK_RESET"""
         return self.ILK_RESET.get()
     
     @ilk_reset.setter
     def ilk_reset(self, value):
+        """Default Setter implementation for ILK_RESET"""
         self.ILK_RESET.put(value)
     
     
     @property
     def rilk(self):
+        """Default Getter implementation for RILK"""
         return self.RILK.get()
     
     
     @property
     def ilk_on(self):
+        """Default Getter implementation for ILK_ON"""
         return self.ILK_ON.get()
     
     @ilk_on.setter
     def ilk_on(self, value):
+        """Default Setter implementation for ILK_ON"""
         self.ILK_ON.put(value)
     
     
     @property
     def ilk_off(self):
+        """Default Getter implementation for ILK_OFF"""
         return self.ILK_OFF.get()
     
     @ilk_off.setter
     def ilk_off(self, value):
+        """Default Setter implementation for ILK_OFF"""
         self.ILK_OFF.put(value)
     
     
     @property
     def ilk_psu_reset(self):
+        """Default Getter implementation for ILK_PSU_RESET"""
         return self.ILK_PSU_RESET.get()
     
     @ilk_psu_reset.setter
     def ilk_psu_reset(self, value):
+        """Default Setter implementation for ILK_PSU_RESET"""
         self.ILK_PSU_RESET.put(value)
     
     
     @property
     def readi(self):
+        """Default Getter implementation for READI"""
         return self.READI.get()
     
     
     @property
     def seti(self):
+        """Default Getter implementation for SETI"""
         return self.SETI.get()
     
     
     @property
     def setk(self):
+        """Default Getter implementation for SETK"""
         return self.SETK.get()
     
     
     @property
     def readk(self):
+        """Default Getter implementation for READK"""
         return self.READK.get()
     
     
 
 
 
-class MagnetControlsInformation(ControlsInformation):
+class MagnetControlsInformationModel(ControlsInformation):
     """
     Class for controlling a magnet via EPICS
 
     Inherits from:
         :class:`~CATAP.common.machine.hardware.ControlsInformation`
     """
-    pv_record_map: SerializeAsAny[MagnetPVMap]
+    pv_record_map: SerializeAsAny[MagnetPVMapModel]
     """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
@@ -163,10 +194,10 @@ class MagnetControlsInformation(ControlsInformation):
         *args,
         **kwargs,
     ):
-        MagnetControlsInformation.is_virtual = is_virtual
-        MagnetControlsInformation.connect_on_creation = connect_on_creation
+        MagnetControlsInformationModel.is_virtual = is_virtual
+        MagnetControlsInformationModel.connect_on_creation = connect_on_creation
         super(
-            MagnetControlsInformation,
+            MagnetControlsInformationModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -177,8 +208,8 @@ class MagnetControlsInformation(ControlsInformation):
 
     @field_validator("pv_record_map", mode="before")
     @classmethod
-    def validate_pv_map(cls, v: Any) -> MagnetPVMap:
-        return MagnetPVMap(
+    def validate_pv_map(cls, v: Any) -> MagnetPVMapModel:
+        return MagnetPVMapModel(
             is_virtual=cls.is_virtual,
             connect_on_creation=cls.connect_on_creation,
             **v,
@@ -187,91 +218,109 @@ class MagnetControlsInformation(ControlsInformation):
     
     @property
     def getseti(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.GETSETI`."""    
         return self.pv_record_map.getseti
     
     
     @property
     def spower(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.SPOWER`."""    
         return self.pv_record_map.spower
     
     @spower.setter
     def spower(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.SPOWER`.""" 
         self.pv_record_map.spower = value
     
     
     @property
     def rpower(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.RPOWER`."""    
         return self.pv_record_map.rpower
     
     @rpower.setter
     def rpower(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.RPOWER`.""" 
         self.pv_record_map.rpower = value
     
     
     @property
     def ilk_reset(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.ILK_RESET`."""    
         return self.pv_record_map.ilk_reset
     
     @ilk_reset.setter
     def ilk_reset(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.ILK_RESET`.""" 
         self.pv_record_map.ilk_reset = value
     
     
     @property
     def rilk(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.RILK`."""    
         return self.pv_record_map.rilk
     
     
     @property
     def ilk_on(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.ILK_ON`."""    
         return self.pv_record_map.ilk_on
     
     @ilk_on.setter
     def ilk_on(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.ILK_ON`.""" 
         self.pv_record_map.ilk_on = value
     
     
     @property
     def ilk_off(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.ILK_OFF`."""    
         return self.pv_record_map.ilk_off
     
     @ilk_off.setter
     def ilk_off(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.ILK_OFF`.""" 
         self.pv_record_map.ilk_off = value
     
     
     @property
     def ilk_psu_reset(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.ILK_PSU_RESET`."""    
         return self.pv_record_map.ilk_psu_reset
     
     @ilk_psu_reset.setter
     def ilk_psu_reset(self, value):
+        """Default Setter implementation for :attr:`MagnetPVMapModel.ILK_PSU_RESET`.""" 
         self.pv_record_map.ilk_psu_reset = value
     
     
     @property
     def readi(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.READI`."""    
         return self.pv_record_map.readi
     
     
     @property
     def seti(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.SETI`."""    
         return self.pv_record_map.seti
     
     
     @property
     def setk(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.SETK`."""    
         return self.pv_record_map.setk
     
     
     @property
     def readk(self):
+        """Default Getter implementation for :attr:`MagnetPVMapModel.READK`."""    
         return self.pv_record_map.readk
     
     
 
 
-class MagnetProperties(Properties):
+class MagnetPropertiesModel(Properties):
     """
     Class for defining magnet-specific properties.
 
@@ -281,12 +330,13 @@ class MagnetProperties(Properties):
 
     
     type: str
-    """"""
+    
+    virtual_name: str
     
 
     def __init__(self, *args, **kwargs):
         super(
-            MagnetProperties,
+            MagnetPropertiesModel,
             self,
         ).__init__(
             *args,
@@ -298,10 +348,14 @@ class MagnetProperties(Properties):
     def type(self):
         return self.type
     
+    @property
+    def virtual_name(self):
+        return self.virtual_name
+    
 
     
 
-class Magnet(Hardware):
+class MagnetModel(Hardware):
     """
     Middle layer class for interacting with a specific magnet object.
 
@@ -309,10 +363,10 @@ class Magnet(Hardware):
         :class:`~CATAP.common.machine.hardware.Hardware`
     """
 
-    controls_information: SerializeAsAny[MagnetControlsInformation]
+    controls_information: SerializeAsAny[MagnetControlsInformationModel]
     """Controls information pertaining to this magnet
     (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
-    properties: SerializeAsAny[MagnetProperties]
+    properties: SerializeAsAny[MagnetPropertiesModel]
     """Properties pertaining to this magnet
     (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
 
@@ -324,7 +378,7 @@ class Magnet(Hardware):
         **kwargs,
     ):
         super(
-            Magnet,
+            MagnetModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -339,9 +393,9 @@ class Magnet(Hardware):
 
     @field_validator("controls_information", mode="before")
     @classmethod
-    def validate_controls_information(cls, v: Any) -> MagnetControlsInformation:
+    def validate_controls_information(cls, v: Any) -> MagnetControlsInformationModel:
         try:
-            return MagnetControlsInformation(
+            return MagnetControlsInformationModel(
                 is_virtual=cls.is_virtual,
                 connect_on_creation=cls.connect_on_creation,
                 **v,
@@ -351,9 +405,9 @@ class Magnet(Hardware):
 
     @field_validator("properties", mode="before")
     @classmethod
-    def validate_properties(cls, v: Any) -> MagnetProperties:
+    def validate_properties(cls, v: Any) -> MagnetPropertiesModel:
         try:
-            return MagnetProperties(
+            return MagnetPropertiesModel(
                 **v,
             )
         except Exception as e:
@@ -362,90 +416,108 @@ class Magnet(Hardware):
     
     @property
     def getseti(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.GETSETI`."""
         return self.controls_information.getseti
     
     
     @property
     def spower(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.SPOWER`."""
         return self.controls_information.spower
     
     @spower.setter
     def spower(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.SPOWER`."""
         self.controls_information.spower = value
     
     
     @property
     def rpower(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.RPOWER`."""
         return self.controls_information.rpower
     
     @rpower.setter
     def rpower(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.RPOWER`."""
         self.controls_information.rpower = value
     
     
     @property
     def ilk_reset(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.ILK_RESET`."""
         return self.controls_information.ilk_reset
     
     @ilk_reset.setter
     def ilk_reset(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.ILK_RESET`."""
         self.controls_information.ilk_reset = value
     
     
     @property
     def rilk(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.RILK`."""
         return self.controls_information.rilk
     
     
     @property
     def ilk_on(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.ILK_ON`."""
         return self.controls_information.ilk_on
     
     @ilk_on.setter
     def ilk_on(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.ILK_ON`."""
         self.controls_information.ilk_on = value
     
     
     @property
     def ilk_off(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.ILK_OFF`."""
         return self.controls_information.ilk_off
     
     @ilk_off.setter
     def ilk_off(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.ILK_OFF`."""
         self.controls_information.ilk_off = value
     
     
     @property
     def ilk_psu_reset(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.ILK_PSU_RESET`."""
         return self.controls_information.ilk_psu_reset
     
     @ilk_psu_reset.setter
     def ilk_psu_reset(self, value):
+        """Default Setter implementation for :attr:`MagnetControlsInformationModel.ILK_PSU_RESET`."""
         self.controls_information.ilk_psu_reset = value
     
     
     @property
     def readi(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.READI`."""
         return self.controls_information.readi
     
     
     @property
     def seti(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.SETI`."""
         return self.controls_information.seti
     
     
     @property
     def setk(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.SETK`."""
         return self.controls_information.setk
     
     
     @property
     def readk(self):
+        """Default Getter implementation for :attr:`MagnetControlsInformationModel.READK`."""
         return self.controls_information.readk
     
     
 
-class MagnetFactory(Factory):
+class MagnetFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
     :class:`CATAP.laser.components.magnet.Magnet` objects.
@@ -460,14 +532,15 @@ class MagnetFactory(Factory):
         connect_on_creation: bool = False,
         areas: Union[MachineArea, List[MachineArea]] = None,
     ):
-        super(MagnetFactory, self).__init__(
+        super(MagnetFactoryModel, self).__init__(
             is_virtual=is_virtual,
-            hardware_type=Magnet,
+            hardware_type=MagnetModel,
+            lattice_folder="Magnet",
             connect_on_creation=connect_on_creation,
             areas=areas,
         )
 
-    def get_magnet(self, name: Union[str, List[str]] = None) -> Magnet:
+    def get_magnet(self, name: Union[str, List[str]] = None) -> MagnetModel:
         """
         Returns the magnet object for the given name(s).
 
@@ -475,152 +548,152 @@ class MagnetFactory(Factory):
         :type name: str or list of str
 
         :return: Magnet object(s).
-        :rtype: :class:`~CATAP.laser.components.magnet.Magnet`
-        or Dict[str: :class:`~CATAP.laser.components.magnet.Magnet`]
+        :rtype: :class:`magnetModel.Magnet`
+        or Dict[str: :class:`magnet.Magnet`]
         """
         return self.get_hardware(name)
 
     
     def getseti(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'getseti' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.GETSETI`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'GETSETI' property.
+        :return: Value(s) of the :attr:`MagnetModel.GETSETI` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.getseti)
     
     def spower(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'spower' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.SPOWER`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SPOWER' property.
+        :return: Value(s) of the :attr:`MagnetModel.SPOWER` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.spower)
     
     def rpower(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rpower' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.RPOWER`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RPOWER' property.
+        :return: Value(s) of the :attr:`MagnetModel.RPOWER` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.rpower)
     
     def ilk_reset(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ilk_reset' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.ILK_RESET`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ILK_RESET' property.
+        :return: Value(s) of the :attr:`MagnetModel.ILK_RESET` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.ilk_reset)
     
     def rilk(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rilk' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.RILK`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RILK' property.
+        :return: Value(s) of the :attr:`MagnetModel.RILK` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.rilk)
     
     def ilk_on(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ilk_on' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.ILK_ON`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ILK_ON' property.
+        :return: Value(s) of the :attr:`MagnetModel.ILK_ON` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.ilk_on)
     
     def ilk_off(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ilk_off' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.ILK_OFF`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ILK_OFF' property.
+        :return: Value(s) of the :attr:`MagnetModel.ILK_OFF` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.ilk_off)
     
     def ilk_psu_reset(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ilk_psu_reset' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.ILK_PSU_RESET`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ILK_PSU_RESET' property.
+        :return: Value(s) of the :attr:`MagnetModel.ILK_PSU_RESET` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.ilk_psu_reset)
     
     def readi(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'readi' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.READI`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'READI' property.
+        :return: Value(s) of the :attr:`MagnetModel.READI` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.readi)
     
     def seti(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'seti' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.SETI`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SETI' property.
+        :return: Value(s) of the :attr:`MagnetModel.SETI` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.seti)
     
     def setk(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'setk' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.SETK`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SETK' property.
+        :return: Value(s) of the :attr:`MagnetModel.SETK` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.setk)
     
     def readk(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'readk' property of the magnet(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`MagnetModel.READK`.
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'READK' property.
+        :return: Value(s) of the :attr:`MagnetModel.READK` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.readk)

@@ -7,7 +7,7 @@ import os
 import os
 from ruamel.yaml import YAML
 
-hardware_types = ["Magnet", "Charge", "Camera", "BPM", "Cavity", "EnergyMeter"]
+hardware_types = ["Magnet", "Charge", "Camera", "BPM", "Cavity", "EnergyMeter", "Mirror", "Screen"]
 
 missing_pv_default_text = "<ADD_PV_HERE>"
 
@@ -35,7 +35,7 @@ for hardware in hardware_types:
     for item in hardware_info_list:
         print(f"Rendering {item['name']}...")
         data_env = Environment(
-            loader=FileSystemLoader('../yaml_templates'),
+            loader=FileSystemLoader('../templates/yaml/components'),
             trim_blocks=True,
             lstrip_blocks=True,
             extensions=['jinja2.ext.do']
@@ -45,11 +45,11 @@ for hardware in hardware_types:
         hardware_data = json.loads(hardware_template.render(**item))
 
         yaml_env = Environment(
-            loader=FileSystemLoader('../templates'),
+            loader=FileSystemLoader('../templates/yaml'),
             trim_blocks=True,
             lstrip_blocks=True
         )
-        yaml_template = yaml_env.get_template('yaml_template.j2')
+        yaml_template = yaml_env.get_template('base_yaml_template.j2')
 
         output = yaml_template.render(**hardware_data)
 

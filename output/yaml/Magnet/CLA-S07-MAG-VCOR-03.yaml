@@ -74,3 +74,4 @@ properties:
   name_alias: S07-VCOR03,S07-VCOR-03,S07-VCOR3
   position: 41.2328
   machine_area: S07
+  virtual_name: VM-CLA-S07-MAG-VCOR-03

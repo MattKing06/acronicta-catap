@@ -3,20 +3,25 @@ from CATAP.common.machine.pv_utils import StatisticalPV, BinaryPV, StatePV
 from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
 from CATAP.common.machine.factory import Factory
 from CATAP.common.machine.area import MachineArea
+import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
 
 
 
-class EnergyMeterPVMap(PVMap):
+class EnergyMeterPVMapModel(PVMap):
     
     ENERGYREADBACK: StatisticalPV
+    """Readback of the measured laser energy"""
     
     OVERRANGE: BinaryPV
+    """State of energy readback being over-range set in RANGESP"""
     
     RANGESP: StatePV
+    """Set the state range for energy readback"""
     
     RUNSP: BinaryPV
+    """Enable/Disable the energy meter"""
     
 
     def __init__(
@@ -26,10 +31,10 @@ class EnergyMeterPVMap(PVMap):
         *args,
         **kwargs,
     ):
-        EnergyMeterPVMap.is_virtual = is_virtual
-        EnergyMeterPVMap.connect_on_creation = connect_on_creation
+        EnergyMeterPVMapModel.is_virtual = is_virtual
+        EnergyMeterPVMapModel.connect_on_creation = connect_on_creation
         super(
-            EnergyMeterPVMap,
+            EnergyMeterPVMapModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -41,43 +46,49 @@ class EnergyMeterPVMap(PVMap):
     
     @property
     def energyreadback(self):
+        """Default Getter implementation for ENERGYREADBACK"""
         return self.ENERGYREADBACK.get()
     
     
     @property
     def overrange(self):
+        """Default Getter implementation for OVERRANGE"""
         return self.OVERRANGE.get()
     
     
     @property
     def rangesp(self):
+        """Default Getter implementation for RANGESP"""
         return self.RANGESP.get()
     
     @rangesp.setter
     def rangesp(self, value):
+        """Default Setter implementation for RANGESP"""
         self.RANGESP.put(value)
     
     
     @property
     def runsp(self):
+        """Default Getter implementation for RUNSP"""
         return self.RUNSP.get()
     
     @runsp.setter
     def runsp(self, value):
+        """Default Setter implementation for RUNSP"""
         self.RUNSP.put(value)
     
     
 
 
 
-class EnergyMeterControlsInformation(ControlsInformation):
+class EnergyMeterControlsInformationModel(ControlsInformation):
     """
     Class for controlling a energymeter via EPICS
 
     Inherits from:
         :class:`~CATAP.common.machine.hardware.ControlsInformation`
     """
-    pv_record_map: SerializeAsAny[EnergyMeterPVMap]
+    pv_record_map: SerializeAsAny[EnergyMeterPVMapModel]
     """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
@@ -91,10 +102,10 @@ class EnergyMeterControlsInformation(ControlsInformation):
         *args,
         **kwargs,
     ):
-        EnergyMeterControlsInformation.is_virtual = is_virtual
-        EnergyMeterControlsInformation.connect_on_creation = connect_on_creation
+        EnergyMeterControlsInformationModel.is_virtual = is_virtual
+        EnergyMeterControlsInformationModel.connect_on_creation = connect_on_creation
         super(
-            EnergyMeterControlsInformation,
+            EnergyMeterControlsInformationModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -105,8 +116,8 @@ class EnergyMeterControlsInformation(ControlsInformation):
 
     @field_validator("pv_record_map", mode="before")
     @classmethod
-    def validate_pv_map(cls, v: Any) -> EnergyMeterPVMap:
-        return EnergyMeterPVMap(
+    def validate_pv_map(cls, v: Any) -> EnergyMeterPVMapModel:
+        return EnergyMeterPVMapModel(
             is_virtual=cls.is_virtual,
             connect_on_creation=cls.connect_on_creation,
             **v,
@@ -115,35 +126,41 @@ class EnergyMeterControlsInformation(ControlsInformation):
     
     @property
     def energyreadback(self):
+        """Default Getter implementation for :attr:`EnergyMeterPVMapModel.ENERGYREADBACK`."""    
         return self.pv_record_map.energyreadback
     
     
     @property
     def overrange(self):
+        """Default Getter implementation for :attr:`EnergyMeterPVMapModel.OVERRANGE`."""    
         return self.pv_record_map.overrange
     
     
     @property
     def rangesp(self):
+        """Default Getter implementation for :attr:`EnergyMeterPVMapModel.RANGESP`."""    
         return self.pv_record_map.rangesp
     
     @rangesp.setter
     def rangesp(self, value):
+        """Default Setter implementation for :attr:`EnergyMeterPVMapModel.RANGESP`.""" 
         self.pv_record_map.rangesp = value
     
     
     @property
     def runsp(self):
+        """Default Getter implementation for :attr:`EnergyMeterPVMapModel.RUNSP`."""    
         return self.pv_record_map.runsp
     
     @runsp.setter
     def runsp(self, value):
+        """Default Setter implementation for :attr:`EnergyMeterPVMapModel.RUNSP`.""" 
         self.pv_record_map.runsp = value
     
     
 
 
-class EnergyMeterProperties(Properties):
+class EnergyMeterPropertiesModel(Properties):
     """
     Class for defining energymeter-specific properties.
 
@@ -152,10 +169,14 @@ class EnergyMeterProperties(Properties):
     """
 
     
+    type: str
+    
+    virtual_name: str
+    
 
     def __init__(self, *args, **kwargs):
         super(
-            EnergyMeterProperties,
+            EnergyMeterPropertiesModel,
             self,
         ).__init__(
             *args,
@@ -163,10 +184,18 @@ class EnergyMeterProperties(Properties):
         )
 
     
+    @property
+    def type(self):
+        return self.type
+    
+    @property
+    def virtual_name(self):
+        return self.virtual_name
+    
 
     
 
-class EnergyMeter(Hardware):
+class EnergyMeterModel(Hardware):
     """
     Middle layer class for interacting with a specific energymeter object.
 
@@ -174,10 +203,10 @@ class EnergyMeter(Hardware):
         :class:`~CATAP.common.machine.hardware.Hardware`
     """
 
-    controls_information: SerializeAsAny[EnergyMeterControlsInformation]
+    controls_information: SerializeAsAny[EnergyMeterControlsInformationModel]
     """Controls information pertaining to this energymeter
     (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
-    properties: SerializeAsAny[EnergyMeterProperties]
+    properties: SerializeAsAny[EnergyMeterPropertiesModel]
     """Properties pertaining to this energymeter
     (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
 
@@ -189,7 +218,7 @@ class EnergyMeter(Hardware):
         **kwargs,
     ):
         super(
-            EnergyMeter,
+            EnergyMeterModel,
             self,
         ).__init__(
             is_virtual=is_virtual,
@@ -204,9 +233,9 @@ class EnergyMeter(Hardware):
 
     @field_validator("controls_information", mode="before")
     @classmethod
-    def validate_controls_information(cls, v: Any) -> EnergyMeterControlsInformation:
+    def validate_controls_information(cls, v: Any) -> EnergyMeterControlsInformationModel:
         try:
-            return EnergyMeterControlsInformation(
+            return EnergyMeterControlsInformationModel(
                 is_virtual=cls.is_virtual,
                 connect_on_creation=cls.connect_on_creation,
                 **v,
@@ -216,9 +245,9 @@ class EnergyMeter(Hardware):
 
     @field_validator("properties", mode="before")
     @classmethod
-    def validate_properties(cls, v: Any) -> EnergyMeterProperties:
+    def validate_properties(cls, v: Any) -> EnergyMeterPropertiesModel:
         try:
-            return EnergyMeterProperties(
+            return EnergyMeterPropertiesModel(
                 **v,
             )
         except Exception as e:
@@ -227,34 +256,40 @@ class EnergyMeter(Hardware):
     
     @property
     def energyreadback(self):
+        """Default Getter implementation for :attr:`EnergyMeterControlsInformationModel.ENERGYREADBACK`."""
         return self.controls_information.energyreadback
     
     
     @property
     def overrange(self):
+        """Default Getter implementation for :attr:`EnergyMeterControlsInformationModel.OVERRANGE`."""
         return self.controls_information.overrange
     
     
     @property
     def rangesp(self):
+        """Default Getter implementation for :attr:`EnergyMeterControlsInformationModel.RANGESP`."""
         return self.controls_information.rangesp
     
     @rangesp.setter
     def rangesp(self, value):
+        """Default Setter implementation for :attr:`EnergyMeterControlsInformationModel.RANGESP`."""
         self.controls_information.rangesp = value
     
     
     @property
     def runsp(self):
+        """Default Getter implementation for :attr:`EnergyMeterControlsInformationModel.RUNSP`."""
         return self.controls_information.runsp
     
     @runsp.setter
     def runsp(self, value):
+        """Default Setter implementation for :attr:`EnergyMeterControlsInformationModel.RUNSP`."""
         self.controls_information.runsp = value
     
     
 
-class EnergyMeterFactory(Factory):
+class EnergyMeterFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
     :class:`CATAP.laser.components.energymeter.EnergyMeter` objects.
@@ -269,14 +304,15 @@ class EnergyMeterFactory(Factory):
         connect_on_creation: bool = False,
         areas: Union[MachineArea, List[MachineArea]] = None,
     ):
-        super(EnergyMeterFactory, self).__init__(
+        super(EnergyMeterFactoryModel, self).__init__(
             is_virtual=is_virtual,
-            hardware_type=EnergyMeter,
+            hardware_type=EnergyMeterModel,
+            lattice_folder="EnergyMeter",
             connect_on_creation=connect_on_creation,
             areas=areas,
         )
 
-    def get_energymeter(self, name: Union[str, List[str]] = None) -> EnergyMeter:
+    def get_energymeter(self, name: Union[str, List[str]] = None) -> EnergyMeterModel:
         """
         Returns the energymeter object for the given name(s).
 
@@ -284,56 +320,56 @@ class EnergyMeterFactory(Factory):
         :type name: str or list of str
 
         :return: Energymeter object(s).
-        :rtype: :class:`~CATAP.laser.components.energymeter.EnergyMeter`
-        or Dict[str: :class:`~CATAP.laser.components.energymeter.EnergyMeter`]
+        :rtype: :class:`energymeterModel.EnergyMeter`
+        or Dict[str: :class:`energymeter.EnergyMeter`]
         """
         return self.get_hardware(name)
 
     
     def energyreadback(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'energyreadback' property of the energymeter(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`EnergyMeterModel.ENERGYREADBACK`.
 
         :param name: Name(s) of the energymeter.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ENERGYREADBACK' property.
+        :return: Value(s) of the :attr:`EnergyMeterModel.ENERGYREADBACK` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda energymeter: energymeter.energyreadback)
     
     def overrange(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'overrange' property of the energymeter(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`EnergyMeterModel.OVERRANGE`.
 
         :param name: Name(s) of the energymeter.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'OVERRANGE' property.
+        :return: Value(s) of the :attr:`EnergyMeterModel.OVERRANGE` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda energymeter: energymeter.overrange)
     
     def rangesp(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'rangesp' property of the energymeter(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`EnergyMeterModel.RANGESP`.
 
         :param name: Name(s) of the energymeter.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RANGESP' property.
+        :return: Value(s) of the :attr:`EnergyMeterModel.RANGESP` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda energymeter: energymeter.rangesp)
     
     def runsp(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'runsp' property of the energymeter(s).
+        Default Getter implementation for single, multiple, all values of: :attr:`EnergyMeterModel.RUNSP`.
 
         :param name: Name(s) of the energymeter.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'RUNSP' property.
+        :return: Value(s) of the :attr:`EnergyMeterModel.RUNSP` property.
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda energymeter: energymeter.runsp)

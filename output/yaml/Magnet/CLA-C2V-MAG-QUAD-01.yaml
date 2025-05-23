@@ -74,3 +74,4 @@ properties:
   name_alias: C2V-QUAD01,C2V-QUAD-01,C2V-QUAD1
   position: 6.45831043
   machine_area: C2V
+  virtual_name: VM-CLA-C2V-MAG-QUAD-01

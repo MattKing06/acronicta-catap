@@ -983,9 +983,14 @@
         {%- do props.append('"name": "' ~ name ~ '"') %}
         {%- do props.append('"name_alias": "' ~ name_alias ~ '"') %}
         {%- do props.append('"position": ' ~ position) %}
-        {%- do props.append('"camera_type": "' ~ type ~ '"') %}
+        {%- do props.append('"type": "' ~ type ~ '"') %}
         {%- do props.append('"hardware_type": "Camera"') %}
         {%- do props.append('"machine_area": "' ~ machine_area ~ '"') %}
+        {%- if virtual_name is defined %}
+        {%-   do props.append('"virtual_name": "' ~ virtual_name ~ '"') %}
+        {%- else %}
+        {%-   do props.append('"virtual_name": "VM- ' ~ name ~ '"') %}
+        {%- endif %}
         {%- if ARRAY_DATA_NUM_PIX_X is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_X": ' ~ ARRAY_DATA_NUM_PIX_X) %}{% endif %}
         {%- if ARRAY_DATA_NUM_PIX_Y is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_Y": ' ~ ARRAY_DATA_NUM_PIX_Y) %}{% endif %}
         {%- if ARRAY_DATA_X_PIX_2_MM is defined %}{% do props.append('"ARRAY_DATA_X_PIX_2_MM": ' ~ ARRAY_DATA_X_PIX_2_MM) %}{% endif %}

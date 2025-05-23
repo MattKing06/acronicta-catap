@@ -74,3 +74,4 @@ properties:
   name_alias: S04-VCOR02,S04-VCOR-02,S04-VCOR2
   position: 18.349768
   machine_area: S04
+  virtual_name: VM-CLA-S04-MAG-VCOR-02
