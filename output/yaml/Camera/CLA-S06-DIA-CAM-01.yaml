@@ -825,6 +825,6 @@ properties:
   name: CLA-S06-DIA-CAM-01
   name_alias: S06-CAM-01,S06-CAM1
   position: 32.925234
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: S06

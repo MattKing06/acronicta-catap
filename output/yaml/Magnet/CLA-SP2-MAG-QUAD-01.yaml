@@ -72,5 +72,5 @@ properties:
   type: QUADRUPOLE
   hardware_type: Magnet
   name_alias: SP2-QUAD01,SP2-QUAD-01,SP2-QUAD1
-  position: 6.660148145
+  position: 34.1643976
   machine_area: SP2

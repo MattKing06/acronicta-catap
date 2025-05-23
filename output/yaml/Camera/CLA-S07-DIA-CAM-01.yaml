@@ -825,6 +825,6 @@ properties:
   name: CLA-S07-DIA-CAM-01
   name_alias: S07-CAM-01,S07-CAM1
   position: 39.931277
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: S07

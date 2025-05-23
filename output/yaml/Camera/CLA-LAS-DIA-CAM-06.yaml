@@ -825,6 +825,6 @@ properties:
   name: CLA-LAS-DIA-CAM-06
   name_alias: LAS-CAM-06,LAS-CAM6
   position: -1.0
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: LAS

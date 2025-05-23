@@ -72,5 +72,5 @@ properties:
   type: HORIZONTAL_CORRECTOR
   hardware_type: Magnet
   name_alias: SP1-HCOR1,SP1-HCOR-01, SP1-HCOR01
-  position: 6.536928145
+  position: 7.78426767
   machine_area: SP1

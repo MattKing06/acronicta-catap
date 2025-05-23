@@ -1,0 +1,29 @@
+{
+    "controls_information": {
+        "pv_record_map": {
+            "Q": {
+                "type": "statistical",
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Bunch charge",
+                "pv": "{{ q_pv | default("ADD_PV_HERE")}}"
+            },
+            "DQ": {
+                "type": "statistical",
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Dark current",
+                "pv": "{{ dq_pv | default("ADD_PV_HERE")}}"
+            }
+        }
+    },
+    "properties": {
+        "type": "{{ type }}",
+        "hardware_type": "Charge",
+        "machine_area": "{{ machine_area }}",
+        "name": "{{ name }}",
+        "name_alias": "{{ name_alias }}",
+        "position": {{ position }}{% if virtual_name is defined %},
+        "virtual_name": "{{ virtual_name }}"{% endif %}
+    }
+}

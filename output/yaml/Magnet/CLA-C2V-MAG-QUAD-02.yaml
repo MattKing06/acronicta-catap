@@ -72,5 +72,5 @@ properties:
   type: QUADRUPOLE
   hardware_type: Magnet
   name_alias: C2V-QUAD02,C2V-QUAD-02,C2V-QUAD2
-  position: 6.950148145
+  position: 6.66310099
   machine_area: C2V

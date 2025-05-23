@@ -1,0 +1,171 @@
+{
+    "controls_information": {
+        "pv_record_map": {
+            "SetStartup": {
+                "type": "binary",
+                "description": "Startup RF",
+                "read_only": false,
+                "pv": "{{ name }}:API:setStartup"
+            },
+            "StartupComplete": {
+                "type": "binary",
+                "description": "Check API setup status",
+                "pv": "{{ name }}:API:getStartupComplete"
+            },
+            "APIEnable": {
+                "type": "binary",
+                "description": "Enable RF API",
+                "read_only": false,
+                "pv": "{{ name }}:API:setEnable"
+            },
+            "GetAPITrip": {
+                "type": "state",
+                "description": "Get API trip status",
+                "states": {
+                    "API_OFF": 0,
+                    "API_ON": 1,
+                    "TRIP": 2
+                },
+                "pv": "{{ name }}:API:getTrip"
+            },
+            "SetAPITrip": {
+                "type": "binary",
+                "read_only": false,
+                "description": "Reset API trips",
+                "pv": "{{ name }}:API:setTrip"
+            },
+            "GetStatus": {
+                "type": "state",
+                "description": "Get API status",
+                "states": {
+                    "OFF": 0,
+                    "STANDBY": 1,
+                    "HV_ON": 2,
+                    "TRIG": 3,
+                    "API_ON": 4
+                },
+                "pv": "{{ name }}:API:getStatus"
+            },
+            "PowerPIDSet": {
+                "type": "binary",
+                "read_only": false,
+                "description": "Set power PID on",
+                "pv": "{{ name }}:Power:PID:setOnRequest"
+            },
+            "PowerPIDStatus": {
+                "type": "state",
+                "states": {
+                    "PID_OFF": 0,
+                    "PID_ON": 1,
+                    "PID_REMOTE": 2,
+                    "TRIP": 3,
+                    "INTERMEDIATE": 4
+                },
+                "description": "Get power PID status",
+                "pv": "{{ name }}:Power:PID:getStatus"
+            },
+            "PowerPIDError": {
+                "type": "binary",
+                "description": "Check if power PID within tolerance",
+                "pv": "{{ name }}:Power:Achieved:getBinary"
+            },
+            "PhasePIDSet": {
+                "type": "binary",
+                "read_only": false,
+                "description": "Set phase PID on",
+                "pv": "{{ name }}:Phase:PID:setOnRequest"
+            },
+            "PhasePIDStatus": {
+                "type": "state",
+                "states": {
+                    "PID_OFF": 0,
+                    "PID_ON": 1,
+                    "PID_REMOTE": 2,
+                    "TRIP": 3,
+                    "INTERMEDIATE": 4
+                },
+                "description": "Get phase PID status",
+                "pv": "{{ name }}:Phase:PID:getStatus"
+            },
+            "PhasePIDError": {
+                "type": "binary",
+                "description": "Check if phase PID within tolerance",
+                "pv": "{{ name }}:Phase:Achieved:getBinary"
+            },
+            "PowerMWMax": {
+                "type": "scalar",
+                "description": "Maximum set cavity forward power",
+                "units": "MW",
+                "pv": "{{ name }}:setPower.HOPR"
+            },
+            "PowerMWSet": {
+                "type": "scalar",
+                "read_only": false,
+                "description": "Set cavity forward power",
+                "units": "MW",
+                "pv": "{{ name }}:setPower"
+            },
+            "PhaseSet": {
+                "type": "scalar",
+                "read_only": false,
+                "description": "Set cavity phase",
+                "units": "deg",
+                "pv": "{{ name }}:setPhase"
+            },
+            "PowerMWRead": {
+                "type": "statistical",
+                "description": "Read cavity forward power",
+                "units": "MW",
+                "auto_buffer": true,
+                "pv": "{{ name }}:getPower"
+            },
+            "PhaseRead": {
+                "type": "statistical",
+                "description": "Read cavity phase",
+                "units": "deg",
+                "auto_buffer": true,
+                "pv": "{{ name }}:getPhase"
+            },
+            "CrestPhaseSet": {
+                "type": "scalar",
+                "description": "Set crest phase",
+                "read_only": false,
+                "units": "deg",
+                "pv": "{{ name }}:PHASE_C"
+            },
+            "OffCrestPhaseSet": {
+                "type": "scalar",
+                "description": "Set cavity off-crest phase",
+                "read_only": false,
+                "units": "deg",
+                "pv": "{{ name }}:PHASE_OFF"
+            },
+            "OffCrestPhaseRead": {
+                "type": "statistical",
+                "auto_buffer": true,
+                "description": "Set cavity off-crest phase",
+                "units": "deg",
+                "pv": "{{ name }}:getCrestPhase"
+            }
+        }
+    },
+    "properties": {
+        {% set props = [] %}
+        {% set _ = props.append('"hardware_type": "Cavity"') %}
+        {% set _ = props.append('"machine_area": "' ~ machine_area ~ '"') %}
+        {% set _ = props.append('"name": "' ~ name ~ '"') %}
+        {% set _ = props.append('"name_alias": "' ~ name_alias ~ '"') %}
+        {% set _ = props.append('"type": "' ~ type ~ '"') %}
+        {% set _ = props.append('"position": ' ~ position) %}
+        {% if api_set_max_wait_time is defined %}
+            {% set _ = props.append('"api_set_max_wait_time": ' ~ api_set_max_wait_time) %}
+        {% endif %}
+        {% if phase_tolerance is defined %}
+            {% set _ = props.append('"phase_tolerance": ' ~ phase_tolerance) %}
+        {% endif %}
+        {% if power_tolerance is defined %}
+            {% set _ = props.append('"power_tolerance": ' ~ power_tolerance) %}
+        {% endif %}
+        {{ props | join(',\n        ') }}
+    }
+}

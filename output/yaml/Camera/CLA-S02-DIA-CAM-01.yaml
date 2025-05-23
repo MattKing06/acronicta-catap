@@ -825,6 +825,6 @@ properties:
   name: CLA-S02-DIA-CAM-01
   name_alias: S02-CAM-01,S02-CAM1
   position: 4.0891
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: S02

@@ -72,5 +72,5 @@ properties:
   type: HORIZONTAL_CORRECTOR
   hardware_type: Magnet
   name_alias: VBC-HCOR01,VBC-HCOR-01,VBC-HCOR1
-  position: 3.448080313
+  position: 26.175835
   machine_area: VBC

@@ -825,6 +825,6 @@ properties:
   name: CLA-FEA-DIA-CAM-01
   name_alias: FEA-CAM-01,FEA-CAM1
   position: 50.69832957
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: FEA

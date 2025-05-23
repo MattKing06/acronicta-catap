@@ -148,7 +148,7 @@ properties:
   api_set_max_wait_time: 10.0
   hardware_type: Cavity
   machine_area: INJ
-  name: GUN
+  name: CLA-GUNS-RF-CTRL-01
   name_alias: CLA-GUNS-RF-CTRL-01,gun,GUN400,HRRG,CLARA_GUN
   phase_tolerance: 1.0
   power_tolerance: 0.1

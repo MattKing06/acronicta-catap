@@ -825,6 +825,6 @@ properties:
   name: CLA-SP2-DIA-CAM-01
   name_alias: SP2-CAM-01,SP2-CAM1
   position: 33.903097
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: SP2

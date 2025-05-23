@@ -232,9 +232,6 @@ class BPMProperties(Properties):
     """
 
     
-    position: float
-    """"""
-    
     bpm_type: Any
     """"""
     
@@ -250,29 +247,10 @@ class BPMProperties(Properties):
 
     
     @property
-    def position(self):
-        return self.position
-    
-    @property
     def bpm_type(self):
         return self.bpm_type
     
 
-    
-    @property
-    def position(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.position
-
-    @position.setter
-    def position(self, value: float) -> None:
-        self.position = value
     
 
 class BPM(Hardware):

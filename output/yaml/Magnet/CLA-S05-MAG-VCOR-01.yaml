@@ -72,5 +72,5 @@ properties:
   type: VERTICAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S05-VCOR01,S05-VCOR-01,S05-VCOR1
-  position: 3.448080313
+  position: 25.0509
   machine_area: S05

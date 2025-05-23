@@ -72,5 +72,5 @@ properties:
   type: DIPOLE
   hardware_type: Magnet
   name_alias: VBC-MAG-DIP-04,VBC-MAG-DIP-04
-  position: 3.577500313
+  position: 31.065382
   machine_area: VBC

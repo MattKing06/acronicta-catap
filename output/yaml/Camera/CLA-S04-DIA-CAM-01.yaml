@@ -825,6 +825,6 @@ properties:
   name: CLA-S04-DIA-CAM-01
   name_alias: S04-CAM-01,S04-CAM1
   position: 17.313563
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: S04

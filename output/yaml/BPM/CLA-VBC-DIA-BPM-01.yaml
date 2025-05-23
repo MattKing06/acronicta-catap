@@ -55,7 +55,7 @@ controls_information:
 properties:
   name: CLA-VBC-DIA-BPM-01
   name_alias: VBC-BPM-01,VBC-BPM-01
-  position: 3.6228
+  position: 28.353848
   bpm_type: 
   hardware_type: BPM
   machine_area: VBC

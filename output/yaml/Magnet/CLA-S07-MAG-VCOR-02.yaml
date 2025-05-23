@@ -72,5 +72,5 @@ properties:
   type: VERTICAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S07-VCOR02,S07-VCOR-02,S07-VCOR2
-  position: 3.448080313
+  position: 39.813464
   machine_area: S07

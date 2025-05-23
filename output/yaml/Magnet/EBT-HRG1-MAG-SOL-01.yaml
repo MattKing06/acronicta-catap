@@ -72,5 +72,5 @@ properties:
   type: SOLENOID
   hardware_type: Magnet
   name_alias: EBT-HRG1-MAG-SOL-01,EBT-HRG1-MAG-SOL-01,CLA-GUN-MAG-SOL-01
-  position: 3.577500313
+  position: 0.16241
   machine_area: INJ

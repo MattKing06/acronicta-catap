@@ -29,7 +29,7 @@ for file in example_files:
 
 
         # Exclude specified entries from properties
-        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area"}
+        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position",}
         filtered_properties = {k: v for k, v in properties.items() if k not in excluded_keys}
 
         # Get hardware type and set class name

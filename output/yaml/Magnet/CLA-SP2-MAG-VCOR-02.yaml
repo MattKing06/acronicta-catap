@@ -72,5 +72,5 @@ properties:
   type: VERTICAL_CORRECTOR
   hardware_type: Magnet
   name_alias: SP2-VCOR02,SP2-VCOR-02,SP2-VCOR2
-  position: 3.448080313
+  position: 34.9706672
   machine_area: SP2

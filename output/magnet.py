@@ -283,9 +283,6 @@ class MagnetProperties(Properties):
     type: str
     """"""
     
-    position: float
-    """"""
-    
 
     def __init__(self, *args, **kwargs):
         super(
@@ -301,26 +298,7 @@ class MagnetProperties(Properties):
     def type(self):
         return self.type
     
-    @property
-    def position(self):
-        return self.position
-    
 
-    
-    @property
-    def position(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.position
-
-    @position.setter
-    def position(self, value: float) -> None:
-        self.position = value
     
 
 class Magnet(Hardware):

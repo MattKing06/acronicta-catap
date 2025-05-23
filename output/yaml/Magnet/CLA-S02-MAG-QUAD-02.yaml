@@ -72,5 +72,5 @@ properties:
   type: QUADRUPOLE
   hardware_type: Magnet
   name_alias: S02-QUAD02,S02-QUAD-02,S02-QUAD2
-  position: 3.977500313
+  position: 3.92715
   machine_area: S02

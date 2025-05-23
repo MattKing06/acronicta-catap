@@ -2404,10 +2404,7 @@ class CameraProperties(Properties):
     """
 
     
-    position: float
-    """"""
-    
-    camera_type: Any
+    camera_type: str
     """"""
     
 
@@ -2422,29 +2419,10 @@ class CameraProperties(Properties):
 
     
     @property
-    def position(self):
-        return self.position
-    
-    @property
     def camera_type(self):
         return self.camera_type
     
 
-    
-    @property
-    def position(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.position
-
-    @position.setter
-    def position(self, value: float) -> None:
-        self.position = value
     
 
 class Camera(Hardware):

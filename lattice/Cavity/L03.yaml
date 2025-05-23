@@ -148,7 +148,7 @@ properties:
   api_set_max_wait_time: 10.0
   hardware_type: Cavity
   machine_area: L03
-  name: L03
+  name: CLA-L03-RF-CTRL-01
   name_alias: CLA-L03-RF-CTRL-01,L03,l03,LINAC3,linac3,L3,l3
   phase_tolerance: 1.0
   power_tolerance: 0.1

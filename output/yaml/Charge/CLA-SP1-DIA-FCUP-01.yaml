@@ -1,0 +1,21 @@
+controls_information:
+  pv_record_map:
+    Q:
+      type: statistical
+      description: Bunch charge
+      pv: ADD_PV_HERE
+      auto_buffer: false
+      buffer_size: 10
+    DQ:
+      type: statistical
+      description: Dark current
+      pv: ADD_PV_HERE
+      auto_buffer: false
+      buffer_size: 10
+properties:
+  type: FCUP
+  hardware_type: Charge
+  machine_area: SP1
+  name: CLA-SP1-DIA-FCUP-01
+  name_alias: CLA-SP1-FCUP, SP1-FCUP-01, SP1-FCUP
+  position: 6.6601

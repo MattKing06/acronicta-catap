@@ -72,5 +72,5 @@ properties:
   type: HORIZONTAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S07-HCOR08,S07-HCOR-08,S07-HCOR8
-  position: 3.448080313
+  position: 50.001
   machine_area: S07

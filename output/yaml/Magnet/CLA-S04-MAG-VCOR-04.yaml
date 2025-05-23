@@ -72,5 +72,5 @@ properties:
   type: VERTICAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S04-VCOR04,S04-VCOR-04,S04-VCOR4
-  position: 3.448080313
+  position: 21.729768
   machine_area: S04

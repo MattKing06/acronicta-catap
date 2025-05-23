@@ -72,5 +72,5 @@ properties:
   type: HORIZONTAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S02-HCOR03,S02-HCOR-03,S02-HCOR3
-  position: 3.448080313
+  position: 4.809
   machine_area: S02

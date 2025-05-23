@@ -825,6 +825,6 @@ properties:
   name: CLA-VBC-DIA-CAM-01
   name_alias: VBC-CAM-01,VBC-CAM1
   position: 28.9048
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: VBC

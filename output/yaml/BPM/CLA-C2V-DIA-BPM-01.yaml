@@ -55,7 +55,7 @@ controls_information:
 properties:
   name: CLA-C2V-DIA-BPM-01
   name_alias: C2V-BPM,C2V-BPM-01
-  position: 3.6228
+  position: 6.40624
   bpm_type: 
   hardware_type: BPM
   machine_area: C2V

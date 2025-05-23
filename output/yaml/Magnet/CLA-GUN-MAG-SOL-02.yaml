@@ -72,5 +72,5 @@ properties:
   type: SOLENOID
   hardware_type: Magnet
   name_alias: LRG-SOL-02,LRG-SOL02,LRG-SOL
-  position: 0.127
+  position: 0.16241
   machine_area: INJ

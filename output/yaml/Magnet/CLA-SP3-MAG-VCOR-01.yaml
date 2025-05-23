@@ -72,5 +72,5 @@ properties:
   type: VERTICAL_CORRECTOR
   hardware_type: Magnet
   name_alias: SP3-VCOR1,SP3-VCOR-01, SP3-VCOR01
-  position: 6.536928145
+  position: 45.91687518
   machine_area: SP3

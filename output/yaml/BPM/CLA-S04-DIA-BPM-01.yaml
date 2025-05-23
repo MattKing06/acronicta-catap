@@ -55,7 +55,7 @@ controls_information:
 properties:
   name: CLA-S04-DIA-BPM-01
   name_alias: S04-BPM-01,S04-BPM-01
-  position: 3.6228
+  position: 16.785768
   bpm_type: 
   hardware_type: BPM
   machine_area: S04

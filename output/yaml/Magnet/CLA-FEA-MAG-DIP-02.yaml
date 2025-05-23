@@ -72,5 +72,5 @@ properties:
   type: DIPOLE
   hardware_type: Magnet
   name_alias: FEA-MAG-DIP-02,FEA-DIP-02
-  position: 3.577500313
+  position: 52.14460524
   machine_area: FEA

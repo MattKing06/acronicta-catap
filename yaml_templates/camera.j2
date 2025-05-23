@@ -983,7 +983,7 @@
         {%- do props.append('"name": "' ~ name ~ '"') %}
         {%- do props.append('"name_alias": "' ~ name_alias ~ '"') %}
         {%- do props.append('"position": ' ~ position) %}
-        {%- do props.append('"camera_type": "' ~ bpm_type ~ '"') %}
+        {%- do props.append('"camera_type": "' ~ type ~ '"') %}
         {%- do props.append('"hardware_type": "Camera"') %}
         {%- do props.append('"machine_area": "' ~ machine_area ~ '"') %}
         {%- if ARRAY_DATA_NUM_PIX_X is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_X": ' ~ ARRAY_DATA_NUM_PIX_X) %}{% endif %}

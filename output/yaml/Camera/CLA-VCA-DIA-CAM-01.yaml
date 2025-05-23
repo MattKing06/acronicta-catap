@@ -825,6 +825,6 @@ properties:
   name: CLA-VCA-DIA-CAM-01
   name_alias: VCA-CAM-01,VCA-CAM1
   position: -1.0
-  camera_type: 
+  camera_type: None
   hardware_type: Camera
   machine_area: LAS

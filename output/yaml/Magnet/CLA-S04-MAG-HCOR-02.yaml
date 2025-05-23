@@ -72,5 +72,5 @@ properties:
   type: HORIZONTAL_CORRECTOR
   hardware_type: Magnet
   name_alias: S04-HCOR02,S04-HCOR-02,S04-HCOR2
-  position: 3.448080313
+  position: 18.349768
   machine_area: S04
