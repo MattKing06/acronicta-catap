@@ -1,0 +1,830 @@
+controls_information:
+  pv_record_map:
+    ANA_AvgIntensity_RBV:
+      type: statistical
+      description: Gets the average intensity readback for a camera.
+      pv: CLA-FEA-DIA-CAM-03:ANA:AvgIntensity_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CPU_CropSubMask_RBV:
+      type: statistical
+      description: Crop, subtract and mask CPU.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CSM_CPU
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CPU_Dot_RBV:
+      type: statistical
+      description: Dot product CPU mSecs.
+      pv: CLA-FEA-DIA-CAM-03:ANA:DP_CPU
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CPU_Npoint_RBV:
+      type: statistical
+      description: N-point CPU mSecs.
+      pv: CLA-FEA-DIA-CAM-03:ANA:NP_CPU
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CPU_RBV:
+      type: statistical
+      description: Total CPU mSecs.
+      pv: CLA-FEA-DIA-CAM-03:ANA:ANA_CPU
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CenterX:
+      type: statistical
+      description: Camera centre X position.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CenterX
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CenterX_RBV:
+      type: statistical
+      description: Camera centre X position readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CenterX_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CenterY:
+      type: statistical
+      description: Camera centre Y position.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CenterY
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CenterY_RBV:
+      type: statistical
+      description: Camera centre Y position readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CenterY_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CovXYPix_RBV:
+      type: statistical
+      description: X-Y covariance in pixels.
+      pv: CLA-FEA-DIA-CAM-03:ANA:CovXYPix_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_CovXY_RBV:
+      type: statistical
+      description: X-Y covariance in pixels (readback).
+      pv: CLA-FEA-DIA-CAM-03:ANA:CovXY_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_EnableCallbacks:
+      type: binary
+      description: Enable writing of analysis PVs (readback).
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:ANA:EnableCallbacks
+    ANA_EnableCallbacks_RBV:
+      type: binary
+      description: Enable writing of analysis PVs (readback).
+      pv: CLA-FEA-DIA-CAM-03:ANA:EnableCallbacks_RBV
+    ANA_FloorLevel:
+      type: scalar
+      description: Floor level (pixels) set value.
+      pv: CLA-FEA-DIA-CAM-03:ANA:Floor
+    ANA_FloorLevel_RBV:
+      type: scalar
+      description: Floor level (pixels) read value.
+      pv: CLA-FEA-DIA-CAM-03:ANA:Floor_RBV
+    ANA_FlooredPercent_RBV:
+      type: scalar
+      description: Floor level (percent) read value.
+      pv: CLA-FEA-DIA-CAM-03:ANA:FLOORED_PCENT
+      auto_buffer: true
+      buffer_size: 10
+    ANA_FlooredPoints_RBV:
+      type: scalar
+      description: Floor level (points) read value.
+      pv: CLA-FEA-DIA-CAM-03:ANA:FLOORED_PT
+      auto_buffer: true
+      buffer_size: 10
+    ANA_Intensity_RBV:
+      type: statistical
+      description: Camera intensity readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:Intensity_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_MMResults_RBV:
+      type: waveform
+      description: Analysis results readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:MMResults_RBV
+    ANA_MaskHeight_RBV:
+      type: scalar
+      description: Height of mask (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskHeight_RBV
+    ANA_MaskWidth_RBV:
+      type: scalar
+      description: Width of mask (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskWidth_RBV
+    ANA_MaskXCenter:
+      type: scalar
+      description: Mask vertical centre (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskXCenter
+    ANA_MaskXCenter_RBV:
+      type: scalar
+      description: Mask horizontal centre (pixels) readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskXCenter_RBV
+    ANA_MaskXRad:
+      type: scalar
+      description: Mask horizontal radius (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskXRad
+    ANA_MaskXRad_RBV:
+      type: scalar
+      description: Mask horizontal radius (pixels) readback
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskXRad_RBV
+    ANA_MaskYCenter:
+      type: scalar
+      description: Mask vertical centre (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskYCenter
+    ANA_MaskYCenter_RBV:
+      type: scalar
+      description: Mask vertical centre (pixels) readback.
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskYCenter_RBV
+    ANA_MaskYRad:
+      type: scalar
+      description: Mask vertical radius (pixels).
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskYRad
+    ANA_MaskYRad_RBV:
+      type: scalar
+      description: Mask vertical radius (pixels) readback
+      pv: CLA-FEA-DIA-CAM-03:ANA:MaskYRad_RBV
+    ANA_NPointStepSize:
+      type: scalar
+      description: N-point scaling step size
+      pv: CLA-FEA-DIA-CAM-03:ANA:StepSize
+    ANA_NPointStepSize_RBV:
+      type: scalar
+      description: N-point scaling step size readback
+      pv: CLA-FEA-DIA-CAM-03:ANA:StepSize_RBV
+    ANA_NewBkgrnd:
+      type: scalar
+      description: Collect new background image
+      pv: CLA-FEA-DIA-CAM-03:ANA:NewBkgrnd
+    ANA_NewBkgrnd_RBV:
+      type: scalar
+      description: Status of background image collection
+      pv: CLA-FEA-DIA-CAM-03:ANA:NewBkgrnd_RBV
+    ANA_OVERLAY_1_CROSS:
+      type: binary
+      description: Overlay crosshair
+      pv: CLA-FEA-DIA-CAM-03:OVER:1:Use
+    ANA_OVERLAY_1_CROSS_RBV:
+      type: binary
+      description: Overlay crosshair readback
+      pv: CLA-FEA-DIA-CAM-03:OVER:1:Use_RBV
+    ANA_OVERLAY_2_RESULT:
+      type: binary
+      description: Overlay beam position crosshair
+      pv: CLA-FEA-DIA-CAM-03:OVER:2:Use
+    ANA_OVERLAY_2_RESULT_RBV:
+      type: binary
+      description: Overlay beam position crosshair readback
+      pv: CLA-FEA-DIA-CAM-03:OVER:2:Use_RBV
+    ANA_OVERLAY_3_MASK:
+      type: binary
+      description: Overlay analysis mask
+      pv: CLA-FEA-DIA-CAM-03:OVER:3:Use
+    ANA_OVERLAY_3_MASK_RBV:
+      type: binary
+      description: Overlay analysis mask readback
+      pv: CLA-FEA-DIA-CAM-03:OVER:3:Use_RBV
+    ANA_PixH_RBV:
+      type: scalar
+      description: Full image height (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:PixH_RBV
+    ANA_PixMM:
+      type: scalar
+      description: Pixel-to-mm conversion
+      pv: CLA-FEA-DIA-CAM-03:ANA:Pix
+    ANA_PixMM_RBV:
+      type: scalar
+      description: Pixel-to-mm conversion
+      pv: CLA-FEA-DIA-CAM-03:ANA:PixMM_RBV
+    ANA_PixW_RBV:
+      type: scalar
+      description: Full image width (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:PixW_RBV
+    ANA_PixelResults_RBV:
+      type: waveform
+      description: Image analysis results in pixels
+      pv: CLA-FEA-DIA-CAM-03:ANA:PixelResults_RBV
+    ANA_SigmaXPix_RBV:
+      type: statistical
+      description: Beam horizontal sigma readback value (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:SigmaXPix_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_SigmaX_RBV:
+      type: statistical
+      description: Beam horizontal sigma readback value (mm)
+      units: mm
+      pv: CLA-FEA-DIA-CAM-03:ANA:SigmaX_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_SigmaYPix_RBV:
+      type: statistical
+      description: Beam vertical sigma readback value (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:SigmaYPix_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_SigmaY_RBV:
+      type: statistical
+      description: Beam vertical sigma readback value (mm)
+      units: mm
+      pv: CLA-FEA-DIA-CAM-03:ANA:SigmaY_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_UseBkgrnd:
+      type: scalar
+      description: Subtract background for display
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseBkgrnd
+    ANA_UseBkgrnd_RBV:
+      type: scalar
+      description: Subtract background for display (readback)
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseBkgrnd_RBV
+    ANA_UseFloor:
+      type: scalar
+      description: Use floor for display
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseFloor
+    ANA_UseFloor_RBV:
+      type: scalar
+      description: Use floor for display (readback)
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseFloor_RBV
+    ANA_UseNPoint:
+      type: scalar
+      description: Use N-point scaling for display)
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseNPoint
+    ANA_UseNPoint_RBV:
+      type: scalar
+      description: Use N-point scaling for display (readback)
+      pv: CLA-FEA-DIA-CAM-03:ANA:UseNPoint_RBV
+    ANA_XPix_RBV:
+      type: statistical
+      description: Beam horizontal position (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:XPix_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_X_RBV:
+      type: statistical
+      description: Beam horizontal position (mm)
+      units: mm
+      pv: CLA-FEA-DIA-CAM-03:ANA:X_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_YPix_RBV:
+      type: statistical
+      description: Beam vertical position (pixels)
+      pv: CLA-FEA-DIA-CAM-03:ANA:YPix_RBV
+      auto_buffer: true
+      buffer_size: 10
+    ANA_Y_RBV:
+      type: statistical
+      description: Beam vertical position (pixels)
+      units: mm
+      pv: CLA-FEA-DIA-CAM-03:ANA:Y_RBV
+      auto_buffer: true
+      buffer_size: 10
+    Buffer_Status:
+      type: string
+      description: Status of buffer saving
+      pv: CLA-FEA-DIA-CAM-03:BUFF:StatusMessage
+    CAM1_ArrayData:
+      type: waveform
+      description: Full camera image
+      pv: CLA-FEA-DIA-CAM-03:CAM1:ArrayData
+    CAM2_ArrayData:
+      type: waveform
+      description: Mask image
+      pv: CLA-FEA-DIA-CAM-03:CAM2:ArrayData
+    CAM_AcquirePeriod_RBV:
+      type: scalar
+      description: Image acquisition period
+      units: s
+      pv: CLA-FEA-DIA-CAM-03:CAM:AcquirePeriod_RBV
+    CAM_AcquireTime_RBV:
+      type: statistical
+      description: Image acquisition time
+      units: s
+      pv: CLA-FEA-DIA-CAM-03:CAM:AcquireTime_RBV
+      auto_buffer: false
+      buffer_size: 10
+    CAM_Acquire_RBV:
+      type: binary
+      description: Camera acquiring state readback
+      pv: CLA-FEA-DIA-CAM-03:CAM:Acquire_RBV
+    CAM_Active_Count:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03OC-CS-03:cameraCount
+    CAM_Active_Limit:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03OC-CS-03:cameraLimit
+    CAM_ArrayRate_RBV:
+      type: statistical
+      description: Camera acquisition rate
+      units: Hz
+      pv: CLA-FEA-DIA-CAM-03:CAM:ArrayRate_RBV
+      auto_buffer: false
+      buffer_size: 10
+    CAM_Start_Acquire:
+      type: binary
+      description: Start camera acquiring
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:Start
+    CAM_Stop_Acquire:
+      type: binary
+      description: Stop camera acquiring
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:Stop
+    CAM_Temperature_RBV:
+      type: scalar
+      description: Camera temperature
+      units: K
+      pv: CLA-FEA-DIA-CAM-03:CAM:Temperature_RBV
+    HDFB_AutoSave:
+      type: binary
+      description: Autosave HDF buffer images.
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFB:AutoSave
+    HDFB_Buffer_FileNumber:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileNumber
+    HDFB_Buffer_FileNumber_RBV:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileNumber_RBV
+    HDFB_Capture:
+      type: binary
+      description: HDF buffer image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFB:Capture
+    HDFB_Capture_DISV:
+      type: binary
+      description: HDF buffer image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFB:Capture.DISV
+    HDFB_Capture_RBV:
+      type: binary
+      description: HDF buffer image capture state (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:Capture_RBV
+    HDFB_FileName:
+      type: string
+      description: Last saved HDF buffer image name
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileName
+    HDFB_FileName_RBV:
+      type: string
+      description: Last saved HDF buffer image name readback
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileName_RBV
+    HDFB_FileNumber:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileNumber
+    HDFB_FileNumber_RBV:
+      type: statistical
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileNumber_RBV
+      auto_buffer: false
+      buffer_size: 10
+    HDFB_FilePath:
+      type: string
+      description: File path to claraserv3 buffer image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FilePath
+    HDFB_FilePath_RBV:
+      type: string
+      description: File path to claraserv3 buffer image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FilePath_RBV
+    HDFB_FileWriteMode:
+      type: state
+      description: Save mode for HDF buffer images.
+      states:
+        CAPTURE: 1
+        SINGLE: 0
+        STREAM: 2
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileWriteMode
+    HDFB_NumCapture:
+      type: scalar
+      description: Number of HDF buffer images to collect
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFB:NumCapture
+    HDFB_NumCapture_RBV:
+      type: scalar
+      description: Number of HDF buffer images to collect
+      pv: CLA-FEA-DIA-CAM-03:HDFB:NumCapture_RBV
+    HDFB_NumCaptured_RBV:
+      type: scalar
+      description: Number of buffer images captured
+      pv: CLA-FEA-DIA-CAM-03:HDFB:NumCaptured_RBV
+    HDFB_NumImagesCached_RBV:
+      type: scalar
+      description: Number of buffer images cached
+      pv: CLA-FEA-DIA-CAM-03:BUFF:CurrentQty_RBV
+    HDFB_PostCount:
+      type: scalar
+      description: Post-count number of buffer images
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:BUFF:PostCount
+    HDFB_PreCount:
+      type: scalar
+      description: Pre-count number of buffer images
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:BUFF:PreCount
+    HDFB_WriteFile:
+      type: binary
+      description: Write HDF buffer file status
+      pv: CLA-FEA-DIA-CAM-03:HDFB:WriteFile
+    HDFB_WriteFile_RBV:
+      type: binary
+      description: Write HDF buffer file status (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:WriteFile_RBV
+    HDFB_WriteMessage:
+      type: string
+      description: 
+      pv: CLA-FEA-DIA-CAM-03:HDFB:WriteMessage
+    HDFB_WriteStatus:
+      type: binary
+      description: Status of writing to HDF buffer
+      pv: CLA-FEA-DIA-CAM-03:HDFB:WriteStatus
+    HDFB_image_buffer_fileName:
+      type: string
+      description: Image buffer filename
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileName
+    HDFB_image_buffer_fileName_RBV:
+      type: string
+      description: Image buffer filename (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FileName_RBV
+    HDFB_image_buffer_filePath:
+      type: string
+      description: Image buffer file path
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FilePath
+    HDFB_image_buffer_filePath_RBV:
+      type: string
+      description: Image buffer file path (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDFB:FilePath_RBV
+    HDFB_image_buffer_trigger:
+      type: scalar
+      description: Trigger image buffer collection
+      pv: CLA-FEA-DIA-CAM-03:CAM:Trigger.PROC
+    HDFM_AutoSave:
+      type: binary
+      description: Autosave HDF mask images.
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFM:AutoSave
+    HDFM_Capture:
+      type: binary
+      description: HDF mask image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFM:Capture
+    HDFM_Capture_DISV:
+      type: binary
+      description: HDF mask image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFM:Capture.DISV
+    HDFM_Capture_RBV:
+      type: binary
+      description: HDF mask image capture state (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDFM:Capture_RBV
+    HDFM_FileName:
+      type: string
+      description: Last saved HDF mask image name
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FileName
+    HDFM_FileName_RBV:
+      type: string
+      description: Last saved HDF mask image name readback
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FileName_RBV
+    HDFM_FileNumber:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FileNumber
+    HDFM_FileNumber_RBV:
+      type: statistical
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FileNumber_RBV
+      auto_buffer: false
+      buffer_size: 10
+    HDFM_FilePath:
+      type: string
+      description: File path to claraserv3 mask image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FilePath
+    HDFM_FilePath_RBV:
+      type: string
+      description: File path to claraserv3 mask image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FilePath_RBV
+    HDFM_FileWriteMode:
+      type: state
+      description: Save mode for HDF mask images.
+      states:
+        CAPTURE: 1
+        SINGLE: 0
+        STREAM: 2
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFM:FileWriteMode
+    HDFM_NumCapture:
+      type: scalar
+      description: Number of HDF mask images to collect
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDFM:NumCapture
+    HDFM_NumCapture_RBV:
+      type: scalar
+      description: Number of HDF mask images to collect
+      pv: CLA-FEA-DIA-CAM-03:HDFM:NumCapture_RBV
+    HDFM_WriteFile:
+      type: binary
+      description: Write HDF mask file
+      pv: CLA-FEA-DIA-CAM-03:HDFM:WriteFile
+    HDFM_WriteFile_RBV:
+      type: binary
+      description: 
+      pv: CLA-FEA-DIA-CAM-03:HDFM:WriteFile_RBV
+    HDFM_WriteMessage:
+      type: string
+      description: 
+      pv: CLA-FEA-DIA-CAM-03:HDFM:WriteMessage
+    HDFM_WriteStatus:
+      type: binary
+      description: Status of writing to compressed HDF
+      pv: CLA-FEA-DIA-CAM-03:HDFM:WriteStatus
+    HDF_AutoSave:
+      type: binary
+      description: Autosave HDF images.
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDF:AutoSave
+    HDF_Capture:
+      type: binary
+      description: HDF image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDF:Capture
+    HDF_Capture_DISV:
+      type: binary
+      description: HDF image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDF:Capture.DISV
+    HDF_Capture_RBV:
+      type: binary
+      description: HDF image capture state (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDF:Capture_RBV
+    HDF_FileName:
+      type: string
+      description: Last saved HDF image name
+      pv: CLA-FEA-DIA-CAM-03:HDF:FileName
+    HDF_FileName_RBV:
+      type: string
+      description: Last saved HDF image name readback
+      pv: CLA-FEA-DIA-CAM-03:HDF:FileName_RBV
+    HDF_FileNumber:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDF:FileNumber
+    HDF_FileNumber_RBV:
+      type: statistical
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDF:FileNumber_RBV
+      auto_buffer: false
+      buffer_size: 10
+    HDF_FilePath:
+      type: string
+      description: File path to claraserv3 (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDF:FilePath
+    HDF_FilePath_RBV:
+      type: string
+      description: File path to claraserv3 (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:HDF:FilePath_RBV
+    HDF_FileWriteMode:
+      type: state
+      description: Save mode for HDF images.
+      states:
+        CAPTURE: 1
+        SINGLE: 0
+        STREAM: 2
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDF:FileWriteMode
+    HDF_NumCapture:
+      type: scalar
+      description: Number of HDF images to collect
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:HDF:NumCapture
+    HDF_NumCapture_RBV:
+      type: scalar
+      description: Number of HDF images to collect
+      pv: CLA-FEA-DIA-CAM-03:HDF:NumCapture_RBV
+    HDF_WriteFile:
+      type: binary
+      description: Write HDF file
+      pv: CLA-FEA-DIA-CAM-03:HDF:WriteFile
+    HDF_WriteFile_RBV:
+      type: binary
+      description: HDF file writing status (readback)
+      pv: CLA-FEA-DIA-CAM-03:HDF:WriteFile_RBV
+    HDF_WriteMessage:
+      type: string
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:HDF:WriteMessage
+    HDF_WriteStatus:
+      type: binary
+      description: HDF file writing status
+      pv: CLA-FEA-DIA-CAM-03:HDF:WriteStatus
+    Init_Buffer:
+      type: binary
+      description: Initialise image save path
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:InitBuffering.PROC
+    LED_Off:
+      type: binary
+      description: Switch LEDs on
+      read_only: false
+      pv: CLA-LAS-DIA-LED-01:Off
+    LED_On:
+      type: binary
+      description: Switch LEDs off
+      read_only: false
+      pv: CLA-LAS-DIA-LED-01:On
+    LED_Sta:
+      type: binary
+      description: Are LEDs on?
+      pv: CLA-LAS-DIA-LED-01:Sta
+    MAGICK_AutoSave:
+      type: binary
+      description: Autosave compressed images.
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:AutoSave
+    MAGICK_Capture:
+      type: binary
+      description: Compressed image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:Capture
+    MAGICK_Capture_DISV:
+      type: binary
+      description: Compressed image capture state
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:Capture.DISV
+    MAGICK_Capture_RBV:
+      type: binary
+      description: Compressed image capture state (readback)
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:Capture_RBV
+    MAGICK_FileName:
+      type: string
+      description: Last saved HDF compressed image name
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FileName
+    MAGICK_FileName_RBV:
+      type: string
+      description: Last saved compressed image name readback
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FileName_RBV
+    MAGICK_FileNumber:
+      type: scalar
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FileNumber
+    MAGICK_FileNumber_RBV:
+      type: statistical
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FileNumber_RBV
+      auto_buffer: false
+      buffer_size: 10
+    MAGICK_FilePath:
+      type: string
+      description: File path to claraserv3 compressed image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FilePath
+    MAGICK_FilePath_RBV:
+      type: string
+      description: File path to claraserv3 compressed image (server path not indicated)
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FilePath_RBV
+    MAGICK_FileWriteMode:
+      type: state
+      description: Save mode for compressed images.
+      states:
+        CAPTURE: 1
+        SINGLE: 0
+        STREAM: 2
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:FileWriteMode
+    MAGICK_NumCapture:
+      type: scalar
+      description: Number of compressed images to collect
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:NumCapture
+    MAGICK_NumCapture_RBV:
+      type: scalar
+      description: Number of compressed images to collect
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:NumCapture_RBV
+    MAGICK_WriteFile:
+      type: binary
+      description: Write compressed file
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:WriteFile
+    MAGICK_WriteFile_RBV:
+      type: binary
+      description: Gets the state of writing procedure for compressed file.
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:WriteFile_RBV
+    MAGICK_WriteMessage:
+      type: string
+      description: Not sure
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:WriteMessage
+    MAGICK_WriteStatus:
+      type: binary
+      description: Gets the writing status for compressed file.
+      pv: CLA-FEA-DIA-CAM-03:MAGICK:WriteStatus
+    ROI1_ImageData_RBV:
+      type: waveform
+      description: Camera array data inside ROI
+      pv: CLA-FEA-DIA-CAM-03:CAM3:ArrayData
+    ROI1_MinX:
+      type: statistical
+      description: Horizontal minimum inside ROI
+      pv: CLA-FEA-DIA-CAM-03:ROI1:MinX
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_MinX_RBV:
+      type: statistical
+      description: Horizontal minimum inside ROI (readback)
+      pv: CLA-FEA-DIA-CAM-03:ROI1:MinX_RBV
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_MinY:
+      type: statistical
+      description: Vertical minimum inside ROI
+      pv: CLA-FEA-DIA-CAM-03:ROI1:MinY
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_MinY_RBV:
+      type: statistical
+      description: Vertical minimum inside ROI (readback)
+      pv: CLA-FEA-DIA-CAM-03:ROI1:MinY_RBV
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_SizeX:
+      type: statistical
+      description: ROI horizontal size
+      pv: CLA-FEA-DIA-CAM-03:ROI1:SizeX
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_SizeX_RBV:
+      type: statistical
+      description: 
+      pv: CLA-FEA-DIA-CAM-03:ROI1:SizeX_RBV
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_SizeY:
+      type: statistical
+      description: ROI vertical size
+      pv: CLA-FEA-DIA-CAM-03:ROI1:SizeY
+      auto_buffer: false
+      buffer_size: 10
+    ROI1_SizeY_RBV:
+      type: statistical
+      description: 
+      pv: CLA-FEA-DIA-CAM-03:ROI1:SizeY_RBV
+      auto_buffer: false
+      buffer_size: 10
+    ROIandMask_SetX:
+      type: statistical
+      description: Set ROI horizontal position
+      pv: CLA-FEA-DIA-CAM-03:ANA:SetX
+      auto_buffer: false
+      buffer_size: 10
+    ROIandMask_SetXrad:
+      type: statistical
+      description: Set ROI horizontal radius
+      pv: CLA-FEA-DIA-CAM-03:ANA:SetXRad
+      auto_buffer: false
+      buffer_size: 10
+    ROIandMask_SetY:
+      type: statistical
+      description: Set ROI vertical position
+      pv: CLA-FEA-DIA-CAM-03:ANA:SetY
+      auto_buffer: false
+      buffer_size: 10
+    ROIandMask_SetYrad:
+      type: statistical
+      description: Set ROI vertical radius
+      pv: CLA-FEA-DIA-CAM-03:ANA:SetYRad
+      auto_buffer: false
+      buffer_size: 10
+    Reset_Buffer:
+      type: binary
+      description: Reset (clear) buffer
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:Reset.PROC
+    Save:
+      type: binary
+      description: Start image save procedure
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:ImageSave.PROC
+    Save_Buffer:
+      type: binary
+      description: Start image buffer save procedure
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:Trigger.PROC
+    Save_Buffer_Path_Initialise:
+      type: binary
+      description: Initialise image buffer save path
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:ConstructFilePath.PROC
+    Save_Path_Initialise:
+      type: binary
+      description: Initialise image save path
+      read_only: false
+      pv: CLA-FEA-DIA-CAM-03:CAM:ConstructSaveFilePath.PROC
+properties:
+  name: CLA-FEA-DIA-CAM-03
+  name_alias: FEA-CAM-03,FEA-CAM3
+  position: 57.84960557
+  camera_type: 
+  hardware_type: Camera
+  machine_area: FEA

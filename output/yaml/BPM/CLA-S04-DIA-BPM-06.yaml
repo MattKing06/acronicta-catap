@@ -1,0 +1,61 @@
+controls_information:
+  pv_record_map:
+    AWAK:
+      type: binary
+      description: Status of triggering on the BPM
+      pv: CLA-S04-DIA-BPM-06:AWAK
+    RA1:
+      type: scalar
+      description: The readback for the attenuator 1 setting
+      pv: CLA-S04-DIA-BPM-06:RA1
+    RA2:
+      type: scalar
+      description: The readback for the attenuator 2 setting
+      pv: CLA-S04-DIA-BPM-06:RA2
+    RD1:
+      type: scalar
+      description: The readback for the delay 1 setting
+      pv: CLA-S04-DIA-BPM-06:RD1
+    RD2:
+      type: scalar
+      description: The readback for the delay 2 setting
+      pv: CLA-S04-DIA-BPM-06:RD2
+    RDY:
+      type: binary
+      description: Describes whether there is beam or not for the BPM
+      pv: CLA-S04-DIA-BPM-06:RDY
+    SA1:
+      type: scalar
+      description: The setter for attenuator 1
+      pv: CLA-S04-DIA-BPM-06:SA1
+    SA2:
+      type: scalar
+      description: The setter for attenuator 2
+      pv: CLA-S04-DIA-BPM-06:SA2
+    SD1:
+      type: scalar
+      description: The setter for delay 1
+      pv: CLA-S04-DIA-BPM-06:SD1
+    SD2:
+      type: scalar
+      description: The setter for delay 2
+      pv: CLA-S04-DIA-BPM-06:SD2
+    X:
+      type: statistical
+      description: readback for the beam x-position
+      pv: CLA-S04-DIA-BPM-06:X
+      auto_buffer: false
+      buffer_size: 10
+    Y:
+      type: statistical
+      description: readback for the beam y-position
+      pv: CLA-S04-DIA-BPM-06:Y
+      auto_buffer: false
+      buffer_size: 10
+properties:
+  name: CLA-S04-DIA-BPM-06
+  name_alias: S04-BPM-06,S04-BPM-06
+  position: 3.6228
+  bpm_type: 
+  hardware_type: BPM
+  machine_area: S04
