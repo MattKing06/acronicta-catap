@@ -1,5 +1,5 @@
 
-from CATAP.common.machine.pv_utils import ScalarPV, BinaryPV, StatisticalPV, StatePV
+from CATAP.common.machine.pv_utils import ScalarPV, StatePV, BinaryPV, StatisticalPV
 from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
 from CATAP.common.machine.factory import Factory
 from CATAP.common.machine.area import MachineArea
@@ -12,25 +12,25 @@ class MagnetPVMap(PVMap):
     
     GETSETI: ScalarPV
     
-    ILK_RESET: BinaryPV
-    
-    READI: StatisticalPV
-    
-    RILK: StatePV
+    SPOWER: StatePV
     
     RPOWER: StatePV
     
-    SETI: ScalarPV
+    ILK_RESET: BinaryPV
     
-    SETK: ScalarPV
-    
-    SPOWER: StatePV
+    RILK: BinaryPV
     
     ILK_ON: BinaryPV
     
     ILK_OFF: BinaryPV
     
-    ILK_PSU_RESET: BinaryPV = None
+    ILK_PSU_RESET: BinaryPV
+    
+    READI: StatisticalPV
+    
+    SETI: ScalarPV
+    
+    SETK: ScalarPV
     
     READK: StatisticalPV
     
@@ -61,6 +61,24 @@ class MagnetPVMap(PVMap):
     
     
     @property
+    def spower(self):
+        return self.SPOWER.get()
+    
+    @spower.setter
+    def spower(self, value):
+        self.SPOWER.put(value)
+    
+    
+    @property
+    def rpower(self):
+        return self.RPOWER.get()
+    
+    @rpower.setter
+    def rpower(self, value):
+        self.RPOWER.put(value)
+    
+    
+    @property
     def ilk_reset(self):
         return self.ILK_RESET.get()
     
@@ -70,45 +88,8 @@ class MagnetPVMap(PVMap):
     
     
     @property
-    def readi(self):
-        return self.READI.get()
-    
-    
-    @property
     def rilk(self):
         return self.RILK.get()
-    
-    
-    @property
-    def rpower(self):
-        return self.RPOWER.get()
-    
-    
-    @property
-    def seti(self):
-        return self.SETI.get()
-    
-    @seti.setter
-    def seti(self, value):
-        self.SETI.put(value)
-    
-    
-    @property
-    def setk(self):
-        return self.SETK.get()
-    
-    @setk.setter
-    def setk(self, value):
-        self.SETK.put(value)
-    
-    
-    @property
-    def spower(self):
-        return self.SPOWER.get()
-    
-    @spower.setter
-    def spower(self, value):
-        self.SPOWER.put(value)
     
     
     @property
@@ -136,6 +117,21 @@ class MagnetPVMap(PVMap):
     @ilk_psu_reset.setter
     def ilk_psu_reset(self, value):
         self.ILK_PSU_RESET.put(value)
+    
+    
+    @property
+    def readi(self):
+        return self.READI.get()
+    
+    
+    @property
+    def seti(self):
+        return self.SETI.get()
+    
+    
+    @property
+    def setk(self):
+        return self.SETK.get()
     
     
     @property
@@ -195,6 +191,24 @@ class MagnetControlsInformation(ControlsInformation):
     
     
     @property
+    def spower(self):
+        return self.pv_record_map.spower
+    
+    @spower.setter
+    def spower(self, value):
+        self.pv_record_map.spower = value
+    
+    
+    @property
+    def rpower(self):
+        return self.pv_record_map.rpower
+    
+    @rpower.setter
+    def rpower(self, value):
+        self.pv_record_map.rpower = value
+    
+    
+    @property
     def ilk_reset(self):
         return self.pv_record_map.ilk_reset
     
@@ -204,45 +218,8 @@ class MagnetControlsInformation(ControlsInformation):
     
     
     @property
-    def readi(self):
-        return self.pv_record_map.readi
-    
-    
-    @property
     def rilk(self):
         return self.pv_record_map.rilk
-    
-    
-    @property
-    def rpower(self):
-        return self.pv_record_map.rpower
-    
-    
-    @property
-    def seti(self):
-        return self.pv_record_map.seti
-    
-    @seti.setter
-    def seti(self, value):
-        self.pv_record_map.seti = value
-    
-    
-    @property
-    def setk(self):
-        return self.pv_record_map.setk
-    
-    @setk.setter
-    def setk(self, value):
-        self.pv_record_map.setk = value
-    
-    
-    @property
-    def spower(self):
-        return self.pv_record_map.spower
-    
-    @spower.setter
-    def spower(self, value):
-        self.pv_record_map.spower = value
     
     
     @property
@@ -273,6 +250,21 @@ class MagnetControlsInformation(ControlsInformation):
     
     
     @property
+    def readi(self):
+        return self.pv_record_map.readi
+    
+    
+    @property
+    def seti(self):
+        return self.pv_record_map.seti
+    
+    
+    @property
+    def setk(self):
+        return self.pv_record_map.setk
+    
+    
+    @property
     def readk(self):
         return self.pv_record_map.readk
     
@@ -288,43 +280,10 @@ class MagnetProperties(Properties):
     """
 
     
-    degauss_tolerance: float
-    """"""
-    
-    degauss_values: str
-    """"""
-    
-    field_integral_coefficients: str
-    """"""
-    
-    mag_set_max_wait_time: float
-    """"""
-    
-    magnet_type: str
-    """"""
-    
-    magnetic_length: float
-    """"""
-    
-    manufacturer: str
-    """"""
-    
-    max_i: float
-    """"""
-    
-    min_i: float
-    """"""
-    
-    num_degauss_steps: int
+    type: str
     """"""
     
     position: float
-    """"""
-    
-    ri_tolerance: float
-    """"""
-    
-    serial_number: str | int
     """"""
     
 
@@ -339,133 +298,14 @@ class MagnetProperties(Properties):
 
     
     @property
-    def degauss_tolerance(self):
-        return self.degauss_tolerance
-    
-    @property
-    def degauss_values(self):
-        return self.degauss_values
-    
-    @property
-    def field_integral_coefficients(self):
-        return self.field_integral_coefficients
-    
-    @property
-    def mag_set_max_wait_time(self):
-        return self.mag_set_max_wait_time
-    
-    @property
-    def magnet_type(self):
-        return self.magnet_type
-    
-    @property
-    def magnetic_length(self):
-        return self.magnetic_length
-    
-    @property
-    def manufacturer(self):
-        return self.manufacturer
-    
-    @property
-    def max_i(self):
-        return self.max_i
-    
-    @property
-    def min_i(self):
-        return self.min_i
-    
-    @property
-    def num_degauss_steps(self):
-        return self.num_degauss_steps
+    def type(self):
+        return self.type
     
     @property
     def position(self):
         return self.position
     
-    @property
-    def ri_tolerance(self):
-        return self.ri_tolerance
-    
-    @property
-    def serial_number(self):
-        return self.serial_number
-    
 
-    
-    @property
-    def degauss_tolerance(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.degauss_tolerance
-
-    @degauss_tolerance.setter
-    def degauss_tolerance(self, value: float) -> None:
-        self.degauss_tolerance = value
-    
-    @property
-    def mag_max_wait_time(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.mag_set_max_wait_time
-
-    @mag_max_wait_time.setter
-    def mag_max_wait_time(self, value: float) -> None:
-        self.mag_set_max_wait_time = value
-    
-    @property
-    def magnetic_length(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.magnetic_length
-
-    @magnetic_length.setter
-    def magnetic_length(self, value: float) -> None:
-        self.magnetic_length = value
-    
-    @property
-    def max_i(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.max_i
-
-    @max_i.setter
-    def max_i(self, value: float) -> None:
-        self.max_i = value
-    
-    @property
-    def min_i(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.min_i
-
-    @min_i.setter
-    def min_i(self, value: float) -> None:
-        self.min_i = value
     
     @property
     def position(self) -> float:
@@ -481,21 +321,6 @@ class MagnetProperties(Properties):
     @position.setter
     def position(self, value: float) -> None:
         self.position = value
-    
-    @property
-    def ri_tolerance(self) -> float:
-        """
-        
-
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.ri_tolerance
-
-    @ri_tolerance.setter
-    def ri_tolerance(self, value: float) -> None:
-        self.ri_tolerance = value
     
 
 class Magnet(Hardware):
@@ -563,6 +388,24 @@ class Magnet(Hardware):
     
     
     @property
+    def spower(self):
+        return self.controls_information.spower
+    
+    @spower.setter
+    def spower(self, value):
+        self.controls_information.spower = value
+    
+    
+    @property
+    def rpower(self):
+        return self.controls_information.rpower
+    
+    @rpower.setter
+    def rpower(self, value):
+        self.controls_information.rpower = value
+    
+    
+    @property
     def ilk_reset(self):
         return self.controls_information.ilk_reset
     
@@ -572,45 +415,8 @@ class Magnet(Hardware):
     
     
     @property
-    def readi(self):
-        return self.controls_information.readi
-    
-    
-    @property
     def rilk(self):
         return self.controls_information.rilk
-    
-    
-    @property
-    def rpower(self):
-        return self.controls_information.rpower
-    
-    
-    @property
-    def seti(self):
-        return self.controls_information.seti
-    
-    @seti.setter
-    def seti(self, value):
-        self.controls_information.seti = value
-    
-    
-    @property
-    def setk(self):
-        return self.controls_information.setk
-    
-    @setk.setter
-    def setk(self, value):
-        self.controls_information.setk = value
-    
-    
-    @property
-    def spower(self):
-        return self.controls_information.spower
-    
-    @spower.setter
-    def spower(self, value):
-        self.controls_information.spower = value
     
     
     @property
@@ -638,6 +444,21 @@ class Magnet(Hardware):
     @ilk_psu_reset.setter
     def ilk_psu_reset(self, value):
         self.controls_information.ilk_psu_reset = value
+    
+    
+    @property
+    def readi(self):
+        return self.controls_information.readi
+    
+    
+    @property
+    def seti(self):
+        return self.controls_information.seti
+    
+    
+    @property
+    def setk(self):
+        return self.controls_information.setk
     
     
     @property
@@ -694,41 +515,17 @@ class MagnetFactory(Factory):
         """
         return self._get_property(name, property_=lambda magnet: magnet.getseti)
     
-    def ilk_reset(self, name: Union[str, List[str], None] = None):
+    def spower(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'ilk_reset' property of the magnet(s).
+        Returns the 'spower' property of the magnet(s).
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'ILK_RESET' property.
+        :return: Value(s) of the 'SPOWER' property.
         :rtype: property value or Dict[str, property value]
         """
-        return self._get_property(name, property_=lambda magnet: magnet.ilk_reset)
-    
-    def readi(self, name: Union[str, List[str], None] = None):
-        """
-        Returns the 'readi' property of the magnet(s).
-
-        :param name: Name(s) of the magnet.
-        :type name: str or list of str or None
-
-        :return: Value(s) of the 'READI' property.
-        :rtype: property value or Dict[str, property value]
-        """
-        return self._get_property(name, property_=lambda magnet: magnet.readi)
-    
-    def rilk(self, name: Union[str, List[str], None] = None):
-        """
-        Returns the 'rilk' property of the magnet(s).
-
-        :param name: Name(s) of the magnet.
-        :type name: str or list of str or None
-
-        :return: Value(s) of the 'RILK' property.
-        :rtype: property value or Dict[str, property value]
-        """
-        return self._get_property(name, property_=lambda magnet: magnet.rilk)
+        return self._get_property(name, property_=lambda magnet: magnet.spower)
     
     def rpower(self, name: Union[str, List[str], None] = None):
         """
@@ -742,41 +539,29 @@ class MagnetFactory(Factory):
         """
         return self._get_property(name, property_=lambda magnet: magnet.rpower)
     
-    def seti(self, name: Union[str, List[str], None] = None):
+    def ilk_reset(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'seti' property of the magnet(s).
+        Returns the 'ilk_reset' property of the magnet(s).
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SETI' property.
+        :return: Value(s) of the 'ILK_RESET' property.
         :rtype: property value or Dict[str, property value]
         """
-        return self._get_property(name, property_=lambda magnet: magnet.seti)
+        return self._get_property(name, property_=lambda magnet: magnet.ilk_reset)
     
-    def setk(self, name: Union[str, List[str], None] = None):
+    def rilk(self, name: Union[str, List[str], None] = None):
         """
-        Returns the 'setk' property of the magnet(s).
+        Returns the 'rilk' property of the magnet(s).
 
         :param name: Name(s) of the magnet.
         :type name: str or list of str or None
 
-        :return: Value(s) of the 'SETK' property.
+        :return: Value(s) of the 'RILK' property.
         :rtype: property value or Dict[str, property value]
         """
-        return self._get_property(name, property_=lambda magnet: magnet.setk)
-    
-    def spower(self, name: Union[str, List[str], None] = None):
-        """
-        Returns the 'spower' property of the magnet(s).
-
-        :param name: Name(s) of the magnet.
-        :type name: str or list of str or None
-
-        :return: Value(s) of the 'SPOWER' property.
-        :rtype: property value or Dict[str, property value]
-        """
-        return self._get_property(name, property_=lambda magnet: magnet.spower)
+        return self._get_property(name, property_=lambda magnet: magnet.rilk)
     
     def ilk_on(self, name: Union[str, List[str], None] = None):
         """
@@ -813,6 +598,42 @@ class MagnetFactory(Factory):
         :rtype: property value or Dict[str, property value]
         """
         return self._get_property(name, property_=lambda magnet: magnet.ilk_psu_reset)
+    
+    def readi(self, name: Union[str, List[str], None] = None):
+        """
+        Returns the 'readi' property of the magnet(s).
+
+        :param name: Name(s) of the magnet.
+        :type name: str or list of str or None
+
+        :return: Value(s) of the 'READI' property.
+        :rtype: property value or Dict[str, property value]
+        """
+        return self._get_property(name, property_=lambda magnet: magnet.readi)
+    
+    def seti(self, name: Union[str, List[str], None] = None):
+        """
+        Returns the 'seti' property of the magnet(s).
+
+        :param name: Name(s) of the magnet.
+        :type name: str or list of str or None
+
+        :return: Value(s) of the 'SETI' property.
+        :rtype: property value or Dict[str, property value]
+        """
+        return self._get_property(name, property_=lambda magnet: magnet.seti)
+    
+    def setk(self, name: Union[str, List[str], None] = None):
+        """
+        Returns the 'setk' property of the magnet(s).
+
+        :param name: Name(s) of the magnet.
+        :type name: str or list of str or None
+
+        :return: Value(s) of the 'SETK' property.
+        :rtype: property value or Dict[str, property value]
+        """
+        return self._get_property(name, property_=lambda magnet: magnet.setk)
     
     def readk(self, name: Union[str, List[str], None] = None):
         """

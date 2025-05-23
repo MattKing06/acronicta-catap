@@ -1,0 +1,30 @@
+controls_information:
+  pv_record_map:
+{% for pv_name, pv in controls_information.pv_record_map.items() %}
+    {{ pv_name }}:
+      type: {{ pv.type }}
+      description: {{ pv.description }}
+{% if pv.units is defined %}
+      units: {{ pv.units }}
+{% endif %}
+{% if pv.states is defined %}
+      states:
+{% for state, val in pv.states.items() %}
+        {{ state }}: {{ val }}
+{% endfor %}
+{% endif %}
+{% if pv.read_only is defined %}
+      read_only: {{ pv.read_only | lower }}
+{% endif %}
+      pv: {{ pv.pv }}
+{% if pv.auto_buffer is defined %}
+      auto_buffer: {{ pv.auto_buffer | lower }}
+{% endif %}
+{% if pv.buffer_size is defined %}
+      buffer_size: {{ pv.buffer_size }}
+{% endif %}
+{% endfor %}
+properties:
+{% for prop, value in properties.items() %}
+  {{ prop }}: {{ value }}
+{% endfor %}

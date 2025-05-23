@@ -1,0 +1,76 @@
+controls_information:
+  pv_record_map:
+    GETSETI:
+      type: scalar
+      description: Gets the value of the target current for a magnet power supply.
+      pv: CLA-S02-MAG-VCOR-02:GETSETI
+    SPOWER:
+      type: state
+      description: Sets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:SPOWER
+    RPOWER:
+      type: state
+      description: Gets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:RPOWER
+    ILK_RESET:
+      type: binary
+      description: Resets the magnet interlocks
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:Rst
+    RILK:
+      type: binary
+      description: If the interlocks are clear, this enables them
+      pv: CLA-S02-MAG-VCOR-02:RILK
+    ILK_ON:
+      type: binary
+      description: If the interlocks are clear, this enables them
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:On
+    ILK_OFF:
+      type: binary
+      description: If the interlocks are clear, this disables them
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:Off
+    ILK_PSU_RESET:
+      type: binary
+      description: Reset the magnet power supply interlocks
+      read_only: false
+      pv: CLA-S02-MAG-VCOR-02:RESET
+    READI:
+      type: statistical
+      description: Gets the readback current of a magnet power supply.
+      pv: CLA-S02-MAG-VCOR-02:READI
+      auto_buffer: true
+      buffer_size: 10
+    SETI:
+      type: scalar
+      description: Sets the target current for a magnet power supply.
+      units: A
+      pv: CLA-S02-MAG-VCOR-02:SETI
+    SETK:
+      type: scalar
+      description: Sets the target field strength for a magnet. This ultimately sets a current for the power supply
+      units: K
+      pv: CLA-S02-MAG-VCOR-02:SETK
+    READK:
+      type: statistical
+      description: Reads the calculated K value for a magnet based on momentum of the section
+      units: K
+      pv: CLA-S02-MAG-VCOR-02:CalcK
+      auto_buffer: true
+      buffer_size: 10
+properties:
+  name: CLA-S02-MAG-VCOR-02
+  type: VERTICAL_CORRECTOR
+  hardware_type: Magnet
+  name_alias: S02-VCOR02,S02-VCOR-02,S02-VCOR2
+  position: 3.448080313
+  machine_area: S02

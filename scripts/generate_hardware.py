@@ -3,7 +3,7 @@ import os
 from jinja2 import Environment, FileSystemLoader
 
 # Load YAML data
-lattice_location = "../lattice"
+lattice_location = "../output/yaml"
 lattice_folders = os.listdir(lattice_location)
 example_files = []
 for folder in lattice_folders:

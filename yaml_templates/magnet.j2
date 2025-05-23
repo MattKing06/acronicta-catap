@@ -1,0 +1,99 @@
+{
+    "controls_information": {
+        "pv_record_map": {
+            "GETSETI": {
+                "type": "scalar",
+                "description": "Gets the value of the target current for a magnet power supply.",
+                "pv": "{{ name }}:GETSETI"
+            },
+            "SPOWER": {
+                "type": "state",
+                "description": "Sets the state of a power supply",
+                "states": {"OFF": 0, "ON": 1},
+                "read_only": false,
+                "pv": "{{ name }}:SPOWER"
+            },
+            "RPOWER": {
+                "type": "state",
+                "description": "Gets the state of a power supply",
+                "states": {"OFF": 0, "ON": 1},
+                "read_only": false,
+                "pv": "{{ name }}:RPOWER"
+            },
+            "ILK_RESET": {
+                "type": "binary",
+                "description": "Resets the magnet interlocks",
+                "read_only": false,
+                "pv": "{{ name }}:Rst"
+            },
+            "RILK": {
+                "type": "binary",
+                "description": "If the interlocks are clear, this enables them",
+                "pv": "{{ name }}:RILK"
+            },
+            "ILK_ON": {
+                "type": "binary",
+                "description": "If the interlocks are clear, this enables them",
+                "read_only": false,
+                "pv": "{{ name }}:On"
+            },
+            "ILK_OFF": {
+                "type": "binary",
+                "description": "If the interlocks are clear, this disables them",
+                "read_only": false,
+                "pv": "{{ name }}:Off"
+            },
+            "ILK_PSU_RESET": {
+                "type": "binary",
+                "description": "Reset the magnet power supply interlocks",
+                "read_only": false,
+                "pv": "{{ name }}:RESET"
+            },
+            "READI": {
+                "type": "statistical",
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Gets the readback current of a magnet power supply.",
+                "pv": "{{ name }}:READI"
+            },
+            "SETI": {
+                "type": "scalar",
+                "units": "A",
+                "description": "Sets the target current for a magnet power supply.",
+                "pv": "{{ name }}:SETI"
+            },
+            "SETK": {
+                "type": "scalar",
+                "units": "K",
+                "description": "Sets the target field strength for a magnet. This ultimately sets a current for the power supply",
+                "pv": "{{ name }}:SETK"
+            },
+            "READK": {
+                "type": "statistical",
+                "units": "K",
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Reads the calculated K value for a magnet based on momentum of the section",
+                "pv": "{{ name }}:CalcK"
+            }
+        }
+    },
+    "properties": {
+        "name": "{{ name }}",
+        "type": "{{ type }}",
+        "hardware_type": "Magnet",
+        "name_alias": "{{ name_alias }}",
+        "position": {{ position }},
+        "machine_area": "{{ machine_area }}"{% if max_i is defined %},
+        "max_i": {{ max_i }}{% endif %}{% if min_i is defined %},
+        "min_i": {{ min_i }}{% endif %}{% if manufacturer is defined %},
+        "manufacturer": "{{ manufacturer }}"{% endif %}{% if mag_set_max_wait_time is defined %},
+        "mag_set_max_wait_time": {{ mag_set_max_wait_time }}{% endif %}{% if mangetic_length is defined %},
+        "mangetic_length": {{ mangetic_length }}{% endif %}{% if degauss_tolerance is defined %},
+        "degauss_tolerance": {{ degauss_tolerance }}{% endif %}{% if degauss_values is defined %},
+        "degauss_values": "{{ degauss_values }}"{% endif %}{% if ri_tolerance is defined %},
+        "ri_tolerance": "{{ ri_tolerance }}"{% endif %}{% if field_integral_coefficients is defined %},
+        "field_integral_coefficients": "{{ field_integral_coefficients }}"{% endif %}{% if serial_number is defined %},
+        "serial_number": "{{ serial_number }}"{% endif %}
+    }
+}
