@@ -843,3 +843,4 @@ properties:
   name: CLA-S07-DIA-CAM-04
   name_alias: S07-CAM-04,S07-CAM4
   timeout: 30.0
+  position: 47.810933

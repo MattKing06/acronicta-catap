@@ -84,6 +84,6 @@ properties:
   name: CLA-S07-MAG-HCOR-08
   name_alias: S07-HCOR08,S07-HCOR-08,S07-HCOR8
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 50.001 # assumed from QUAD-11 position
   ri_tolerance: 0.1
   serial_number: '13260'

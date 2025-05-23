@@ -843,3 +843,4 @@ properties:
   name: CLA-SP2-DIA-CAM-01
   name_alias: SP2-CAM-01,SP2-CAM1
   timeout: 30.0
+  position: 33.903097

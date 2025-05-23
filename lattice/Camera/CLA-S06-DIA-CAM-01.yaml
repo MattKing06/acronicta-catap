@@ -843,3 +843,4 @@ properties:
   name: CLA-S06-DIA-CAM-01
   name_alias: S06-CAM-01,S06-CAM1
   timeout: 30.0
+  position: 32.925234

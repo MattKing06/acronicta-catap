@@ -35,3 +35,4 @@ properties:
   name: CLA-LAS-OPT-PICO-4C-PM-4
   name_alias: LAS-4C-PM-4, LAS-PM-4, LAS-PM4
   virtual_name: VM-INJ-DIA-DUMMY-01
+  position: -1.0

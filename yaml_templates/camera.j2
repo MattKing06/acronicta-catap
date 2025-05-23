@@ -1,0 +1,1013 @@
+{
+    "controls_information": {
+        "pv_record_map": {
+            "ANA_AvgIntensity_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Gets the average intensity readback for a camera.",
+                "pv": "{{ name }}:ANA:AvgIntensity_RBV",
+                "type": "statistical"
+            },
+            "ANA_CPU_CropSubMask_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Crop, subtract and mask CPU.",
+                "pv": "{{ name }}:ANA:CSM_CPU",
+                "type": "statistical"
+            },
+            "ANA_CPU_Dot_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Dot product CPU mSecs.",
+                "pv": "{{ name }}:ANA:DP_CPU",
+                "type": "statistical"
+            },
+            "ANA_CPU_Npoint_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "N-point CPU mSecs.",
+                "pv": "{{ name }}:ANA:NP_CPU",
+                "type": "statistical"
+            },
+            "ANA_CPU_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Total CPU mSecs.",
+                "pv": "{{ name }}:ANA:ANA_CPU",
+                "type": "statistical"
+            },
+            "ANA_CenterX": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Camera centre X position.",
+                "pv": "{{ name }}:ANA:CenterX",
+                "type": "statistical"
+            },
+            "ANA_CenterX_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Camera centre X position readback.",
+                "pv": "{{ name }}:ANA:CenterX_RBV",
+                "type": "statistical"
+            },
+            "ANA_CenterY": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Camera centre Y position.",
+                "pv": "{{ name }}:ANA:CenterY",
+                "type": "statistical"
+            },
+            "ANA_CenterY_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Camera centre Y position readback.",
+                "pv": "{{ name }}:ANA:CenterY_RBV",
+                "type": "statistical"
+            },
+            "ANA_CovXYPix_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "X-Y covariance in pixels.",
+                "pv": "{{ name }}:ANA:CovXYPix_RBV",
+                "type": "statistical"
+            },
+            "ANA_CovXY_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "X-Y covariance in pixels (readback).",
+                "pv": "{{ name }}:ANA:CovXY_RBV",
+                "type": "statistical"
+            },
+            "ANA_EnableCallbacks": {
+                "description": "Enable writing of analysis PVs (readback).",
+                "pv": "{{ name }}:ANA:EnableCallbacks",
+                "read_only": false,
+                "type": "binary"
+            },
+            "ANA_EnableCallbacks_RBV": {
+                "description": "Enable writing of analysis PVs (readback).",
+                "pv": "{{ name }}:ANA:EnableCallbacks_RBV",
+                "type": "binary"
+            },
+            "ANA_FloorLevel": {
+                "description": "Floor level (pixels) set value.",
+                "pv": "{{ name }}:ANA:Floor",
+                "type": "scalar"
+            },
+            "ANA_FloorLevel_RBV": {
+                "description": "Floor level (pixels) read value.",
+                "pv": "{{ name }}:ANA:Floor_RBV",
+                "type": "scalar"
+            },
+            "ANA_FlooredPercent_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Floor level (percent) read value.",
+                "pv": "{{ name }}:ANA:FLOORED_PCENT",
+                "type": "scalar"
+            },
+            "ANA_FlooredPoints_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Floor level (points) read value.",
+                "pv": "{{ name }}:ANA:FLOORED_PT",
+                "type": "scalar"
+            },
+            "ANA_Intensity_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Camera intensity readback.",
+                "pv": "{{ name }}:ANA:Intensity_RBV",
+                "type": "statistical"
+            },
+            "ANA_MMResults_RBV": {
+                "description": "Analysis results readback.",
+                "pv": "{{ name }}:ANA:MMResults_RBV",
+                "type": "waveform"
+            },
+            "ANA_MaskHeight_RBV": {
+                "description": "Height of mask (pixels).",
+                "pv": "{{ name }}:ANA:MaskHeight_RBV",
+                "type": "scalar"
+            },
+            "ANA_MaskWidth_RBV": {
+                "description": "Width of mask (pixels).",
+                "pv": "{{ name }}:ANA:MaskWidth_RBV",
+                "type": "scalar"
+            },
+            "ANA_MaskXCenter": {
+                "description": "Mask vertical centre (pixels).",
+                "pv": "{{ name }}:ANA:MaskXCenter",
+                "type": "scalar"
+            },
+            "ANA_MaskXCenter_RBV": {
+                "description": "Mask horizontal centre (pixels) readback.",
+                "pv": "{{ name }}:ANA:MaskXCenter_RBV",
+                "type": "scalar"
+            },
+            "ANA_MaskXRad": {
+                "description": "Mask horizontal radius (pixels).",
+                "pv": "{{ name }}:ANA:MaskXRad",
+                "type": "scalar"
+            },
+            "ANA_MaskXRad_RBV": {
+                "description": "Mask horizontal radius (pixels) readback",
+                "pv": "{{ name }}:ANA:MaskXRad_RBV",
+                "type": "scalar"
+            },
+            "ANA_MaskYCenter": {
+                "description": "Mask vertical centre (pixels).",
+                "pv": "{{ name }}:ANA:MaskYCenter",
+                "type": "scalar"
+            },
+            "ANA_MaskYCenter_RBV": {
+                "description": "Mask vertical centre (pixels) readback.",
+                "pv": "{{ name }}:ANA:MaskYCenter_RBV",
+                "type": "scalar"
+            },
+            "ANA_MaskYRad": {
+                "description": "Mask vertical radius (pixels).",
+                "pv": "{{ name }}:ANA:MaskYRad",
+                "type": "scalar"
+            },
+            "ANA_MaskYRad_RBV": {
+                "description": "Mask vertical radius (pixels) readback",
+                "pv": "{{ name }}:ANA:MaskYRad_RBV",
+                "type": "scalar"
+            },
+            "ANA_NPointStepSize": {
+                "description": "N-point scaling step size",
+                "pv": "{{ name }}:ANA:StepSize",
+                "type": "scalar"
+            },
+            "ANA_NPointStepSize_RBV": {
+                "description": "N-point scaling step size readback",
+                "pv": "{{ name }}:ANA:StepSize_RBV",
+                "type": "scalar"
+            },
+            "ANA_NewBkgrnd": {
+                "description": "Collect new background image",
+                "pv": "{{ name }}:ANA:NewBkgrnd",
+                "type": "scalar"
+            },
+            "ANA_NewBkgrnd_RBV": {
+                "description": "Status of background image collection",
+                "pv": "{{ name }}:ANA:NewBkgrnd_RBV",
+                "type": "scalar"
+            },
+            "ANA_OVERLAY_1_CROSS": {
+                "description": "Overlay crosshair",
+                "pv": "{{ name }}:OVER:1:Use",
+                "type": "binary"
+            },
+            "ANA_OVERLAY_1_CROSS_RBV": {
+                "description": "Overlay crosshair readback",
+                "pv": "{{ name }}:OVER:1:Use_RBV",
+                "type": "binary"
+            },
+            "ANA_OVERLAY_2_RESULT": {
+                "description": "Overlay beam position crosshair",
+                "pv": "{{ name }}:OVER:2:Use",
+                "type": "binary"
+            },
+            "ANA_OVERLAY_2_RESULT_RBV": {
+                "description": "Overlay beam position crosshair readback",
+                "pv": "{{ name }}:OVER:2:Use_RBV",
+                "type": "binary"
+            },
+            "ANA_OVERLAY_3_MASK": {
+                "description": "Overlay analysis mask",
+                "pv": "{{ name }}:OVER:3:Use",
+                "type": "binary"
+            },
+            "ANA_OVERLAY_3_MASK_RBV": {
+                "description": "Overlay analysis mask readback",
+                "pv": "{{ name }}:OVER:3:Use_RBV",
+                "type": "binary"
+            },
+            "ANA_PixH_RBV": {
+                "description": "Full image height (pixels)",
+                "pv": "{{ name }}:ANA:PixH_RBV",
+                "type": "scalar"
+            },
+            "ANA_PixMM": {
+                "description": "Pixel-to-mm conversion",
+                "pv": "{{ name }}:ANA:Pix",
+                "type": "scalar"
+            },
+            "ANA_PixMM_RBV": {
+                "description": "Pixel-to-mm conversion",
+                "pv": "{{ name }}:ANA:PixMM_RBV",
+                "type": "scalar"
+            },
+            "ANA_PixW_RBV": {
+                "description": "Full image width (pixels)",
+                "pv": "{{ name }}:ANA:PixW_RBV",
+                "type": "scalar"
+            },
+            "ANA_PixelResults_RBV": {
+                "description": "Image analysis results in pixels",
+                "pv": "{{ name }}:ANA:PixelResults_RBV",
+                "type": "waveform"
+            },
+            "ANA_SigmaXPix_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam horizontal sigma readback value (pixels)",
+                "pv": "{{ name }}:ANA:SigmaXPix_RBV",
+                "type": "statistical"
+            },
+            "ANA_SigmaX_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam horizontal sigma readback value (mm)",
+                "pv": "{{ name }}:ANA:SigmaX_RBV",
+                "type": "statistical",
+                "units": "mm"
+            },
+            "ANA_SigmaYPix_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam vertical sigma readback value (pixels)",
+                "pv": "{{ name }}:ANA:SigmaYPix_RBV",
+                "type": "statistical"
+            },
+            "ANA_SigmaY_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam vertical sigma readback value (mm)",
+                "pv": "{{ name }}:ANA:SigmaY_RBV",
+                "type": "statistical",
+                "units": "mm"
+            },
+            "ANA_UseBkgrnd": {
+                "description": "Subtract background for display",
+                "pv": "{{ name }}:ANA:UseBkgrnd",
+                "type": "scalar"
+            },
+            "ANA_UseBkgrnd_RBV": {
+                "description": "Subtract background for display (readback)",
+                "pv": "{{ name }}:ANA:UseBkgrnd_RBV",
+                "type": "scalar"
+            },
+            "ANA_UseFloor": {
+                "description": "Use floor for display",
+                "pv": "{{ name }}:ANA:UseFloor",
+                "type": "scalar"
+            },
+            "ANA_UseFloor_RBV": {
+                "description": "Use floor for display (readback)",
+                "pv": "{{ name }}:ANA:UseFloor_RBV",
+                "type": "scalar"
+            },
+            "ANA_UseNPoint": {
+                "description": "Use N-point scaling for display)",
+                "pv": "{{ name }}:ANA:UseNPoint",
+                "type": "scalar"
+            },
+            "ANA_UseNPoint_RBV": {
+                "description": "Use N-point scaling for display (readback)",
+                "pv": "{{ name }}:ANA:UseNPoint_RBV",
+                "type": "scalar"
+            },
+            "ANA_XPix_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam horizontal position (pixels)",
+                "pv": "{{ name }}:ANA:XPix_RBV",
+                "type": "statistical"
+            },
+            "ANA_X_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam horizontal position (mm)",
+                "pv": "{{ name }}:ANA:X_RBV",
+                "type": "statistical",
+                "units": "mm"
+            },
+            "ANA_YPix_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam vertical position (pixels)",
+                "pv": "{{ name }}:ANA:YPix_RBV",
+                "type": "statistical"
+            },
+            "ANA_Y_RBV": {
+                "auto_buffer": true,
+                "buffer_size": 10,
+                "description": "Beam vertical position (pixels)",
+                "pv": "{{ name }}:ANA:Y_RBV",
+                "type": "statistical",
+                "units": "mm"
+            },
+            "Buffer_Status": {
+                "description": "Status of buffer saving",
+                "pv": "{{ name }}:BUFF:StatusMessage",
+                "type": "string"
+            },
+            "CAM1_ArrayData": {
+                "description": "Full camera image",
+                "pv": "{{ name }}:CAM1:ArrayData",
+                "type": "waveform"
+            },
+            "CAM2_ArrayData": {
+                "description": "Mask image",
+                "pv": "{{ name }}:CAM2:ArrayData",
+                "type": "waveform"
+            },
+            "CAM_AcquirePeriod_RBV": {
+                "description": "Image acquisition period",
+                "pv": "{{ name }}:CAM:AcquirePeriod_RBV",
+                "type": "scalar",
+                "units": "s"
+            },
+            "CAM_AcquireTime_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Image acquisition time",
+                "pv": "{{ name }}:CAM:AcquireTime_RBV",
+                "type": "statistical",
+                "units": "s"
+            },
+            "CAM_Acquire_RBV": {
+                "description": "Camera acquiring state readback",
+                "pv": "{{ name }}:CAM:Acquire_RBV",
+                "type": "binary"
+            },
+            "CAM_Active_Count": {
+                "description": "Not sure",
+                "pv": "{{ name }}OC-CS-03:cameraCount",
+                "type": "scalar"
+            },
+            "CAM_Active_Limit": {
+                "description": "Not sure",
+                "pv": "{{ name }}OC-CS-03:cameraLimit",
+                "type": "scalar"
+            },
+            "CAM_ArrayRate_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Camera acquisition rate",
+                "pv": "{{ name }}:CAM:ArrayRate_RBV",
+                "type": "statistical",
+                "units": "Hz"
+            },
+            "CAM_Start_Acquire": {
+                "description": "Start camera acquiring",
+                "pv": "{{ name }}:CAM:Start",
+                "read_only": false,
+                "type": "binary"
+            },
+            "CAM_Stop_Acquire": {
+                "description": "Stop camera acquiring",
+                "pv": "{{ name }}:CAM:Stop",
+                "read_only": false,
+                "type": "binary"
+            },
+            "CAM_Temperature_RBV": {
+                "description": "Camera temperature",
+                "pv": "{{ name }}:CAM:Temperature_RBV",
+                "type": "scalar",
+                "units": "K"
+            },
+            "HDFB_AutoSave": {
+                "description": "Autosave HDF buffer images.",
+                "pv": "{{ name }}:HDFB:AutoSave",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFB_Buffer_FileNumber": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFB:FileNumber",
+                "type": "scalar"
+            },
+            "HDFB_Buffer_FileNumber_RBV": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFB:FileNumber_RBV",
+                "type": "scalar"
+            },
+            "HDFB_Capture": {
+                "description": "HDF buffer image capture state",
+                "pv": "{{ name }}:HDFB:Capture",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFB_Capture_DISV": {
+                "description": "HDF buffer image capture state",
+                "pv": "{{ name }}:HDFB:Capture.DISV",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFB_Capture_RBV": {
+                "description": "HDF buffer image capture state (readback)",
+                "pv": "{{ name }}:HDFB:Capture_RBV",
+                "type": "binary"
+            },
+            "HDFB_FileName": {
+                "description": "Last saved HDF buffer image name",
+                "pv": "{{ name }}:HDFB:FileName",
+                "type": "string"
+            },
+            "HDFB_FileName_RBV": {
+                "description": "Last saved HDF buffer image name readback",
+                "pv": "{{ name }}:HDFB:FileName_RBV",
+                "type": "string"
+            },
+            "HDFB_FileNumber": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFB:FileNumber",
+                "type": "scalar"
+            },
+            "HDFB_FileNumber_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFB:FileNumber_RBV",
+                "type": "statistical"
+            },
+            "HDFB_FilePath": {
+                "description": "File path to claraserv3 buffer image (server path not indicated)",
+                "pv": "{{ name }}:HDFB:FilePath",
+                "type": "string"
+            },
+            "HDFB_FilePath_RBV": {
+                "description": "File path to claraserv3 buffer image (server path not indicated)",
+                "pv": "{{ name }}:HDFB:FilePath_RBV",
+                "type": "string"
+            },
+            "HDFB_FileWriteMode": {
+                "description": "Save mode for HDF buffer images.",
+                "pv": "{{ name }}:HDFB:FileWriteMode",
+                "read_only": false,
+                "states": {"CAPTURE": 1, "SINGLE": 0, "STREAM": 2},
+                "type": "state"
+            },
+            "HDFB_NumCapture": {
+                "description": "Number of HDF buffer images to collect",
+                "pv": "{{ name }}:HDFB:NumCapture",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "HDFB_NumCapture_RBV": {
+                "description": "Number of HDF buffer images to collect",
+                "pv": "{{ name }}:HDFB:NumCapture_RBV",
+                "type": "scalar"
+            },
+            "HDFB_NumCaptured_RBV": {
+                "description": "Number of buffer images captured",
+                "pv": "{{ name }}:HDFB:NumCaptured_RBV",
+                "type": "scalar"
+            },
+            "HDFB_NumImagesCached_RBV": {
+                "description": "Number of buffer images cached",
+                "pv": "{{ name }}:BUFF:CurrentQty_RBV",
+                "type": "scalar"
+            },
+            "HDFB_PostCount": {
+                "description": "Post-count number of buffer images",
+                "pv": "{{ name }}:BUFF:PostCount",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "HDFB_PreCount": {
+                "description": "Pre-count number of buffer images",
+                "pv": "{{ name }}:BUFF:PreCount",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "HDFB_WriteFile": {
+                "description": "Write HDF buffer file status",
+                "pv": "{{ name }}:HDFB:WriteFile",
+                "type": "binary"
+            },
+            "HDFB_WriteFile_RBV": {
+                "description": "Write HDF buffer file status (readback)",
+                "pv": "{{ name }}:HDFB:WriteFile_RBV",
+                "type": "binary"
+            },
+            "HDFB_WriteMessage": {
+                "pv": "{{ name }}:HDFB:WriteMessage",
+                "type": "string"
+            },
+            "HDFB_WriteStatus": {
+                "description": "Status of writing to HDF buffer",
+                "pv": "{{ name }}:HDFB:WriteStatus",
+                "type": "binary"
+            },
+            "HDFB_image_buffer_fileName": {
+                "description": "Image buffer filename",
+                "pv": "{{ name }}:HDFB:FileName",
+                "type": "string"
+            },
+            "HDFB_image_buffer_fileName_RBV": {
+                "description": "Image buffer filename (readback)",
+                "pv": "{{ name }}:HDFB:FileName_RBV",
+                "type": "string"
+            },
+            "HDFB_image_buffer_filePath": {
+                "description": "Image buffer file path",
+                "pv": "{{ name }}:HDFB:FilePath",
+                "type": "string"
+            },
+            "HDFB_image_buffer_filePath_RBV": {
+                "description": "Image buffer file path (readback)",
+                "pv": "{{ name }}:HDFB:FilePath_RBV",
+                "type": "string"
+            },
+            "HDFB_image_buffer_trigger": {
+                "description": "Trigger image buffer collection",
+                "pv": "{{ name }}:CAM:Trigger.PROC",
+                "type": "scalar"
+            },
+            "HDFM_AutoSave": {
+                "description": "Autosave HDF mask images.",
+                "pv": "{{ name }}:HDFM:AutoSave",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFM_Capture": {
+                "description": "HDF mask image capture state",
+                "pv": "{{ name }}:HDFM:Capture",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFM_Capture_DISV": {
+                "description": "HDF mask image capture state",
+                "pv": "{{ name }}:HDFM:Capture.DISV",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDFM_Capture_RBV": {
+                "description": "HDF mask image capture state (readback)",
+                "pv": "{{ name }}:HDFM:Capture_RBV",
+                "type": "binary"
+            },
+            "HDFM_FileName": {
+                "description": "Last saved HDF mask image name",
+                "pv": "{{ name }}:HDFM:FileName",
+                "type": "string"
+            },
+            "HDFM_FileName_RBV": {
+                "description": "Last saved HDF mask image name readback",
+                "pv": "{{ name }}:HDFM:FileName_RBV",
+                "type": "string"
+            },
+            "HDFM_FileNumber": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFM:FileNumber",
+                "type": "scalar"
+            },
+            "HDFM_FileNumber_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Not sure",
+                "pv": "{{ name }}:HDFM:FileNumber_RBV",
+                "type": "statistical"
+            },
+            "HDFM_FilePath": {
+                "description": "File path to claraserv3 mask image (server path not indicated)",
+                "pv": "{{ name }}:HDFM:FilePath",
+                "type": "string"
+            },
+            "HDFM_FilePath_RBV": {
+                "description": "File path to claraserv3 mask image (server path not indicated)",
+                "pv": "{{ name }}:HDFM:FilePath_RBV",
+                "type": "string"
+            },
+            "HDFM_FileWriteMode": {
+                "description": "Save mode for HDF mask images.",
+                "pv": "{{ name }}:HDFM:FileWriteMode",
+                "read_only": false,
+                "states": {"CAPTURE": 1, "SINGLE": 0, "STREAM": 2},
+                "type": "state"
+            },
+            "HDFM_NumCapture": {
+                "description": "Number of HDF mask images to collect",
+                "pv": "{{ name }}:HDFM:NumCapture",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "HDFM_NumCapture_RBV": {
+                "description": "Number of HDF mask images to collect",
+                "pv": "{{ name }}:HDFM:NumCapture_RBV",
+                "type": "scalar"
+            },
+            "HDFM_WriteFile": {
+                "description": "Write HDF mask file",
+                "pv": "{{ name }}:HDFM:WriteFile",
+                "type": "binary"
+            },
+            "HDFM_WriteFile_RBV": {
+                "pv": "{{ name }}:HDFM:WriteFile_RBV",
+                "type": "binary"
+            },
+            "HDFM_WriteMessage": {
+                "pv": "{{ name }}:HDFM:WriteMessage",
+                "type": "string"
+            },
+            "HDFM_WriteStatus": {
+                "description": "Status of writing to compressed HDF",
+                "pv": "{{ name }}:HDFM:WriteStatus",
+                "type": "binary"
+            },
+            "HDF_AutoSave": {
+                "description": "Autosave HDF images.",
+                "pv": "{{ name }}:HDF:AutoSave",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDF_Capture": {
+                "description": "HDF image capture state",
+                "pv": "{{ name }}:HDF:Capture",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDF_Capture_DISV": {
+                "description": "HDF image capture state",
+                "pv": "{{ name }}:HDF:Capture.DISV",
+                "read_only": false,
+                "type": "binary"
+            },
+            "HDF_Capture_RBV": {
+                "description": "HDF image capture state (readback)",
+                "pv": "{{ name }}:HDF:Capture_RBV",
+                "type": "binary"
+            },
+            "HDF_FileName": {
+                "description": "Last saved HDF image name",
+                "pv": "{{ name }}:HDF:FileName",
+                "type": "string"
+            },
+            "HDF_FileName_RBV": {
+                "description": "Last saved HDF image name readback",
+                "pv": "{{ name }}:HDF:FileName_RBV",
+                "type": "string"
+            },
+            "HDF_FileNumber": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDF:FileNumber",
+                "type": "scalar"
+            },
+            "HDF_FileNumber_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Not sure",
+                "pv": "{{ name }}:HDF:FileNumber_RBV",
+                "type": "statistical"
+            },
+            "HDF_FilePath": {
+                "description": "File path to claraserv3 (server path not indicated)",
+                "pv": "{{ name }}:HDF:FilePath",
+                "type": "string"
+            },
+            "HDF_FilePath_RBV": {
+                "description": "File path to claraserv3 (server path not indicated)",
+                "pv": "{{ name }}:HDF:FilePath_RBV",
+                "type": "string"
+            },
+            "HDF_FileWriteMode": {
+                "description": "Save mode for HDF images.",
+                "pv": "{{ name }}:HDF:FileWriteMode",
+                "read_only": false,
+                "states": {"CAPTURE": 1, "SINGLE": 0, "STREAM": 2},
+                "type": "state"
+            },
+            "HDF_NumCapture": {
+                "description": "Number of HDF images to collect",
+                "pv": "{{ name }}:HDF:NumCapture",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "HDF_NumCapture_RBV": {
+                "description": "Number of HDF images to collect",
+                "pv": "{{ name }}:HDF:NumCapture_RBV",
+                "type": "scalar"
+            },
+            "HDF_WriteFile": {
+                "description": "Write HDF file",
+                "pv": "{{ name }}:HDF:WriteFile",
+                "type": "binary"
+            },
+            "HDF_WriteFile_RBV": {
+                "description": "HDF file writing status (readback)",
+                "pv": "{{ name }}:HDF:WriteFile_RBV",
+                "type": "binary"
+            },
+            "HDF_WriteMessage": {
+                "description": "Not sure",
+                "pv": "{{ name }}:HDF:WriteMessage",
+                "type": "string"
+            },
+            "HDF_WriteStatus": {
+                "description": "HDF file writing status",
+                "pv": "{{ name }}:HDF:WriteStatus",
+                "type": "binary"
+            },
+            "Init_Buffer": {
+                "description": "Initialise image save path",
+                "pv": "{{ name }}:CAM:InitBuffering.PROC",
+                "read_only": false,
+                "type": "binary"
+            },
+            "LED_Off": {
+                "description": "Switch LEDs on",
+                "pv": "CLA-LAS-DIA-LED-01:Off",
+                "read_only": false,
+                "type": "binary"
+            },
+            "LED_On": {
+                "description": "Switch LEDs off",
+                "pv": "CLA-LAS-DIA-LED-01:On",
+                "read_only": false,
+                "type": "binary"
+            },
+            "LED_Sta": {
+                "description": "Are LEDs on?",
+                "pv": "CLA-LAS-DIA-LED-01:Sta",
+                "type": "binary"
+            },
+            "MAGICK_AutoSave": {
+                "description": "Autosave compressed images.",
+                "pv": "{{ name }}:MAGICK:AutoSave",
+                "read_only": false,
+                "type": "binary"
+            },
+            "MAGICK_Capture": {
+                "description": "Compressed image capture state",
+                "pv": "{{ name }}:MAGICK:Capture",
+                "read_only": false,
+                "type": "binary"
+            },
+            "MAGICK_Capture_DISV": {
+                "description": "Compressed image capture state",
+                "pv": "{{ name }}:MAGICK:Capture.DISV",
+                "read_only": false,
+                "type": "binary"
+            },
+            "MAGICK_Capture_RBV": {
+                "description": "Compressed image capture state (readback)",
+                "pv": "{{ name }}:MAGICK:Capture_RBV",
+                "type": "binary"
+            },
+            "MAGICK_FileName": {
+                "description": "Last saved HDF compressed image name",
+                "pv": "{{ name }}:MAGICK:FileName",
+                "type": "string"
+            },
+            "MAGICK_FileName_RBV": {
+                "description": "Last saved compressed image name readback",
+                "pv": "{{ name }}:MAGICK:FileName_RBV",
+                "type": "string"
+            },
+            "MAGICK_FileNumber": {
+                "description": "Not sure",
+                "pv": "{{ name }}:MAGICK:FileNumber",
+                "type": "scalar"
+            },
+            "MAGICK_FileNumber_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Not sure",
+                "pv": "{{ name }}:MAGICK:FileNumber_RBV",
+                "type": "statistical"
+            },
+            "MAGICK_FilePath": {
+                "description": "File path to claraserv3 compressed image (server path not indicated)",
+                "pv": "{{ name }}:MAGICK:FilePath",
+                "type": "string"
+            },
+            "MAGICK_FilePath_RBV": {
+                "description": "File path to claraserv3 compressed image (server path not indicated)",
+                "pv": "{{ name }}:MAGICK:FilePath_RBV",
+                "type": "string"
+            },
+            "MAGICK_FileWriteMode": {
+                "description": "Save mode for compressed images.",
+                "pv": "{{ name }}:MAGICK:FileWriteMode",
+                "read_only": false,
+                "states": {"CAPTURE": 1, "SINGLE": 0, "STREAM": 2},
+                "type": "state"
+            },
+            "MAGICK_NumCapture": {
+                "description": "Number of compressed images to collect",
+                "pv": "{{ name }}:MAGICK:NumCapture",
+                "read_only": false,
+                "type": "scalar"
+            },
+            "MAGICK_NumCapture_RBV": {
+                "description": "Number of compressed images to collect",
+                "pv": "{{ name }}:MAGICK:NumCapture_RBV",
+                "type": "scalar"
+            },
+            "MAGICK_WriteFile": {
+                "description": "Write compressed file",
+                "pv": "{{ name }}:MAGICK:WriteFile",
+                "type": "binary"
+            },
+            "MAGICK_WriteFile_RBV": {
+                "description": "Gets the state of writing procedure for compressed file.",
+                "pv": "{{ name }}:MAGICK:WriteFile_RBV",
+                "type": "binary"
+            },
+            "MAGICK_WriteMessage": {
+                "description": "Not sure",
+                "pv": "{{ name }}:MAGICK:WriteMessage",
+                "type": "string"
+            },
+            "MAGICK_WriteStatus": {
+                "description": "Gets the writing status for compressed file.",
+                "pv": "{{ name }}:MAGICK:WriteStatus",
+                "type": "binary"
+            },
+            "ROI1_ImageData_RBV": {
+                "description": "Camera array data inside ROI",
+                "pv": "{{ name }}:CAM3:ArrayData",
+                "type": "waveform"
+            },
+            "ROI1_MinX": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Horizontal minimum inside ROI",
+                "pv": "{{ name }}:ROI1:MinX",
+                "type": "statistical"
+            },
+            "ROI1_MinX_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Horizontal minimum inside ROI (readback)",
+                "pv": "{{ name }}:ROI1:MinX_RBV",
+                "type": "statistical"
+            },
+            "ROI1_MinY": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Vertical minimum inside ROI",
+                "pv": "{{ name }}:ROI1:MinY",
+                "type": "statistical"
+            },
+            "ROI1_MinY_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Vertical minimum inside ROI (readback)",
+                "pv": "{{ name }}:ROI1:MinY_RBV",
+                "type": "statistical"
+            },
+            "ROI1_SizeX": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "ROI horizontal size",
+                "pv": "{{ name }}:ROI1:SizeX",
+                "type": "statistical"
+            },
+            "ROI1_SizeX_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "pv": "{{ name }}:ROI1:SizeX_RBV",
+                "type": "statistical"
+            },
+            "ROI1_SizeY": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "ROI vertical size",
+                "pv": "{{ name }}:ROI1:SizeY",
+                "type": "statistical"
+            },
+            "ROI1_SizeY_RBV": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "pv": "{{ name }}:ROI1:SizeY_RBV",
+                "type": "statistical"
+            },
+            "ROIandMask_SetX": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Set ROI horizontal position",
+                "pv": "{{ name }}:ANA:SetX",
+                "type": "statistical"
+            },
+            "ROIandMask_SetXrad": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Set ROI horizontal radius",
+                "pv": "{{ name }}:ANA:SetXRad",
+                "type": "statistical"
+            },
+            "ROIandMask_SetY": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Set ROI vertical position",
+                "pv": "{{ name }}:ANA:SetY",
+                "type": "statistical"
+            },
+            "ROIandMask_SetYrad": {
+                "auto_buffer": false,
+                "buffer_size": 10,
+                "description": "Set ROI vertical radius",
+                "pv": "{{ name }}:ANA:SetYRad",
+                "type": "statistical"
+            },
+            "Reset_Buffer": {
+                "description": "Reset (clear) buffer",
+                "pv": "{{ name }}:CAM:Reset.PROC",
+                "read_only": false,
+                "type": "binary"
+            },
+            "Save": {
+                "description": "Start image save procedure",
+                "pv": "{{ name }}:CAM:ImageSave.PROC",
+                "read_only": false,
+                "type": "binary"
+            },
+            "Save_Buffer": {
+                "description": "Start image buffer save procedure",
+                "pv": "{{ name }}:CAM:Trigger.PROC",
+                "read_only": false,
+                "type": "binary"
+            },
+            "Save_Buffer_Path_Initialise": {
+                "description": "Initialise image buffer save path",
+                "pv": "{{ name }}:CAM:ConstructFilePath.PROC",
+                "read_only": false,
+                "type": "binary"
+            },
+            "Save_Path_Initialise": {
+                "description": "Initialise image save path",
+                "pv": "{{ name }}:CAM:ConstructSaveFilePath.PROC",
+                "read_only": false,
+                "type": "binary"
+            }
+        }
+    },
+    "properties": {
+        {%- set props = [] %}
+        {%- do props.append('"name": "' ~ name ~ '"') %}
+        {%- do props.append('"name_alias": "' ~ name_alias ~ '"') %}
+        {%- do props.append('"position": ' ~ position) %}
+        {%- do props.append('"camera_type": "' ~ bpm_type ~ '"') %}
+        {%- do props.append('"hardware_type": "Camera"') %}
+        {%- do props.append('"machine_area": "' ~ machine_area ~ '"') %}
+        {%- if ARRAY_DATA_NUM_PIX_X is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_X": ' ~ ARRAY_DATA_NUM_PIX_X) %}{% endif %}
+        {%- if ARRAY_DATA_NUM_PIX_Y is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_Y": ' ~ ARRAY_DATA_NUM_PIX_Y) %}{% endif %}
+        {%- if ARRAY_DATA_X_PIX_2_MM is defined %}{% do props.append('"ARRAY_DATA_X_PIX_2_MM": ' ~ ARRAY_DATA_X_PIX_2_MM) %}{% endif %}
+        {%- if ARRAY_DATA_Y_PIX_2_MM is defined %}{% do props.append('"ARRAY_DATA_Y_PIX_2_MM": ' ~ ARRAY_DATA_Y_PIX_2_MM) %}{% endif %}
+        {%- if HAS_LED is defined %}{% do props.append('"HAS_LED": ' ~ HAS_LED|lower) %}{% endif %}
+        {%- if IMAGE_FLIP_LR is defined %}{% do props.append('"IMAGE_FLIP_LR": ' ~ IMAGE_FLIP_LR|lower) %}{% endif %}
+        {%- if IMAGE_FLIP_UD is defined %}{% do props.append('"IMAGE_FLIP_UD": ' ~ IMAGE_FLIP_UD|lower) %}{% endif %}
+        {%- if IMAGE_ROTATION is defined %}{% do props.append('"IMAGE_ROTATION": ' ~ IMAGE_ROTATION) %}{% endif %}
+        {%- if IOC is defined %}
+            {%- set ioc_items = [] %}
+            {%- for ioc in IOC %}
+                {%- set _ = ioc_items.append('"' ~ ioc ~ '"') %}
+            {%- endfor %}
+            {%- set ioc_list = '[' ~ ioc_items | join(', ') ~ ']' %}
+            {% set _ = props.append('"IOC": ' ~ ioc_list) %}
+        {%- endif %}
+        {%- if IP_ADDRESS_STREAM is defined %}{% do props.append('"IP_ADDRESS_STREAM": "' ~ IP_ADDRESS_STREAM ~ '"') %}{% endif %}
+        {%- if MAX_BIT_DEPTH is defined %}{% do props.append('"MAX_BIT_DEPTH": ' ~ MAX_BIT_DEPTH) %}{% endif %}
+        {%- if PIX_2_MM_RATIO_DEF is defined %}{% do props.append('"PIX_2_MM_RATIO_DEF": ' ~ PIX_2_MM_RATIO_DEF) %}{% endif %}
+        {%- if SCREEN_NAME is defined %}{% do props.append('"SCREEN_NAME": "' ~ SCREEN_NAME ~ '"') %}{% endif %}
+        {%- if USE_MASK_RAD_LIMITS is defined %}{% do props.append('"USE_MASK_RAD_LIMITS": ' ~ USE_MASK_RAD_LIMITS|lower) %}{% endif %}
+        {%- if timeout is defined %}{% do props.append('"timeout": ' ~ timeout) %}{% endif %}
+        {{ props | join(',\n        ') }}
+    }
+}

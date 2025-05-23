@@ -90,6 +90,6 @@ properties:
   name: CLA-S02-MAG-QUAD-05
   name_alias: S02-QUAD05,S02-QUAD-05,S02-QUAD5
   num_degauss_steps: 11
-  position: 11.66280268
+  position: 6.4403
   ri_tolerance: 0.1
   serial_number: '13249'

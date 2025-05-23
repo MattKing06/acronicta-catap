@@ -84,6 +84,6 @@ properties:
   name: CLA-VBC-MAG-HCOR-04
   name_alias: VBC-HCOR04,VBC-HCOR-04,VBC-HCOR4
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 29.375835 # assumed from DIP-04 position
   ri_tolerance: 0.1
   serial_number: '13260'

@@ -84,6 +84,6 @@ properties:
   name: CLA-S04-MAG-HCOR-04
   name_alias: S04-HCOR04,S04-HCOR-04,S04-HCOR4
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 21.729768
   ri_tolerance: 0.1
   serial_number: '13260'

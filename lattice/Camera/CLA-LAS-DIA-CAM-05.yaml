@@ -832,3 +832,4 @@ properties:
   name: CLA-LAS-DIA-CAM-05
   name_alias: LAS-CAM-05,LAS-CAM5
   timeout: 30.0
+  position: -1.0

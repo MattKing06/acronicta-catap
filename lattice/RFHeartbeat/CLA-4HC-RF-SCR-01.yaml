@@ -10,3 +10,4 @@ properties:
   machine_area: S04
   name: CLA-4HC-RF-SCR-01
   name_alias: 4HC
+  position: -1.0

@@ -10,3 +10,4 @@ properties:
   machine_area: S07
   name: CLA-TDC-RF-SCR-01
   name_alias: TDC
+  position: -1.0

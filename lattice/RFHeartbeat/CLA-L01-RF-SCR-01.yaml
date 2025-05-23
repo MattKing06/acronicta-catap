@@ -10,3 +10,4 @@ properties:
   machine_area: L01
   name: CLA-L01-RF-SCR-01
   name_alias: L01
+  position: -1.0

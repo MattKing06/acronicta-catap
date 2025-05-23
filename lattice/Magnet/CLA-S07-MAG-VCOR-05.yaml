@@ -84,6 +84,6 @@ properties:
   name: CLA-S07-MAG-VCOR-05
   name_alias: S07-VCOR05,S07-VCOR-05,S07-VCOR5
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 45.1373
   ri_tolerance: 0.1
   serial_number: '13260'

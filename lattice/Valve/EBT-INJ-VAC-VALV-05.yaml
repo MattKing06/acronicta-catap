@@ -28,3 +28,4 @@ properties:
   valve_set_max_wait_time: 10.0
   valve_type: Valve
   virtual_name: VM-EBT-INJ-VAC-VALV-05
+  position: 0.01 # assumed position based on other components

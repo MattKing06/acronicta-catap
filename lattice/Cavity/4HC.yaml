@@ -3,7 +3,7 @@ controls_information:
     SetStartup:
       type: binary
       description: Startup RF
-      read_only: False
+      read_only: false
       pv: CLA-4HC-RF-CTRL-01:API:setStartup
     StartupComplete:
       type: binary
@@ -12,7 +12,7 @@ controls_information:
     APIEnable:
       type: binary
       description: Enable RF API
-      read_only: False
+      read_only: false
       pv: CLA-4HC-RF-CTRL-01:API:setEnable
     GetAPITrip:
       type: state
@@ -25,7 +25,7 @@ controls_information:
     SetAPITrip:
       type: binary
       description: Reset API trips
-      read_only: False
+      read_only: false
       pv: CLA-4HC-RF-CTRL-01:API:setTrip
     GetStatus:
       type: state
@@ -39,7 +39,7 @@ controls_information:
       pv: CLA-4HC-RF-CTRL-01:API:getStatus
     PowerPIDSet:
       type: binary
-      read_only: False
+      read_only: false
       description: Set power PID on
       pv: CLA-4HC-RF-CTRL-01:Power:PID:setOnRequest
     PowerPIDStatus:
@@ -58,7 +58,7 @@ controls_information:
       pv: CLA-4HC-RF-CTRL-01:Power:Achieved:getBinary
     PhasePIDSet:
       type: binary
-      read_only: False
+      read_only: false
       description: Set phase PID on
       pv: CLA-4HC-RF-CTRL-01:Phase:PID:setOnRequest
     PhasePIDStatus:
@@ -85,7 +85,7 @@ controls_information:
       pv: CLA-4HC-HRF-MOD-01:VoltSet
     ModVoltRead:
       type: statistical
-      auto_buffer: False
+      auto_buffer: false
       description: Modulator voltage read
       pv: CLA-4HC-HRF-MOD-01:CcPs1VoltRead
     PowerMWMax:
@@ -95,13 +95,13 @@ controls_information:
       pv: CLA-4HC-RF-CTRL-01:setPower.HOPR
     PowerMWSet:
       type: scalar
-      read_only: False
+      read_only: false
       description: Set cavity forward power
       units: MW
       pv: CLA-4HC-RF-CTRL-01:setPower
     PhaseSet:
       type: scalar
-      read_only: False
+      read_only: false
       description: Set cavity phase
       units: deg
       pv: CLA-4HC-RF-CTRL-01:setPhase
@@ -109,36 +109,37 @@ controls_information:
       type: statistical
       description: Read cavity forward power
       units: MW
-      auto_buffer: True
+      auto_buffer: true
       pv: CLA-4HC-RF-CTRL-01:getPower
     PhaseRead:
       type: statistical
       description: Read cavity phase
       units: deg
-      auto_buffer: True
+      auto_buffer: true
       pv: CLA-4HC-RF-CTRL-01:getPhase
     CrestPhaseSet:
       type: scalar
       description: Set crest phase
-      read_only: False
+      read_only: false
       units: deg
       pv: CLA-4HC-RF-CTRL-01:PHASE_C
     OffCrestPhaseSet:
       type: scalar
       description: Set cavity off-crest phase
-      read_only: False
+      read_only: false
       units: deg
       pv: CLA-4HC-RF-CTRL-01:PHASE_OFF
     OffCrestPhaseRead:
       type: statistical
-      auto_buffer: True
+      auto_buffer: true
       description: Set cavity off-crest phase
       units: deg
       pv: CLA-4HC-RF-CTRL-01:getCrestPhase
     BeamMomentum:
       type: scalar
-      read_only: False
-      description: Beam momentum at the exit of the cavity, used in k-value calculations for all magnets in that section.
+      read_only: false
+      description: Beam momentum at the exit of the cavity, used in k-value calculations
+        for all magnets in that section.
       units: MeV/c
       pv: CLA-S05:SETP
 properties:
@@ -149,4 +150,4 @@ properties:
   name_alias: CLA-4HC-RF-CTRL-01,4HC,4hc,L4H,l4h
   phase_tolerance: 1.0
   power_tolerance: 0.1
-  position: 23.4572
+  position: 23.9397

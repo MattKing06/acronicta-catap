@@ -26,3 +26,4 @@ properties:
   valve_set_max_wait_time: 10.0
   valve_type: Valve
   virtual_name: VM-CLA-LAS-VAC-VALV-02
+  position: 0.03 # unknown position

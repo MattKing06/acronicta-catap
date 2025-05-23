@@ -839,3 +839,4 @@ properties:
   name: CLA-C2V-DIA-CAM-01
   name_alias: C2V-CAM-01,C2V-CAM1
   timeout: 30.0
+  position: 6.9819

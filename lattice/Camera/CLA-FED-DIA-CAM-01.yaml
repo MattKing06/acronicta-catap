@@ -843,3 +843,4 @@ properties:
   name: CLA-FED-DIA-CAM-01
   name_alias: FED-CAM-01,FED-CAM1
   timeout: 30.0
+  position: 78.93001

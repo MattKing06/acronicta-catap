@@ -34,3 +34,4 @@ properties:
   shutter_set_max_wait_time: 10.0
   shutter_type: Laser
   virtual_name: VM-EBT-INJ-LSR-SHUT-02
+  position: -1.0

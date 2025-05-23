@@ -16,7 +16,7 @@ controls_information:
       pv: CLA-S06-DIA-SCR-01:POS
     EN:
       type: binary
-      read_only: False
+      read_only: false
       description: Screen enable flag
       pv: CLA-S06-DIA-SCR-01:EN
     MOVING:
@@ -30,6 +30,6 @@ properties:
   machine_area: S06
   name: CLA-S06-DIA-SCR-01
   name_alias: S06-SCR-01
-  position: 0.0
+  position: 32.925234
   screen_type: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

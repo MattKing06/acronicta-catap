@@ -90,6 +90,6 @@ properties:
   name: CLA-SP3-MAG-QUAD-01
   name_alias: SP3-QUAD01,SP3-QUAD-01,SP3-QUAD1
   num_degauss_steps: 11
-  position: 6.660148145
+  position: 46.5401225
   ri_tolerance: 0.1
   serial_number: '13255'

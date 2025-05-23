@@ -40,3 +40,4 @@ properties:
   name_alias: LAS-PM-11, PM-11, LAS-PM11
   vertical_channel: 2
   virtual_name: EBT-LAS-OPT-PM-11
+  position: -1.0

@@ -11,7 +11,7 @@ controls_information:
     POS:
       type: state
       states: *vertical_devices
-      read_only: False
+      read_only: false
       description: Vertical Device state
       pv: CLA-S02-DIA-SCR-03:V:POS
     MOVING:
@@ -20,7 +20,7 @@ controls_information:
       pv: CLA-S02-DIA-SCR-03:V:MOVING
     EN:
       type: binary
-      read_only: False
+      read_only: false
       description: Screen enable flag
       pv: CLA-S02-DIA-SCR-03:V:EN
 properties:
@@ -30,6 +30,6 @@ properties:
   machine_area: S02
   name: CLA-S02-DIA-SCR-03
   name_alias: S02-SCR-03
-  position: 0.0
+  position: 6.5846
   screen_type: CLARA_V_MOVER
   set_max_wait_time: 45.0

@@ -84,6 +84,6 @@ properties:
   name: CLA-SP2-MAG-VCOR-01
   name_alias: SP2-VCOR1,SP2-VCOR-01, SP2-VCOR01
   num_degauss_steps: 11
-  position: 6.536928145
+  position: 33.60611951122933
   ri_tolerance: 0.1
   serial_number: '13263'

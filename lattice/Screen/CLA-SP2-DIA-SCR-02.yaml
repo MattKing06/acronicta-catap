@@ -16,7 +16,7 @@ controls_information:
       pv: CLA-SP2-DIA-SCR-02:POS
     EN:
       type: binary
-      read_only: False
+      read_only: false
       description: Screen enable flag
       pv: CLA-SP2-DIA-SCR-02:EN
     MOVING:
@@ -30,6 +30,6 @@ properties:
   machine_area: SP2
   name: CLA-SP2-DIA-SCR-02
   name_alias: SP2-SCR-02
-  position: 0.0
+  position: 35.536568
   screen_type: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

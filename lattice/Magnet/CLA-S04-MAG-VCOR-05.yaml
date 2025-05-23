@@ -84,6 +84,6 @@ properties:
   name: CLA-S04-MAG-VCOR-05
   name_alias: S04-VCOR05,S04-VCOR-05,S04-VCOR5
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 22.789768
   ri_tolerance: 0.1
   serial_number: '13260'

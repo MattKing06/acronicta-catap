@@ -28,3 +28,4 @@ properties:
   valve_set_max_wait_time: 10.0
   valve_type: Valve
   virtual_name: VM-CLA-S07-VAC-VALV-01
+  position: 41.0 # assumed position based on other components

@@ -84,6 +84,6 @@ properties:
   name: CLA-SP1-MAG-HCOR-01
   name_alias: SP1-HCOR1,SP1-HCOR-01, SP1-HCOR01
   num_degauss_steps: 11
-  position: 6.536928145
+  position: 7.78426767
   ri_tolerance: 0.1
   serial_number: '13263'

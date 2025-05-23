@@ -84,6 +84,6 @@ properties:
   name: CLA-S02-MAG-HCOR-02
   name_alias: S02-HCOR02,S02-HCOR-02,S02-HCOR2
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 4.23661
   ri_tolerance: 0.1
   serial_number: '13260'

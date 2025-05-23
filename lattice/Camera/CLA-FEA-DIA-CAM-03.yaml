@@ -843,3 +843,4 @@ properties:
   name: CLA-FEA-DIA-CAM-03
   name_alias: FEA-CAM-03,FEA-CAM3
   timeout: 30.0
+  position: 57.84960557

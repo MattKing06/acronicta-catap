@@ -832,3 +832,4 @@ properties:
   name: CLA-VCA-DIA-CAM-01
   name_alias: VCA-CAM-01,VCA-CAM1
   timeout: 30.0
+  position: -1.0

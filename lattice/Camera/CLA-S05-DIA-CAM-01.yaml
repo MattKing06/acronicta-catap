@@ -840,3 +840,4 @@ properties:
   name: CLA-S05-DIA-CAM-01
   name_alias: S05-CAM-01,S05-CAM1
   timeout: 30.0
+  position: 25.1794

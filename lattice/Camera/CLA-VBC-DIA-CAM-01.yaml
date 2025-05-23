@@ -841,3 +841,4 @@ properties:
   name: CLA-VBC-DIA-CAM-01
   name_alias: VBC-CAM-01,VBC-CAM1
   timeout: 30.0
+  position: 28.9048

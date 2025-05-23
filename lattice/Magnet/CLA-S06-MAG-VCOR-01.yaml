@@ -84,6 +84,6 @@ properties:
   name: CLA-S06-MAG-VCOR-01
   name_alias: S06-VCOR01,S06-VCOR-01,S06-VCOR1
   num_degauss_steps: 11
-  position: 3.448080313
+  position: 31.6078
   ri_tolerance: 0.1
   serial_number: '13260'

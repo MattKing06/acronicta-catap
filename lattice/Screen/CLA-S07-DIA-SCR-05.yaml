@@ -30,6 +30,6 @@ properties:
   machine_area: S07
   name: CLA-S07-DIA-SCR-05
   name_alias: S07-SCR-05
-  position: 0.0
+  position: 51.200496
   screen_type: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

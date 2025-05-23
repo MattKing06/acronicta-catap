@@ -840,3 +840,4 @@ properties:
   name: CLA-S02-DIA-CAM-01
   name_alias: S02-CAM-01,S02-CAM1
   timeout: 30
+  position: 4.0891
