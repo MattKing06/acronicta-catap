@@ -1,11 +1,14 @@
 {
     "controls_information": {
         "pv_record_map": {
+            {% if "GETSETI" in pv_records %}
             "GETSETI": {
                 "type": "scalar",
                 "description": "Gets the value of the target current for a magnet power supply.",
                 "pv": "{{ name }}:GETSETI"
             },
+            {%endif%}
+            {% if "SPOWER" in pv_records %}
             "SPOWER": {
                 "type": "state",
                 "description": "Sets the state of a power supply",
@@ -13,6 +16,8 @@
                 "read_only": false,
                 "pv": "{{ name }}:SPOWER"
             },
+            {% endif %}
+            {% if "RPOWER" in pv_records %}
             "RPOWER": {
                 "type": "state",
                 "description": "Gets the state of a power supply",
@@ -20,35 +25,48 @@
                 "read_only": false,
                 "pv": "{{ name }}:RPOWER"
             },
+            {% endif %}
+            {% if "ILK_RESET" in pv_records %}
             "ILK_RESET": {
                 "type": "binary",
                 "description": "Resets the magnet interlocks",
                 "read_only": false,
                 "pv": "{{ name }}:Rst"
             },
+            {% endif %}
+            {% if "RILK" in pv_records %}
             "RILK": {
-                "type": "binary",
-                "description": "If the interlocks are clear, this enables them",
+                "type": "state",
+                "description": "Gets the interlock state for a magnet",
+                "states": {{ rpower_states | default({"OK": 0, "TRIPPED": 1}) | tojson }},
                 "pv": "{{ name }}:RILK"
             },
+            {% endif %}
+            {% if "ILK_ON" in pv_records %}
             "ILK_ON": {
                 "type": "binary",
                 "description": "If the interlocks are clear, this enables them",
                 "read_only": false,
                 "pv": "{{ name }}:On"
             },
+            {% endif %}
+            {% if "ILK_OFF" in pv_records %}
             "ILK_OFF": {
                 "type": "binary",
                 "description": "If the interlocks are clear, this disables them",
                 "read_only": false,
                 "pv": "{{ name }}:Off"
             },
+            {% endif %}
+            {% if "ILK_PSU_RESET" in pv_records %}
             "ILK_PSU_RESET": {
                 "type": "binary",
                 "description": "Reset the magnet power supply interlocks",
                 "read_only": false,
                 "pv": "{{ name }}:RESET"
             },
+            {% endif %}
+            {% if "READI" in pv_records %}
             "READI": {
                 "type": "statistical",
                 "auto_buffer": true,
@@ -56,18 +74,24 @@
                 "description": "Gets the readback current of a magnet power supply.",
                 "pv": "{{ name }}:READI"
             },
+            {% endif %}
+            {% if "SETI" in pv_records %}
             "SETI": {
                 "type": "scalar",
                 "units": "A",
                 "description": "Sets the target current for a magnet power supply.",
                 "pv": "{{ name }}:SETI"
             },
+            {% endif %}
+            {% if "SETK" in pv_records %}
             "SETK": {
                 "type": "scalar",
                 "units": "K",
                 "description": "Sets the target field strength for a magnet. This ultimately sets a current for the power supply",
                 "pv": "{{ name }}:SETK"
             },
+            {% endif %}
+            {% if "READK" in pv_records %}
             "READK": {
                 "type": "statistical",
                 "units": "K",
@@ -76,6 +100,7 @@
                 "description": "Reads the calculated K value for a magnet based on momentum of the section",
                 "pv": "{{ name }}:CalcK"
             }
+            {% endif %}
         }
     },
     "properties": {

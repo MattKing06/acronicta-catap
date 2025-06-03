@@ -11,7 +11,11 @@ from pydantic import field_validator, SerializeAsAny, ConfigDict
 {# --- PVMap class --- #}
 class {{ class_name }}PVMapModel(PVMap):
     {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_name in optional_pvs%}
+    {{ pv_name }}: {{ pv_type }} = None
+    {% else %}
     {{ pv_name }}: {{ pv_type }}
+    {% endif %}
     """{{ pv_descriptions.get(pv_name, '') }}"""
     {% endfor %}
 
@@ -38,12 +42,23 @@ class {{ class_name }}PVMapModel(PVMap):
     @property
     def {{ pv_name.lower() }}(self):
         """Default Getter implementation for {{ pv_name }}"""
+        {% if pv_name in optional_pvs %}
+        if self.{{ pv_name }}:
+            return self.{{ pv_name }}.get()
+        {%else%}
         return self.{{ pv_name }}.get()
+        {% endif %}
+
     {% if read_only.get(pv_name, True) == False %}
     @{{ pv_name.lower() }}.setter
     def {{ pv_name.lower() }}(self, value):
         """Default Setter implementation for {{ pv_name }}"""
-        self.{{ pv_name }}.put(value)
+        {% if pv_name in optional_pvs %}
+        if self.{{ pv_name }}:
+            return self.{{ pv_name }}.put(value)
+        {%else%}
+        return self.{{ pv_name }}.put(value)
+        {% endif %}
     {% endif %}
     {% endfor %}
 
