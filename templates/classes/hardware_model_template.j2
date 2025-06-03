@@ -1,0 +1,78 @@
+from models.{{hardware_type}} import ({{class_name}}PVMapModel,
+                    {{class_name}}ControlsInformationModel,
+                    {{class_name}}PropertiesModel,
+                    {{class_name}}Model,
+                    {{class_name}}FactoryModel,
+                    )
+
+class {{class_name}}PVMap({{class_name}}PVMapModel):
+
+    """
+    {{class_name}} PV Map.
+    This defines the PVs used by the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}PVMapModel to provide a structure.
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}PVMap, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+class {{class_name}}ControlsInformation({{class_name}}ControlsInformationModel):
+
+    """
+    {{class_name}} Controls Information.
+    This contains the PVs and properties for the {{class_name}} component.
+
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}ControlsInformationModel to provide a structure.
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}ControlsInformation, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+
+class {{class_name}}Properties({{class_name}}PropertiesModel):
+
+    """
+    {{class_name}} Properties.
+    This defines the properties of the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}PropertiesModel to provide a structure.
+    """
+
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}Properties, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+class {{class_name}}({{class_name}}Model):
+
+    """
+    {{class_name}}.
+    This represents the {{class_name}} component in the hardware layer.
+    It provides access to the PVs and properties defined in the
+    {{class_name}}ControlsInformation and {{class_name}}Properties models.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}Model to provide a structure.
+
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+class {{class_name}}Factory({{class_name}}FactoryModel):
+
+    """
+    {{class_name}} Factory.
+    This is responsible for creating instances of the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}FactoryModel to provide a structure.
+    """
+
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}Factory, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
