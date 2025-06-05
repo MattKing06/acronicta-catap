@@ -72,6 +72,15 @@ class {{ class_name }}ControlsInformationModel(ControlsInformation):
         :class:`~CATAP.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[{{ class_name }}PVMapModel]
+
+    {% for parameter, value in controls_information.items() %}
+    {% if parameter in optional_controls_parameters%}
+    {{ parameter }}: {{ value.__class__.__name__ if value is not none else 'Any' }} | None = None
+    {% else %}
+    {{ parameter }}: {{ value.__class__.__name__ if value is not none else 'Any' }}
+    {% endif %}
+    {%endfor%}
+
     """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
@@ -119,6 +128,18 @@ class {{ class_name }}ControlsInformationModel(ControlsInformation):
     {% endif %}
     {% endfor %}
 
+    {% for parameter, type in controls_information.items() %}
+    @property
+    def {{ parameter.lower() }}(self) -> {{ type.__class__.__name__ if type is not none else 'Any' }}:
+        """Default Getter implementation for {{parameter}}."""
+        {% if parameter in optional_controls_parameters %}
+        if self.{{ parameter }}:
+            return self.{{ parameter }}.get()
+        {% else %}
+        return self.{{parameter}}
+        {%endif%}
+    {%endfor%}
+
 {# --- Properties class --- #}
 class {{ class_name }}PropertiesModel(Properties):
     """
@@ -127,9 +148,12 @@ class {{ class_name }}PropertiesModel(Properties):
     Inherits from:
         :class:`~CATAP.common.machine.hardware.Properties`
     """
-
     {% for prop, value in properties.items() %}
+    {% if prop in optional_properties%}
+    {{ prop }}: {{ value.__class__.__name__ if value is not none else 'Any' }} = None
+    {% else %}
     {{ prop }}: {{ value.__class__.__name__ if value is not none else 'Any' }}
+    {% endif %}
     {% endfor %}
 
     def __init__(self, *args, **kwargs):
@@ -140,23 +164,6 @@ class {{ class_name }}PropertiesModel(Properties):
             *args,
             **kwargs,
         )
-
-    {% for prop, value in properties.items() %}
-    @property
-    def {{ prop }}(self):
-        return self.{{ prop }}
-    {% endfor %}
-
-    {% for prop, value in properties.items() if value is not none and value.__class__.__name__ == 'float' %}
-    @property
-    def {{ prop | replace('set_', '') }}(self) -> float:
-        """
-        :getter: Gets the value.
-        :setter: Sets the value.
-        :type: float
-        """
-        return self.{{ prop }}
-    {% endfor %}
 
 class {{ class_name }}Model(Hardware):
     """

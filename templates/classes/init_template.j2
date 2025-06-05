@@ -1,0 +1,24 @@
+import CATAP.config as cfg
+from CATAP.common.machine.area import MachineArea
+from collections import namedtuple
+import os
+
+
+if os.path.exists("{{lattice_folder}}"):
+    cfg.LATTICE_LOCATION = "{{lattice_folder}}"
+else:
+    raise FileNotFoundError("Lattice location '{{lattice_folder}}' does not exist. Please check the path.")
+from CATAP.common.machine.area import MachineArea
+
+
+_area_names = [
+    {% for area in areas %}
+    "{{area}}",
+    {% endfor %}
+]
+
+cfg._machine_areas_tuple = namedtuple("MACHINE_AREAS", _area_names)
+cfg.MACHINE_AREAS = cfg._machine_areas_tuple(*[MachineArea(name=name) for name in _area_names])
+cfg.SNAPSHOT_LOCATION = "./snapshots/"
+cfg.EPICS_TIMEOUT = 0.5
+

@@ -1,6 +1,7 @@
 {
     "controls_information": {
         "pv_record_map": {
+            {% if 'ANA_AvgIntensity_RBV' in pv_records %}
             "ANA_AvgIntensity_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -8,6 +9,8 @@
                 "pv": "{{ ana_avg_intensity_rbv_pv | default(name ~ ':ANA:AvgIntensity_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CPU_CropSubMask_RBV' in pv_records %}
             "ANA_CPU_CropSubMask_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -15,6 +18,8 @@
                 "pv": "{{ ana_cpu_crop_sub_mask_rbv_pv | default(name ~ ':ANA:CSM_CPU') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CPU_Dot_RBV' in pv_records %}
             "ANA_CPU_Dot_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -22,6 +27,8 @@
                 "pv": "{{ ana_cpu_dot_rbv_pv | default(name ~ ':ANA:DP_CPU') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CPU_Npoint_RBV' in pv_records %}
             "ANA_CPU_Npoint_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -29,6 +36,8 @@
                 "pv": "{{ ana_cpu_npoint_rbv_pv | default(name ~ ':ANA:NP_CPU') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CPU_RBV' in pv_records %}
             "ANA_CPU_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -36,6 +45,8 @@
                 "pv": "{{ ana_cpu_rbv_pv | default(name ~ ':ANA:ANA_CPU') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CenterX' in pv_records %}
             "ANA_CenterX": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -43,6 +54,8 @@
                 "pv": "{{ ana_center_x_pv | default(name ~ ':ANA:CenterX') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CenterX_RBV' in pv_records %}
             "ANA_CenterX_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -50,6 +63,8 @@
                 "pv": "{{ ana_center_x_rbv_pv | default(name ~ ':ANA:CenterX_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CenterY' in pv_records %}
             "ANA_CenterY": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -57,6 +72,8 @@
                 "pv": "{{ ana_center_y_pv | default(name ~ ':ANA:CenterY') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CenterY_RBV' in pv_records %}
             "ANA_CenterY_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -64,6 +81,8 @@
                 "pv": "{{ ana_center_y_rbv_pv | default(name ~ ':ANA:CenterY_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CovXYPix_RBV' in pv_records %}
             "ANA_CovXYPix_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -71,6 +90,8 @@
                 "pv": "{{ ana_cov_xy_pix_rbv_pv | default(name ~ ':ANA:CovXYPix_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_CovXY_RBV' in pv_records %}
             "ANA_CovXY_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -78,27 +99,37 @@
                 "pv": "{{ ana_cov_xy_rbv_pv | default(name ~ ':ANA:CovXY_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_EnableCallbacks' in pv_records %}
             "ANA_EnableCallbacks": {
                 "description": "Enable writing of analysis PVs (readback).",
                 "pv": "{{ ana_enable_callbacks_pv | default(name ~ ':ANA:EnableCallbacks') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_EnableCallbacks_RBV' in pv_records %}
             "ANA_EnableCallbacks_RBV": {
                 "description": "Enable writing of analysis PVs (readback).",
                 "pv": "{{ ana_enable_callbacks_rbv_pv | default(name ~ ':ANA:EnableCallbacks_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_FloorLevel' in pv_records %}
             "ANA_FloorLevel": {
                 "description": "Floor level (pixels) set value.",
                 "pv": "{{ ana_floor_level_pv | default(name ~ ':ANA:Floor') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_FloorLevel_RBV' in pv_records %}
             "ANA_FloorLevel_RBV": {
                 "description": "Floor level (pixels) read value.",
                 "pv": "{{ ana_floor_level_rbv_pv | default(name ~ ':ANA:Floor_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_FlooredPercent_RBV' in pv_records %}
             "ANA_FlooredPercent_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -106,6 +137,8 @@
                 "pv": "{{ ana_floored_percent_rbv_pv | default(name ~ ':ANA:FLOORED_PCENT') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_FlooredPoints_RBV' in pv_records %}
             "ANA_FlooredPoints_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -113,6 +146,8 @@
                 "pv": "{{ ana_floored_points_rbv_pv | default(name ~ ':ANA:FLOORED_PT') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_Intensity_RBV' in pv_records %}
             "ANA_Intensity_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -120,136 +155,190 @@
                 "pv": "{{ ana_intensity_rbv_pv | default(name ~ ':ANA:Intensity_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_MMResults_RBV' in pv_records %}
             "ANA_MMResults_RBV": {
                 "description": "Analysis results readback.",
                 "pv": "{{ ana_mm_results_rbv_pv | default(name ~ ':ANA:MMResults_RBV') }}",
                 "type": "waveform"
             },
+            {% endif %}
+            {% if 'ANA_MaskHeight_RBV' in pv_records %}
             "ANA_MaskHeight_RBV": {
                 "description": "Height of mask (pixels).",
                 "pv": "{{ ana_mask_height_rbv_pv | default(name ~ ':ANA:MaskHeight_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskWidth_RBV' in pv_records %}
             "ANA_MaskWidth_RBV": {
                 "description": "Width of mask (pixels).",
                 "pv": "{{ ana_mask_width_rbv_pv | default(name ~ ':ANA:MaskWidth_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskXCenter' in pv_records %}
             "ANA_MaskXCenter": {
                 "description": "Mask vertical centre (pixels).",
                 "pv": "{{ ana_mask_x_center_pv | default(name ~ ':ANA:MaskXCenter') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskXCenter_RBV' in pv_records %}
             "ANA_MaskXCenter_RBV": {
                 "description": "Mask horizontal centre (pixels) readback.",
                 "pv": "{{ ana_mask_x_center_rbv_pv | default(name ~ ':ANA:MaskXCenter_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskXRad' in pv_records %}
             "ANA_MaskXRad": {
                 "description": "Mask horizontal radius (pixels).",
                 "pv": "{{ ana_mask_x_rad_pv | default(name ~ ':ANA:MaskXRad') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskXRad_RBV' in pv_records %}
             "ANA_MaskXRad_RBV": {
                 "description": "Mask horizontal radius (pixels) readback",
                 "pv": "{{ ana_mask_x_rad_rbv_pv | default(name ~ ':ANA:MaskXRad_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskYCenter' in pv_records %}
             "ANA_MaskYCenter": {
                 "description": "Mask vertical centre (pixels).",
                 "pv": "{{ ana_mask_y_center_pv | default(name ~ ':ANA:MaskYCenter') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskYCenter_RBV' in pv_records %}
             "ANA_MaskYCenter_RBV": {
                 "description": "Mask vertical centre (pixels) readback.",
                 "pv": "{{ ana_mask_y_center_rbv_pv | default(name ~ ':ANA:MaskYCenter_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskYRad' in pv_records %}
             "ANA_MaskYRad": {
                 "description": "Mask vertical radius (pixels).",
                 "pv": "{{ ana_mask_y_rad_pv | default(name ~ ':ANA:MaskYRad') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_MaskYRad_RBV' in pv_records %}
             "ANA_MaskYRad_RBV": {
                 "description": "Mask vertical radius (pixels) readback",
                 "pv": "{{ ana_mask_y_rad_rbv_pv | default(name ~ ':ANA:MaskYRad_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_NPointStepSize' in pv_records %}
             "ANA_NPointStepSize": {
                 "description": "N-point scaling step size",
                 "pv": "{{ ana_n_point_step_size_pv | default(name ~ ':ANA:StepSize') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_NPointStepSize_RBV' in pv_records %}
             "ANA_NPointStepSize_RBV": {
                 "description": "N-point scaling step size readback",
                 "pv": "{{ ana_n_point_step_size_rbv_pv | default(name ~ ':ANA:StepSize_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_NewBkgrnd' in pv_records %}
             "ANA_NewBkgrnd": {
                 "description": "Collect new background image",
                 "pv": "{{ ana_new_bkgrnd_pv | default(name ~ ':ANA:NewBkgrnd') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_NewBkgrnd_RBV' in pv_records %}
             "ANA_NewBkgrnd_RBV": {
                 "description": "Status of background image collection",
                 "pv": "{{ ana_new_bkgrnd_rbv_pv | default(name ~ ':ANA:NewBkgrnd_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_1_CROSS' in pv_records %}
             "ANA_OVERLAY_1_CROSS": {
                 "description": "Overlay crosshair",
                 "pv": "{{ ana_overlay_1_cross_pv | default(name ~ ':OVER:1:Use') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_1_CROSS_RBV' in pv_records %}
             "ANA_OVERLAY_1_CROSS_RBV": {
                 "description": "Overlay crosshair readback",
                 "pv": "{{ ana_overlay_1_cross_rbv_pv | default(name ~ ':OVER:1:Use_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_2_RESULT' in pv_records %}
             "ANA_OVERLAY_2_RESULT": {
                 "description": "Overlay beam position crosshair",
                 "pv": "{{ ana_overlay_2_result_pv | default(name ~ ':OVER:2:Use') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_2_RESULT_RBV' in pv_records %}
             "ANA_OVERLAY_2_RESULT_RBV": {
                 "description": "Overlay beam position crosshair readback",
                 "pv": "{{ ana_overlay_2_result_rbv_pv | default(name ~ ':OVER:2:Use_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_3_MASK' in pv_records %}
             "ANA_OVERLAY_3_MASK": {
                 "description": "Overlay analysis mask",
                 "pv": "{{ ana_overlay_3_mask_pv | default(name ~ ':OVER:3:Use') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_OVERLAY_3_MASK_RBV' in pv_records %}
             "ANA_OVERLAY_3_MASK_RBV": {
                 "description": "Overlay analysis mask readback",
                 "pv": "{{ ana_overlay_3_mask_rbv_pv | default(name ~ ':OVER:3:Use_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ANA_PixH_RBV' in pv_records %}
             "ANA_PixH_RBV": {
                 "description": "Full image height (pixels)",
                 "pv": "{{ ana_pix_h_rbv_pv | default(name ~ ':ANA:PixH_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_PixMM' in pv_records %}
             "ANA_PixMM": {
                 "description": "Pixel-to-mm conversion",
                 "pv": "{{ ana_pix_mm_pv | default(name ~ ':ANA:Pix') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_PixMM_RBV' in pv_records %}
             "ANA_PixMM_RBV": {
                 "description": "Pixel-to-mm conversion",
                 "pv": "{{ ana_pix_mm_rbv_pv | default(name ~ ':ANA:PixMM_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_PixW_RBV' in pv_records %}
             "ANA_PixW_RBV": {
                 "description": "Full image width (pixels)",
                 "pv": "{{ ana_pix_w_rbv_pv | default(name ~ ':ANA:PixW_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_PixelResults_RBV' in pv_records %}
             "ANA_PixelResults_RBV": {
                 "description": "Image analysis results in pixels",
                 "pv": "{{ ana_pixel_results_rbv_pv | default(name ~ ':ANA:PixelResults_RBV') }}",
                 "type": "waveform"
             },
+            {% endif %}
+            {% if 'ANA_SigmaXPix_RBV' in pv_records %}
             "ANA_SigmaXPix_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -257,6 +346,8 @@
                 "pv": "{{ ana_sigma_x_pix_rbv_pv | default(name ~ ':ANA:SigmaXPix_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_SigmaX_RBV' in pv_records %}
             "ANA_SigmaX_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -265,6 +356,8 @@
                 "type": "statistical",
                 "units": "mm"
             },
+            {% endif %}
+            {% if 'ANA_SigmaYPix_RBV' in pv_records %}
             "ANA_SigmaYPix_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -272,6 +365,8 @@
                 "pv": "{{ ana_sigma_y_pix_rbv_pv | default(name ~ ':ANA:SigmaYPix_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_SigmaY_RBV' in pv_records %}
             "ANA_SigmaY_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -280,36 +375,50 @@
                 "type": "statistical",
                 "units": "mm"
             },
+            {% endif %}
+            {% if 'ANA_UseBkgrnd' in pv_records %}
             "ANA_UseBkgrnd": {
                 "description": "Subtract background for display",
                 "pv": "{{ ana_use_bkgrnd_pv | default(name ~ ':ANA:UseBkgrnd') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_UseBkgrnd_RBV' in pv_records %}
             "ANA_UseBkgrnd_RBV": {
                 "description": "Subtract background for display (readback)",
                 "pv": "{{ ana_use_bkgrnd_rbv_pv | default(name ~ ':ANA:UseBkgrnd_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_UseFloor' in pv_records %}
             "ANA_UseFloor": {
                 "description": "Use floor for display",
                 "pv": "{{ ana_use_floor_pv | default(name ~ ':ANA:UseFloor') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_UseFloor_RBV' in pv_records %}
             "ANA_UseFloor_RBV": {
                 "description": "Use floor for display (readback)",
                 "pv": "{{ ana_use_floor_rbv_pv | default(name ~ ':ANA:UseFloor_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_UseNPoint' in pv_records %}
             "ANA_UseNPoint": {
                 "description": "Use N-point scaling for display)",
                 "pv": "{{ ana_use_n_point_pv | default(name ~ ':ANA:UseNPoint') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_UseNPoint_RBV' in pv_records %}
             "ANA_UseNPoint_RBV": {
                 "description": "Use N-point scaling for display (readback)",
                 "pv": "{{ ana_use_n_point_rbv_pv | default(name ~ ':ANA:UseNPoint_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'ANA_XPix_RBV' in pv_records %}
             "ANA_XPix_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -317,6 +426,8 @@
                 "pv": "{{ ana_x_pix_rbv_pv | default(name ~ ':ANA:XPix_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_X_RBV' in pv_records %}
             "ANA_X_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -325,6 +436,8 @@
                 "type": "statistical",
                 "units": "mm"
             },
+            {% endif %}
+            {% if 'ANA_YPix_RBV' in pv_records %}
             "ANA_YPix_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -332,6 +445,8 @@
                 "pv": "{{ ana_y_pix_rbv_pv | default(name ~ ':ANA:YPix_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ANA_Y_RBV' in pv_records %}
             "ANA_Y_RBV": {
                 "auto_buffer": true,
                 "buffer_size": 10,
@@ -340,27 +455,37 @@
                 "type": "statistical",
                 "units": "mm"
             },
+            {% endif %}
+            {% if 'Buffer_Status' in pv_records %}
             "Buffer_Status": {
                 "description": "Status of buffer saving",
                 "pv": "{{ buffer_status_pv | default(name ~ ':BUFF:StatusMessage') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'CAM1_ArrayData' in pv_records %}
             "CAM1_ArrayData": {
                 "description": "Full camera image",
                 "pv": "{{ cam1_array_data_pv | default(name ~ ':CAM1:ArrayData') }}",
                 "type": "waveform"
             },
+            {% endif %}
+            {% if 'CAM2_ArrayData' in pv_records %}
             "CAM2_ArrayData": {
                 "description": "Mask image",
                 "pv": "{{ cam2_array_data_pv | default(name ~ ':CAM2:ArrayData') }}",
                 "type": "waveform"
             },
+            {% endif %}
+            {% if 'CAM_AcquirePeriod_RBV' in pv_records %}
             "CAM_AcquirePeriod_RBV": {
                 "description": "Image acquisition period",
                 "pv": "{{ cam_acquire_period_rbv_pv | default(name ~ ':CAM:AcquirePeriod_RBV') }}",
                 "type": "scalar",
                 "units": "s"
             },
+            {% endif %}
+            {% if 'CAM_AcquireTime_RBV' in pv_records %}
             "CAM_AcquireTime_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -369,21 +494,29 @@
                 "type": "statistical",
                 "units": "s"
             },
+            {% endif %}
+            {% if 'CAM_Acquire_RBV' in pv_records %}
             "CAM_Acquire_RBV": {
                 "description": "Camera acquiring state readback",
                 "pv": "{{ cam_acquire_rbv_pv | default(name ~ ':CAM:Acquire_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'CAM_Active_Count' in pv_records %}
             "CAM_Active_Count": {
                 "description": "Not sure",
                 "pv": "{{ cam_active_count_pv | default(name ~ 'OC-CS-03:cameraCount') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'CAM_Active_Limit' in pv_records %}
             "CAM_Active_Limit": {
                 "description": "Not sure",
                 "pv": "{{ cam_active_limit_pv | default(name ~ 'OC-CS-03:cameraLimit') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'CAM_ArrayRate_RBV' in pv_records %}
             "CAM_ArrayRate_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -392,72 +525,98 @@
                 "type": "statistical",
                 "units": "Hz"
             },
+            {% endif %}
+            {% if 'CAM_Start_Acquire' in pv_records %}
             "CAM_Start_Acquire": {
                 "description": "Start camera acquiring",
                 "pv": "{{ cam_start_acquire_pv | default(name ~ ':CAM:Start') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'CAM_Stop_Acquire' in pv_records %}
             "CAM_Stop_Acquire": {
                 "description": "Stop camera acquiring",
                 "pv": "{{ cam_stop_acquire_pv | default(name ~ ':CAM:Stop') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'CAM_Temperature_RBV' in pv_records %}
             "CAM_Temperature_RBV": {
                 "description": "Camera temperature",
                 "pv": "{{ cam_temperature_rbv_pv | default(name ~ ':CAM:Temperature_RBV') }}",
                 "type": "scalar",
                 "units": "K"
             },
+            {% endif %}
+            {% if 'HDFB_AutoSave' in pv_records %}
             "HDFB_AutoSave": {
                 "description": "Autosave HDF buffer images.",
                 "pv": "{{ hdfb_auto_save_pv | default(name ~ ':HDFB:AutoSave') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_Buffer_FileNumber' in pv_records %}
             "HDFB_Buffer_FileNumber": {
                 "description": "Not sure",
                 "pv": "{{ hdfb_buffer_file_number_pv | default(name ~ ':HDFB:FileNumber') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_Buffer_FileNumber_RBV' in pv_records %}
             "HDFB_Buffer_FileNumber_RBV": {
                 "description": "Not sure",
                 "pv": "{{ hdfb_buffer_file_number_rbv_pv | default(name ~ ':HDFB:FileNumber_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_Capture' in pv_records %}
             "HDFB_Capture": {
                 "description": "HDF buffer image capture state",
                 "pv": "{{ hdfb_capture_pv | default(name ~ ':HDFB:Capture') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_Capture_DISV' in pv_records %}
             "HDFB_Capture_DISV": {
                 "description": "HDF buffer image capture state",
                 "pv": "{{ hdfb_capture_disv_pv | default(name ~ ':HDFB:Capture.DISV') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_Capture_RBV' in pv_records %}
             "HDFB_Capture_RBV": {
                 "description": "HDF buffer image capture state (readback)",
                 "pv": "{{ hdfb_capture_rbv_pv | default(name ~ ':HDFB:Capture_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_FileName' in pv_records %}
             "HDFB_FileName": {
                 "description": "Last saved HDF buffer image name",
                 "pv": "{{ hdfb_file_name_pv | default(name ~ ':HDFB:FileName') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_FileName_RBV' in pv_records %}
             "HDFB_FileName_RBV": {
                 "description": "Last saved HDF buffer image name readback",
                 "pv": "{{ hdfb_file_name_rbv_pv | default(name ~ ':HDFB:FileName_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_FileNumber' in pv_records %}
             "HDFB_FileNumber": {
                 "description": "Not sure",
                 "pv": "{{ hdfb_file_number_pv | default(name ~ ':HDFB:FileNumber') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_FileNumber_RBV' in pv_records %}
             "HDFB_FileNumber_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -465,16 +624,22 @@
                 "pv": "{{ hdfb_file_number_rbv_pv | default(name ~ ':HDFB:FileNumber_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'HDFB_FilePath' in pv_records %}
             "HDFB_FilePath": {
                 "description": "File path to claraserv3 buffer image (server path not indicated)",
                 "pv": "{{ hdfb_file_path_pv | default(name ~ ':HDFB:FilePath') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_FilePath_RBV' in pv_records %}
             "HDFB_FilePath_RBV": {
                 "description": "File path to claraserv3 buffer image (server path not indicated)",
                 "pv": "{{ hdfb_file_path_rbv_pv | default(name ~ ':HDFB:FilePath_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_FileWriteMode' in pv_records %}
             "HDFB_FileWriteMode": {
                 "description": "Save mode for HDF buffer images.",
                 "pv": "{{ hdfb_file_write_mode_pv | default(name ~ ':HDFB:FileWriteMode') }}",
@@ -482,121 +647,167 @@
                 "states": {{ hdfb_file_write_mode_states | default({"CAPTURE": 1, "SINGLE": 0, "STREAM": 2}) | tojson }},
                 "type": "state"
             },
+            {% endif %}
+            {% if 'HDFB_NumCapture' in pv_records %}
             "HDFB_NumCapture": {
                 "description": "Number of HDF buffer images to collect",
                 "pv": "{{ hdfb_num_capture_pv | default(name ~ ':HDFB:NumCapture') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_NumCapture_RBV' in pv_records %}
             "HDFB_NumCapture_RBV": {
                 "description": "Number of HDF buffer images to collect",
                 "pv": "{{ hdfb_num_capture_rbv_pv | default(name ~ ':HDFB:NumCapture_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_NumCaptured_RBV' in pv_records %}
             "HDFB_NumCaptured_RBV": {
                 "description": "Number of buffer images captured",
                 "pv": "{{ hdfb_num_captured_rbv_pv | default(name ~ ':HDFB:NumCaptured_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_NumImagesCached_RBV' in pv_records %}
             "HDFB_NumImagesCached_RBV": {
                 "description": "Number of buffer images cached",
                 "pv": "{{ hdfb_num_images_cached_rbv_pv | default(name ~ ':BUFF:CurrentQty_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_PostCount' in pv_records %}
             "HDFB_PostCount": {
                 "description": "Post-count number of buffer images",
                 "pv": "{{ hdfb_post_count_pv | default(name ~ ':BUFF:PostCount') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_PreCount' in pv_records %}
             "HDFB_PreCount": {
                 "description": "Pre-count number of buffer images",
                 "pv": "{{ hdfb_pre_count_pv | default(name ~ ':BUFF:PreCount') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFB_WriteFile' in pv_records %}
             "HDFB_WriteFile": {
                 "description": "Write HDF buffer file status",
                 "pv": "{{ hdfb_write_file_pv | default(name ~ ':HDFB:WriteFile') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_WriteFile_RBV' in pv_records %}
             "HDFB_WriteFile_RBV": {
                 "description": "Write HDF buffer file status (readback)",
                 "pv": "{{ hdfb_write_file_rbv_pv | default(name ~ ':HDFB:WriteFile_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_WriteMessage' in pv_records %}
             "HDFB_WriteMessage": {
                 "pv": "{{ hdfb_write_message_pv | default(name ~ ':HDFB:WriteMessage') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_WriteStatus' in pv_records %}
             "HDFB_WriteStatus": {
                 "description": "Status of writing to HDF buffer",
                 "pv": "{{ hdfb_write_status_pv | default(name ~ ':HDFB:WriteStatus') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFB_image_buffer_fileName' in pv_records %}
             "HDFB_image_buffer_fileName": {
                 "description": "Image buffer filename",
                 "pv": "{{ hdfb_image_buffer_file_name_pv | default(name ~ ':HDFB:FileName') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_image_buffer_fileName_RBV' in pv_records %}
             "HDFB_image_buffer_fileName_RBV": {
                 "description": "Image buffer filename (readback)",
                 "pv": "{{ hdfb_image_buffer_file_name_rbv_pv | default(name ~ ':HDFB:FileName_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_image_buffer_filePath' in pv_records %}
             "HDFB_image_buffer_filePath": {
                 "description": "Image buffer file path",
                 "pv": "{{ hdfb_image_buffer_file_path_pv | default(name ~ ':HDFB:FilePath') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_image_buffer_filePath_RBV' in pv_records %}
             "HDFB_image_buffer_filePath_RBV": {
                 "description": "Image buffer file path (readback)",
                 "pv": "{{ hdfb_image_buffer_file_path_rbv_pv | default(name ~ ':HDFB:FilePath_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFB_image_buffer_trigger' in pv_records %}
             "HDFB_image_buffer_trigger": {
                 "description": "Trigger image buffer collection",
                 "pv": "{{ hdfb_image_buffer_trigger_pv | default(name ~ ':CAM:Trigger.PROC') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFM_AutoSave' in pv_records %}
             "HDFM_AutoSave": {
                 "description": "Autosave HDF mask images.",
                 "pv": "{{ hdfm_auto_save_pv | default(name ~ ':HDFM:AutoSave') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_Capture' in pv_records %}
             "HDFM_Capture": {
                 "description": "HDF mask image capture state",
                 "pv": "{{ hdfm_capture_pv | default(name ~ ':HDFM:Capture') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_Capture_DISV' in pv_records %}
             "HDFM_Capture_DISV": {
                 "description": "HDF mask image capture state",
                 "pv": "{{ hdfm_capture_disv_pv | default(name ~ ':HDFM:Capture.DISV') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_Capture_RBV' in pv_records %}
             "HDFM_Capture_RBV": {
                 "description": "HDF mask image capture state (readback)",
                 "pv": "{{ hdfm_capture_rbv_pv | default(name ~ ':HDFM:Capture_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_FileName' in pv_records %}
             "HDFM_FileName": {
                 "description": "Last saved HDF mask image name",
                 "pv": "{{ hdfm_file_name_pv | default(name ~ ':HDFM:FileName') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFM_FileName_RBV' in pv_records %}
             "HDFM_FileName_RBV": {
                 "description": "Last saved HDF mask image name readback",
                 "pv": "{{ hdfm_file_name_rbv_pv | default(name ~ ':HDFM:FileName_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFM_FileNumber' in pv_records %}
             "HDFM_FileNumber": {
                 "description": "Not sure",
                 "pv": "{{ hdfm_file_number_pv | default(name ~ ':HDFM:FileNumber') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFM_FileNumber_RBV' in pv_records %}
             "HDFM_FileNumber_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -604,16 +815,22 @@
                 "pv": "{{ hdfm_file_number_rbv_pv | default(name ~ ':HDFM:FileNumber_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'HDFM_FilePath' in pv_records %}
             "HDFM_FilePath": {
                 "description": "File path to claraserv3 mask image (server path not indicated)",
                 "pv": "{{ hdfm_file_path_pv | default(name ~ ':HDFM:FilePath') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFM_FilePath_RBV' in pv_records %}
             "HDFM_FilePath_RBV": {
                 "description": "File path to claraserv3 mask image (server path not indicated)",
                 "pv": "{{ hdfm_file_path_rbv_pv | default(name ~ ':HDFM:FilePath_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFM_FileWriteMode' in pv_records %}
             "HDFM_FileWriteMode": {
                 "description": "Save mode for HDF mask images.",
                 "pv": "{{ hdfm_file_write_mode_pv | default(name ~ ':HDFM:FileWriteMode') }}",
@@ -621,73 +838,101 @@
                 "states": {{ hdfm_file_write_mode_states | default({"CAPTURE": 1, "SINGLE": 0, "STREAM": 2}) | tojson }},
                 "type": "state"
             },
+            {% endif %}
+            {% if 'HDFM_NumCapture' in pv_records %}
             "HDFM_NumCapture": {
                 "description": "Number of HDF mask images to collect",
                 "pv": "{{ hdfm_num_capture_pv | default(name ~ ':HDFM:NumCapture') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFM_NumCapture_RBV' in pv_records %}
             "HDFM_NumCapture_RBV": {
                 "description": "Number of HDF mask images to collect",
                 "pv": "{{ hdfm_num_capture_rbv_pv | default(name ~ ':HDFM:NumCapture_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDFM_WriteFile' in pv_records %}
             "HDFM_WriteFile": {
                 "description": "Write HDF mask file",
                 "pv": "{{ hdfm_write_file_pv | default(name ~ ':HDFM:WriteFile') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_WriteFile_RBV' in pv_records %}
             "HDFM_WriteFile_RBV": {
                 "pv": "{{ hdfm_write_file_rbv_pv | default(name ~ ':HDFM:WriteFile_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDFM_WriteMessage' in pv_records %}
             "HDFM_WriteMessage": {
                 "pv": "{{ hdfm_write_message_pv | default(name ~ ':HDFM:WriteMessage') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDFM_WriteStatus' in pv_records %}
             "HDFM_WriteStatus": {
                 "description": "Status of writing to compressed HDF",
                 "pv": "{{ hdfm_write_status_pv | default(name ~ ':HDFM:WriteStatus') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_AutoSave' in pv_records %}
             "HDF_AutoSave": {
                 "description": "Autosave HDF images.",
                 "pv": "{{ hdf_auto_save_pv | default(name ~ ':HDF:AutoSave') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_Capture' in pv_records %}
             "HDF_Capture": {
                 "description": "HDF image capture state",
                 "pv": "{{ hdf_capture_pv | default(name ~ ':HDF:Capture') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_Capture_DISV' in pv_records %}
             "HDF_Capture_DISV": {
                 "description": "HDF image capture state",
                 "pv": "{{ hdf_capture_disv_pv | default(name ~ ':HDF:Capture.DISV') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_Capture_RBV' in pv_records %}
             "HDF_Capture_RBV": {
                 "description": "HDF image capture state (readback)",
                 "pv": "{{ hdf_capture_rbv_pv | default(name ~ ':HDF:Capture_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_FileName' in pv_records %}
             "HDF_FileName": {
                 "description": "Last saved HDF image name",
                 "pv": "{{ hdf_file_name_pv | default(name ~ ':HDF:FileName') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDF_FileName_RBV' in pv_records %}
             "HDF_FileName_RBV": {
                 "description": "Last saved HDF image name readback",
                 "pv": "{{ hdf_file_name_rbv_pv | default(name ~ ':HDF:FileName_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDF_FileNumber' in pv_records %}
             "HDF_FileNumber": {
                 "description": "Not sure",
                 "pv": "{{ hdf_file_number_pv | default(name ~ ':HDF:FileNumber') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDF_FileNumber_RBV' in pv_records %}
             "HDF_FileNumber_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -695,16 +940,22 @@
                 "pv": "{{ hdf_file_number_rbv_pv | default(name ~ ':HDF:FileNumber_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'HDF_FilePath' in pv_records %}
             "HDF_FilePath": {
                 "description": "File path to claraserv3 (server path not indicated)",
                 "pv": "{{ hdf_file_path_pv | default(name ~ ':HDF:FilePath') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDF_FilePath_RBV' in pv_records %}
             "HDF_FilePath_RBV": {
                 "description": "File path to claraserv3 (server path not indicated)",
                 "pv": "{{ hdf_file_path_rbv_pv | default(name ~ ':HDF:FilePath_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDF_FileWriteMode' in pv_records %}
             "HDF_FileWriteMode": {
                 "description": "Save mode for HDF images.",
                 "pv": "{{ hdf_file_write_mode_pv | default(name ~ ':HDF:FileWriteMode') }}",
@@ -712,98 +963,134 @@
                 "states": {{ hdf_file_write_mode_states | default({"CAPTURE": 1, "SINGLE": 0, "STREAM": 2}) | tojson }},
                 "type": "state"
             },
+            {% endif %}
+            {% if 'HDF_NumCapture' in pv_records %}
             "HDF_NumCapture": {
                 "description": "Number of HDF images to collect",
                 "pv": "{{ hdf_num_capture_pv | default(name ~ ':HDF:NumCapture') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDF_NumCapture_RBV' in pv_records %}
             "HDF_NumCapture_RBV": {
                 "description": "Number of HDF images to collect",
                 "pv": "{{ hdf_num_capture_rbv_pv | default(name ~ ':HDF:NumCapture_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'HDF_WriteFile' in pv_records %}
             "HDF_WriteFile": {
                 "description": "Write HDF file",
                 "pv": "{{ hdf_write_file_pv | default(name ~ ':HDF:WriteFile') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_WriteFile_RBV' in pv_records %}
             "HDF_WriteFile_RBV": {
                 "description": "HDF file writing status (readback)",
                 "pv": "{{ hdf_write_file_rbv_pv | default(name ~ ':HDF:WriteFile_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'HDF_WriteMessage' in pv_records %}
             "HDF_WriteMessage": {
                 "description": "Not sure",
                 "pv": "{{ hdf_write_message_pv | default(name ~ ':HDF:WriteMessage') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'HDF_WriteStatus' in pv_records %}
             "HDF_WriteStatus": {
                 "description": "HDF file writing status",
                 "pv": "{{ hdf_write_status_pv | default(name ~ ':HDF:WriteStatus') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'Init_Buffer' in pv_records %}
             "Init_Buffer": {
                 "description": "Initialise image save path",
                 "pv": "{{ init_buffer_pv | default(name ~ ':CAM:InitBuffering.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'LED_Off' in pv_records %}
             "LED_Off": {
                 "description": "Switch LEDs on",
-                "pv": "{{ led_off_pv | default(missing_pv) }}",
+                "pv": "{{ led_off_pv | default(missing_pv_default_text) }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'LED_On' in pv_records %}
             "LED_On": {
                 "description": "Switch LEDs off",
-                "pv": "{{ led_on_pv | default(missing_pv) }}",
+                "pv": "{{ led_on_pv | default(missing_pv_default_text) }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'LED_Sta' in pv_records %}
             "LED_Sta": {
                 "description": "Are LEDs on?",
-                "pv": "{{ led_sta_pv | default(missing_pv) }}",
+                "pv": "{{ led_sta_pv | default(missing_pv_default_text) }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_AutoSave' in pv_records %}
             "MAGICK_AutoSave": {
                 "description": "Autosave compressed images.",
                 "pv": "{{ magick_auto_save_pv | default(name ~ ':MAGICK:AutoSave') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_Capture' in pv_records %}
             "MAGICK_Capture": {
                 "description": "Compressed image capture state",
                 "pv": "{{ magick_capture_pv | default(name ~ ':MAGICK:Capture') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_Capture_DISV' in pv_records %}
             "MAGICK_Capture_DISV": {
                 "description": "Compressed image capture state",
                 "pv": "{{ magick_capture_disv_pv | default(name ~ ':MAGICK:Capture.DISV') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_Capture_RBV' in pv_records %}
             "MAGICK_Capture_RBV": {
                 "description": "Compressed image capture state (readback)",
                 "pv": "{{ magick_capture_rbv_pv | default(name ~ ':MAGICK:Capture_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_FileName' in pv_records %}
             "MAGICK_FileName": {
                 "description": "Last saved HDF compressed image name",
                 "pv": "{{ magick_file_name_pv | default(name ~ ':MAGICK:FileName') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'MAGICK_FileName_RBV' in pv_records %}
             "MAGICK_FileName_RBV": {
                 "description": "Last saved compressed image name readback",
                 "pv": "{{ magick_file_name_rbv_pv | default(name ~ ':MAGICK:FileName_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'MAGICK_FileNumber' in pv_records %}
             "MAGICK_FileNumber": {
                 "description": "Not sure",
                 "pv": "{{ magick_file_number_pv | default(name ~ ':MAGICK:FileNumber') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'MAGICK_FileNumber_RBV' in pv_records %}
             "MAGICK_FileNumber_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -811,16 +1098,22 @@
                 "pv": "{{ magick_file_number_rbv_pv | default(name ~ ':MAGICK:FileNumber_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'MAGICK_FilePath' in pv_records %}
             "MAGICK_FilePath": {
                 "description": "File path to claraserv3 compressed image (server path not indicated)",
                 "pv": "{{ magick_file_path_pv | default(name ~ ':MAGICK:FilePath') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'MAGICK_FilePath_RBV' in pv_records %}
             "MAGICK_FilePath_RBV": {
                 "description": "File path to claraserv3 compressed image (server path not indicated)",
                 "pv": "{{ magick_file_path_rbv_pv | default(name ~ ':MAGICK:FilePath_RBV') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'MAGICK_FileWriteMode' in pv_records %}
             "MAGICK_FileWriteMode": {
                 "description": "Save mode for compressed images.",
                 "pv": "{{ magick_file_write_mode_pv | default(name ~ ':MAGICK:FileWriteMode') }}",
@@ -828,42 +1121,58 @@
                 "states": {{ magick_file_write_mode_states | default({"CAPTURE": 1, "SINGLE": 0, "STREAM": 2}) | tojson }},
                 "type": "state"
             },
+            {% endif %}
+            {% if 'MAGICK_NumCapture' in pv_records %}
             "MAGICK_NumCapture": {
                 "description": "Number of compressed images to collect",
                 "pv": "{{ magick_num_capture_pv | default(name ~ ':MAGICK:NumCapture') }}",
                 "read_only": false,
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'MAGICK_NumCapture_RBV' in pv_records %}
             "MAGICK_NumCapture_RBV": {
                 "description": "Number of compressed images to collect",
                 "pv": "{{ magick_num_capture_rbv_pv | default(name ~ ':MAGICK:NumCapture_RBV') }}",
                 "type": "scalar"
             },
+            {% endif %}
+            {% if 'MAGICK_WriteFile' in pv_records %}
             "MAGICK_WriteFile": {
                 "description": "Write compressed file",
                 "pv": "{{ magick_write_file_pv | default(name ~ ':MAGICK:WriteFile') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_WriteFile_RBV' in pv_records %}
             "MAGICK_WriteFile_RBV": {
                 "description": "Gets the state of writing procedure for compressed file.",
                 "pv": "{{ magick_write_file_rbv_pv | default(name ~ ':MAGICK:WriteFile_RBV') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'MAGICK_WriteMessage' in pv_records %}
             "MAGICK_WriteMessage": {
                 "description": "Not sure",
                 "pv": "{{ magick_write_message_pv | default(name ~ ':MAGICK:WriteMessage') }}",
                 "type": "string"
             },
+            {% endif %}
+            {% if 'MAGICK_WriteStatus' in pv_records %}
             "MAGICK_WriteStatus": {
                 "description": "Gets the writing status for compressed file.",
                 "pv": "{{ magick_write_status_pv | default(name ~ ':MAGICK:WriteStatus') }}",
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'ROI1_ImageData_RBV' in pv_records %}
             "ROI1_ImageData_RBV": {
                 "description": "Camera array data inside ROI",
                 "pv": "{{ roi1_image_data_rbv_pv | default(name ~ ':CAM3:ArrayData') }}",
                 "type": "waveform"
             },
+            {% endif %}
+            {% if 'ROI1_MinX' in pv_records %}
             "ROI1_MinX": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -871,6 +1180,8 @@
                 "pv": "{{ roi1_min_x_pv | default(name ~ ':ROI1:MinX') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_MinX_RBV' in pv_records %}
             "ROI1_MinX_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -878,6 +1189,8 @@
                 "pv": "{{ roi1_min_x_rbv_pv | default(name ~ ':ROI1:MinX_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_MinY' in pv_records %}
             "ROI1_MinY": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -885,6 +1198,8 @@
                 "pv": "{{ roi1_min_y_pv | default(name ~ ':ROI1:MinY') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_MinY_RBV' in pv_records %}
             "ROI1_MinY_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -892,6 +1207,8 @@
                 "pv": "{{ roi1_min_y_rbv_pv | default(name ~ ':ROI1:MinY_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_SizeX' in pv_records %}
             "ROI1_SizeX": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -899,12 +1216,16 @@
                 "pv": "{{ roi1_size_x_pv | default(name ~ ':ROI1:SizeX') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_SizeX_RBV' in pv_records %}
             "ROI1_SizeX_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "pv": "{{ roi1_size_x_rbv_pv | default(name ~ ':ROI1:SizeX_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_SizeY' in pv_records %}
             "ROI1_SizeY": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -912,12 +1233,16 @@
                 "pv": "{{ roi1_size_y_pv | default(name ~ ':ROI1:SizeY') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROI1_SizeY_RBV' in pv_records %}
             "ROI1_SizeY_RBV": {
                 "auto_buffer": false,
                 "buffer_size": 10,
                 "pv": "{{ roi1_size_y_rbv_pv | default(name ~ ':ROI1:SizeY_RBV') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROIandMask_SetX' in pv_records %}
             "ROIandMask_SetX": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -925,6 +1250,8 @@
                 "pv": "{{ roi_and_mask_set_x_pv | default(name ~ ':ANA:SetX') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROIandMask_SetXrad' in pv_records %}
             "ROIandMask_SetXrad": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -932,6 +1259,8 @@
                 "pv": "{{ roi_and_mask_set_x_rad_pv | default(name ~ ':ANA:SetXRad') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROIandMask_SetY' in pv_records %}
             "ROIandMask_SetY": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -939,6 +1268,8 @@
                 "pv": "{{ roi_and_mask_set_y_pv | default(name ~ ':ANA:SetY') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'ROIandMask_SetYrad' in pv_records %}
             "ROIandMask_SetYrad": {
                 "auto_buffer": false,
                 "buffer_size": 10,
@@ -946,36 +1277,47 @@
                 "pv": "{{ roi_and_mask_set_y_rad_pv | default(name ~ ':ANA:SetYRad') }}",
                 "type": "statistical"
             },
+            {% endif %}
+            {% if 'Reset_Buffer' in pv_records %}
             "Reset_Buffer": {
                 "description": "Reset (clear) buffer",
                 "pv": "{{ reset_buffer_pv | default(name ~ ':CAM:Reset.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'Save' in pv_records %}
             "Save": {
                 "description": "Start image save procedure",
                 "pv": "{{ save_pv | default(name ~ ':CAM:ImageSave.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'Save_Buffer' in pv_records %}
             "Save_Buffer": {
                 "description": "Start image buffer save procedure",
                 "pv": "{{ save_buffer_pv | default(name ~ ':CAM:Trigger.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'Save_Buffer_Path_Initialise' in pv_records %}
             "Save_Buffer_Path_Initialise": {
                 "description": "Initialise image buffer save path",
                 "pv": "{{ save_buffer_path_initialise_pv | default(name ~ ':CAM:ConstructFilePath.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             },
+            {% endif %}
+            {% if 'Save_Path_Initialise' in pv_records %}
             "Save_Path_Initialise": {
                 "description": "Initialise image save path",
                 "pv": "{{ save_path_initialise_pv | default(name ~ ':CAM:ConstructSaveFilePath.PROC') }}",
                 "read_only": false,
                 "type": "binary"
             }
+            {% endif %}
         }
     },
     "properties": {
@@ -986,33 +1328,34 @@
         {%- do props.append('"type": "' ~ type ~ '"') %}
         {%- do props.append('"hardware_type": "Camera"') %}
         {%- do props.append('"machine_area": "' ~ machine_area ~ '"') %}
-        {%- if virtual_name is defined %}
+        {# Optional properties below #}
+        {%- if 'virtual_name' in properties and virtual_name is defined %}
         {%-   do props.append('"virtual_name": "' ~ virtual_name ~ '"') %}
-        {%- else %}
+        {%- elif 'virtual_name' in properties %}
         {%-   do props.append('"virtual_name": "VM- ' ~ name ~ '"') %}
         {%- endif %}
-        {%- if ARRAY_DATA_NUM_PIX_X is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_X": ' ~ ARRAY_DATA_NUM_PIX_X) %}{% endif %}
-        {%- if ARRAY_DATA_NUM_PIX_Y is defined %}{% do props.append('"ARRAY_DATA_NUM_PIX_Y": ' ~ ARRAY_DATA_NUM_PIX_Y) %}{% endif %}
-        {%- if ARRAY_DATA_X_PIX_2_MM is defined %}{% do props.append('"ARRAY_DATA_X_PIX_2_MM": ' ~ ARRAY_DATA_X_PIX_2_MM) %}{% endif %}
-        {%- if ARRAY_DATA_Y_PIX_2_MM is defined %}{% do props.append('"ARRAY_DATA_Y_PIX_2_MM": ' ~ ARRAY_DATA_Y_PIX_2_MM) %}{% endif %}
-        {%- if HAS_LED is defined %}{% do props.append('"HAS_LED": ' ~ HAS_LED|lower) %}{% endif %}
-        {%- if IMAGE_FLIP_LR is defined %}{% do props.append('"IMAGE_FLIP_LR": ' ~ IMAGE_FLIP_LR|lower) %}{% endif %}
-        {%- if IMAGE_FLIP_UD is defined %}{% do props.append('"IMAGE_FLIP_UD": ' ~ IMAGE_FLIP_UD|lower) %}{% endif %}
-        {%- if IMAGE_ROTATION is defined %}{% do props.append('"IMAGE_ROTATION": ' ~ IMAGE_ROTATION) %}{% endif %}
-        {%- if IOC is defined %}
+        {%- if 'ARRAY_DATA_NUM_PIX_X' in properties %}{% do props.append('"ARRAY_DATA_NUM_PIX_X": ' ~ properties["ARRAY_DATA_NUM_PIX_X"]) %}{% endif %}
+        {%- if 'ARRAY_DATA_NUM_PIX_Y' in properties %}{% do props.append('"ARRAY_DATA_NUM_PIX_Y": ' ~ properties["ARRAY_DATA_NUM_PIX_Y"]) %}{% endif %}
+        {%- if 'ARRAY_DATA_X_PIX_2_MM' in properties %}{% do props.append('"ARRAY_DATA_X_PIX_2_MM": ' ~ properties["ARRAY_DATA_X_PIX_2_MM"]) %}{% endif %}
+        {%- if 'ARRAY_DATA_Y_PIX_2_MM' in properties %}{% do props.append('"ARRAY_DATA_Y_PIX_2_MM": ' ~ properties["ARRAY_DATA_Y_PIX_2_MM"]) %}{% endif %}
+        {%- if 'HAS_LED' in properties %}{% do props.append('"HAS_LED": ' ~ properties["HAS_LED"] |lower) %}{% endif %}
+        {%- if 'IMAGE_FLIP_LR' in properties %}{% do props.append('"IMAGE_FLIP_LR": ' ~ properties["IMAGE_FLIP_LR"]|lower) %}{% endif %}
+        {%- if 'IMAGE_FLIP_UD' in properties %}{% do props.append('"IMAGE_FLIP_UD": ' ~ properties["IMAGE_FLIP_UD"]|lower) %}{% endif %}
+        {%- if 'IMAGE_ROTATION' in properties %}{% do props.append('"IMAGE_ROTATION": ' ~ properties["IMAGE_ROTATION"]) %}{% endif %}
+        {%- if 'IOC' in properties%}
             {%- set ioc_items = [] %}
-            {%- for ioc in IOC %}
+            {%- for ioc in properties["IOC"] %}
                 {%- set _ = ioc_items.append('"' ~ ioc ~ '"') %}
             {%- endfor %}
             {%- set ioc_list = '[' ~ ioc_items | join(', ') ~ ']' %}
             {% set _ = props.append('"IOC": ' ~ ioc_list) %}
         {%- endif %}
-        {%- if IP_ADDRESS_STREAM is defined %}{% do props.append('"IP_ADDRESS_STREAM": "' ~ IP_ADDRESS_STREAM ~ '"') %}{% endif %}
-        {%- if MAX_BIT_DEPTH is defined %}{% do props.append('"MAX_BIT_DEPTH": ' ~ MAX_BIT_DEPTH) %}{% endif %}
-        {%- if PIX_2_MM_RATIO_DEF is defined %}{% do props.append('"PIX_2_MM_RATIO_DEF": ' ~ PIX_2_MM_RATIO_DEF) %}{% endif %}
-        {%- if SCREEN_NAME is defined %}{% do props.append('"SCREEN_NAME": "' ~ SCREEN_NAME ~ '"') %}{% endif %}
-        {%- if USE_MASK_RAD_LIMITS is defined %}{% do props.append('"USE_MASK_RAD_LIMITS": ' ~ USE_MASK_RAD_LIMITS|lower) %}{% endif %}
-        {%- if timeout is defined %}{% do props.append('"timeout": ' ~ timeout) %}{% endif %}
+        {%- if 'IP_ADDRESS_STREAM' in properties %}{% do props.append('"IP_ADDRESS_STREAM": "' ~ properties["IP_ADDRESS_STREAM"] ~ '"') %}{% endif %}
+        {%- if 'MAX_BIT_DEPTH' in properties %}{% do props.append('"MAX_BIT_DEPTH": ' ~ properties["MAX_BIT_DEPTH"]) %}{% endif %}
+        {%- if 'PIX_2_MM_RATIO_DEF' in properties %}{% do props.append('"PIX_2_MM_RATIO_DEF": ' ~ properties["PIX_2_MM_RATIO_DEF"]) %}{% endif %}
+        {%- if 'SCREEN_NAME' in properties %}{% do props.append('"SCREEN_NAME": "' ~ properties["SCREEN_NAME"] ~ '"') %}{% endif %}
+        {%- if 'USE_MASK_RAD_LIMITS' in properties %}{% do props.append('"USE_MASK_RAD_LIMITS": ' ~ properties["USE_MASK_RAD_LIMITS"]|lower) %}{% endif %}
+        {%- if 'timeout' in properties %}{% do props.append('"timeout": ' ~ properties["timeout"]) %}{% endif %}
         {{ props | join(',\n        ') }}
     }
 }

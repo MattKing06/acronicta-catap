@@ -1,0 +1,55 @@
+controls_information:
+  pv_record_map:
+    SETI:
+      type: scalar
+      description: Sets the target current for a magnet power supply
+      units: A
+      pv: INJ:LEB:SOLENOID_2:SET_CURRENT
+      read_only: False
+      protocol: PVA
+    GETSETI:
+      type: scalar
+      description: Gets the value of the target current for a magnet power supply.
+      units: A
+      pv: INJ:LEB:SOLENOID_2:READ_SETCURRENT
+      protocol: pva
+    READI:
+      type: scalar
+      description: Gets the value of the actual current for a magnet power supply
+      units: A
+      pv: INJ:LEB:SOLENOID_2:READ_CURRENT
+      protocol: PVA
+    SETSTATE:
+      type: state
+      description: Sets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      pv: INJ:LEB:SOLENOID_2:ON_STATE
+      read_only: False
+      protocol: PVA
+    RESET:
+      type: state
+      description: Forces a reset of a power supply
+      states:
+        False: 0
+        True: 1
+      pv: INJ:LEB:SOLENOID_2:RESET
+      read_only: False
+      protocol: PVA
+    GETSTATE:
+      type: scalar
+      description: "Danfysik 800 PSU Controller Solenoid 1 - Status"
+      pv: INJ:LEB:SOLENOID_2:STATUS
+      protocol: PVA
+
+properties:
+  hardware_type: Solenoid
+  magnet_type: SOLENOID
+  machine_area: LEBT
+  max_i: 60
+  min_i: 0
+  name: LEBT-SOL-2
+  name_alias: LEBT-SOL-2
+  manufacturer: Danfysik
+  communications: MOXA

@@ -19,9 +19,14 @@ hardware_types = [
     "Screen",
 ]
 
+def zip_filter(a, b):
+    return zip(a, b)
+
 missing_pv_default_text = "<ADD_PV_HERE>"
-missing_property_text = "<ADD_PROPERTY_HERE>"
-missing_state_map_text = '{"STATE_NAME": "<ADD_STATE_HERE>"}'
+missing_property_default_text = "<MISSING_PROPERTY>"
+missing_property_default_int = -999
+missing_property_default_float = -999.0
+missing_state_map_text = {"STATE_NAME": "<ADD_STATE_HERE>"}
 
 for hardware in hardware_types:
     yaml = YAML(typ="safe")
@@ -33,7 +38,8 @@ for hardware in hardware_types:
             with open(os.path.join(hardware_dir, fname)) as f:
                 data = yaml.load(f)
                 properties = data["properties"]
-                pv_record_map = data.get("controls_information", {}).get("pv_record_map", {})
+                controls_info = data.get("controls_information", {})
+                pv_record_map = controls_info.pop("pv_record_map", {})
                 info = {}
                 # Try to get each field, fallback to None if not present
                 info["name"] = properties.get("name")
@@ -47,6 +53,8 @@ for hardware in hardware_types:
                 info["position"] = properties.get("position")
                 info["machine_area"] = properties.get("machine_area")
                 info["pv_records"] = pv_record_map.keys()
+                info["controls_information"] = controls_info
+                info["properties"] = properties
                 hardware_info_list.append(info)
 
     for item in hardware_info_list:
@@ -57,15 +65,23 @@ for hardware in hardware_types:
             lstrip_blocks=True,
             extensions=["jinja2.ext.do"],
         )
+        data_env.filters["zip"] = zip_filter
+        # Load the hardware template based on the hardware type
         hardware_template = data_env.get_template(f"{hardware.lower()}.j2")
         # Load the rendered YAML string into a Python dictionary
+        
+        rendered_hardware_template = hardware_template.render(
+            **item,
+            missing_property_default_text=missing_property_default_text,
+            missing_state_map=missing_state_map_text,
+            missing_pv_default_text=missing_pv_default_text,
+            missing_property_int=missing_property_default_int,
+            missing_property_float=missing_property_default_float,
+        )
+        print(f"Rendered template for {item['name']}:\n \"{rendered_hardware_template}\"")
+        # Convert the rendered template to a dictionary
         hardware_data = json.loads(
-            hardware_template.render(
-                **item,
-                missing_property=missing_property_text,
-                missing_state_map=missing_state_map_text,
-                missing_pv_default_text=missing_pv_default_text,
-            )
+            rendered_hardware_template,
         )
 
         yaml_env = Environment(

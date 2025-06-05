@@ -1,4 +1,16 @@
 controls_information:
+{% for key, value in controls_information.items() %}
+  {% if key != "pv_record_map" %}
+    {% if value is mapping %}
+  {{ key }}:
+    {% for subkey, subval in value.items() %}
+      {{ subkey }}: {{ subval }}
+    {% endfor %}
+    {% else %}
+  {{ key }}: {{ value }}
+  {% endif %}
+{% endif %}
+{% endfor %}
   pv_record_map:
 {% for pv_name, pv in controls_information.pv_record_map.items() %}
     {{ pv_name }}:

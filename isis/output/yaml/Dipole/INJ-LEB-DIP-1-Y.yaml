@@ -1,0 +1,74 @@
+controls_information:
+  pv_record_map:
+    SETI:
+      type: scalar
+      description: Sets the target current for a magnet power supply
+      units: A
+      pv: INJ:LEB:DIPOLE_1_Y:SET_CURRENT
+      read_only: False
+      protocol: PVA
+    GETSETI:
+      type: scalar
+      description: Gets the value of the target current for a magnet power supply.
+      units: A
+      pv: INJ:LEB:DIPOLE_1_Y:READ_SETCURRENT
+      protocol: pva
+    READI:
+      type: scalar
+      description: Gets the value of the actual current for a magnet power supply
+      units: A
+      pv: INJ:LEB:DIPOLE_1_Y:READ_CURRENT
+      protocol: PVA
+    SETPOL:
+      type: state
+      description: Sets the value for the polarity of the power supply, used to switch from positive to negative
+      pv: IRFQ::DIPOLE_1_Y:SET_POL
+      protocol: PVA
+      read_only: False
+      states:
+        +ve: 0
+        -ve: 1
+    READPOL:
+      type: scalar
+      description: Gets the value of the polarity of the magnet
+      pv: IRFQ::DIPOLE_1_Y:READ_POL
+      protocol: PVA
+    SETSTATE:
+      type: state
+      description: Sets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      pv: INJ:LEB:DIPOLE_1_Y:ON_STATE
+      read_only: False
+      protocol: PVA
+    GETSTATE:
+      type: scalar
+      description: "Danfysik 800 PSU Controller Dipole 1 Y - Status"
+      pv: INJ:LEB:DIPOLE_1_Y:STATUS
+      protocol: PVA
+    RESET:
+      type: state
+      description: Forces a reset of a power supply
+      states:
+        "False": 0
+        "True": 1
+      pv: INJ:LEB:DIPOLE_1_Y:RESET
+      read_only: False
+      protocol: PVA
+
+properties:
+  hardware_type: Dipole
+  magnet_type: DIPOLE
+  machine_area: LEBT
+  max_i: 2
+  min_i: -2
+  name: LEBT-DIP-1-Y
+  name_alias: LEBT-DIPOLE-1-Y
+  set_pol_positive: 1
+  read_pol_positive: 1
+  set_pol_negative: 0
+  read_pol_negative: 2
+  manufacturer: Danfysik
+  communications: MOXA
+  position: 1.0

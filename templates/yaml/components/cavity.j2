@@ -146,31 +146,26 @@
                 "description": "Set cavity off-crest phase",
                 "units": "deg",
                 "pv": "{{ off_crest_phase_read_pv | default(name ~ ':getCrestPhase') }}"
+            },
+            "BeamMomentum": {
+                "type": "scalar",
+                "read_only": false,
+                "description": "Beam momentum at the exit of the cavity, used in k-value calculations for all magnets in that section.",
+                "units": "MeV/c",
+                "pv": "{{ beam_momentum_pv | default('CLA-' ~ machine_area ~ ':SETP') }}"
             }
         }
     },
     "properties": {
-        {% set props = [] %}
-        {% set _ = props.append('"hardware_type": "Cavity"') %}
-        {% set _ = props.append('"machine_area": "' ~ machine_area ~ '"') %}
-        {% set _ = props.append('"name": "' ~ name ~ '"') %}
-        {% if virtual_name is defined %}
-        {%   set _ = props.append('"virtual_name": "' ~ virtual_name ~ '"') %}
-        {% else %}
-        {%   set _ = props.append('"virtual_name": "VM-' ~ name ~ '"') %}
-        {% endif %}
-        {% set _ = props.append('"name_alias": "' ~ name_alias ~ '"') %}
-        {% set _ = props.append('"type": "' ~ type ~ '"') %}
-        {% set _ = props.append('"position": ' ~ position) %}
-        {% if api_set_max_wait_time is defined %}
-            {% set _ = props.append('"api_set_max_wait_time": ' ~ api_set_max_wait_time) %}
-        {% endif %}
-        {% if phase_tolerance is defined %}
-            {% set _ = props.append('"phase_tolerance": ' ~ phase_tolerance) %}
-        {% endif %}
-        {% if power_tolerance is defined %}
-            {% set _ = props.append('"power_tolerance": ' ~ power_tolerance) %}
-        {% endif %}
-        {{ props | join(',\n        ') }}
+        "hardware_type": "Cavity",
+        "machine_area": "{{ machine_area}}",
+        "name": "{{ name }}",
+        "virtual_name": "{{ properties.get('virtual_name', missing_property_default_text) }}",
+        "name_alias": "{{ name_alias}}",
+        "type": "{{ properties.get('type', missing_property_default_text) }}",
+        "position": {{ position}},
+        "api_set_max_wait_time": {{ properties.get('api_set_max_wait_time', missing_property_default_float) }},
+        "phase_tolerance": {{ properties.get('phase_tolerance', missing_property_default_float) }},
+        "power_tolerance": {{ properties.get('power_tolerance', missing_property_default_float) }}
     }
 }
