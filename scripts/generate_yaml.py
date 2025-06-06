@@ -47,6 +47,7 @@ for hardware in hardware_types:
                 info["type"] = (
                     properties.get(f"{hardware.lower()}_type")
                     or data.get("type")
+                    or data.get("subtype")
                     or data.get("CAM_TYPE")
                 )
                 info["name_alias"] = properties.get("name_alias")

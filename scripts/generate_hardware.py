@@ -6,9 +6,9 @@ from jinja2 import Environment, FileSystemLoader
 # Load YAML data
 exclude_folders = ["FEBELaser", "PILaser"]
 
-lattice_location = os.path.abspath("../isis/output/yaml")
+lattice_location = os.path.abspath("../clara/output/yaml")
 # Ensure output directory exists
-output_dir = "../isis/output/"
+output_dir = "../clara/output/"
 model_output_dir = os.path.join(output_dir, "models")
 hardware_output_dir = os.path.join(output_dir, "hardware")
 os.makedirs(hardware_output_dir, exist_ok=True)
@@ -80,29 +80,7 @@ file_controls_info = {}
 file_property_keys = {}
 file_property_info = {}
 machine_areas = []
-#     "LAS",
-#     "INJ",
-#     "S01",
-#     "L01",
-#     "S02",
-#     "C2V",
-#     "SP1",
-#     "L02",
-#     "S03",
-#     "L03",
-#     "S04",
-#     "L4H",
-#     "S05",
-#     "VBC",
-#     "S06",
-#     "SP2",
-#     "L04",
-#     "S07",
-#     "SP3",
-#     "FEA",
-#     "FEH",
-#     "FED",
-# ]
+hardware_and_subtypes = {}
 # Iterate through the example files to extract hardware types and PV maps
 # This will need to be done once per hardware_type so we can gather
 # information about optional PVs etc.
@@ -136,11 +114,15 @@ for file in example_files:
     file_controls_info[class_name].update(controls_info)
     file_property_keys[class_name][file] = set(properties.keys())
     file_property_info[class_name].update(properties)
-    if not machine_areas:
-        machine_areas = []
     _area = properties.get("machine_area")
     if _area not in machine_areas:
         machine_areas.append(_area)
+    _subtype = properties.get("subtype", None)
+    if _subtype:
+        if hardware_type.upper() not in hardware_and_subtypes:
+            hardware_and_subtypes[hardware_type.upper()] = []
+        if _subtype.upper() not in hardware_and_subtypes[hardware_type.upper()]:
+            hardware_and_subtypes[hardware_type.upper()].append(_subtype.upper())
 
 class_name = None
 # Iterate through the files to construct the PV map and optional PVs
@@ -201,6 +183,7 @@ for file in example_files:
         init_output = init_template.render(
             lattice_folder=lattice_location,
             areas=machine_areas,
+            hardware_types=hardware_and_subtypes if hardware_and_subtypes else None,
         )
 
         # Render template with filtered properties
