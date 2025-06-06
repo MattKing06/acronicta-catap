@@ -33,7 +33,7 @@ controls_information:
   right_sense: -1
   up_sense: -1
 properties:
-  hardware_type: Mirror
+  hardware_type: LaserMirror
   horizontal_channel: 0
   machine_area: INJ
   name: EBT-LAS-OPT-PM-11

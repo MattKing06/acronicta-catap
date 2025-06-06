@@ -144,9 +144,10 @@ controls_information:
       pv: CLA-S05:SETP
 properties:
   api_set_max_wait_time: 10.0
+  subtype: LINAC
   hardware_type: Cavity
   machine_area: L4H
-  name: CLA-4HC-RF-CTRL-01
+  name: 4HC
   name_alias: CLA-4HC-RF-CTRL-01,4HC,4hc,L4H,l4h
   phase_tolerance: 1.0
   power_tolerance: 0.1

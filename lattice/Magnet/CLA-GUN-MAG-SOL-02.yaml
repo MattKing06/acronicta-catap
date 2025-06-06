@@ -82,7 +82,7 @@ properties:
   hardware_type: Magnet
   machine_area: INJ
   mag_set_max_wait_time: 45.0
-  magnet_type: SOLENOID
+  subtype: SOLENOID
   magnetic_length: 0.137505201632299
   manufacturer: SEF
   max_i: 250.0

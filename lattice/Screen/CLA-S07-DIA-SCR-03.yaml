@@ -31,5 +31,5 @@ properties:
   name: CLA-S07-DIA-SCR-03
   name_alias: S07-SCR-03
   position: 46.440923
-  screen_type: CLARA_PHASE_2_MOVER
+  subtype: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

@@ -147,8 +147,9 @@ controls_information:
 properties:
   api_set_max_wait_time: 10.0
   hardware_type: Cavity
+  subtype: LINAC
   machine_area: L04
-  name: CLA-L04-RF-CTRL-01
+  name: L04
   name_alias: CLA-L04-RF-CTRL-01,L04,l04,LINAC4,linac4,L4,l4
   phase_tolerance: 1.0
   power_tolerance: 0.1

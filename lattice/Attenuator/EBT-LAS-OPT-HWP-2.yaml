@@ -16,7 +16,7 @@ controls_information:
       pv: EBT-LAS-OPT-HWP-2:ROT:RPOS
 properties:
   attenuator_set_max_wait_time: 10.0
-  attenuator_type: LaserHWP
+  subtype: LaserHWP
   hardware_type: Attenuator
   machine_area: INJ
   maximum: 13

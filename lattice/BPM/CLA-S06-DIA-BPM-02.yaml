@@ -56,7 +56,7 @@ properties:
   att1cal: 12
   att2cal: 12
   bpm_set_max_wait_time: 0.5
-  bpm_type: STRIPLINE
+  subtype: STRIPLINE
   hardware_type: BPM
   machine_area: S06
   mn: 15

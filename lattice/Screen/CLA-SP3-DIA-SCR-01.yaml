@@ -31,5 +31,5 @@ properties:
   name: CLA-SP3-DIA-SCR-01
   name_alias: SP3-SCR-01
   position: 46.32183645
-  screen_type: CLARA_PHASE_2_MOVER
+  subtype: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

@@ -13,7 +13,7 @@ controls_information:
       description: Dark current
       pv: EBT-B03-IOC-CS-04:FMC1:CH0:WCM:DQ
 properties:
-  charge_type: WCM
+  subtype: WCM
   hardware_type: Charge
   machine_area: S01
   name: CLA-S01-DIA-WCM-01

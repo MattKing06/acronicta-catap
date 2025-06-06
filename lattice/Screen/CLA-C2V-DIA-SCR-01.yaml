@@ -32,5 +32,5 @@ properties:
   name: CLA-C2V-DIA-SCR-01
   name_alias: C2V-SCR-01
   position: 6.9819
-  screen_type: CLARA_V_MOVER
+  subtype: CLARA_V_MOVER
   set_max_wait_time: 45.0

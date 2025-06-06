@@ -26,6 +26,6 @@ properties:
   name: EBT-INJ-VAC-VALV-05
   name_alias: INJ-VALV5
   valve_set_max_wait_time: 10.0
-  valve_type: Valve
+  subtype: Valve
   virtual_name: VM-EBT-INJ-VAC-VALV-05
   position: 0.01 # assumed position based on other components

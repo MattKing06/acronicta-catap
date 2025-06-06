@@ -7,7 +7,7 @@ controls_information:
       description: Bunch charge
       pv: EBT-B03-IOC-CS-04:FMC1:CH1:FCUP:Q
 properties:
-  charge_type: FCUP
+  subtype: FCUP
   hardware_type: Charge
   machine_area: SP1
   name: CLA-SP1-DIA-FCUP-01

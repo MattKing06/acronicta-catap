@@ -24,6 +24,6 @@ properties:
   name: CLA-LAS-VAC-VALV-01
   name_alias: LAS-VALV1
   valve_set_max_wait_time: 10.0
-  valve_type: Valve
+  subtype: Valve
   virtual_name: VM-CLA-LAS-VAC-VALV-01
   position: 0.02 # assumed position based on other components

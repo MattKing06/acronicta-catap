@@ -140,8 +140,9 @@ controls_information:
 properties:
   api_set_max_wait_time: 10.0
   hardware_type: Cavity
+  subtype: DEFLECTING
   machine_area: S07
-  name: CLA-TDC1-RF-CTRL-01
+  name: TDC
   name_alias: CLA-TDC-RF-CTRL-01,TDC,TDC1,tdc,tdc1
   phase_tolerance: 1.0
   power_tolerance: 0.1

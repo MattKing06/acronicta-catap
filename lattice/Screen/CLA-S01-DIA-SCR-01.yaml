@@ -64,5 +64,5 @@ properties:
   name: CLA-S01-DIA-SCR-01
   name_alias: S01-SCR-01
   position: 0.9803
-  screen_type: CLARA_HV_MOVER
+  subtype: CLARA_HV_MOVER
   set_max_wait_time: 45.0

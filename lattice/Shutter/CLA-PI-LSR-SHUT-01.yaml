@@ -20,6 +20,6 @@ properties:
   name: CLA-PI-LSR-SHUT-01
   name_alias: PI-LSR-SHUT-01,PILaser_3,LSR-SHUT-01
   shutter_set_max_wait_time: 10.0
-  shutter_type: Beam
+  subtype: Beam
   virtual_name: VM-CLA-PI-LSR-SHUT-01
   position: -1.0

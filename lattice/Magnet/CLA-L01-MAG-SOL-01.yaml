@@ -82,7 +82,7 @@ properties:
   hardware_type: Magnet
   machine_area: L01
   mag_set_max_wait_time: 45.0
-  magnet_type: SOLENOID
+  subtype: SOLENOID
   magnetic_length: 726.918205128205
   manufacturer: EfremovInstitute
   max_i: 150.0

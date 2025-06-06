@@ -1,4 +1,5 @@
 controls_information:
+
   pv_record_map:
     GETSETI:
       type: scalar
@@ -82,7 +83,7 @@ properties:
   hardware_type: Magnet
   machine_area: C2V
   mag_set_max_wait_time: 45.0
-  magnet_type: QUADRUPOLE
+  subtype: QUADRUPOLE
   magnetic_length: 121.567272525393
   manufacturer: Danfysik
   max_i: 200.0

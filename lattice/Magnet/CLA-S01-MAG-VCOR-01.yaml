@@ -76,7 +76,7 @@ properties:
   hardware_type: Magnet
   machine_area: S01
   mag_set_max_wait_time: 45.0
-  magnet_type: VERTICAL_CORRECTOR
+  subtype: VERTICAL_CORRECTOR
   magnetic_length: 128.650949989703
   manufacturer: Danfysik
   max_i: 5.0

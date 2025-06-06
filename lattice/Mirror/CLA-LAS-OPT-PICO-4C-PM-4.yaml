@@ -30,7 +30,7 @@ controls_information:
   left_sense: 1
   down_sense: 1
 properties:
-  hardware_type: Mirror
+  hardware_type: LaserMirror
   machine_area: INJ
   name: CLA-LAS-OPT-PICO-4C-PM-4
   name_alias: LAS-4C-PM-4, LAS-PM-4, LAS-PM4

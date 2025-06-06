@@ -26,6 +26,6 @@ properties:
   name: CLA-S06-VAC-VALV-01
   name_alias: S06-VALV1
   valve_set_max_wait_time: 10.0
-  valve_type: Valve
+  subtype: Valve
   virtual_name: VM-CLA-S06-VAC-VALV-01
   position: 33.5 # assumed position based on other components

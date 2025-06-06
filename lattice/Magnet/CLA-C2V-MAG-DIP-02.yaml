@@ -81,7 +81,7 @@ properties:
   hardware_type: Magnet
   machine_area: C2V
   mag_set_max_wait_time: 45.0
-  magnet_type: DIPOLE
+  subtype: DIPOLE
   magnetic_length: 397.752
   manufacturer: Danfysik
   max_i: 180.0

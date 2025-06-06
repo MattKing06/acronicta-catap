@@ -31,5 +31,5 @@ properties:
   name: CLA-VBC-DIA-SCR-01
   name_alias: VBC-SCR-01
   position: 28.9048
-  screen_type: CLARA_PHASE_2_MOVER
+  subtype: CLARA_PHASE_2_MOVER
   set_max_wait_time: 45.0

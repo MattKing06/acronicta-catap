@@ -7,7 +7,7 @@ controls_information:
       description: Bunch charge
       pv: CLA-C30-IOC-CS-01:FMC1:CH2:FCUP:Q
 properties:
-  charge_type: FCUP
+  subtype: FCUP
   hardware_type: Charge
   machine_area: S07
   name: CLA-S07-DIA-FCUP-01

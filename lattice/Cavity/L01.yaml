@@ -148,7 +148,8 @@ properties:
   api_set_max_wait_time: 10.0
   hardware_type: Cavity
   machine_area: L01
-  name: CLA-L01-RF-CTRL-01
+  subtype: LINAC
+  name: L01
   name_alias: CLA-L01-RF-CTRL-01,L01,l01,LINAC1,linac1,L1,l1
   phase_tolerance: 1.0
   power_tolerance: 0.1

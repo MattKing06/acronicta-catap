@@ -1,5 +1,5 @@
 controls_information:
-  movement_type: VMOTOR
+  movement_type: HVMOTOR
   vertical_devices: &vertical_devices
     RETRACTED: 1
     SLIT: 2
@@ -58,5 +58,5 @@ properties:
   name: CLA-S02-DIA-SCR-01
   name_alias: S02-SCR-01
   position: 4.0891
-  screen_type: CLARA_HV_MOVER
+  subtype: CLARA_HV_MOVER
   set_max_wait_time: 45.0
