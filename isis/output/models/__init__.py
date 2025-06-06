@@ -19,6 +19,8 @@ _area_names = [
     
 ]
 
+
+
 cfg._machine_areas_tuple = namedtuple("MACHINE_AREAS", _area_names)
 cfg.MACHINE_AREAS = cfg._machine_areas_tuple(*[MachineArea(name=name) for name in _area_names])
 cfg.SNAPSHOT_LOCATION = "./snapshots/"
