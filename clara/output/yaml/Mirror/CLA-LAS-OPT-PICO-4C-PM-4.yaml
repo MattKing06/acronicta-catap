@@ -1,0 +1,34 @@
+controls_information:
+  step_max: 100.1
+  default_step: 10.0
+  pv_record_map:
+    H_MREL:
+      type: scalar
+      description: Step-size for horizontal motor
+      read_only: false
+      pv: CLA-LAS-OPT-PICO-4C-PM-4:MREL
+    H_POS:
+      type: scalar
+      description: Position for horizontal motor
+      pv: CLA-LAS-OPT-PICO-4C-PM-4:RCUM1
+    V_MREL:
+      type: scalar
+      description: Step-size for vertical motor
+      read_only: false
+      pv: CLA-LAS-OPT-PICO-4C-PM-4:MREL
+    POSBTN:
+      type: binary
+      description: Trigger movement for the mirror
+      read_only: false
+      pv: CLA-LAS-OPT-PICO-4C-PM-4:POSBTN
+    V_POS:
+      type: scalar
+      description: Position for vertical motor
+      pv: CLA-LAS-OPT-PICO-4C-PM-4:RCUM3
+properties:
+  name: CLA-LAS-OPT-PICO-4C-PM-4
+  hardware_type: Mirror
+  name_alias: LAS-4C-PM-4, LAS-PM-4, LAS-PM4
+  machine_area: INJ
+  position: -1.0
+  virtual_name: VM-INJ-DIA-DUMMY-01

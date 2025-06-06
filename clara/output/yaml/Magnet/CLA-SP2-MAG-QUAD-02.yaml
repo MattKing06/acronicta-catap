@@ -1,0 +1,90 @@
+controls_information:
+  pv_record_map:
+    GETSETI:
+      type: scalar
+      description: Gets the value of the target current for a magnet power supply.
+      pv: CLA-SP2-MAG-QUAD-02:GETSETI
+    SPOWER:
+      type: state
+      description: Sets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:SPOWER
+    RPOWER:
+      type: state
+      description: Gets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:RPOWER
+    ILK_RESET:
+      type: binary
+      description: Resets the magnet interlocks
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:Rst
+    RILK:
+      type: state
+      description: Gets the interlock state for a magnet
+      states:
+        OK: 0
+        TRIPPED: 1
+      pv: CLA-SP2-MAG-QUAD-02:RILK
+    ILK_ON:
+      type: binary
+      description: If the interlocks are clear, this enables them
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:On
+    ILK_OFF:
+      type: binary
+      description: If the interlocks are clear, this disables them
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:Off
+    ILK_PSU_RESET:
+      type: binary
+      description: Reset the magnet power supply interlocks
+      read_only: false
+      pv: CLA-SP2-MAG-QUAD-02:RESET
+    READI:
+      type: statistical
+      description: Gets the readback current of a magnet power supply.
+      pv: CLA-SP2-MAG-QUAD-02:READI
+      auto_buffer: true
+      buffer_size: 10
+    SETI:
+      type: scalar
+      description: Sets the target current for a magnet power supply.
+      units: A
+      pv: CLA-SP2-MAG-QUAD-02:SETI
+    SETK:
+      type: scalar
+      description: Sets the target field strength for a magnet. This ultimately sets a current for the power supply
+      units: K
+      pv: CLA-SP2-MAG-QUAD-02:SETK
+    READK:
+      type: statistical
+      description: Reads the calculated K value for a magnet based on momentum of the section
+      units: K
+      pv: CLA-SP2-MAG-QUAD-02:CalcK
+      auto_buffer: true
+      buffer_size: 10
+properties:
+  name: CLA-SP2-MAG-QUAD-02
+  subtype: None
+  hardware_type: Magnet
+  name_alias: SP2-QUAD02,SP2-QUAD-02,SP2-QUAD2
+  position: 34.7273141
+  machine_area: SP2
+  max_i: 200.0
+  min_i: -200.0
+  manufacturer: Danfysik
+  mag_set_max_wait_time: 45.0
+  magnetic_length: 121.567272525393
+  degauss_tolerance: 1.0
+  degauss_values: 200.0,-200.0,100.0,-100.0,50.0,-50.0,25.0,-25.0,10.0,-10.0,0.0
+  ri_tolerance: 0.1
+  field_integral_coefficients: -1.30185900474931E-11,5.70352698264348E-09,-9.08937880373639E-07,6.03053164909332E-05,0.014739040805921,1.37593271780352E-02
+  serial_number: 13255
+  virtual_name: VM-CLA-SP2-MAG-QUAD-02

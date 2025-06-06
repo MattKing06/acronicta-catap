@@ -1,0 +1,141 @@
+controls_information:
+  pv_record_map:
+    SetStartup:
+      type: binary
+      description: Startup RF
+      read_only: false
+      pv: L04:API:setStartup
+    StartupComplete:
+      type: binary
+      description: Check API setup status
+      pv: L04:API:getStartupComplete
+    APIEnable:
+      type: binary
+      description: Enable RF API
+      read_only: false
+      pv: L04:API:setEnable
+    GetAPITrip:
+      type: state
+      description: Get API trip status
+      states:
+        API_OFF: 0
+        API_ON: 1
+        TRIP: 2
+      pv: L04:API:getTrip
+    SetAPITrip:
+      type: binary
+      description: Reset API trips
+      read_only: false
+      pv: L04:API:setTrip
+    GetStatus:
+      type: state
+      description: Get API status
+      states:
+        API_ON: 4
+        HV_ON: 2
+        OFF: 0
+        STANDBY: 1
+        TRIG: 3
+      pv: L04:API:getStatus
+    PowerPIDSet:
+      type: binary
+      description: Set power PID on
+      read_only: false
+      pv: L04:Power:PID:setOnRequest
+    PowerPIDStatus:
+      type: state
+      description: Get power PID status
+      states:
+        INTERMEDIATE: 4
+        PID_OFF: 0
+        PID_ON: 1
+        PID_REMOTE: 2
+        TRIP: 3
+      pv: L04:Power:PID:getStatus
+    PowerPIDError:
+      type: binary
+      description: Check if power PID within tolerance
+      pv: L04:Power:Achieved:getBinary
+    PhasePIDSet:
+      type: binary
+      description: Set phase PID on
+      read_only: false
+      pv: L04:Phase:PID:setOnRequest
+    PhasePIDStatus:
+      type: state
+      description: Get phase PID status
+      states:
+        INTERMEDIATE: 4
+        PID_OFF: 0
+        PID_ON: 1
+        PID_REMOTE: 2
+        TRIP: 3
+      pv: L04:Phase:PID:getStatus
+    PhasePIDError:
+      type: binary
+      description: Check if phase PID within tolerance
+      pv: L04:Phase:Achieved:getBinary
+    PowerMWMax:
+      type: scalar
+      description: Maximum set cavity forward power
+      units: MW
+      pv: L04:setPower.HOPR
+    PowerMWSet:
+      type: scalar
+      description: Set cavity forward power
+      units: MW
+      read_only: false
+      pv: L04:setPower
+    PhaseSet:
+      type: scalar
+      description: Set cavity phase
+      units: deg
+      read_only: false
+      pv: L04:setPhase
+    PowerMWRead:
+      type: statistical
+      description: Read cavity forward power
+      units: MW
+      pv: L04:getPower
+      auto_buffer: true
+    PhaseRead:
+      type: statistical
+      description: Read cavity phase
+      units: deg
+      pv: L04:getPhase
+      auto_buffer: true
+    CrestPhaseSet:
+      type: scalar
+      description: Set crest phase
+      units: deg
+      read_only: false
+      pv: L04:PHASE_C
+    OffCrestPhaseSet:
+      type: scalar
+      description: Set cavity off-crest phase
+      units: deg
+      read_only: false
+      pv: L04:PHASE_OFF
+    OffCrestPhaseRead:
+      type: statistical
+      description: Set cavity off-crest phase
+      units: deg
+      pv: L04:getCrestPhase
+      auto_buffer: true
+    BeamMomentum:
+      type: scalar
+      description: Beam momentum at the exit of the cavity, used in k-value calculations for all magnets in that section.
+      units: MeV/c
+      read_only: false
+      pv: CLA-L04:SETP
+properties:
+  hardware_type: Cavity
+  machine_area: L04
+  name: L04
+  virtual_name: <MISSING_PROPERTY>
+  name_alias: CLA-L04-RF-CTRL-01,L04,l04,LINAC4,linac4,L4,l4
+  type: <MISSING_PROPERTY>
+  position: 36.192935
+  api_set_max_wait_time: 10.0
+  phase_tolerance: 1.0
+  power_tolerance: 0.1

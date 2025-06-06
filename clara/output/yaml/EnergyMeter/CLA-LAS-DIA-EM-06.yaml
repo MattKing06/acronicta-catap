@@ -1,0 +1,36 @@
+controls_information:
+  pv_record_map:
+    ENERGYREADBACK:
+      type: statistical
+      description: Readback of the measured laser energy
+      units: uJ
+      pv: CLA-LAS-DIA-EM-06:E_RB
+      auto_buffer: false
+      buffer_size: 10
+    OVERRANGE:
+      type: binary
+      description: State of energy readback being over-range set in RANGESP
+      pv: CLA-LAS-DIA-EM-06:OverRange_RB
+    RANGESP:
+      type: state
+      description: Set the state range for energy readback
+      states:
+        micro2: 1
+        micro20: 0
+        nano20: 3
+        nano200: 2
+      read_only: false
+      pv: CLA-LAS-DIA-EM-06:Range_SP
+    RUNSP:
+      type: binary
+      description: Enable/Disable the energy meter
+      read_only: false
+      pv: CLA-LAS-DIA-EM-06:Run_SP
+properties:
+  hardware_type: EnergyMeter
+  type: None
+  machine_area: INJ
+  name: CLA-LAS-DIA-EM-06
+  virtual_name: VM- CLA-LAS-DIA-EM-06
+  name_alias: EM-06,LEM-06,LEM,LAS-EM-06,LAS-DIA-EM-06,EM-6,LEM-6,LAS-EM-6,LAS-DIA-EM-6
+  position: 0.0

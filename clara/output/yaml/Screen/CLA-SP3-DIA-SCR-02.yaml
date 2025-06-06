@@ -1,0 +1,36 @@
+controls_information:
+  movement_type: VMOTOR
+  vertical_devices:
+      GRAT: 2
+      RETRACTED: 1
+      RF: 4
+      YAG: 3
+  pv_record_map:
+    POS:
+      type: state
+      description: Vertical Device state
+      states:
+        GRAT: 2
+        RETRACTED: 1
+        RF: 4
+        YAG: 3
+      read_only: false
+      pv: CLA-SP3-DIA-SCR-02:POS
+    MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-SP3-DIA-SCR-02:MOVING
+    EN:
+      type: binary
+      description: Screen enable flag
+      read_only: false
+      pv: CLA-SP3-DIA-SCR-02:EN
+properties:
+  name: CLA-SP3-DIA-SCR-02
+  hardware_type: Screen
+  name_alias: SP3-SCR-02
+  machine_area: SP3
+  position: 47.4729314
+  camera_name: CLA-SP3-DIA-SCR-02
+  has_camera: True
+  set_max_wait_time: 45.0

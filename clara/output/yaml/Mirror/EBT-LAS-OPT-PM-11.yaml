@@ -1,0 +1,39 @@
+controls_information:
+  step_max: 100.1
+  default_step: 10.0
+  pv_record_map:
+    H_MREL:
+      type: scalar
+      description: Step-size for horizontal motor
+      read_only: false
+      pv: EBT-LAS-OPT-PM-11:MREL
+    H_MREL_RBV:
+      type: scalar
+      description: Readback for horizontal motor step-size
+      pv: EBT-LAS-OPT-PM-11:RPOS
+    H_POS:
+      type: scalar
+      description: Position for horizontal motor
+      pv: EBT-LAS-OPT-PM-11:RCUM1
+    V_MREL:
+      type: scalar
+      description: Step-size for vertical motor
+      read_only: false
+      pv: EBT-LAS-OPT-PM-11:MREL
+    V_MREL_RBV:
+      type: scalar
+      description: Readback for the vertical motor step-size
+      pv: EBT-LAS-OPT-PM-11:RPOS
+    V_POS:
+      type: scalar
+      description: Position for vertical motor
+      pv: EBT-LAS-OPT-PM-11:RCUM3
+properties:
+  name: EBT-LAS-OPT-PM-11
+  hardware_type: Mirror
+  name_alias: LAS-PM-11, PM-11, LAS-PM11
+  machine_area: INJ
+  position: -1.0
+  horizontal_channel: 0
+  vertical_channel: 2
+  virtual_name: EBT-LAS-OPT-PM-11

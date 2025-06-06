@@ -1,0 +1,90 @@
+controls_information:
+  pv_record_map:
+    GETSETI:
+      type: scalar
+      description: Gets the value of the target current for a magnet power supply.
+      pv: CLA-S07-MAG-QUAD-04:GETSETI
+    SPOWER:
+      type: state
+      description: Sets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:SPOWER
+    RPOWER:
+      type: state
+      description: Gets the state of a power supply
+      states:
+        OFF: 0
+        ON: 1
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:RPOWER
+    ILK_RESET:
+      type: binary
+      description: Resets the magnet interlocks
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:Rst
+    RILK:
+      type: state
+      description: Gets the interlock state for a magnet
+      states:
+        OK: 0
+        TRIPPED: 1
+      pv: CLA-S07-MAG-QUAD-04:RILK
+    ILK_ON:
+      type: binary
+      description: If the interlocks are clear, this enables them
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:On
+    ILK_OFF:
+      type: binary
+      description: If the interlocks are clear, this disables them
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:Off
+    ILK_PSU_RESET:
+      type: binary
+      description: Reset the magnet power supply interlocks
+      read_only: false
+      pv: CLA-S07-MAG-QUAD-04:RESET
+    READI:
+      type: statistical
+      description: Gets the readback current of a magnet power supply.
+      pv: CLA-S07-MAG-QUAD-04:READI
+      auto_buffer: true
+      buffer_size: 10
+    SETI:
+      type: scalar
+      description: Sets the target current for a magnet power supply.
+      units: A
+      pv: CLA-S07-MAG-QUAD-04:SETI
+    SETK:
+      type: scalar
+      description: Sets the target field strength for a magnet. This ultimately sets a current for the power supply
+      units: K
+      pv: CLA-S07-MAG-QUAD-04:SETK
+    READK:
+      type: statistical
+      description: Reads the calculated K value for a magnet based on momentum of the section
+      units: K
+      pv: CLA-S07-MAG-QUAD-04:CalcK
+      auto_buffer: true
+      buffer_size: 10
+properties:
+  name: CLA-S07-MAG-QUAD-04
+  subtype: None
+  hardware_type: Magnet
+  name_alias: S07-MAG-QUAD-04,S07-MAG-QUAD-04
+  position: 42.232988
+  machine_area: S07
+  max_i: 58.0
+  min_i: -58.0
+  manufacturer: Danfysik
+  mag_set_max_wait_time: 45.0
+  magnetic_length: 128.68478212775
+  degauss_tolerance: 0.5
+  degauss_values: 58.0,-58.0,30.0,-30.0,15.0,-15.0,7.0,-7.0,3.0,-3.0,0.0
+  ri_tolerance: 0.2
+  field_integral_coefficients: -2.23133410405682E-10,4.5196171252132E-08,-3.46208258004659E-06,1.11195870210961E-04,2.38129337415767E-02,9.81229429460256E-03
+  serial_number: 13248
+  virtual_name: VM-CLA-S07-MAG-QUAD-04

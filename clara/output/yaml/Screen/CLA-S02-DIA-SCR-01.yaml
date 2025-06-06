@@ -1,0 +1,66 @@
+controls_information:
+  movement_type: HVMOTOR
+  vertical_devices:
+      RETRACTED: 1
+      SLIT: 2
+      GRAT: 3
+      RF: 5
+      YAG: 4
+  horizontal_devices:
+      HRETRACTED: 1
+      SLIT_1: 2
+  pv_record_map:
+    V_POS:
+      type: state
+      description: Vertical Device state
+      states:
+        RETRACTED: 1
+        SLIT: 2
+        GRAT: 3
+        RF: 5
+        YAG: 4
+      read_only: false
+      pv: CLA-S02-DIA-SCR-01:V:POS
+    V_ACTPOS:
+      type: scalar
+      description: Screen actuator position
+      pv: CLA-S02-DIA-SCR-01:V:ACTPOS
+    V_MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-S02-DIA-SCR-01:V:MOVING
+    V_EN:
+      type: binary
+      description: Screen enable flag
+      read_only: false
+      pv: CLA-S02-DIA-SCR-01:V:EN
+    H_POS:
+      type: state
+      description: Horizontal Device state
+      states:
+        HRETRACTED: 1
+        SLIT_1: 2
+      read_only: false
+      pv: CLA-S02-DIA-SCR-01:H:POS
+    H_ACTPOS:
+      type: scalar
+      description: Screen actuator position
+      pv: CLA-S02-DIA-SCR-01:H:ACTPOS
+    H_MOVING:
+      type: binary
+      description: Screen moving flag
+      pv: CLA-S02-DIA-SCR-01:H:MOVING
+    H_EN:
+      type: binary
+      description: Screen enable flag
+      read_only: false
+      pv: CLA-S02-DIA-SCR-01:H:EN
+properties:
+  name: CLA-S02-DIA-SCR-01
+  hardware_type: Screen
+  name_alias: S02-SCR-01
+  machine_area: S02
+  position: 4.0891
+  camera_name: CLA-S02-DIA-CAM-01
+  has_camera: True
+  set_max_wait_time: 45.0
