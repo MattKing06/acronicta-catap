@@ -1,8 +1,8 @@
 
-from CATAP.common.machine.pv_utils import StatisticalPV, BinaryPV, ScalarPV, WaveformPV, StringPV, StatePV
-from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
-from CATAP.common.machine.factory import Factory
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.pv_utils import StatisticalPV, BinaryPV, ScalarPV, WaveformPV, StringPV, StatePV
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
 import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
@@ -2665,13 +2665,13 @@ class CameraControlsInformationModel(ControlsInformation):
     Class for controlling a camera via EPICS
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[CameraPVMapModel]
 
     
 
-    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="allow",
@@ -3906,7 +3906,7 @@ class CameraPropertiesModel(Properties):
     Class for defining camera-specific properties.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Properties`
+        :class:`~catapcore.common.machine.hardware.Properties`
     """
     
     
@@ -3988,15 +3988,15 @@ class CameraModel(Hardware):
     Middle layer class for interacting with a specific camera object.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Hardware`
+        :class:`~catapcore.common.machine.hardware.Hardware`
     """
 
     controls_information: SerializeAsAny[CameraControlsInformationModel]
     """Controls information pertaining to this camera
-    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
     properties: SerializeAsAny[CameraPropertiesModel]
     """Properties pertaining to this camera
-    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
 
     def __init__(
         self,
@@ -5237,10 +5237,10 @@ class CameraModel(Hardware):
 class CameraFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
-    :class:`CATAP.laser.components.camera.Camera` objects.
+    :class:`catapcore.laser.components.camera.Camera` objects.
 
     Inherits from:
-        :class:`~CATAP.common.machine.factory.Factory`
+        :class:`~catapcore.common.machine.factory.Factory`
     """
 
     def __init__(

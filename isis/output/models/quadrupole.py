@@ -1,8 +1,8 @@
 
-from CATAP.common.machine.pv_utils import ScalarPV, StatePV
-from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
-from CATAP.common.machine.factory import Factory
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.pv_utils import ScalarPV, StatePV
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
 import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
@@ -124,13 +124,13 @@ class QuadrupoleControlsInformationModel(ControlsInformation):
     Class for controlling a quadrupole via EPICS
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[QuadrupolePVMapModel]
 
     
 
-    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="allow",
@@ -214,7 +214,7 @@ class QuadrupolePropertiesModel(Properties):
     Class for defining quadrupole-specific properties.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Properties`
+        :class:`~catapcore.common.machine.hardware.Properties`
     """
     
     
@@ -252,15 +252,15 @@ class QuadrupoleModel(Hardware):
     Middle layer class for interacting with a specific quadrupole object.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Hardware`
+        :class:`~catapcore.common.machine.hardware.Hardware`
     """
 
     controls_information: SerializeAsAny[QuadrupoleControlsInformationModel]
     """Controls information pertaining to this quadrupole
-    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
     properties: SerializeAsAny[QuadrupolePropertiesModel]
     """Properties pertaining to this quadrupole
-    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
 
     def __init__(
         self,
@@ -350,10 +350,10 @@ class QuadrupoleModel(Hardware):
 class QuadrupoleFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
-    :class:`CATAP.laser.components.quadrupole.Quadrupole` objects.
+    :class:`catapcore.laser.components.quadrupole.Quadrupole` objects.
 
     Inherits from:
-        :class:`~CATAP.common.machine.factory.Factory`
+        :class:`~catapcore.common.machine.factory.Factory`
     """
 
     def __init__(

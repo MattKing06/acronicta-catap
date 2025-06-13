@@ -1,8 +1,8 @@
 
-from CATAP.common.machine.pv_utils import StatePV, BinaryPV, ScalarPV
-from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
-from CATAP.common.machine.factory import Factory
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.pv_utils import StatePV, BinaryPV, ScalarPV
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
 import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
@@ -253,7 +253,7 @@ class ScreenControlsInformationModel(ControlsInformation):
     Class for controlling a screen via EPICS
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[ScreenPVMapModel]
 
@@ -271,7 +271,7 @@ class ScreenControlsInformationModel(ControlsInformation):
     
     
 
-    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="allow",
@@ -433,7 +433,7 @@ class ScreenPropertiesModel(Properties):
     Class for defining screen-specific properties.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Properties`
+        :class:`~catapcore.common.machine.hardware.Properties`
     """
     
     
@@ -463,15 +463,15 @@ class ScreenModel(Hardware):
     Middle layer class for interacting with a specific screen object.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Hardware`
+        :class:`~catapcore.common.machine.hardware.Hardware`
     """
 
     controls_information: SerializeAsAny[ScreenControlsInformationModel]
     """Controls information pertaining to this screen
-    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
     properties: SerializeAsAny[ScreenPropertiesModel]
     """Properties pertaining to this screen
-    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
 
     def __init__(
         self,
@@ -617,10 +617,10 @@ class ScreenModel(Hardware):
 class ScreenFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
-    :class:`CATAP.laser.components.screen.Screen` objects.
+    :class:`catapcore.laser.components.screen.Screen` objects.
 
     Inherits from:
-        :class:`~CATAP.common.machine.factory.Factory`
+        :class:`~catapcore.common.machine.factory.Factory`
     """
 
     def __init__(

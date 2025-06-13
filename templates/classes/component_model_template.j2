@@ -1,8 +1,8 @@
 {# --- Required imports for generated code --- #}
-from CATAP.common.machine.pv_utils import {{ pvs.values() | unique | join(', ') }}
-from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
-from CATAP.common.machine.factory import Factory
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.pv_utils import {{ pvs.values() | unique | join(', ') }}
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
 import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
@@ -69,7 +69,7 @@ class {{ class_name }}ControlsInformationModel(ControlsInformation):
     Class for controlling a {{ hardware_type|lower }} via EPICS
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[{{ class_name }}PVMapModel]
 
@@ -81,7 +81,7 @@ class {{ class_name }}ControlsInformationModel(ControlsInformation):
     {% endif %}
     {%endfor%}
 
-    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="allow",
@@ -146,7 +146,7 @@ class {{ class_name }}PropertiesModel(Properties):
     Class for defining {{ hardware_type|lower }}-specific properties.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Properties`
+        :class:`~catapcore.common.machine.hardware.Properties`
     """
     {% for prop, value in properties.items() %}
     {% if prop in optional_properties%}
@@ -170,15 +170,15 @@ class {{ class_name }}Model(Hardware):
     Middle layer class for interacting with a specific {{ hardware_type|lower }} object.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Hardware`
+        :class:`~catapcore.common.machine.hardware.Hardware`
     """
 
     controls_information: SerializeAsAny[{{ class_name }}ControlsInformationModel]
     """Controls information pertaining to this {{ hardware_type|lower }}
-    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
     properties: SerializeAsAny[{{ class_name }}PropertiesModel]
     """Properties pertaining to this {{ hardware_type|lower }}
-    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
 
     def __init__(
         self,
@@ -241,10 +241,10 @@ class {{ class_name }}Model(Hardware):
 class {{ class_name }}FactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
-    :class:`CATAP.laser.components.{{ hardware_type|lower }}.{{ class_name }}` objects.
+    :class:`catapcore.laser.components.{{ hardware_type|lower }}.{{ class_name }}` objects.
 
     Inherits from:
-        :class:`~CATAP.common.machine.factory.Factory`
+        :class:`~catapcore.common.machine.factory.Factory`
     """
 
     def __init__(

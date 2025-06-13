@@ -1,5 +1,5 @@
-import CATAP.config as cfg
-from CATAP.common.machine.area import MachineArea
+import catapcore.config as cfg
+from catapcore.common.machine.area import MachineArea
 from typing import Dict, List, Tuple
 from collections import namedtuple
 import os
@@ -9,7 +9,7 @@ if os.path.exists("/home/mattking/jinja-catap/clara/output/yaml"):
     cfg.LATTICE_LOCATION = "/home/mattking/jinja-catap/clara/output/yaml"
 else:
     raise FileNotFoundError("Lattice location '/home/mattking/jinja-catap/clara/output/yaml' does not exist. Please check the path.")
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.area import MachineArea
 
 
 _area_names = [

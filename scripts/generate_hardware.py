@@ -6,9 +6,9 @@ from jinja2 import Environment, FileSystemLoader
 # Load YAML data
 exclude_folders = ["FEBELaser", "PILaser"]
 
-lattice_location = os.path.abspath("../clara/output/yaml")
+lattice_location = os.path.abspath("../isis/output/yaml")
 # Ensure output directory exists
-output_dir = "../clara/output/"
+output_dir = "../isis/output/"
 model_output_dir = os.path.join(output_dir, "models")
 hardware_output_dir = os.path.join(output_dir, "hardware")
 os.makedirs(hardware_output_dir, exist_ok=True)

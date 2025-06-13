@@ -1,8 +1,8 @@
 
-from CATAP.common.machine.pv_utils import ScalarPV, BinaryPV
-from CATAP.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
-from CATAP.common.machine.factory import Factory
-from CATAP.common.machine.area import MachineArea
+from catapcore.common.machine.pv_utils import ScalarPV, BinaryPV
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
 import os
 from typing import Any, Union, List, Dict
 from pydantic import field_validator, SerializeAsAny, ConfigDict
@@ -163,7 +163,7 @@ class MirrorControlsInformationModel(ControlsInformation):
     Class for controlling a mirror via EPICS
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.ControlsInformation`
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
     """
     pv_record_map: SerializeAsAny[MirrorPVMapModel]
 
@@ -177,7 +177,7 @@ class MirrorControlsInformationModel(ControlsInformation):
     
     
 
-    """Dictionary of PVs read in from a config file (see :class:`~CATAP.common.machine.hardware.PVMap`)"""
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="allow",
@@ -292,7 +292,7 @@ class MirrorPropertiesModel(Properties):
     Class for defining mirror-specific properties.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Properties`
+        :class:`~catapcore.common.machine.hardware.Properties`
     """
     
     
@@ -322,15 +322,15 @@ class MirrorModel(Hardware):
     Middle layer class for interacting with a specific mirror object.
 
     Inherits from:
-        :class:`~CATAP.common.machine.hardware.Hardware`
+        :class:`~catapcore.common.machine.hardware.Hardware`
     """
 
     controls_information: SerializeAsAny[MirrorControlsInformationModel]
     """Controls information pertaining to this mirror
-    (see :class:`~CATAP.common.machine.pv_utils.ControlsInformation`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
     properties: SerializeAsAny[MirrorPropertiesModel]
     """Properties pertaining to this mirror
-    (see :class:`~CATAP.common.machine.pv_utils.Properties`)"""
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
 
     def __init__(
         self,
@@ -437,10 +437,10 @@ class MirrorModel(Hardware):
 class MirrorFactoryModel(Factory):
     """
     Middle layer class for interacting with multiple
-    :class:`CATAP.laser.components.mirror.Mirror` objects.
+    :class:`catapcore.laser.components.mirror.Mirror` objects.
 
     Inherits from:
-        :class:`~CATAP.common.machine.factory.Factory`
+        :class:`~catapcore.common.machine.factory.Factory`
     """
 
     def __init__(

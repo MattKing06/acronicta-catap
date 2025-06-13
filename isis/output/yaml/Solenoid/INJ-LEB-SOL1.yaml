@@ -12,7 +12,7 @@ controls_information:
       description: Gets the value of the target current for a magnet power supply.
       units: A
       pv: INJ:LEB:SOLENOID_1:READ_SETCURRENT
-      protocol: pva
+      protocol: PVA
     READI:
       type: scalar
       description: Gets the value of the actual current for a magnet power supply
