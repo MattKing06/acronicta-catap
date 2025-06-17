@@ -630,13 +630,19 @@ class Hardware(BaseModel):
         for handle, pv in self.controls_information.pv_record_map.pvs.items():
             if handle in self._snapshot_gettables or handle in self._snapshot_settables:
                 if isinstance(pv, StatePV):
-                    snapshot[self.name].update({handle: {"value": pv.get().name}})
+                    value = pv.get()
+                    if value is None:
+                        snapshot[self.name].update({handle: {"value": None}})
+                    else:
+                        snapshot[self.name].update(
+                            {handle: {"value": value.name}}
+                        )
                 else:
                     snapshot[self.name].update({handle: {"value": pv.get()}})
                 if self.is_buffering(handle):
                     stats = self.get_statistics(handle)
-                    stats_buffer = array(stats.buffer)[::, 1]
-                    timestamps = array(stats.buffer)[::, 0]
+                    stats_buffer = array(stats.buffer)[::, 1] if stats.buffer else array([])
+                    timestamps = array(stats.buffer)[::, 0] if stats.buffer else array([])
                     snapshot[self.name][handle].update(
                         {
                             "buffer": stats_buffer.tolist(),
@@ -653,16 +659,6 @@ class Hardware(BaseModel):
                     )
                 else:
                     snapshot[self.name].update({handle: {"value": value}})
-                    if self.is_buffering(handle):
-                        stats = self.get_statistics(handle)
-                        stats_buffer = array(stats.buffer)[::, 1]
-                        timestamps = array(stats.buffer)[::, 0]
-                        snapshot[self.name][handle].update(
-                            {
-                                "buffer": stats_buffer.tolist(),
-                                "timestamps": timestamps.tolist(),
-                            }
-                        )
         return snapshot
 
     def apply_snapshot(self, snapshot: Dict) -> None:

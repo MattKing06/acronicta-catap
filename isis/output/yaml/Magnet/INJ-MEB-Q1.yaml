@@ -35,8 +35,8 @@ controls_information:
       protocol: PVA
 
 properties:
-  hardware_type: Quadrupole
-  magnet_type: QUADRUPOLE
+  hardware_type: Magnet
+  subtype: QUADRUPOLE
   machine_area: MEBT
   max_i: 400
   min_i: 0

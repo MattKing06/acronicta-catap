@@ -261,7 +261,6 @@ class QuadrupoleModel(Hardware):
     properties: SerializeAsAny[QuadrupolePropertiesModel]
     """Properties pertaining to this quadrupole
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -280,6 +279,16 @@ class QuadrupoleModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "SETI",
+            
+            "READI",
+            
+            "READV",
+            
+            "SETSTATE",
+            
+            "GETSTATE",
             
         ]
 

@@ -361,7 +361,6 @@ class BPMModel(Hardware):
     properties: SerializeAsAny[BPMPropertiesModel]
     """Properties pertaining to this bpm
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -380,6 +379,30 @@ class BPMModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "AWAK",
+            
+            "RA1",
+            
+            "RA2",
+            
+            "RD1",
+            
+            "RD2",
+            
+            "RDY",
+            
+            "SA1",
+            
+            "SA2",
+            
+            "SD1",
+            
+            "SD2",
+            
+            "X",
+            
+            "Y",
             
         ]
 

@@ -58,8 +58,8 @@ controls_information:
       protocol: PVA
 
 properties:
-  hardware_type: Dipole
-  magnet_type: DIPOLE
+  hardware_type: Magnet
+  subtype: DIPOLE
   machine_area: LEBT
   max_i: 2
   min_i: -2

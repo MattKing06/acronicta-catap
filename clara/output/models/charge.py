@@ -165,7 +165,6 @@ class ChargeModel(Hardware):
     properties: SerializeAsAny[ChargePropertiesModel]
     """Properties pertaining to this charge
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -184,6 +183,10 @@ class ChargeModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "Q",
+            
+            "DQ",
             
         ]
 

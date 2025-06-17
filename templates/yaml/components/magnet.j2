@@ -22,7 +22,6 @@
                 "type": "state",
                 "description": "Gets the state of a power supply",
                 "states": {{ rpower_states | default({"OFF": 0, "ON": 1}) | tojson }},
-                "read_only": false,
                 "pv": "{{ name }}:RPOWER"
             },
             {% endif %}
@@ -80,7 +79,8 @@
                 "type": "scalar",
                 "units": "A",
                 "description": "Sets the target current for a magnet power supply.",
-                "pv": "{{ name }}:SETI"
+                "pv": "{{ name }}:SETI",
+                "read_only": false
             },
             {% endif %}
             {% if "SETK" in pv_records %}
@@ -88,7 +88,8 @@
                 "type": "scalar",
                 "units": "K",
                 "description": "Sets the target field strength for a magnet. This ultimately sets a current for the power supply",
-                "pv": "{{ name }}:SETK"
+                "pv": "{{ name }}:SETK",
+                "read_only": false
             },
             {% endif %}
             {% if "READK" in pv_records %}

@@ -677,7 +677,6 @@ class CavityModel(Hardware):
     properties: SerializeAsAny[CavityPropertiesModel]
     """Properties pertaining to this cavity
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -696,6 +695,48 @@ class CavityModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "SetStartup",
+            
+            "StartupComplete",
+            
+            "APIEnable",
+            
+            "GetAPITrip",
+            
+            "SetAPITrip",
+            
+            "GetStatus",
+            
+            "PowerPIDSet",
+            
+            "PowerPIDStatus",
+            
+            "PowerPIDError",
+            
+            "PhasePIDSet",
+            
+            "PhasePIDStatus",
+            
+            "PhasePIDError",
+            
+            "PowerMWMax",
+            
+            "PowerMWSet",
+            
+            "PhaseSet",
+            
+            "PowerMWRead",
+            
+            "PhaseRead",
+            
+            "CrestPhaseSet",
+            
+            "OffCrestPhaseSet",
+            
+            "OffCrestPhaseRead",
+            
+            "BeamMomentum",
             
         ]
 

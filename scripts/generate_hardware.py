@@ -1,220 +1,229 @@
-from typing import Dict
-import yaml
 import os
+import yaml
+from typing import Dict, List, Set, Any
 from jinja2 import Environment, FileSystemLoader
 
-# Load YAML data
-exclude_folders = ["FEBELaser", "PILaser"]
+EXCLUDE_FOLDERS = ["FEBELaser", "PILaser"]
+LATTICE_LOCATION = os.path.abspath("../clara/output/yaml")
+OUTPUT_DIR = "../clara/output/"
+MODEL_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "models")
+HARDWARE_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "hardware")
+TEMPLATE_DIR = "../templates/classes"
 
-lattice_location = os.path.abspath("../isis/output/yaml")
-# Ensure output directory exists
-output_dir = "../isis/output/"
-model_output_dir = os.path.join(output_dir, "models")
-hardware_output_dir = os.path.join(output_dir, "hardware")
-os.makedirs(hardware_output_dir, exist_ok=True)
-os.makedirs(model_output_dir, exist_ok=True)
-lattice_folders = os.listdir(lattice_location)
-example_files = []
-for folder in lattice_folders:
-    if folder not in exclude_folders:
-        folder_path = os.path.join(lattice_location, folder)
-        if os.path.isdir(folder_path):
-            for file in os.listdir(folder_path):
-                if file.endswith(".yaml"):
-                    example_files.append(os.path.join(folder_path, file))
+def ensure_directories():
+    os.makedirs(HARDWARE_OUTPUT_DIR, exist_ok=True)
+    os.makedirs(MODEL_OUTPUT_DIR, exist_ok=True)
 
+def get_example_files(lattice_location: str, exclude_folders: List[str]) -> List[str]:
+    files = []
+    for folder in os.listdir(lattice_location):
+        if folder not in exclude_folders:
+            folder_path = os.path.join(lattice_location, folder)
+            if os.path.isdir(folder_path):
+                files += [
+                    os.path.join(folder_path, f)
+                    for f in os.listdir(folder_path)
+                    if f.endswith(".yaml")
+                ]
+    return files
 
-def extract_differing_keys(file_pv_maps) -> Dict[str, Dict]:
-    """
-    Get the diffs between two pv maps.
-    """
+def extract_differing_keys(file_pv_maps: Dict[str, Set[str]]) -> Set[str]:
+    if not file_pv_maps:
+        return set()
     all_keys = set.union(*file_pv_maps.values())
     common_keys = set.intersection(*file_pv_maps.values())
-    differing_keys = all_keys - common_keys
-    return differing_keys
+    return all_keys - common_keys
 
-
-def construct_pv_map_info(pv_map) -> Dict:
-    # Prepare PVs and read_only dicts for template
+def construct_pv_map_info(pv_map: Dict[str, Dict[str, Any]]) -> (Dict, Dict, Dict):
     pvs = {}
     read_only = {}
     pv_descriptions = {}
     for pv_name, pv_info in pv_map.items():
         pv_type = pv_info.get("type", "").lower()
-        if pv_type == "binary":
-            pvs[pv_name] = "BinaryPV"
-        elif pv_type == "state":
-            pvs[pv_name] = "StatePV"
-        elif pv_type == "scalar":
-            pvs[pv_name] = "ScalarPV"
-        elif pv_type == "statistical":
-            pvs[pv_name] = "StatisticalPV"
-        elif pv_type == "waveform":
-            pvs[pv_name] = "WaveformPV"
-        elif pv_type == "string":
-            pvs[pv_name] = "StringPV"
-        else:
-            pvs[pv_name] = "PV"
+        pvs[pv_name] = {
+            "binary": "BinaryPV",
+            "state": "StatePV",
+            "scalar": "ScalarPV",
+            "statistical": "StatisticalPV",
+            "waveform": "WaveformPV",
+            "string": "StringPV"
+        }.get(pv_type, "PV")
         read_only[pv_name] = pv_info.get("read_only", True)
         pv_descriptions[pv_name] = pv_info.get("description", "")
     return pvs, read_only, pv_descriptions
 
+def load_yaml_file(file_path: str) -> Dict:
+    with open(file_path, "r") as f:
+        return yaml.safe_load(f)
 
-def construct_controls_info_types(controls_info: Dict) -> Dict:
-    """
-    Construct controls information from the provided dictionary.
-    This function processes the controls information to extract relevant details.
-    """
-    processed_info = {}
-    for key, value in controls_info.items():
-        processed_info[key] = value
-    return processed_info
+def collect_class_data(example_files: List[str]):
+    file_pv_keys = {}
+    file_pv_info = {}
+    file_controls_keys = {}
+    file_controls_info = {}
+    file_property_keys = {}
+    file_property_info = {}
+    machine_areas = []
+    hardware_and_subtypes = {}
 
+    for file in example_files:
+        data = load_yaml_file(file)
+        properties = data.get("properties", {})
+        hardware_type = properties.get("hardware_type")
+        if hardware_type is None:
+            raise ValueError(f"hardware_type is not defined in the YAML file: {file}")
+        class_name = hardware_type
 
-created_classes = []
-file_pv_keys = {}
-file_pv_info = {}
-optional_pvs = {}
-file_controls_keys = {}
-file_controls_info = {}
-file_property_keys = {}
-file_property_info = {}
-machine_areas = []
-hardware_and_subtypes = {}
-# Iterate through the example files to extract hardware types and PV maps
-# This will need to be done once per hardware_type so we can gather
-# information about optional PVs etc.
-for file in example_files:
-    with open(file, "r") as f:
-        data = yaml.safe_load(f)
-    properties = data.get("properties", {})
-    hardware_type = properties.get("hardware_type", None)
-    if hardware_type is None:
-        raise ValueError("hardware_type is not defined in the YAML file")
-    class_name = f"{hardware_type}"
-    # Extract controls_information and properties
-    controls_info = data.get("controls_information", {})
-    # remove the pv_record_map from controls_info as we already have that information
-    pv_map = controls_info.pop("pv_record_map", None)
-    if class_name not in file_pv_keys:
-        file_pv_keys[class_name] = {}
-    if class_name not in file_pv_info:
-        file_pv_info[class_name] = {}
-    if class_name not in file_controls_info:
-        file_controls_info[class_name] = {}
-    if class_name not in file_controls_keys:
-        file_controls_keys[class_name] = {}
-    if class_name not in file_property_keys:
-        file_property_keys[class_name] = {}
-    if class_name not in file_property_info:
-        file_property_info[class_name] = {}
-    file_pv_keys[class_name][file] = set(pv_map.keys())
-    file_pv_info[class_name].update(pv_map)
-    file_controls_keys[class_name][file] = set(controls_info.keys())
-    file_controls_info[class_name].update(controls_info)
-    file_property_keys[class_name][file] = set(properties.keys())
-    file_property_info[class_name].update(properties)
-    _area = properties.get("machine_area")
-    if _area not in machine_areas:
-        machine_areas.append(_area)
-    _subtype = properties.get("subtype", None)
-    if _subtype:
-        if hardware_type.upper() not in hardware_and_subtypes:
-            hardware_and_subtypes[hardware_type.upper()] = []
-        if _subtype.upper() not in hardware_and_subtypes[hardware_type.upper()]:
-            hardware_and_subtypes[hardware_type.upper()].append(_subtype.upper())
+        controls_info = data.get("controls_information", {})
+        pv_map = controls_info.pop("pv_record_map", None)
+        if pv_map is None:
+            raise ValueError(f"pv_record_map missing in controls_information: {file}")
 
-class_name = None
-# Iterate through the files to construct the PV map and optional PVs
-for file in example_files:
-    with open(file, "r") as f:
-        data = yaml.safe_load(f)
-    properties = data.get("properties", {})
-    hardware_type = properties.get("hardware_type", None)
-    if hardware_type is None:
-        print(file)
-        raise ValueError("hardware_type is not defined in the YAML file")
-    if hardware_type != class_name:
-        # reset pv_map and optional pvs for each hardware type
+        # Initialize dicts for each class_name
+        for d in [file_pv_keys, file_pv_info, file_controls_info, file_controls_keys, file_property_keys, file_property_info]:
+            if class_name not in d:
+                d[class_name] = {}
+
+        file_pv_keys[class_name][file] = set(pv_map.keys())
+        file_pv_info[class_name].update(pv_map)
+        file_controls_keys[class_name][file] = set(controls_info.keys())
+        file_controls_info[class_name].update(controls_info)
+        file_property_keys[class_name][file] = set(properties.keys())
+        file_property_info[class_name].update(properties)
+
+        _area = properties.get("machine_area")
+        if _area and _area not in machine_areas:
+            machine_areas.append(_area)
+        _subtype = properties.get("subtype")
+        if _subtype:
+            ht_upper = hardware_type.upper()
+            if ht_upper not in hardware_and_subtypes:
+                hardware_and_subtypes[ht_upper] = []
+            if _subtype.upper() not in hardware_and_subtypes[ht_upper]:
+                hardware_and_subtypes[ht_upper].append(_subtype.upper())
+
+    return (file_pv_keys, file_pv_info, file_controls_keys, file_controls_info,
+            file_property_keys, file_property_info, machine_areas, hardware_and_subtypes)
+
+def render_templates(
+    env: Environment,
+    class_name: str,
+    hardware_type: str,
+    pvs: Dict,
+    read_only: Dict,
+    pv_descriptions: Dict,
+    filtered_properties: Dict,
+    current_optional_properties: Set[str],
+    current_optional_pvs: Set[str],
+    current_controls_information: Dict,
+    current_optional_controls_parameters: Set[str],
+    machine_areas: List[str],
+    hardware_and_subtypes: Dict,
+    lattice_location: str
+):
+    output_filename = f"{class_name.lower()}.py"
+    template = env.get_template("component_model_template.j2")
+    hardware_template = env.get_template("hardware_model_template.j2")
+    init_template = env.get_template("init_template.j2")
+
+    hardware_output = hardware_template.render(
+        class_name=class_name,
+        hardware_type=hardware_type.lower(),
+    )
+    init_output = init_template.render(
+        lattice_folder=lattice_location,
+        areas=machine_areas,
+        hardware_types=hardware_and_subtypes if hardware_and_subtypes else None,
+    )
+    model_output = template.render(
+        class_name=class_name,
+        pvs=pvs,
+        read_only=read_only,
+        hardware_type=hardware_type,
+        properties=filtered_properties,
+        optional_properties=current_optional_properties,
+        pv_descriptions=pv_descriptions,
+        optional_pvs=current_optional_pvs,
+        controls_information=current_controls_information,
+        optional_controls_parameters=current_optional_controls_parameters,
+    )
+    return output_filename, model_output, hardware_output, init_output
+
+def write_output_files(
+    model_output_dir: str,
+    hardware_output_dir: str,
+    output_filename: str,
+    model_output: str,
+    hardware_output: str,
+    init_output: str
+):
+    with open(os.path.join(model_output_dir, output_filename), "w") as f:
+        f.write(model_output)
+    with open(os.path.join(hardware_output_dir, output_filename), "w") as f:
+        f.write(hardware_output)
+    with open(os.path.join(model_output_dir, "__init__.py"), "w") as f:
+        f.write(init_output)
+    with open(os.path.join(hardware_output_dir, "__init__.py"), "w") as f:
+        f.write(init_output)
+    open(os.path.join(OUTPUT_DIR, "__init__.py"), "w").close()
+
+def main():
+    ensure_directories()
+    example_files = get_example_files(LATTICE_LOCATION, EXCLUDE_FOLDERS)
+    (
+        file_pv_keys, file_pv_info, file_controls_keys, file_controls_info,
+        file_property_keys, file_property_info, machine_areas, hardware_and_subtypes
+    ) = collect_class_data(example_files)
+
+    env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    created_classes = set()
+    init_output = None
+
+    for hardware_type in file_pv_keys:
+        class_name = hardware_type
         current_optional_pvs = extract_differing_keys(file_pv_keys[hardware_type])
         current_pv_map = file_pv_info.get(hardware_type, {})
         if not current_pv_map:
-            raise ValueError(f"No PV map found for {hardware_type} in {file}")
+            raise ValueError(f"No PV map found for {hardware_type}")
         pvs, read_only, pv_descriptions = construct_pv_map_info(current_pv_map)
-        current_optional_controls_parameters = extract_differing_keys(
-            file_controls_keys[hardware_type]
-        )
+        current_optional_controls_parameters = extract_differing_keys(file_controls_keys[hardware_type])
         current_controls_information = file_controls_info.get(hardware_type, {})
-        current_optional_properties = extract_differing_keys(
-            file_property_keys[hardware_type]
-        )
+        current_optional_properties = extract_differing_keys(file_property_keys[hardware_type])
         current_properties = file_property_info.get(hardware_type, {})
-        print(current_optional_pvs)
-    class_name = f"{hardware_type}"
 
-    if class_name not in created_classes:
-        # If the class has not been created yet, generate it
-        print(f"Generating class for {class_name} with hardware type {hardware_type}")
-        # Exclude specified entries from properties
-        # These are default attributes of CATAP.common.machine.hardware.py and should not be redefined.
-        excluded_keys = {
-            "hardware_type",
-            "name",
-            "name_alias",
-            "machine_area",
-            "position",
-        }
-        filtered_properties = {
-            k: v for k, v in current_properties.items() if k not in excluded_keys
-        }
+        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position"}
+        filtered_properties = {k: v for k, v in current_properties.items() if k not in excluded_keys}
 
-        # Get hardware type and set class name
-        output_filename = f"{class_name.lower()}.py"
-        env = Environment(loader=FileSystemLoader("../templates/classes"))
-        template = env.get_template("component_model_template.j2")
-        hardware_template = env.get_template("hardware_model_template.j2")
-        init_template = env.get_template("init_template.j2")
+        if class_name not in created_classes:
+            output_filename, model_output, hardware_output, init_output = render_templates(
+                env,
+                class_name,
+                hardware_type,
+                pvs,
+                read_only,
+                pv_descriptions,
+                filtered_properties,
+                current_optional_properties,
+                current_optional_pvs,
+                current_controls_information,
+                current_optional_controls_parameters,
+                machine_areas,
+                hardware_and_subtypes,
+                LATTICE_LOCATION
+            )
+            write_output_files(
+                MODEL_OUTPUT_DIR,
+                HARDWARE_OUTPUT_DIR,
+                output_filename,
+                model_output,
+                hardware_output,
+                init_output
+            )
+            created_classes.add(class_name)
+            print(f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}")
 
-        # Render hardware template
-        hardware_output = hardware_template.render(
-            class_name=class_name,
-            hardware_type=hardware_type.lower(),
-        )
-        init_output = init_template.render(
-            lattice_folder=lattice_location,
-            areas=machine_areas,
-            hardware_types=hardware_and_subtypes if hardware_and_subtypes else None,
-        )
+    print(f"Generated __init__.py for {MODEL_OUTPUT_DIR}")
+    print(f"Generated __init__.py for {HARDWARE_OUTPUT_DIR}")
 
-        # Render template with filtered properties
-        model_output = template.render(
-            class_name=class_name,
-            pvs=pvs,
-            read_only=read_only,
-            hardware_type=hardware_type,
-            properties=filtered_properties,
-            optional_properties=current_optional_properties,
-            pv_descriptions=pv_descriptions,
-            optional_pvs=current_optional_pvs,
-            controls_information=current_controls_information,
-            optional_controls_parameters=current_optional_controls_parameters,
-        )
-
-        with open(os.path.join(model_output_dir, output_filename), "w") as f:
-            f.write(model_output)
-        created_classes.append(class_name)
-        with open(
-            os.path.join(hardware_output_dir, f"{class_name.lower()}.py"), "w"
-        ) as f:
-            f.write(hardware_output)
-        print(
-            f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}"
-        )
-
-with open(os.path.join(model_output_dir, "__init__.py"), "w") as f:
-    f.write(init_output)
-print(f"Generated __init__.py for {model_output_dir}")
-with open(os.path.join(hardware_output_dir, "__init__.py"), "w") as f:
-    f.write(init_output)
-print(f"Generated __init__.py for {hardware_output_dir}")
-open(os.path.join(output_dir, "__init__.py"), "w").close()
+if __name__ == "__main__":
+    main()

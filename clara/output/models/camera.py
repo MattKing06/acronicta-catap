@@ -3997,7 +3997,6 @@ class CameraModel(Hardware):
     properties: SerializeAsAny[CameraPropertiesModel]
     """Properties pertaining to this camera
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -4016,6 +4015,348 @@ class CameraModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "ANA_AvgIntensity_RBV",
+            
+            "ANA_CPU_CropSubMask_RBV",
+            
+            "ANA_CPU_Dot_RBV",
+            
+            "ANA_CPU_Npoint_RBV",
+            
+            "ANA_CPU_RBV",
+            
+            "ANA_CenterX",
+            
+            "ANA_CenterX_RBV",
+            
+            "ANA_CenterY",
+            
+            "ANA_CenterY_RBV",
+            
+            "ANA_CovXYPix_RBV",
+            
+            "ANA_CovXY_RBV",
+            
+            "ANA_EnableCallbacks",
+            
+            "ANA_EnableCallbacks_RBV",
+            
+            "ANA_FloorLevel",
+            
+            "ANA_FloorLevel_RBV",
+            
+            "ANA_FlooredPercent_RBV",
+            
+            "ANA_FlooredPoints_RBV",
+            
+            "ANA_Intensity_RBV",
+            
+            "ANA_MMResults_RBV",
+            
+            "ANA_MaskHeight_RBV",
+            
+            "ANA_MaskWidth_RBV",
+            
+            "ANA_MaskXCenter",
+            
+            "ANA_MaskXCenter_RBV",
+            
+            "ANA_MaskXRad",
+            
+            "ANA_MaskXRad_RBV",
+            
+            "ANA_MaskYCenter",
+            
+            "ANA_MaskYCenter_RBV",
+            
+            "ANA_MaskYRad",
+            
+            "ANA_MaskYRad_RBV",
+            
+            "ANA_NPointStepSize",
+            
+            "ANA_NPointStepSize_RBV",
+            
+            "ANA_NewBkgrnd",
+            
+            "ANA_NewBkgrnd_RBV",
+            
+            "ANA_OVERLAY_1_CROSS",
+            
+            "ANA_OVERLAY_1_CROSS_RBV",
+            
+            "ANA_OVERLAY_2_RESULT",
+            
+            "ANA_OVERLAY_2_RESULT_RBV",
+            
+            "ANA_OVERLAY_3_MASK",
+            
+            "ANA_OVERLAY_3_MASK_RBV",
+            
+            "ANA_PixH_RBV",
+            
+            "ANA_PixMM",
+            
+            "ANA_PixMM_RBV",
+            
+            "ANA_PixW_RBV",
+            
+            "ANA_PixelResults_RBV",
+            
+            "ANA_SigmaXPix_RBV",
+            
+            "ANA_SigmaX_RBV",
+            
+            "ANA_SigmaYPix_RBV",
+            
+            "ANA_SigmaY_RBV",
+            
+            "ANA_UseBkgrnd",
+            
+            "ANA_UseBkgrnd_RBV",
+            
+            "ANA_UseFloor",
+            
+            "ANA_UseFloor_RBV",
+            
+            "ANA_UseNPoint",
+            
+            "ANA_UseNPoint_RBV",
+            
+            "ANA_XPix_RBV",
+            
+            "ANA_X_RBV",
+            
+            "ANA_YPix_RBV",
+            
+            "ANA_Y_RBV",
+            
+            "Buffer_Status",
+            
+            "CAM1_ArrayData",
+            
+            "CAM2_ArrayData",
+            
+            "CAM_AcquirePeriod_RBV",
+            
+            "CAM_AcquireTime_RBV",
+            
+            "CAM_Acquire_RBV",
+            
+            "CAM_Active_Count",
+            
+            "CAM_Active_Limit",
+            
+            "CAM_ArrayRate_RBV",
+            
+            "CAM_Start_Acquire",
+            
+            "CAM_Stop_Acquire",
+            
+            "CAM_Temperature_RBV",
+            
+            "HDFB_AutoSave",
+            
+            "HDFB_Buffer_FileNumber",
+            
+            "HDFB_Buffer_FileNumber_RBV",
+            
+            "HDFB_Capture",
+            
+            "HDFB_Capture_DISV",
+            
+            "HDFB_Capture_RBV",
+            
+            "HDFB_FileName",
+            
+            "HDFB_FileName_RBV",
+            
+            "HDFB_FileNumber",
+            
+            "HDFB_FileNumber_RBV",
+            
+            "HDFB_FilePath",
+            
+            "HDFB_FilePath_RBV",
+            
+            "HDFB_FileWriteMode",
+            
+            "HDFB_NumCapture",
+            
+            "HDFB_NumCapture_RBV",
+            
+            "HDFB_NumCaptured_RBV",
+            
+            "HDFB_NumImagesCached_RBV",
+            
+            "HDFB_PostCount",
+            
+            "HDFB_PreCount",
+            
+            "HDFB_WriteFile",
+            
+            "HDFB_WriteFile_RBV",
+            
+            "HDFB_WriteMessage",
+            
+            "HDFB_WriteStatus",
+            
+            "HDFB_image_buffer_fileName",
+            
+            "HDFB_image_buffer_fileName_RBV",
+            
+            "HDFB_image_buffer_filePath",
+            
+            "HDFB_image_buffer_filePath_RBV",
+            
+            "HDFB_image_buffer_trigger",
+            
+            "HDFM_AutoSave",
+            
+            "HDFM_Capture",
+            
+            "HDFM_Capture_DISV",
+            
+            "HDFM_Capture_RBV",
+            
+            "HDFM_FileName",
+            
+            "HDFM_FileName_RBV",
+            
+            "HDFM_FileNumber",
+            
+            "HDFM_FileNumber_RBV",
+            
+            "HDFM_FilePath",
+            
+            "HDFM_FilePath_RBV",
+            
+            "HDFM_FileWriteMode",
+            
+            "HDFM_NumCapture",
+            
+            "HDFM_NumCapture_RBV",
+            
+            "HDFM_WriteFile",
+            
+            "HDFM_WriteFile_RBV",
+            
+            "HDFM_WriteMessage",
+            
+            "HDFM_WriteStatus",
+            
+            "HDF_AutoSave",
+            
+            "HDF_Capture",
+            
+            "HDF_Capture_DISV",
+            
+            "HDF_Capture_RBV",
+            
+            "HDF_FileName",
+            
+            "HDF_FileName_RBV",
+            
+            "HDF_FileNumber",
+            
+            "HDF_FileNumber_RBV",
+            
+            "HDF_FilePath",
+            
+            "HDF_FilePath_RBV",
+            
+            "HDF_FileWriteMode",
+            
+            "HDF_NumCapture",
+            
+            "HDF_NumCapture_RBV",
+            
+            "HDF_WriteFile",
+            
+            "HDF_WriteFile_RBV",
+            
+            "HDF_WriteMessage",
+            
+            "HDF_WriteStatus",
+            
+            "Init_Buffer",
+            
+            "LED_Off",
+            
+            "LED_On",
+            
+            "LED_Sta",
+            
+            "MAGICK_AutoSave",
+            
+            "MAGICK_Capture",
+            
+            "MAGICK_Capture_DISV",
+            
+            "MAGICK_Capture_RBV",
+            
+            "MAGICK_FileName",
+            
+            "MAGICK_FileName_RBV",
+            
+            "MAGICK_FileNumber",
+            
+            "MAGICK_FileNumber_RBV",
+            
+            "MAGICK_FilePath",
+            
+            "MAGICK_FilePath_RBV",
+            
+            "MAGICK_FileWriteMode",
+            
+            "MAGICK_NumCapture",
+            
+            "MAGICK_NumCapture_RBV",
+            
+            "MAGICK_WriteFile",
+            
+            "MAGICK_WriteFile_RBV",
+            
+            "MAGICK_WriteMessage",
+            
+            "MAGICK_WriteStatus",
+            
+            "ROI1_ImageData_RBV",
+            
+            "ROI1_MinX",
+            
+            "ROI1_MinX_RBV",
+            
+            "ROI1_MinY",
+            
+            "ROI1_MinY_RBV",
+            
+            "ROI1_SizeX",
+            
+            "ROI1_SizeX_RBV",
+            
+            "ROI1_SizeY",
+            
+            "ROI1_SizeY_RBV",
+            
+            "ROIandMask_SetX",
+            
+            "ROIandMask_SetXrad",
+            
+            "ROIandMask_SetY",
+            
+            "ROIandMask_SetYrad",
+            
+            "Reset_Buffer",
+            
+            "Save",
+            
+            "Save_Buffer",
+            
+            "Save_Buffer_Path_Initialise",
+            
+            "Save_Path_Initialise",
             
         ]
 

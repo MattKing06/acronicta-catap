@@ -79,7 +79,7 @@ for hardware in hardware_types:
             missing_property_int=missing_property_default_int,
             missing_property_float=missing_property_default_float,
         )
-        print(f"Rendered template for {item['name']}:\n \"{rendered_hardware_template}\"")
+        # print(f"Rendered template for {item['name']}:\n \"{rendered_hardware_template}\"")
         # Convert the rendered template to a dictionary
         hardware_data = json.loads(
             rendered_hardware_template,
@@ -95,10 +95,10 @@ for hardware in hardware_types:
         output = yaml_template.render(**hardware_data)
 
         folder = item["hardware_type"]
-        output_dir = f"../output/yaml/{folder}"
+        output_dir = f"../clara/output/yaml/{folder}"
         os.makedirs(output_dir, exist_ok=True)
         filename = f"{item['name']}.yaml"
         with open(f"{output_dir}/{filename}", "w") as f:
             f.write(output)
 
-        print(f"YAML file rendered to ../output/yaml/{folder}/{filename}")
+        print(f"YAML file rendered to {output_dir}/{filename}")

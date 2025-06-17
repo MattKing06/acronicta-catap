@@ -331,7 +331,6 @@ class MirrorModel(Hardware):
     properties: SerializeAsAny[MirrorPropertiesModel]
     """Properties pertaining to this mirror
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -350,6 +349,20 @@ class MirrorModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "H_MREL",
+            
+            "H_POS",
+            
+            "V_MREL",
+            
+            "POSBTN",
+            
+            "V_POS",
+            
+            "H_MREL_RBV",
+            
+            "V_MREL_RBV",
             
         ]
 

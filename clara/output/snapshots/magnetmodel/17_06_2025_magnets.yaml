@@ -1,0 +1,3294 @@
+magnetmodel:
+  CLA-S03-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.892524
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.094834
+    SPOWER:
+      value: OFF
+  CLA-S05-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.192622
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105567
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.992631
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105644
+    SPOWER:
+      value: OFF
+  CLA-S04-MAG-VCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.09259
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.101593
+    SPOWER:
+      value: OFF
+  CLA-S01-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.192625
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093538
+    SPOWER:
+      value: OFF
+  CLA-S02-MAG-VCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.092593
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093788
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-QUAD-04:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.992623
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105653
+    SPOWER:
+      value: OFF
+  CLA-FEA-MAG-DIP-04:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.892533
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105676
+    SPOWER:
+      value: OFF
+  CLA-C2V-MAG-DIP-02:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.992627
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093795
+    SPOWER:
+      value: OFF
+  CLA-SP3-MAG-DIP-01:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.192619
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.10566
+    SPOWER:
+      value: OFF
+  CLA-S05-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159926.892518
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105575
+    SPOWER:
+      value: OFF
+  CLA-FEA-MAG-DIP-02:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.292563
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105672
+    SPOWER:
+      value: OFF
+  CLA-S03-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750159927.292566
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093801
+    SPOWER:
+      value: OFF
+  CLA-FEA-MAG-DIP-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value: 0.0
+    SETI:
+      value: 0.0
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.10567
+    SPOWER:
+      value: OFF
+  CLA-S01-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value: 0.0
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093209
+    SPOWER:
+      value: OFF
+  CLA-S05-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-HCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-VCOR-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-VCOR-07:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-HCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-HCOR-07:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-HCOR-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-HCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-HCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S01-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP1-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-VCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S06-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP3-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-VCOR-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-HCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP3-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-09:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-07:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S05-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S01-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S06-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-06:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-FEA-MAG-DIP-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP1-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-08:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-07:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-VCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP3-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-QUAD-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-06:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-DIP-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-QUAD-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP3-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-QUAD-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-QUAD-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-QUAD-10:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-QUAD-08:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value: OK
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093791
+    SPOWER:
+      value: OFF
+  CLA-VBC-MAG-DIP-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  EBT-HRG1-MAG-SOL-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP1-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-DIP-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-L01-MAG-SOL-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S03-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-L01-MAG-SOL-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-VCOR-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105651
+    SPOWER:
+      value: OFF
+  CLA-SP1-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-VBC-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S06-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105643
+    SPOWER:
+      value: OFF
+  CLA-S04-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value: OFF
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.09759
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-VCOR-08:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-HCOR-08:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-HCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-HCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-SP2-MAG-DIP-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105634
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-HCOR-06:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value: 0.0
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105664
+    SPOWER:
+      value: OFF
+  CLA-S06-MAG-QUAD-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S07-MAG-VCOR-06:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105664
+    SPOWER:
+      value: OFF
+  CLA-SP2-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S06-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-VBC-MAG-DIP-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value: 0.0
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105604
+    SPOWER:
+      value: OFF
+  CLA-S02-MAG-HCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.093787
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-HCOR-05:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-QUAD-03:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-HCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S04-MAG-VCOR-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-QUAD-11:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-S02-MAG-VCOR-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-GUN-MAG-SOL-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer:
+      - .nan
+      timestamps:
+      - 1750155230.093207
+    SPOWER:
+      value: OFF
+  CLA-S07-MAG-VCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+  CLA-C2V-MAG-DIP-01:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value: OFF
+  CLA-S06-MAG-QUAD-02:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    ILK_PSU_RESET:
+      value: false
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer:
+      - 0.0
+      timestamps:
+      - 1750155230.105631
+    SPOWER:
+      value: OFF
+  CLA-S02-MAG-HCOR-04:
+    ILK_ON:
+      value: false
+    READI:
+      value:
+      buffer: []
+      timestamps: []
+    ILK_OFF:
+      value: false
+    ILK_RESET:
+      value: false
+    SETK:
+      value:
+    SETI:
+      value:
+    RILK:
+      value:
+    RPOWER:
+      value:
+    GETSETI:
+      value:
+    READK:
+      value:
+      buffer: []
+      timestamps: []
+    SPOWER:
+      value:
+comment: ''
+created: '2025-06-17T12:32:52.769083'

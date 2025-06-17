@@ -18,7 +18,6 @@ controls_information:
       states:
         OFF: 0
         ON: 1
-      read_only: false
       pv: CLA-SP2-MAG-QUAD-01:RPOWER
     ILK_RESET:
       type: binary
@@ -57,11 +56,13 @@ controls_information:
       type: scalar
       description: Sets the target current for a magnet power supply.
       units: A
+      read_only: false
       pv: CLA-SP2-MAG-QUAD-01:SETI
     SETK:
       type: scalar
       description: Sets the target field strength for a magnet. This ultimately sets a current for the power supply
       units: K
+      read_only: false
       pv: CLA-SP2-MAG-QUAD-01:SETK
     READK:
       type: statistical

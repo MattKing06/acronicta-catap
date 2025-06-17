@@ -361,7 +361,6 @@ class DipoleModel(Hardware):
     properties: SerializeAsAny[DipolePropertiesModel]
     """Properties pertaining to this dipole
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -380,6 +379,22 @@ class DipoleModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "SETI",
+            
+            "GETSETI",
+            
+            "READI",
+            
+            "SETPOL",
+            
+            "READPOL",
+            
+            "SETSTATE",
+            
+            "GETSTATE",
+            
+            "RESET",
             
         ]
 

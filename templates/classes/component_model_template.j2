@@ -179,7 +179,6 @@ class {{ class_name }}Model(Hardware):
     properties: SerializeAsAny[{{ class_name }}PropertiesModel]
     """Properties pertaining to this {{ hardware_type|lower }}
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -198,8 +197,8 @@ class {{ class_name }}Model(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
-            {% for pv in snapshot_gettables %}
-            "{{ pv }}",
+            {% for pv_name in pvs.keys() %}
+            "{{ pv_name }}",
             {% endfor %}
         ]
 

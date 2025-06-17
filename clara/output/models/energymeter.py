@@ -229,7 +229,6 @@ class EnergyMeterModel(Hardware):
     properties: SerializeAsAny[EnergyMeterPropertiesModel]
     """Properties pertaining to this energymeter
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -248,6 +247,14 @@ class EnergyMeterModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "ENERGYREADBACK",
+            
+            "OVERRANGE",
+            
+            "RANGESP",
+            
+            "RUNSP",
             
         ]
 

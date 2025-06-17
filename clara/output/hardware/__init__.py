@@ -57,6 +57,8 @@ _area_names = [
     "L4H",
     
 ]
+cfg._machine_areas_tuple = namedtuple("MACHINE_AREAS", _area_names)
+cfg.MACHINE_AREAS = cfg._machine_areas_tuple(*[MachineArea(name=name) for name in _area_names])
 
 
 _hardware_types = {
@@ -64,8 +66,6 @@ _hardware_types = {
     "MAGNET": ["NONE",],
     
 }
-
-
 def _convert_types_to_named_tuple(types: Dict[str, List[str]]) -> Tuple:
     _subtypes = [
         namedtuple(type_name, types[type_name])(*types[type_name])
@@ -74,10 +74,9 @@ def _convert_types_to_named_tuple(types: Dict[str, List[str]]) -> Tuple:
     _types = namedtuple("TYPES", types.keys())
     return _types(*_subtypes)
 
-
 TYPES = _convert_types_to_named_tuple(types=_hardware_types)
 
-cfg._machine_areas_tuple = namedtuple("MACHINE_AREAS", _area_names)
-cfg.MACHINE_AREAS = cfg._machine_areas_tuple(*[MachineArea(name=name) for name in _area_names])
+
+
 cfg.SNAPSHOT_LOCATION = "./snapshots/"
 cfg.EPICS_TIMEOUT = 0.5

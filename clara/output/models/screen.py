@@ -472,7 +472,6 @@ class ScreenModel(Hardware):
     properties: SerializeAsAny[ScreenPropertiesModel]
     """Properties pertaining to this screen
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -491,6 +490,28 @@ class ScreenModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "POS",
+            
+            "MOVING",
+            
+            "EN",
+            
+            "V_POS",
+            
+            "V_ACTPOS",
+            
+            "V_MOVING",
+            
+            "V_EN",
+            
+            "H_POS",
+            
+            "H_ACTPOS",
+            
+            "H_MOVING",
+            
+            "H_EN",
             
         ]
 

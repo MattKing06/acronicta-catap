@@ -293,7 +293,6 @@ class SolenoidModel(Hardware):
     properties: SerializeAsAny[SolenoidPropertiesModel]
     """Properties pertaining to this solenoid
     (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
-
     def __init__(
         self,
         is_virtual: bool,
@@ -312,6 +311,18 @@ class SolenoidModel(Hardware):
         )
         self._snapshot_settables = []
         self._snapshot_gettables = [
+            
+            "SETI",
+            
+            "GETSETI",
+            
+            "READI",
+            
+            "SETSTATE",
+            
+            "RESET",
+            
+            "GETSTATE",
             
         ]
 
