@@ -1,11 +1,12 @@
 import os
+import subprocess
 import yaml
 from typing import Dict, List, Set, Any
 from jinja2 import Environment, FileSystemLoader
 
 EXCLUDE_FOLDERS = ["FEBELaser", "PILaser"]
-LATTICE_LOCATION = os.path.abspath("../clara/output/yaml")
-OUTPUT_DIR = "../clara/output/"
+LATTICE_LOCATION = os.path.abspath("../facility/output/yaml")
+OUTPUT_DIR = "../facility/output/"
 MODEL_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "models")
 HARDWARE_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "hardware")
 TEMPLATE_DIR = "../templates/classes"
@@ -47,9 +48,9 @@ def construct_pv_map_info(pv_map: Dict[str, Dict[str, Any]]) -> (Dict, Dict, Dic
             "statistical": "StatisticalPV",
             "waveform": "WaveformPV",
             "string": "StringPV"
-        }.get(pv_type, "PV")
+        }.get(pv_type, None)
         read_only[pv_name] = pv_info.get("read_only", True)
-        pv_descriptions[pv_name] = pv_info.get("description", "")
+        pv_descriptions[pv_name] = pv_info.get("description", "Missing description")
     return pvs, read_only, pv_descriptions
 
 def load_yaml_file(file_path: str) -> Dict:
@@ -191,7 +192,7 @@ def main():
         current_optional_properties = extract_differing_keys(file_property_keys[hardware_type])
         current_properties = file_property_info.get(hardware_type, {})
 
-        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position"}
+        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position", "subtype"}
         filtered_properties = {k: v for k, v in current_properties.items() if k not in excluded_keys}
 
         if class_name not in created_classes:
@@ -221,7 +222,9 @@ def main():
             )
             created_classes.add(class_name)
             print(f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}")
-
+        # Format all generated Python files with black
+    subprocess.run(["black", MODEL_OUTPUT_DIR], check=True)
+    print(f"Formatted generated files with black.")
     print(f"Generated __init__.py for {MODEL_OUTPUT_DIR}")
     print(f"Generated __init__.py for {HARDWARE_OUTPUT_DIR}")
 
