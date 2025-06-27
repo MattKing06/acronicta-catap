@@ -73,6 +73,15 @@ class {{ class_name }}PVMapModel(PVMap):
     {% endif %}
     {% endfor %}
 
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "ScalarPV" or pv_type == "WaveformPV" or pv_type == "StatisticalPV"%}
+    @property
+    def {{pv_name.lower()}}_units(self) -> str:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name }}.units`."""
+        if self.{{pv_name}}:
+            return self.{{ pv_name }}.units
+    {% endif %}
+    {% endfor %}
 
 {# --- ControlsInformation class --- #}
 class {{ class_name }}ControlsInformationModel(ControlsInformation):
@@ -157,6 +166,15 @@ class {{ class_name }}ControlsInformationModel(ControlsInformation):
     def {{pv_name.lower()}}_states(self) -> EnumMeta:
         """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name.lower() }}_states`."""
         return self.pv_record_map.{{ pv_name.lower()}}_states
+    {% endif %}
+    {% endfor %}
+
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "ScalarPV" or pv_type == "WaveformPV" or pv_type == "StatisticalPV"%}
+    @property
+    def {{pv_name.lower()}}_units(self) -> str:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMap.{{ pv_name.lower() }}_units`."""
+        return self.pv_record_map.{{pv_name.lower()}}_units
     {% endif %}
     {% endfor %}
 
