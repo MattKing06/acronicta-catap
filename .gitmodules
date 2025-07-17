@@ -1,0 +1,3 @@
+[submodule "catapcore"]
+	path = catapcore
+	url = git@github.com:MattKing06/catapcore

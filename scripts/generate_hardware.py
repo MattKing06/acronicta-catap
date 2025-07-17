@@ -2,17 +2,24 @@ import os
 import yaml
 from typing import Dict, List, Set, Any
 from jinja2 import Environment, FileSystemLoader
+import argparse
+import shutil
 
 EXCLUDE_FOLDERS = ["FEBELaser", "PILaser"]
-LATTICE_LOCATION = os.path.abspath("../clara/output/yaml")
-OUTPUT_DIR = "../clara/output/"
+LATTICE_LOCATION = os.path.abspath("../isis/output/yaml")
+OUTPUT_DIR = "../isis/output/"
 MODEL_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "models")
 HARDWARE_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "hardware")
-TEMPLATE_DIR = "../templates/classes"
+TEMPLATE_DIR = os.path.abspath("./templates/classes")
+
 
 def ensure_directories():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     os.makedirs(HARDWARE_OUTPUT_DIR, exist_ok=True)
     os.makedirs(MODEL_OUTPUT_DIR, exist_ok=True)
+    if not os.path.exists(LATTICE_LOCATION):
+        raise FileNotFoundError(f"Could not find yaml directory: {LATTICE_LOCATION} ")
+
 
 def get_example_files(lattice_location: str, exclude_folders: List[str]) -> List[str]:
     files = []
@@ -27,12 +34,14 @@ def get_example_files(lattice_location: str, exclude_folders: List[str]) -> List
                 ]
     return files
 
+
 def extract_differing_keys(file_pv_maps: Dict[str, Set[str]]) -> Set[str]:
     if not file_pv_maps:
         return set()
     all_keys = set.union(*file_pv_maps.values())
     common_keys = set.intersection(*file_pv_maps.values())
     return all_keys - common_keys
+
 
 def construct_pv_map_info(pv_map: Dict[str, Dict[str, Any]]) -> (Dict, Dict, Dict):
     pvs = {}
@@ -46,15 +55,17 @@ def construct_pv_map_info(pv_map: Dict[str, Dict[str, Any]]) -> (Dict, Dict, Dic
             "scalar": "ScalarPV",
             "statistical": "StatisticalPV",
             "waveform": "WaveformPV",
-            "string": "StringPV"
+            "string": "StringPV",
         }.get(pv_type, "PV")
         read_only[pv_name] = pv_info.get("read_only", True)
         pv_descriptions[pv_name] = pv_info.get("description", "")
     return pvs, read_only, pv_descriptions
 
+
 def load_yaml_file(file_path: str) -> Dict:
     with open(file_path, "r") as f:
         return yaml.safe_load(f)
+
 
 def collect_class_data(example_files: List[str]):
     file_pv_keys = {}
@@ -80,7 +91,14 @@ def collect_class_data(example_files: List[str]):
             raise ValueError(f"pv_record_map missing in controls_information: {file}")
 
         # Initialize dicts for each class_name
-        for d in [file_pv_keys, file_pv_info, file_controls_info, file_controls_keys, file_property_keys, file_property_info]:
+        for d in [
+            file_pv_keys,
+            file_pv_info,
+            file_controls_info,
+            file_controls_keys,
+            file_property_keys,
+            file_property_info,
+        ]:
             if class_name not in d:
                 d[class_name] = {}
 
@@ -102,8 +120,17 @@ def collect_class_data(example_files: List[str]):
             if _subtype.upper() not in hardware_and_subtypes[ht_upper]:
                 hardware_and_subtypes[ht_upper].append(_subtype.upper())
 
-    return (file_pv_keys, file_pv_info, file_controls_keys, file_controls_info,
-            file_property_keys, file_property_info, machine_areas, hardware_and_subtypes)
+    return (
+        file_pv_keys,
+        file_pv_info,
+        file_controls_keys,
+        file_controls_info,
+        file_property_keys,
+        file_property_info,
+        machine_areas,
+        hardware_and_subtypes,
+    )
+
 
 def render_templates(
     env: Environment,
@@ -119,7 +146,7 @@ def render_templates(
     current_optional_controls_parameters: Set[str],
     machine_areas: List[str],
     hardware_and_subtypes: Dict,
-    lattice_location: str
+    lattice_location: str,
 ):
     output_filename = f"{class_name.lower()}.py"
     template = env.get_template("component_model_template.j2")
@@ -149,30 +176,40 @@ def render_templates(
     )
     return output_filename, model_output, hardware_output, init_output
 
+
 def write_output_files(
     model_output_dir: str,
     hardware_output_dir: str,
     output_filename: str,
     model_output: str,
     hardware_output: str,
-    init_output: str
+    init_output: str,
+    overwrite_hardware: bool,
 ):
     with open(os.path.join(model_output_dir, output_filename), "w") as f:
         f.write(model_output)
-    with open(os.path.join(hardware_output_dir, output_filename), "w") as f:
-        f.write(hardware_output)
+    if overwrite_hardware:
+        with open(os.path.join(hardware_output_dir, output_filename), "w") as f:
+            f.write(hardware_output)
+        with open(os.path.join(hardware_output_dir, "__init__.py"), "w") as f:
+            f.write(init_output)
     with open(os.path.join(model_output_dir, "__init__.py"), "w") as f:
-        f.write(init_output)
-    with open(os.path.join(hardware_output_dir, "__init__.py"), "w") as f:
         f.write(init_output)
     open(os.path.join(OUTPUT_DIR, "__init__.py"), "w").close()
 
-def main():
+
+def main(overwrite_hardware: bool = False):
     ensure_directories()
     example_files = get_example_files(LATTICE_LOCATION, EXCLUDE_FOLDERS)
     (
-        file_pv_keys, file_pv_info, file_controls_keys, file_controls_info,
-        file_property_keys, file_property_info, machine_areas, hardware_and_subtypes
+        file_pv_keys,
+        file_pv_info,
+        file_controls_keys,
+        file_controls_info,
+        file_property_keys,
+        file_property_info,
+        machine_areas,
+        hardware_and_subtypes,
     ) = collect_class_data(example_files)
 
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
@@ -186,30 +223,44 @@ def main():
         if not current_pv_map:
             raise ValueError(f"No PV map found for {hardware_type}")
         pvs, read_only, pv_descriptions = construct_pv_map_info(current_pv_map)
-        current_optional_controls_parameters = extract_differing_keys(file_controls_keys[hardware_type])
+        current_optional_controls_parameters = extract_differing_keys(
+            file_controls_keys[hardware_type]
+        )
         current_controls_information = file_controls_info.get(hardware_type, {})
-        current_optional_properties = extract_differing_keys(file_property_keys[hardware_type])
+        current_optional_properties = extract_differing_keys(
+            file_property_keys[hardware_type]
+        )
         current_properties = file_property_info.get(hardware_type, {})
 
-        excluded_keys = {"hardware_type", "name", "name_alias", "machine_area", "position"}
-        filtered_properties = {k: v for k, v in current_properties.items() if k not in excluded_keys}
+        excluded_keys = {
+            "hardware_type",
+            "name",
+            "name_alias",
+            "machine_area",
+            "position",
+        }
+        filtered_properties = {
+            k: v for k, v in current_properties.items() if k not in excluded_keys
+        }
 
         if class_name not in created_classes:
-            output_filename, model_output, hardware_output, init_output = render_templates(
-                env,
-                class_name,
-                hardware_type,
-                pvs,
-                read_only,
-                pv_descriptions,
-                filtered_properties,
-                current_optional_properties,
-                current_optional_pvs,
-                current_controls_information,
-                current_optional_controls_parameters,
-                machine_areas,
-                hardware_and_subtypes,
-                LATTICE_LOCATION
+            output_filename, model_output, hardware_output, init_output = (
+                render_templates(
+                    env,
+                    class_name,
+                    hardware_type,
+                    pvs,
+                    read_only,
+                    pv_descriptions,
+                    filtered_properties,
+                    current_optional_properties,
+                    current_optional_pvs,
+                    current_controls_information,
+                    current_optional_controls_parameters,
+                    machine_areas,
+                    hardware_and_subtypes,
+                    LATTICE_LOCATION,
+                )
             )
             write_output_files(
                 MODEL_OUTPUT_DIR,
@@ -217,13 +268,53 @@ def main():
                 output_filename,
                 model_output,
                 hardware_output,
-                init_output
+                init_output,
+                overwrite_hardware,
             )
             created_classes.add(class_name)
-            print(f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}")
-
+            print(
+                f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}"
+            )
+    if not os.path.exists(os.path.join(OUTPUT_DIR, "catapcore")):
+        _new_path = shutil.copytree(
+            "../catapcore",
+            os.path.join(OUTPUT_DIR, "catapcore"),
+            dirs_exist_ok=False,
+        )
+        print(f"Copied catapcore to output folder {OUTPUT_DIR}")
     print(f"Generated __init__.py for {MODEL_OUTPUT_DIR}")
     print(f"Generated __init__.py for {HARDWARE_OUTPUT_DIR}")
 
+
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--yaml_location",
+        help="The directory where the facilty YAML folders are located",
+        type=str,
+    )
+    parser.add_argument(
+        "--output_location",
+        help="The location where you want to Model and Hardware classes to be built",
+        type=str,
+    )
+    parser.add_argument(
+        "--overwrite_hardware",
+        help="Specify whether to overwrite the Hardware classes",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--exclude_folders",
+        help="YAML folders to exclude from generation i.e. Folder_A, Folder_B, ..., Folder_N",
+        default="",
+        type=str,
+    )
+    args = parser.parse_args()
+
+    LATTICE_LOCATION = args.yaml_location
+    OUTPUT_DIR = args.output_location
+    HARDWARE_OUTPUT_DIR = os.path.join(args.output_location, "hardware")
+    MODEL_OUTPUT_DIR = os.path.join(args.output_location, "models")
+    EXCLUDE_FOLDERS = args.exclude_folders.strip().split(",")
+    overwrite_hardware = bool(args.overwrite_hardware)
+    main(overwrite_hardware=overwrite_hardware)

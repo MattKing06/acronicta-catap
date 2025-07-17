@@ -14,9 +14,9 @@ bpmf.save_snapshot("17_06_2025_bpms")
 """ Set some new magnet currents """
 new_optics = {"S02-QUAD-01": 1.0, "S03-QUAD-01": 2.0}
 for name, value in new_optics.items():
-  mf.get_magnet(name).spower = 1
-  mf.get_magnet(name).seti = value
-  
+    mf.get_magnet(name).spower = 1
+    mf.get_magnet(name).seti = value
+
 """ Get all BPM X and Y values as dict """
 x_values = bpmf.x()
 y_values = bpmf.y()

@@ -19,8 +19,10 @@ hardware_types = [
     "Screen",
 ]
 
+
 def zip_filter(a, b):
     return zip(a, b)
+
 
 missing_pv_default_text = "<ADD_PV_HERE>"
 missing_property_default_text = "<MISSING_PROPERTY>"
@@ -70,7 +72,7 @@ for hardware in hardware_types:
         # Load the hardware template based on the hardware type
         hardware_template = data_env.get_template(f"{hardware.lower()}.j2")
         # Load the rendered YAML string into a Python dictionary
-        
+
         rendered_hardware_template = hardware_template.render(
             **item,
             missing_property_default_text=missing_property_default_text,
