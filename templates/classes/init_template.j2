@@ -34,7 +34,7 @@ def _convert_types_to_named_tuple(types: Dict[str, List[str]]) -> Tuple:
     _types = namedtuple("TYPES", types.keys())
     return _types(*_subtypes)
 
-TYPES = _convert_types_to_named_tuple(types=_hardware_types)
+cfg.TYPES = _convert_types_to_named_tuple(types=_hardware_types)
 {% endif %}
 
 
