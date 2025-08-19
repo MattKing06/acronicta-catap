@@ -89,6 +89,18 @@ class BPMPVMapModel(PVMap):
         if self.ACQUIRE:
             return self.ACQUIRE.states
 
+    @property
+    def x_units(self) -> str:
+        """Default Getter implementation for :attr:`BPMPVMapModel.X.units`."""
+        if self.X:
+            return self.X.units
+
+    @property
+    def y_units(self) -> str:
+        """Default Getter implementation for :attr:`BPMPVMapModel.Y.units`."""
+        if self.Y:
+            return self.Y.units
+
 
 class BPMControlsInformationModel(ControlsInformation):
     """
@@ -179,6 +191,16 @@ class BPMControlsInformationModel(ControlsInformation):
     def acquire_states(self) -> EnumMeta:
         """Default Getter implementation for :attr:`BPMPVMapModel.acquire_states`."""
         return self.pv_record_map.acquire_states
+
+    @property
+    def x_units(self) -> str:
+        """Default Getter implementation for :attr:`BPMPVMap.x_units`."""
+        return self.pv_record_map.x_units
+
+    @property
+    def y_units(self) -> str:
+        """Default Getter implementation for :attr:`BPMPVMap.y_units`."""
+        return self.pv_record_map.y_units
 
 
 class BPMPropertiesModel(Properties):

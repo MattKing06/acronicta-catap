@@ -5,11 +5,11 @@ from collections import namedtuple
 import os
 
 
-if os.path.exists("/home/mattking/jinja-catap/facility/output/yaml"):
-    cfg.LATTICE_LOCATION = "/home/mattking/jinja-catap/facility/output/yaml"
+if os.path.exists("/home/mattking/acronicta-catap/facility/output/yaml"):
+    cfg.LATTICE_LOCATION = "/home/mattking/acronicta-catap/facility/output/yaml"
 else:
     raise FileNotFoundError(
-        "Lattice location '/home/mattking/jinja-catap/facility/output/yaml' does not exist. Please check the path."
+        "Lattice location '/home/mattking/acronicta-catap/facility/output/yaml' does not exist. Please check the path."
     )
 from catapcore.common.machine.area import MachineArea
 
@@ -40,7 +40,7 @@ def _convert_types_to_named_tuple(types: Dict[str, List[str]]) -> Tuple:
     return _types(*_subtypes)
 
 
-TYPES = _convert_types_to_named_tuple(types=_hardware_types)
+cfg.TYPES = _convert_types_to_named_tuple(types=_hardware_types)
 
 
 cfg.SNAPSHOT_LOCATION = "./snapshots/"
