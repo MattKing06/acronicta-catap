@@ -64,7 +64,7 @@ class TestPVMap(unittest.TestCase):
     def test_map_types_are_correct(self):
         self.assertIsInstance(self.test_pv_map.X, StatisticalPV)
         self.assertIsInstance(self.test_pv_map.Y, StatisticalPV)
-        self.assertIsInstance(self.test_pv_map.ACQUIRE, BinaryPV)
+        self.assertIsInstance(self.test_pv_map.ACQUIRE, StatePV)
         self.assertIsInstance(self.test_pv_map.IS_ACQUIRING, BinaryPV)
 
     def test_map_statistics_dictionary(self):
