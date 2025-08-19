@@ -1,0 +1,327 @@
+{# --- Required imports for generated code --- #}
+from catapcore.common.machine.pv_utils import {{ pvs.values() | unique | join(', ') }}
+from catapcore.common.machine.hardware import PVMap, ControlsInformation, Properties, Hardware
+from catapcore.common.machine.factory import Factory
+from catapcore.common.machine.area import MachineArea
+import os
+from typing import Any, Union, List, Dict
+from enum import EnumMeta
+from pydantic import field_validator, SerializeAsAny, ConfigDict
+
+
+{# --- PVMap class --- #}
+class {{ class_name }}PVMapModel(PVMap):
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_name in optional_pvs%}
+    {{ pv_name }}: {{ pv_type }} = None
+    {% else %}
+    {{ pv_name }}: {{ pv_type }}
+    {% endif %}
+    """{{ pv_descriptions.get(pv_name, '') }}"""
+    {% endfor %}
+
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        {{ class_name }}PVMapModel.is_virtual = is_virtual
+        {{ class_name }}PVMapModel.connect_on_creation = connect_on_creation
+        super(
+            {{ class_name }}PVMapModel,
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        """Default Getter implementation for {{ pv_name }}"""
+        {% if pv_name in optional_pvs %}
+        if self.{{ pv_name }}:
+            return self.{{ pv_name }}.get()
+        {%else%}
+        return self.{{ pv_name }}.get()
+        {% endif %}
+
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        """Default Setter implementation for {{ pv_name }}"""
+        {% if pv_name in optional_pvs %}
+        if self.{{ pv_name }}:
+            return self.{{ pv_name }}.put(value)
+        {%else%}
+        return self.{{ pv_name }}.put(value)
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "StatePV"%}
+    @property
+    def {{pv_name.lower()}}_states(self) -> EnumMeta:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name }}.states`."""
+        if self.{{pv_name}}:
+            return self.{{ pv_name }}.states
+    {% endif %}
+    {% endfor %}
+
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "ScalarPV" or pv_type == "WaveformPV" or pv_type == "StatisticalPV"%}
+    @property
+    def {{pv_name.lower()}}_units(self) -> str:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name }}.units`."""
+        if self.{{pv_name}}:
+            return self.{{ pv_name }}.units
+    {% endif %}
+    {% endfor %}
+
+{# --- ControlsInformation class --- #}
+class {{ class_name }}ControlsInformationModel(ControlsInformation):
+    """
+    Class for controlling a {{ hardware_type|lower }} via EPICS
+
+    Inherits from:
+        :class:`~catapcore.common.machine.hardware.ControlsInformation`
+    """
+    pv_record_map: SerializeAsAny[{{ class_name }}PVMapModel]
+
+    {% for parameter, value in controls_information.items() %}
+    {% if parameter in optional_controls_parameters%}
+    {{ parameter }}: {{ value.__class__.__name__ if value is not none else 'Any' }} | None = None
+    {% else %}
+    {{ parameter }}: {{ value.__class__.__name__ if value is not none else 'Any' }}
+    {% endif %}
+    {%endfor%}
+
+    """Dictionary of PVs read in from a config file (see :class:`~catapcore.common.machine.hardware.PVMap`)"""
+    model_config = ConfigDict(
+        arbitrary_types_allowed=True,
+        extra="allow",
+    )
+
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        {{ class_name }}ControlsInformationModel.is_virtual = is_virtual
+        {{ class_name }}ControlsInformationModel.connect_on_creation = connect_on_creation
+        super(
+            {{ class_name }}ControlsInformationModel,
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+
+    @field_validator("pv_record_map", mode="before")
+    @classmethod
+    def validate_pv_map(cls, v: Any) -> {{ class_name }}PVMapModel:
+        return {{ class_name }}PVMapModel(
+            is_virtual=cls.is_virtual,
+            connect_on_creation=cls.connect_on_creation,
+            **v,
+        )
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name }}`."""    
+        return self.pv_record_map.{{ pv_name.lower()}}
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        """Default Setter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name }}`.""" 
+        self.pv_record_map.{{ pv_name.lower() }} = value
+    {% endif %}
+    {% endfor %}
+
+    {% for parameter, type in controls_information.items() %}
+    @property
+    def {{ parameter.lower() }}(self) -> {{ type.__class__.__name__ if type is not none else 'Any' }}:
+        """Default Getter implementation for {{parameter}}."""
+        {% if parameter in optional_controls_parameters %}
+        if self.{{ parameter }}:
+            return self.{{ parameter }}.get()
+        {% else %}
+        return self.{{parameter}}
+        {%endif%}
+    {%endfor%}
+
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "StatePV"%}
+    @property
+    def {{pv_name.lower()}}_states(self) -> EnumMeta:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMapModel.{{ pv_name.lower() }}_states`."""
+        return self.pv_record_map.{{ pv_name.lower()}}_states
+    {% endif %}
+    {% endfor %}
+
+    {% for pv_name, pv_type in pvs.items() %}
+    {% if pv_type == "ScalarPV" or pv_type == "WaveformPV" or pv_type == "StatisticalPV"%}
+    @property
+    def {{pv_name.lower()}}_units(self) -> str:
+        """Default Getter implementation for :attr:`{{ class_name }}PVMap.{{ pv_name.lower() }}_units`."""
+        return self.pv_record_map.{{pv_name.lower()}}_units
+    {% endif %}
+    {% endfor %}
+
+{# --- Properties class --- #}
+class {{ class_name }}PropertiesModel(Properties):
+    """
+    Class for defining {{ hardware_type|lower }}-specific properties.
+
+    Inherits from:
+        :class:`~catapcore.common.machine.hardware.Properties`
+    """
+    {% for prop, value in properties.items() %}
+    {% if prop in optional_properties%}
+    {{ prop }}: {{ value.__class__.__name__ if value is not none else 'Any' }} = None
+    {% else %}
+    {{ prop }}: {{ value.__class__.__name__ if value is not none else 'Any' }}
+    {% endif %}
+    {% endfor %}
+
+    def __init__(self, *args, **kwargs):
+        super(
+            {{ class_name }}PropertiesModel,
+            self,
+        ).__init__(
+            *args,
+            **kwargs,
+        )
+
+class {{ class_name }}Model(Hardware):
+    """
+    Middle layer class for interacting with a specific {{ hardware_type|lower }} object.
+
+    Inherits from:
+        :class:`~catapcore.common.machine.hardware.Hardware`
+    """
+
+    controls_information: SerializeAsAny[{{ class_name }}ControlsInformationModel]
+    """Controls information pertaining to this {{ hardware_type|lower }}
+    (see :class:`~catapcore.common.machine.pv_utils.ControlsInformation`)"""
+    properties: SerializeAsAny[{{ class_name }}PropertiesModel]
+    """Properties pertaining to this {{ hardware_type|lower }}
+    (see :class:`~catapcore.common.machine.pv_utils.Properties`)"""
+    def __init__(
+        self,
+        is_virtual: bool,
+        connect_on_creation: bool = False,
+        *args,
+        **kwargs,
+    ):
+        super(
+            {{ class_name }}Model,
+            self,
+        ).__init__(
+            is_virtual=is_virtual,
+            connect_on_creation=connect_on_creation,
+            *args,
+            **kwargs,
+        )
+        self._snapshot_settables = []
+        self._snapshot_gettables = [
+            {% for pv_name in pvs.keys() %}
+            "{{ pv_name }}",
+            {% endfor %}
+        ]
+
+    @field_validator("controls_information", mode="before")
+    @classmethod
+    def validate_controls_information(cls, v: Any) -> {{ class_name }}ControlsInformationModel:
+        try:
+            return {{ class_name }}ControlsInformationModel(
+                is_virtual=cls.is_virtual,
+                connect_on_creation=cls.connect_on_creation,
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate controls_information: {e}")
+
+    @field_validator("properties", mode="before")
+    @classmethod
+    def validate_properties(cls, v: Any) -> {{ class_name }}PropertiesModel:
+        try:
+            return {{ class_name }}PropertiesModel(
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate properties: {e}")
+
+    {% for pv_name, pv_type in pvs.items() %}
+    @property
+    def {{ pv_name.lower() }}(self):
+        """Default Getter implementation for :attr:`{{ class_name }}ControlsInformationModel.{{ pv_name }}`."""
+        return self.controls_information.{{ pv_name.lower()}}
+    {% if read_only.get(pv_name, True) == False %}
+    @{{ pv_name.lower() }}.setter
+    def {{ pv_name.lower() }}(self, value):
+        """Default Setter implementation for :attr:`{{ class_name }}ControlsInformationModel.{{ pv_name }}`."""
+        self.controls_information.{{ pv_name.lower() }} = value
+    {% endif %}
+    {% endfor %}
+
+class {{ class_name }}FactoryModel(Factory):
+    """
+    Middle layer class for interacting with multiple
+    :class:`catapcore.laser.components.{{ hardware_type|lower }}.{{ class_name }}` objects.
+
+    Inherits from:
+        :class:`~catapcore.common.machine.factory.Factory`
+    """
+
+    def __init__(
+        self,
+        is_virtual: bool = True,
+        connect_on_creation: bool = False,
+        areas: Union[MachineArea, List[MachineArea]] = None,
+        hardware_type: Hardware = {{ class_name }}Model,
+    ):
+        super({{ class_name }}FactoryModel, self).__init__(
+            is_virtual=is_virtual,
+            hardware_type=hardware_type,
+            lattice_folder="{{ class_name }}",
+            connect_on_creation=connect_on_creation,
+            areas=areas,
+        )
+
+    def get_{{ hardware_type|lower }}(self, name: Union[str, List[str]] = None) -> {{ class_name }}Model:
+        """
+        Returns the {{ hardware_type|lower }} object for the given name(s).
+
+        :param name: Name(s) of the {{ hardware_type|lower }}.
+        :type name: str or list of str
+
+        :return: {{ hardware_type|capitalize }} object(s).
+        :rtype: :class:`{{ hardware_type|lower }}Model.{{ class_name }}`
+        or Dict[str: :class:`{{ hardware_type|lower }}.{{ class_name }}`]
+        """
+        return self.get_hardware(name)
+
+    {%  for pv_name, _ in pvs.items()  %}
+    def {{ pv_name.lower() }}(self, name: Union[str, List[str], None] = None):
+        """
+        Default Getter implementation for single, multiple, all values of: :attr:`{{ class_name }}Model.{{ pv_name }}`.
+
+        :param name: Name(s) of the {{ hardware_type|lower }}.
+        :type name: str or list of str or None
+
+        :return: Value(s) of the :attr:`{{ class_name }}Model.{{ pv_name }}` property.
+        :rtype: property value or Dict[str, property value]
+        """
+        return self._get_property(name, property_=lambda {{ hardware_type|lower }}: {{ hardware_type|lower }}.{{ pv_name.lower() }})
+    {% endfor %}

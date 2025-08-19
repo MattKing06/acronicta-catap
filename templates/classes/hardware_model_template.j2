@@ -1,0 +1,119 @@
+from models.{{hardware_type}} import ({{class_name}}PVMapModel,
+                    {{class_name}}ControlsInformationModel,
+                    {{class_name}}PropertiesModel,
+                    {{class_name}}Model,
+                    {{class_name}}FactoryModel,
+                    )
+from pydantic import field_validator
+from typing import Any
+
+class {{class_name}}PVMap({{class_name}}PVMapModel):
+
+    """
+    {{class_name}} PV Map.
+    This defines the PVs used by the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}PVMapModel to provide a structure.
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}PVMap, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+class {{class_name}}ControlsInformation({{class_name}}ControlsInformationModel):
+
+    """
+    {{class_name}} Controls Information.
+    This contains the PVs and properties for the {{class_name}} component.
+
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}ControlsInformationModel to provide a structure.
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}ControlsInformation, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+    @field_validator("pv_record_map", mode="before")
+    @classmethod
+    def validate_pv_map(cls, v: Any) -> {{ class_name }}PVMap:
+        """ Validate the PV Map Dictionary and Convert to PV Types """
+        return {{ class_name }}PVMap(
+            is_virtual=cls.is_virtual,
+            connect_on_creation=cls.connect_on_creation,
+            **v,
+        )
+
+
+class {{class_name}}Properties({{class_name}}PropertiesModel):
+
+    """
+    {{class_name}} Properties.
+    This defines the properties of the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}PropertiesModel to provide a structure.
+    """
+
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}Properties, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+class {{class_name}}({{class_name}}Model):
+
+    """
+    {{class_name}}.
+    This represents the {{class_name}} component in the hardware layer.
+    It provides access to the PVs and properties defined in the
+    {{class_name}}ControlsInformation and {{class_name}}Properties models.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}Model to provide a structure.
+
+    """
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}, self).__init__(*args, **kwargs)
+        # Initialize any additional properties or methods specific to this model
+
+    @field_validator("controls_information", mode="before")
+    @classmethod
+    def validate_controls_information(cls, v: Any) -> {{ class_name }}ControlsInformation:
+        """ Validate the Controls Information Dictionary and Convert to {{ class_name }}ControlsInformation Type """
+        try:
+            return {{ class_name }}ControlsInformation(
+                is_virtual=cls.is_virtual,
+                connect_on_creation=cls.connect_on_creation,
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate controls_information: {e}")
+
+    @field_validator("properties", mode="before")
+    @classmethod
+    def validate_properties(cls, v: Any) -> {{ class_name }}Properties:
+        """ Validate the Properties Dictionary and Convert to {{ class_name }}Properties Type """
+        try:
+            return {{ class_name }}Properties(
+                **v,
+            )
+        except Exception as e:
+            raise ValueError(f"Failed to validate properties: {e}")
+
+
+class {{class_name}}Factory({{class_name}}FactoryModel):
+
+    """
+    {{class_name}} Factory.
+    This is responsible for creating instances of the {{class_name}} component.
+
+    Users should add any facility specific logic to this class.
+    It inherits from the {{class_name}}FactoryModel to provide a structure.
+    """
+
+    def __init__(self, *args, **kwargs):
+        super({{class_name}}Factory, self).__init__(
+            hardware_type={{class_name}},
+            *args,
+            **kwargs,
+        )
+        # Initialize any additional properties or methods specific to this model
