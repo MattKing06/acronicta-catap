@@ -316,8 +316,8 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    LATTICE_LOCATION = args.yaml_location
-    OUTPUT_DIR = args.output_location
+    LATTICE_LOCATION = os.path.abspath(args.yaml_location)
+    OUTPUT_DIR = os.path.abspath(args.output_location)
     HARDWARE_OUTPUT_DIR = os.path.join(args.output_location, "hardware")
     MODEL_OUTPUT_DIR = os.path.join(args.output_location, "models")
     EXCLUDE_FOLDERS = args.exclude_folders.strip().split(",")
