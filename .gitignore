@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Project-specific files
+facility/output/catapcore
+
 # C extensions
 *.so
 
