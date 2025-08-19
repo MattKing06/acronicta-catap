@@ -36,6 +36,7 @@ class BPMPVMap(BPMPVMapModel):
                 self.acquire = self.acquire_states.START
         return super().y
 
+
 class BPMControlsInformation(BPMControlsInformationModel):
     """
     BPM Controls Information.

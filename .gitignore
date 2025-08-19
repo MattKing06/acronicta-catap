@@ -5,7 +5,7 @@ __pycache__/
 
 # Project-specific files
 facility/output/catapcore
-
+.vscode
 # C extensions
 *.so
 

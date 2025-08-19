@@ -56,7 +56,7 @@ def construct_pv_map_info(pv_map: Dict[str, Dict[str, Any]]) -> (Dict, Dict, Dic
             "scalar": "ScalarPV",
             "statistical": "StatisticalPV",
             "waveform": "WaveformPV",
-            "string": "StringPV"
+            "string": "StringPV",
         }.get(pv_type, None)
         read_only[pv_name] = pv_info.get("read_only", True)
         pv_descriptions[pv_name] = pv_info.get("description", "Missing description")
