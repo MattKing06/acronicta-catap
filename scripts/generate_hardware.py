@@ -279,14 +279,16 @@ def main(overwrite_hardware: bool = False):
             )
     # Format all generated Python files with black
     subprocess.run(["black", MODEL_OUTPUT_DIR], check=True)
-    print(f"Formatted generated files with black.")
+    print("Formatted generated files with black.")
     if not os.path.exists(os.path.join(OUTPUT_DIR, "catapcore")):
+        parent_dir = os.path.dirname(os.path.abspath(__file__))
+        parent_dir_above = os.path.dirname(parent_dir)
         _new_path = shutil.copytree(
-            "../catapcore",
+            os.path.join(parent_dir_above, "catapcore"),
             os.path.join(OUTPUT_DIR, "catapcore"),
             dirs_exist_ok=False,
         )
-        print(f"Copied catapcore to output folder {OUTPUT_DIR}")
+        print(f"Copied catapcore to output folder {_new_path}")
     print(f"Generated __init__.py for {MODEL_OUTPUT_DIR}")
     print(f"Generated __init__.py for {HARDWARE_OUTPUT_DIR}")
 
