@@ -6,7 +6,7 @@ from catapcore.common.machine.area import MachineArea
 from catapcore.common.exceptions import UnexpectedPVEntry
 import catapcore.config as cfg
 
-cfg.LATTICE_LOCATION = "./catapcore/tests/lattice"
+cfg.LATTICE_LOCATION = "./tests/lattice"
 
 
 class TestPVMap(unittest.TestCase):

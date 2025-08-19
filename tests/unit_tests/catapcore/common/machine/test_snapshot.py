@@ -5,7 +5,7 @@ import os
 from catapcore.common.machine.hardware import Hardware
 from catapcore.common.machine.snapshot import Snapshot
 
-cfg.SNAPSHOT_LOCATION = "./catapcore/tests/snapshots"
+cfg.SNAPSHOT_LOCATION = "./tests/snapshots"
 
 
 class TestSnapshot(unittest.TestCase):
