@@ -278,7 +278,10 @@ def main(overwrite_hardware: bool = False):
                 f"Generated {output_filename} and {class_name.lower()}.py for {hardware_type}"
             )
     # Format all generated Python files with black
-    subprocess.run(["black", OUTPUT_DIR], check=True)
+    # We have to add an exclude here to avoid using .gitignore
+    # I chose to exclude *.pyc files because they allow
+    # us to include files in the .gitingore
+    subprocess.run(["black", "--exclude", '\"*.pyc\"', OUTPUT_DIR], check=True)
     print("Formatted generated files with black.")
     if not os.path.exists(os.path.join(OUTPUT_DIR, "catapcore")):
         parent_dir = os.path.dirname(os.path.abspath(__file__))
