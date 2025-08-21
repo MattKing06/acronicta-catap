@@ -32,7 +32,7 @@ controls_information:
       units: MW
       protocol: PVA
     STATUS:
-      pv: CAV:01:CAVITY_STATUS
+      pv: CAV:01:STATUS
       type: state
       description: Status of the cavity
       states:

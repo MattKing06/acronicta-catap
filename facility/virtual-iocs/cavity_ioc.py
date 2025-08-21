@@ -8,6 +8,9 @@ import random
 import threading
 import difflib
 
+os.environ["EPICS_PVAS_SERVER_PORT"] = "7000"
+os.environ["EPICS_PVAS_BROADCAST_PORT"] = "7000"
+
 # Configuration dictionary for PVs
 PV_CONFIG = {
     "CAV-01": {
@@ -53,7 +56,7 @@ PV_CONFIG = {
         "PHASE_SETPOINT": {"virtual_pv": "VCTRL:CAV4:PHASE_SETPOINT", "type": "scalar"},
         "AMPLITUDE_SETPOINT": {"pv": "CTRL:CAV4:AMPLITUDE_SETPOINT", "type": "scalar"},
         "PHASE_READBACK": {"pv": "CTRL:CAV4:PHASE_READBACK", "type": "scalar"},
-        "AMPLITUDE_READBACK": {"pv": "CTRL:CAV4:PHASE_READBACK", "type": "scalar"},
+        "AMPLITUDE_READBACK": {"pv": "CTRL:CAV4:AMPLITUDE_READBACK", "type": "scalar"},
         "CAVITY_STATUS": {
             "pv": "CTRL:CAV4:STATUS",
             "type": "state",
@@ -159,6 +162,7 @@ def update_pvs_periodically(pv_objects, update_interval=0.1):
                     search_term="CAVITY_STATUS",
                 )
                 setpoint_pv = None
+                value = random.uniform(-0.2, 0.2)
                 # Update scalar readbacks
                 if "PHASE_READBACK" in name:
                     setpoint_pv = _find_closest_pv(
@@ -171,9 +175,7 @@ def update_pvs_periodically(pv_objects, update_interval=0.1):
                         search_term="AMPLITUDE_SETPOINT",
                     )
                 if setpoint_pv:
-                    if pv_objects[status_pv].current().value.index in [1, 2]:
-                        value = random.uniform(-0.2, 0.2)
-                    else:
+                    if pv_objects[status_pv].current().value.index == 0:
                         value = pv_objects[setpoint_pv].current().real + random.uniform(
                             -0.2, 0.2
                         )
