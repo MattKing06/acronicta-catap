@@ -29,7 +29,7 @@ controls_information:
       pv: H20-PID-01:PID_READBACK
 properties:
   name: H20-PID-01
-  hardware_type: Temperature
+  hardware_type: Cooling
   subtype: CAVITY_WATER_PID
   position: -1.0
   machine_area: ACC01

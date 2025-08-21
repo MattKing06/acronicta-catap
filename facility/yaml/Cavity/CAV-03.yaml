@@ -47,6 +47,7 @@ controls_information:
         'OFF': 2
         OK: 0
       type: state
+      read_only: False
 properties:
   hardware_type: Cavity
   installation_date: '2023-04-05'

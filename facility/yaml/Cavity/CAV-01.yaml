@@ -40,6 +40,7 @@ controls_information:
         FAULT: 1
         OFF: 2
       protocol: PVA
+      read_only: False
     PROBE_TRACE:
       pv: CAV:01:PROBE_TRACE
       virtual_pv: SIM:CAV:01:PROBE_TRACE

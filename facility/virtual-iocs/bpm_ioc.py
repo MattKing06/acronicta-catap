@@ -40,7 +40,9 @@ class BPMv1(PVGroup):
 class BPMv2(PVGroup):
     x_pv = pvproperty(name=":X_RBV", value=0.0, dtype=ChannelType.FLOAT)
     y_pv = pvproperty(name=":Y_READBACK", value=0.0, dtype=ChannelType.FLOAT)
-    acquisition_status_pv = pvproperty(name=":ACQUIRE_RBV", value=StatusEnum.STOP.value, dtype=ChannelType.INT)
+    acquisition_status_pv = pvproperty(
+        name=":ACQUIRE_RBV", value=StatusEnum.STOP.value, dtype=ChannelType.INT
+    )
     set_acquire_pv = pvproperty(
         name=":ACQUIRE",
         value=StatusEnum.STOP.value,
@@ -81,7 +83,9 @@ def main():
     ioc2 = BPMv2(prefix="VM-BPM-02")
 
     combined_pvdb = {**ioc1.pvdb, **ioc2.pvdb}
+    print("Server started. Press Ctrl+C to stop.")
     run(combined_pvdb)
+    print("Server stopped by user.")
 
 
 if __name__ == "__main__":
